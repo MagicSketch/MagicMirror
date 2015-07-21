@@ -2,7 +2,6 @@
 @import "LayerHelper.cocoascript"
 @import "BezierPathHelper.cocoascript"
 @import "ImageHelper.cocoascript"
-@import "SketchPerspective.cocoascript"
 
 var onRun = function(context) {
 
@@ -11,13 +10,28 @@ var onRun = function(context) {
     var artboards = [page artboards];       // all artboards
     var flattener = MSLayerFlattener.alloc().init();
 
-    SketchPerspective.findCorrespondingLayers(page, artboards, function(artboard, layer) {
-        var image = LayerHelper.getImage(artboard, flattener)
-        var bezierPath = LayerHelper.getBezierPath(layer)
-        var quad = BezierPathHelper.getQuad(bezierPath)
-        var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br)
-        LayerHelper.fillBottom(layer, transformed)
-    })
+    // Create Lookup
+    var artboardLookup = NSMutableDictionary.alloc().init();
+    for (var i = 0; i < artboards.count(); i++) {
+        var artboard = artboards[i]
+        artboardLookup[artboard.name()] = artboard
+    }
+
+    // O(l * log(a))
+    var iterator = function(layer) {
+        if (layer.className().toString() == 'MSShapeGroup') {
+            var artboard = artboardLookup[layer.name()]
+            if (artboard) {
+                log("layer: " + layer.name());
+                var image = LayerHelper.getImage(artboard, flattener)
+                var bezierPath = LayerHelper.getBezierPath(layer)
+                var quad = BezierPathHelper.getQuad(bezierPath)
+                var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br)
+                LayerHelper.fillBottom(layer, transformed)
+            }
+        }
+    }
+    SketchLayers.getLayers(page, iterator, false, true);
 
 })
 
