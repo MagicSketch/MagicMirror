@@ -1,8 +1,8 @@
-// @import "AKQuad.cocoascript"
-@import "SketchLib.cocoascript"
-@import "Image.cocoascript"
+@import "SketchLayers.cocoascript"
+@import "LayerHelper.cocoascript"
+@import "BezierPathHelper.cocoascript"
+@import "ImageHelper.cocoascript"
 @import "SketchPerspective.cocoascript"
-
 
 var onRun = function(context) {
 
@@ -12,21 +12,12 @@ var onRun = function(context) {
     var flattener = MSLayerFlattener.alloc().init();
 
     SketchPerspective.findCorrespondingLayers(page, artboards, function(artboard, layer) {
-
-        log("boundsRect" + layer.boundsRect())
-        var image = SketchPerspective.getImage(artboard, flattener)
-        //var resized = SketchPerspective.resizeImage(image, layer.boundsRect().size)
-        var quad = SketchPerspective.getQuad(layer.bezierPathInBounds())
-        
-        log("quad: " + quad)
-        //var transform = SketchPerspective.getTransform(quad, layer.boundsRect())
-        //var transformed = SketchPerspective.transformImage(resized, transform)
-
-        var transformed = SketchPerspective.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br)
-        SketchPerspective.fillLayer(layer, transformed)
-        
+        var image = LayerHelper.getImage(artboard, flattener)
+        var bezierPath = LayerHelper.getBezierPath(layer)
+        var quad = BezierPathHelper.getQuad(bezierPath)
+        var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br)
+        LayerHelper.fillBottom(layer, transformed)
     })
-
 
 })
 

@@ -1,0 +1,38 @@
+var LayerHelper = {
+
+	"fillBottom": function(mslayer, nsimage) {
+		var fill = mslayer.style().fills().firstObject();
+		if (fill == nil) {
+    		fill = mslayer.style().fills().addNewStylePart();
+		}
+		fill.setFillType(4);
+		fill.setPatternFillType(1);
+		fill.setPatternImage(nsimage);
+	},
+
+	"getBezierPath": function(msshapegroup) {
+		return msshapegroup.bezierPathInBounds()
+	},
+
+	"getImage": function(mslayer, mslayerflattener) {
+		var layers = [MSLayerArray arrayWithLayer:mslayer];
+		var image = [mslayerflattener imageFromLayers:layers];
+		return image
+	},
+
+	"getLayersByNameContaining" : function(startLayer, inname, sublayers) {
+	    sublayers = sublayers || false;
+	 
+	    // declare the filter/search itarator
+	    var iterator = function( layer )
+	    {
+	        return ( layer.name().indexOf(inname) != -1 && layer.className().toString() == 'MSShapeGroup' );
+	    };
+	 
+	    // call the filter/search function
+	    var foundlayers = SketchLayers.getLayers( startLayer, iterator, sublayers, true );
+	    
+	    return foundlayers;
+	}
+
+}

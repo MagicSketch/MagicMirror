@@ -1,0 +1,13 @@
+var BezierPathHelper = {
+	
+	"getQuad": function(bezierPath) {
+		var quad = {
+			"tl" : bezierPath.pointAtIndex(0),
+			"tr" : bezierPath.pointAtIndex(1),
+			"br" : bezierPath.pointAtIndex(2),
+			"bl" : bezierPath.pointAtIndex(3),
+		}
+		return quad
+	}
+
+}

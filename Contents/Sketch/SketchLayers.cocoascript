@@ -1,0 +1,142 @@
+/**
+ * SketchLayers - a collection of layer related functions
+ * 
+ * @type {object}
+ */
+var SketchLayers = 
+{
+    collection : [],
+ 
+    selection : function()
+    {
+        return doc.selectedLayers();
+    },
+ 
+    /**
+     * Select one layer
+     * 
+     * @param  {object} layer  The given layer
+     * @param  {bool}  state   true: select, false deselect
+     */
+    selectLayer : function( layer, state )
+    {
+        if( typeof state === 'undefined' )
+            state = true;
+ 
+        layer.setIsSelected( state );
+    },
+ 
+    /**
+     * Select the given layers
+     * 
+     * @param  {array} layers  Array with layers
+     * @param  {bool}  state   true: select, false deselect
+     */
+    selectLayers : function( layers, state )
+    {
+        if( typeof state === 'undefined' )
+            state = true;
+ 
+        for( var _l in layers )
+        {
+            if( layers.hasOwnProperty( _l ) )
+            {
+                this.selectLayer( layers[ _l ], state );
+            }
+        }
+    },
+ 
+    /**
+     * getLayers is the main function to find/filter layers
+     * 
+     * @param  {object}   startLayer the layer group to start the search
+     * @param  {function} iterator   the search function
+     * @param  {bool}     sublayers  include subleayers
+     * @param  {bool}     getAll     false: find first, true: find all
+     * @param  {object}   context    the iterater call context
+     * @return {mixed}               if getAll {array}, else found layer or null
+     */
+    getLayers : function( startLayer, iterator, sublayers, getAll, context )
+    {
+        sublayers = sublayers || false;
+        getAll = getAll || false;
+        context = context || null;
+ 
+        this.collection = [];
+ 
+        this._getLayers( startLayer, iterator, sublayers, getAll, context );
+ 
+        if( getAll )
+        {
+            return this.collection;
+        }
+        else
+        {
+            if( this.collection.length )
+            {
+                return this.collection[ 0 ];
+            }
+            else
+            {
+                return null;
+            }
+        }
+    },
+ 
+    /**
+     * Internal recursive function to walk the layers
+     * 
+     * @param  {object}   startLayer the layer group to start the search
+     * @param  {function} iterator   the search function
+     * @param  {bool}     sublayers  include subleayers
+     * @param  {bool}     getAll     false: find first, true: find all
+     * @param  {object}   context    the iterater call context
+     * @return {bool}                found: true, else false
+     */
+    _getLayers : function( startLayer, iterator, sublayers, getAll, context )
+    {
+        var _layers = startLayer.children();
+        for( var i = 0; i < _layers.length(); i++ )
+        {
+            if( this._checkLayer( iterator, context, _layers[i], i, _layers ) )
+            {
+                if( !getAll )
+                    return true;
+            }
+ 
+            if( sublayers && _layers[i].className().toString() === 'MSLayerGroup' )
+            {
+                if( this._getLayers( _layers[i], iterator, sublayers, getAll, context ) )
+                {
+                    if( !getAll )
+                        return true;
+                }
+            }
+        }
+ 
+        return false;
+    },
+ 
+    /**
+     * Internal function which checks the layer for the given condition
+     * 
+     * @param  {function} iterator    the iterator function
+     * @param  {object}   context     the iterater call context
+     * @param  {object}   obj         the layer
+     * @param  {integer}  index       the index in the for loop
+     * @param  {array}    collection  all layers in the actual layer group
+     * @return {bool}                 true if found
+     */
+    _checkLayer : function( iterator, context, obj, index, collection )
+    {
+        if( iterator.call( context, obj, index, collection ) )
+        {
+            this.collection.push( obj );
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
