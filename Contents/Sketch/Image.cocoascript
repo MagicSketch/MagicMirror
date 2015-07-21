@@ -1,0 +1,43 @@
+var Image = {
+
+	"getCGImage" : function(nsimage) {
+   		var rect = CGRectMake(0, 0, nsimage.size().width, nsimage.size().height);
+		var size = nsimage.size();
+		var bitmapCtx = CGBitmapContextCreate(nil, 
+												   size.width,  
+												   size.height, 
+												   8 /*bitsPerComponent*/, 
+												   0 , 
+												   [[NSColorSpace genericRGBColorSpace] CGColorSpace], 
+												   kCGBitmapByteOrder32Host|kCGImageAlphaPremultipliedFirst);
+	
+		[NSGraphicsContext saveGraphicsState];
+		[NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithGraphicsPort:bitmapCtx flipped:false]];
+		[nsimage drawInRect:NSMakeRect(0,0, size.width, size.height) fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+		[NSGraphicsContext restoreGraphicsState];
+	
+		var imageRef = CGBitmapContextCreateImage(bitmapCtx);
+		CGContextRelease(bitmapCtx);
+		return imageRef
+	},
+
+
+	"getCGImage21" : function(nsimage) {
+   		var rect = CGRectMake(0, 0, nsimage.size().width, nsimage.size().height);
+        var leftImageRef = [nsimage CGImageForProposedRect:rect context:nil hints:nil];
+        CGImageRetain(leftImageRef)
+        return leftImageRef
+	},
+
+	"getCIImage":function(cgimage) {
+		var ciimage = [CIImage imageWithCGImage:cgimage];
+		return ciimage;
+	},
+	
+	"getNSImage":function(ciimage) {
+    	var rep = [NSCIImageRep imageRepWithCIImage: ciimage];
+        var image = [[NSImage alloc] initWithSize:ciimage.extent().size];
+    	[image addRepresentation:rep];
+		return image;
+	}
+};

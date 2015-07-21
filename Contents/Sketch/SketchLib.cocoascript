@@ -1,0 +1,296 @@
+var SketchLib = {
+  // Adds a new layer as a child of `container` with the given type
+  // Valid types are 'group', 'text', 'image' and 'rectangle'
+  // parameters is an optional dictionary containing zero or more of the
+  // following keys:
+  //  name (a string)
+  //  rect (an NSRect)
+  //  color (an MSColor)
+  // returns the newly created layer
+  "addLayer": function (container, type, parameters) {
+    var layer = container.addLayerOfType(type);
+    if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
+    if (typeof(parameters.rect) !== 'undefined') layer.rect = parameters.rect;
+    if (typeof(parameters.color) !== 'undefined') {
+      this.util.setFillColor(layer, parameters.color);
+    } 
+    return layer;
+  },
+  // Adds a new group (MSLayerGroup) as a child of `container`
+  // See `addLayer` for a discussion of `parameters`
+  // returns the newly created group
+  "addLayerGroup": function (container, parameters) {
+    return this.addLayer(container, "group", parameters);
+  },
+  // Adds a new text layer (MSTextLayer) as a child of `container`
+  // In addition to the keys described in `addLayer`, `parameters` may also
+  // contain the following keys:
+  //  text (a string)
+  //  fontSize (a number)
+  // returns the newly created text layer
+  "addTextLayer": function (container, parameters) {
+    var textLayer = this.addLayer(container, "text", parameters);
+    if (typeof(parameters.text) !== 'undefined') {
+      textLayer.stringValue = parameters.text;
+      if (typeof(parameters.name) == 'undefined') {
+        textLayer.name = parameters.text;
+      }
+    }
+    if (typeof(parameters.fontSize) !== 'undefined') textLayer.fontSize = parameters.fontSize;
+    textLayer.adjustFrameToFit();
+    return textLayer;
+  },
+  // Adds a new bitmap layer (MSBitmapLayer) as a child of `container`
+  // In addition to the keys described in `addLayer`, `parameters` may also
+  // contain the following keys:
+  //  imageData (MSImageData)
+  //  image (NSImage)
+  //  url (NSURL)
+  // returns the newly created bitmap layer
+  "addImageLayer": function (container, parameters) {
+    var imageLayer = this.addLayer(container, "image", parameters);
+    var imageData = parameters.imageData;
+    var image = null;
+
+    if (typeof(imageData) === 'undefined') {
+      var image = parameters.image;
+      if (typeof(image) !== 'undefined') {
+        imageData = this.util.imageDataFromImage(container, image);
+      } else {
+        var url = parameters.url;
+        if (typeof(url) !== 'undefined' && url !== null) {
+          imageData = this.util.imageDataFromURL(container, url);
+        }
+        if (typeof(imageData) !== 'undefined') {
+          image = imageData.image();
+        }
+      }
+    }
+
+    if (typeof(image) !== 'undefined' && image !== null) {
+      var originalImageSize = [image size];
+
+      var fill = [[[imageLayer style] fills] addNewStylePart];
+      [fill setIsEnabled:false];
+
+      [imageLayer setConstrainProportions:false];
+      [imageLayer setImage:imageData];
+      var rect = CGRectZero;
+      rect.size = originalImageSize;
+      [imageLayer setRect:rect];
+      [imageLayer setConstrainProportions:true];
+    }
+
+    return imageLayer;
+  },
+  // Adds a new shape group (MSShapeGroup) as a child of `container`
+  // containing a rectangle path
+  // See `addLayer` for a discussion of `parameters`
+  // returns the newly created shape group
+  "addShapeLayer": function (container, parameters) {
+    return this.addLayer(container, "rectangle", parameters);
+  },
+  "util": {
+    // Returns an MSImageData object for `image` (NSImage)
+    "imageDataFromImage": function(container, image) {
+      var imageCollection = [[container documentData] images];
+      return [imageCollection addImage:image convertColourspace:false];
+    },
+
+    // Returns an MSImageData object for `url` (NSURL)
+    "imageDataFromURL": function(container, url) {
+      var image = [[NSImage alloc] initWithContentsOfURL:url];
+      var imageData = undefined;
+      if (typeof(image) !== 'undefined') {
+        imageData = this.imageDataFromImage(container, image);
+      }
+      return imageData;
+    },
+
+    // Centers `layer` at `point`. If point is not specified `layer`
+    // is centered at the origin (0,0)
+    "centerLayer": function(layer, point) {
+      var center = (typeof(point) !== 'undefined') ? point : CGPointMake(0,0);
+      var rect = [layer rect];
+      rect.origin.x = center.x-(CGRectGetWidth(rect)/2.0);
+      rect.origin.y = center.y-(CGRectGetHeight(rect)/2.0);
+      [layer setRect:rect];
+    },
+    
+    // Sets the fill color for `layer` to `color` (MSColor)
+    "setFillColor": function(layer, color) {
+      var fill = [[[layer style] fills] addNewStylePart];
+      [fill setColor: color];
+    }
+  }
+};
+
+
+/**
+ * SketchLayers - a collection of layer related functions
+ * 
+ * @type {object}
+ */
+var SketchLayers = 
+{
+    collection : [],
+ 
+    selection : function()
+    {
+        return doc.selectedLayers();
+    },
+ 
+    /**
+     * Select one layer
+     * 
+     * @param  {object} layer  The given layer
+     * @param  {bool}  state   true: select, false deselect
+     */
+    selectLayer : function( layer, state )
+    {
+        if( typeof state === 'undefined' )
+            state = true;
+ 
+        layer.setIsSelected( state );
+    },
+ 
+    /**
+     * Select the given layers
+     * 
+     * @param  {array} layers  Array with layers
+     * @param  {bool}  state   true: select, false deselect
+     */
+    selectLayers : function( layers, state )
+    {
+        if( typeof state === 'undefined' )
+            state = true;
+ 
+        for( var _l in layers )
+        {
+            if( layers.hasOwnProperty( _l ) )
+            {
+                this.selectLayer( layers[ _l ], state );
+            }
+        }
+    },
+ 
+    /**
+     * getLayers is the main function to find/filter layers
+     * 
+     * @param  {object}   startLayer the layer group to start the search
+     * @param  {function} iterator   the search function
+     * @param  {bool}     sublayers  include subleayers
+     * @param  {bool}     getAll     false: find first, true: find all
+     * @param  {object}   context    the iterater call context
+     * @return {mixed}               if getAll {array}, else found layer or null
+     */
+    getLayers : function( startLayer, iterator, sublayers, getAll, context )
+    {
+        sublayers = sublayers || false;
+        getAll = getAll || false;
+        context = context || null;
+ 
+        this.collection = [];
+ 
+        this._getLayers( startLayer, iterator, sublayers, getAll, context );
+ 
+        if( getAll )
+        {
+            return this.collection;
+        }
+        else
+        {
+            if( this.collection.length )
+            {
+                return this.collection[ 0 ];
+            }
+            else
+            {
+                return null;
+            }
+        }
+    },
+ 
+    /**
+     * Internal recursive function to walk the layers
+     * 
+     * @param  {object}   startLayer the layer group to start the search
+     * @param  {function} iterator   the search function
+     * @param  {bool}     sublayers  include subleayers
+     * @param  {bool}     getAll     false: find first, true: find all
+     * @param  {object}   context    the iterater call context
+     * @return {bool}                found: true, else false
+     */
+    _getLayers : function( startLayer, iterator, sublayers, getAll, context )
+    {
+        var _layers = startLayer.children();
+        for( var i = 0; i < _layers.length(); i++ )
+        {
+            if( this._checkLayer( iterator, context, _layers[i], i, _layers ) )
+            {
+                if( !getAll )
+                    return true;
+            }
+ 
+            if( sublayers && _layers[i].className().toString() === 'MSLayerGroup' )
+            {
+                if( this._getLayers( _layers[i], iterator, sublayers, getAll, context ) )
+                {
+                    if( !getAll )
+                        return true;
+                }
+            }
+        }
+ 
+        return false;
+    },
+ 
+    /**
+     * Internal function which checks the layer for the given condition
+     * 
+     * @param  {function} iterator    the iterator function
+     * @param  {object}   context     the iterater call context
+     * @param  {object}   obj         the layer
+     * @param  {integer}  index       the index in the for loop
+     * @param  {array}    collection  all layers in the actual layer group
+     * @return {bool}                 true if found
+     */
+    _checkLayer : function( iterator, context, obj, index, collection )
+    {
+        if( iterator.call( context, obj, index, collection ) )
+        {
+            this.collection.push( obj );
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
+
+/**
+ * Get the layers with the search string in their name 
+ * 
+ * @param    {object}   startLayer   the layergroup to start the search
+ * @param    {string}   inname       the string as part of the name of the searched layer
+ * @param    {bool}     sublayers    include subleayers
+ * @required {object}   SketchLayers the SketchLayers object with the getLayers function
+ * @return   {array}                 found layers or empty array
+ */
+function getLayersByNameContaining( startLayer, inname, sublayers )
+{
+    sublayers = sublayers || false;
+ 
+    // declare the filter/search itarator
+    var iterator = function( layer )
+    {
+        return ( layer.name().indexOf(inname) != -1 && layer.className().toString() == 'MSShapeGroup' );
+    };
+ 
+    // call the filter/search function
+    var foundlayers = SketchLayers.getLayers( startLayer, iterator, sublayers, true );
+    
+    return foundlayers;
+}
+

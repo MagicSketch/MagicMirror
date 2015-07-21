@@ -1,0 +1,32 @@
+// @import "AKQuad.cocoascript"
+@import "SketchLib.cocoascript"
+@import "Image.cocoascript"
+@import "SketchPerspective.cocoascript"
+
+
+var onRun = function(context) {
+
+    var doc = context.document;                // the current document (MSDocument)
+    var page = [doc currentPage];         // the current page (MSPage)
+    var artboards = [page artboards];       // all artboards
+    var flattener = MSLayerFlattener.alloc().init();
+
+    SketchPerspective.findCorrespondingLayers(page, artboards, function(artboard, layer) {
+
+        log("boundsRect" + layer.boundsRect())
+        var image = SketchPerspective.getImage(artboard, flattener)
+        //var resized = SketchPerspective.resizeImage(image, layer.boundsRect().size)
+        var quad = SketchPerspective.getQuad(layer.bezierPathInBounds())
+        
+        log("quad: " + quad)
+        //var transform = SketchPerspective.getTransform(quad, layer.boundsRect())
+        //var transformed = SketchPerspective.transformImage(resized, transform)
+
+        var transformed = SketchPerspective.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br)
+        SketchPerspective.fillLayer(layer, transformed)
+        
+    })
+
+
+})
+

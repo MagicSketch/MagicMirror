@@ -1,0 +1,24 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "",
+      "name" : "Perspective Transform",
+      "identifier" : "perspective transform"
+    }
+  ],
+  "menu" : {
+    "isRoot" : true,
+    "items" : [
+      "perspective transform"
+    ],
+    "title" : "Perspective Transform"
+  },
+  "identifier" : "com.example.sketch.5301e707-a904-423e-8008-eb5b02bfbbbb",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "Perspective Transform"
+}
