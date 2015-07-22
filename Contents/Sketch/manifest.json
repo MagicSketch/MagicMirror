@@ -2,18 +2,26 @@
   "author" : "James Tang",
   "commands" : [
     {
-      "script" : "script.cocoascript",
+      "script" : "MagicMirror.cocoascript",
       "handler" : "onRun",
       "shortcut" : "ctrl shift m",
-      "name" : "Magic Mirror",
+      "name" : "Magic Mirror!",
       "identifier" : "magic mirror"
-    }
+    },
+    {
+      "script" : "JumpToArtboard.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "ctrl shift j",
+      "name" : "Jump To Artboard",
+      "identifier" : "jump to artboard",
+    },
   ],
   "menu" : {
-    "isRoot" : true,
+    "isRoot" : false,
     "shortcut" : "",
     "items" : [
-      "magic mirror"
+      "magic mirror",
+      "jump to artboard",
     ],
     "title" : "Magic Mirror"
   },
