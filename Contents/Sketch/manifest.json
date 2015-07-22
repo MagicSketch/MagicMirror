@@ -1,24 +1,25 @@
 {
-  "author" : "",
+  "author" : "James Tang",
   "commands" : [
     {
       "script" : "script.cocoascript",
       "handler" : "onRun",
-      "shortcut" : "",
-      "name" : "Perspective Transform",
-      "identifier" : "perspective transform"
+      "shortcut" : "ctrl shift m",
+      "name" : "Magic Mirror",
+      "identifier" : "magic mirror"
     }
   ],
   "menu" : {
     "isRoot" : true,
+    "shortcut" : "",
     "items" : [
-      "perspective transform"
+      "magic mirror"
     ],
-    "title" : "Perspective Transform"
+    "title" : "Magic Mirror"
   },
   "identifier" : "com.example.sketch.5301e707-a904-423e-8008-eb5b02bfbbbb",
   "version" : "1.0",
-  "description" : "",
-  "authorEmail" : "",
-  "name" : "Perspective Transform"
+  "description" : "Mirror contents in an Artboard and apply to a Shape with perspective transform. It's like 'Smart Objects' for Sketch.",
+  "authorEmail" : "j@jamztang.com",
+  "name" : "Magic Mirror"
 }
