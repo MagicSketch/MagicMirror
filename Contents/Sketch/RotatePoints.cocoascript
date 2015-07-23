@@ -1,0 +1,39 @@
+@import "SketchLayers.cocoascript"
+@import "LayerHelper.cocoascript"
+@import "BezierPathHelper.cocoascript"
+@import "ImageHelper.cocoascript"
+
+var onRun = function(context) {
+    var doc = context.document;                // the current document (MSDocument)
+    var page = [doc currentPage];         // the current page (MSPage)
+    var artboards = [page artboards];       // all artboards
+    var view = [doc currentView];
+    var flattener = MSLayerFlattener.alloc().init();
+
+    // Create Lookup
+    var artboardLookup = NSMutableDictionary.alloc().init();
+    for (var i = 0; i < artboards.count(); i++) {
+        var artboard = artboards[i]
+        artboardLookup[artboard.name()] = artboard
+    }
+
+    for (var i = 0; i < context.selection.count(); i++) {
+        var selection = context.selection[i];
+        if (selection && selection.className().toString() == 'MSShapeGroup') {
+            var layer = selection
+            var artboard = artboardLookup[layer.name()]
+            var bezierPath = LayerHelper.getBezierPath(layer)
+            var rotated = BezierPathHelper.rotatePoints(bezierPath)
+            layer.setBezierPath(rotated)
+            if (artboard) {
+                var image = LayerHelper.getImage(artboard, flattener)
+                var bezierPath = LayerHelper.getBezierPath(layer)
+                var quad = BezierPathHelper.getQuad(bezierPath)
+                var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)
+                var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
+                LayerHelper.fillBottom(layer, transformed)
+                log("Rotated: " + layer)
+            }
+        }
+    }
+}

@@ -4,16 +4,23 @@
     {
       "script" : "MagicMirror.cocoascript",
       "handler" : "onRun",
-      "shortcut" : "ctrl shift m",
+      "shortcut" : "control shift m",
       "name" : "Magic Mirror!",
       "identifier" : "magic mirror"
     },
     {
       "script" : "JumpToArtboard.cocoascript",
       "handler" : "onRun",
-      "shortcut" : "ctrl shift j",
+      "shortcut" : "control shift j",
       "name" : "Jump To Artboard",
       "identifier" : "jump to artboard",
+    },
+    {
+      "script" : "RotatePoints.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "control command shift r",
+      "name" : "Rotate Points",
+      "identifier" : "rotate points",
     },
   ],
   "menu" : {
@@ -22,6 +29,7 @@
     "items" : [
       "magic mirror",
       "jump to artboard",
+      "rotate points",
     ],
     "title" : "Magic Mirror"
   },

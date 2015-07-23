@@ -8,6 +8,27 @@ var BezierPathHelper = {
 			"bl" : bezierPath.pointAtIndex(3),
 		}
 		return quad
+	},
+
+	"rotatePoints" : function(nsbezierpath) {
+		var point0 = nsbezierpath.pointAtIndex(0)
+		var point1 = nsbezierpath.pointAtIndex(1)
+		var point2 = nsbezierpath.pointAtIndex(2)
+		var point3 = nsbezierpath.pointAtIndex(3)
+		var points = [point3, point0, point1, point2]
+        var path = CGPathCreateMutable();
+        if (points && points.length > 0) {
+            var p = points[0];
+            CGPathMoveToPoint(path, nil, p.x, p.y);
+            for (var i = 1; i < points.length; i++) {
+                p = points[i];
+                CGPathAddLineToPoint(path, nil, p.x, p.y);
+            }
+        }
+		CGPathCloseSubpath(path)
+		var newPath = [NSBezierPath bezierPathWithCGPath:path]
+		CGPathRelease(path)
+		return newPath
 	}
 
 }
