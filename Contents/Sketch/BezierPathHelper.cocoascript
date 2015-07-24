@@ -1,11 +1,21 @@
 var BezierPathHelper = {
 	
 	"getQuad": function(bezierPath) {
-		var quad = {
-			"tl" : bezierPath.pointAtIndex(0),
-			"tr" : bezierPath.pointAtIndex(1),
-			"br" : bezierPath.pointAtIndex(2),
-			"bl" : bezierPath.pointAtIndex(3),
+		var quad;
+		if (this.isClockwise(bezierPath)) {
+			quad = {
+				"tl" : bezierPath.pointAtIndex(0),
+				"tr" : bezierPath.pointAtIndex(1),
+				"br" : bezierPath.pointAtIndex(2),
+				"bl" : bezierPath.pointAtIndex(3),
+			}
+		} else {
+			quad = {
+				"tl" : bezierPath.pointAtIndex(0),
+				"tr" : bezierPath.pointAtIndex(3),
+				"br" : bezierPath.pointAtIndex(2),
+				"bl" : bezierPath.pointAtIndex(1),
+			}
 		}
 		return quad
 	},
@@ -29,6 +39,42 @@ var BezierPathHelper = {
 		var newPath = [NSBezierPath bezierPathWithCGPath:path]
 		CGPathRelease(path)
 		return newPath
+	},
+
+	"isClockwise" : function(nsbezierpath) {
+
+		// http://stackoverflow.com/questions/1165647/how-to-determine-if-a-list-of-polygon-points-are-in-clockwise-order
+
+		var pointSum = function (points) {
+			var edgesLength = function(point1, point2) {
+			    var x2 = point2.x
+			    var x1 = point1.x
+			    var y2 = point2.y
+			    var y1 = point1.y
+			    return (x2-x1) * (y2+y1)
+			}
+
+			var value = 0
+			for (var i = 0; i < points.length; i++) {
+			    var point1 = points[i]
+			    var point2 = points[i + 1] || points[0]
+			    value += edgesLength(point1, point2)
+			}
+			// positive = anti clockwise in OS X coordinates system
+			return value
+		}
+
+		var point0 = nsbezierpath.pointAtIndex(0)
+		var point1 = nsbezierpath.pointAtIndex(1)
+		var point2 = nsbezierpath.pointAtIndex(2)
+		var point3 = nsbezierpath.pointAtIndex(3)
+		var points = [point0, point1, point2, point3]
+
+		if (pointSum(points) > 0) {
+			return false
+		}
+		return true
+
 	}
 
 }
