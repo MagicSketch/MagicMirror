@@ -24,7 +24,7 @@ var onRun = function(context) {
             if (artboard) {
                 log("layer: " + layer.name());
                 var image = LayerHelper.getImage(artboard, flattener)
-                var bezierPath = LayerHelper.getBezierPath(layer)
+                var bezierPath = LayerHelper.getBezierPathInBounds(layer)
                 var quad = BezierPathHelper.getQuad(bezierPath)
                 var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)   // For unknown reason, resizing before doing transform seemed to fix missing thumbnail issue when first applying Magic Mirror
                 var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)

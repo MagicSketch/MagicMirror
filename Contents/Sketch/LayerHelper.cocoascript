@@ -9,8 +9,12 @@ var LayerHelper = {
 		fill.setPatternFillType(1);
 		fill.setPatternImage(nsimage);
 	},
-
+	
 	"getBezierPath": function(msshapegroup) {
+		return msshapegroup.bezierPath()
+	},
+
+	"getBezierPathInBounds": function(msshapegroup) {
 		return msshapegroup.bezierPathInBounds()
 	},
 

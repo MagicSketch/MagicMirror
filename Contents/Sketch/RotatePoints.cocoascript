@@ -27,7 +27,7 @@ var onRun = function(context) {
             layer.setBezierPath(rotated)
             if (artboard) {
                 var image = LayerHelper.getImage(artboard, flattener)
-                var bezierPath = LayerHelper.getBezierPath(layer)
+                var bezierPath = LayerHelper.getBezierPathInBounds(layer)
                 var quad = BezierPathHelper.getQuad(bezierPath)
                 var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)
                 var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
