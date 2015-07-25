@@ -1,5 +1,4 @@
 @import "helper.js"
-@import "SketchLayers.cocoascript"
 @import "LayerHelper.cocoascript"
 @import "BezierPathHelper.cocoascript"
 @import "ImageHelper.cocoascript"
@@ -143,22 +142,8 @@ MagicMirror.flattener = {
 MagicMirror.artboard = function(artboard) {
     return {
         name: artboard.name(),
-        frame:MagicMirror.frame([artboard rect]),
         rect: [artboard rect],
         layer : artboard,
-    }
-}
-
-MagicMirror.frame = function(frame) {
-    return {
-        toString: function() { return "{" + this.rect.x + ", " + this.rect.y + ", " + this.rect.width + ", " + this.rect.height + "}"},
-        rect : {x:frame.origin.x, y:frame.origin.y, width:frame.size.width, height:frame.size.height},
-        inset : function(amount) {
-            this.rect.x += amount
-            this.rect.y += amount
-            this.rect.width -= amount
-            this.rect.height -= amount
-        }
     }
 }
 
@@ -177,23 +162,13 @@ MagicMirror.layer = function(layer) {
                 this.layer.setBezierPath(rotated)
                 log("rotate: " + this.name)
             },
-            frame: {
-                inset: function(points) {
-                    log("insetting frame for " + points + " points")
-                }
-            },
             layer : layer,
         }
     } else {
         return {
             name: layer.name(),
             mirrorable: false,
-            pointsRotatable: false,
-            frame: {
-                inset: function(points) {
-                    log("insetting frame for " + points + " points")
-                }
-            }
+            pointsRotatable: false
         }
     }
 }

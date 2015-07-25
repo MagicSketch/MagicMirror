@@ -23,20 +23,4 @@ var LayerHelper = {
 		var image = [mslayerflattener imageFromLayers:layers];
 		return image
 	},
-
-	"getLayersByNameContaining" : function(startLayer, inname, sublayers) {
-	    sublayers = sublayers || false;
-	 
-	    // declare the filter/search itarator
-	    var iterator = function( layer )
-	    {
-	        return ( layer.name().indexOf(inname) != -1 && layer.className().toString() == 'MSShapeGroup' );
-	    };
-	 
-	    // call the filter/search function
-	    var foundlayers = SketchLayers.getLayers( startLayer, iterator, sublayers, true );
-	    
-	    return foundlayers;
-	}
-
 }
