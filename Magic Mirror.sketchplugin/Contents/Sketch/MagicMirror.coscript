@@ -98,7 +98,7 @@ MagicMirror.context = function(context) {
         }
     }(context));
 
-    var view = MagicMirror.view(view)
+    var view = MagicMirror.view(pri.view)
     var artboards = function() {
         return map(pri.artboards, function(artboard) {
             return MagicMirror.artboard(artboard)
@@ -144,6 +144,7 @@ MagicMirror.artboard = function(artboard) {
     return {
         name: artboard.name(),
         frame:MagicMirror.frame([artboard rect]),
+        rect: [artboard rect],
         layer : artboard,
     }
 }
@@ -196,8 +197,10 @@ MagicMirror.layer = function(layer) {
 
 MagicMirror.view = function(view) {
     return {
+        view: view,
         zoomToArtboard:function(artboard) {
-            log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame)
+            log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame + ", view:" + this.view)
+            this.view.zoomToFitRect(NSInsetRect(artboard.rect, -50, -50));
         }
     }
 }
