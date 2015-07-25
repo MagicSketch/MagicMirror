@@ -1,0 +1,159 @@
+ /*
+    // O(l * log(a))
+    var iterator = function(layer) {
+        if (layer.className().toString() == 'MSShapeGroup') {
+            var artboard = artboardLookup[layer.name()]
+            if (artboard) {
+                log("layer: " + layer.name());
+                var image = LayerHelper.getImage(artboard, flattener)
+                var bezierPath = LayerHelper.getBezierPathInBounds(layer)
+                var quad = BezierPathHelper.getQuad(bezierPath)
+                var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)   // For unknown reason, resizing before doing transform seemed to fix missing thumbnail issue when first applying Magic Mirror
+                var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
+                LayerHelper.fillBottom(layer, transformed)
+            }
+        }
+    }
+    SketchLayers.getLayers(page, iterator, false, true);
+*/
+
+@import "util.js"
+
+var MagicMirrorContext = {
+
+    init : function(context) {
+
+        var pri = (function(context){
+            var doc = context.document;           // the current document (MSDocument)
+            var page = [doc currentPage];         // the current page (MSPage)
+            var artboards = [page artboards];     // all artboards
+            var view = [doc currentView];
+            var selections = context.selection
+
+            return {
+                doc: doc,
+                page : page,
+                artboards : artboards,
+                view : view,
+                selections : selections,
+            }
+        }(context));
+    
+        var view = MagicMirrorContext.view(view)
+        var artboards = function() {
+            return map(pri.artboards, function(artboard) {
+                return MagicMirrorContext.artboard(artboard)
+            })
+        }
+        var selections = function() {
+            var selections = map(pri.selections, function(item) {
+                return MagicMirrorContext.layer(item)
+            })
+            return selections 
+        }
+        var layers = function() {
+            return map([page children], function(layer) {
+                return MagicMirrorContext.layer(layer)
+            })
+        }
+        var page = pri.page
+
+        this.page = page
+        this.view = view
+        this.artboards = artboards
+        this.selections = selections
+        this.layers = layers
+
+        return this
+    }
+}
+
+MagicMirrorContext.util = {
+    empty : function(array) {
+        return (array == nil || array.length == 0)
+    },
+    createLookup : function(identifiables) {
+        var lookup = {}
+        for (var i = 0; i < count(identifiables); i++) {
+            var item = identifiables[i]
+            lookup[item.name] = item
+        }
+        return lookup
+    },
+    debug : function(text) {
+        log(text)
+    }
+}
+
+MagicMirrorContext.artboard = function(artboard) {
+    return {
+        name: artboard.name(),
+        frame:MagicMirrorContext.frame([artboard rect]),
+    }
+}
+
+MagicMirrorContext.frame = function(frame) {
+    return {
+        toString: function() { return "{" + this.rect.x + ", " + this.rect.y + ", " + this.rect.width + ", " + this.rect.height + "}"},
+        rect : {x:frame.origin.x, y:frame.origin.y, width:frame.size.width, height:frame.size.height},
+        inset : function(amount) {
+            this.rect.x += amount
+            this.rect.y += amount
+            this.rect.width -= amount
+            this.rect.height -= amount
+        }
+    }
+}
+
+MagicMirrorContext.layer = function(layer) {
+    if (layer.className && layer.className().toString() == "MSShapeGroup") {
+        var artboard = MagicMirrorContext.artboard(layer.parentArtboard())
+        var layerName = layer.name()
+        return {
+            artboard: artboard,
+            name: layerName,
+            mirrorable: (artboard.name != layerName),
+            mirror: function () {
+                log("mirror: " + this.artboard.name + " layer: " + this.name)
+            },
+            pointsRotatable: true,
+            rotatePoints:function() {
+                log("rotate: " + this.name)
+            },
+            frame: {
+                inset: function(points) {
+                    log("insetting frame for " + points + " points")
+                }
+            }
+        }
+    } else {
+        return {
+            name: layer.name(),
+            mirrorable: false,
+            pointsRotatable: false,
+            frame: {
+                inset: function(points) {
+                    log("insetting frame for " + points + " points")
+                }
+            }
+        }
+    }
+}
+
+MagicMirrorContext.view = function(view) {
+    return {
+        zoomToArtboard:function(artboard) {
+            log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame)
+        }
+    }
+}
+
+MagicMirrorContext.ui = {
+    alert : function(title, message) {
+        var app = [NSApplication sharedApplication];
+	    [app displayDialog:message withTitle:title];
+    }
+}
+
+
+//var log = MagicMirrorContext.ui.alert

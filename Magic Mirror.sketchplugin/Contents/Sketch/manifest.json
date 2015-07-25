@@ -3,7 +3,7 @@
   "commands" : [
     {
       "script" : "MagicMirror.cocoascript",
-      "handler" : "onRun",
+      "handler" : "mirrorPage",
       "shortcut" : "control shift m",
       "name" : "Magic Mirror!",
       "identifier" : "magic mirror"
