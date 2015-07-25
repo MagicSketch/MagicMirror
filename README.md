@@ -29,14 +29,25 @@ Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentat
 
 ### Magic Mirror! (⌃ ⇧ M)
 
+Apply perpective transform to all layers that can be associated with an artboard with the same name.
+
 1. Use the `Rectangle (R)`  or `Vector (V)` tool to draw a 4 point polygon. It’s important NOT to use the `Round Rect` tool because in order for Magic Mirror to work is to have **exactly 4 control points** in the corresponding order (Top Left, Top Right, Bottom Right, Bottom Left).
 2. Rename your shape layer to **exactly match the Artboard’s name** you want to mirror.
 3. Press `⌃ ⇧ M` or go to `Plugin > Magic Mirror > Magic Mirror!` to see the results!
 
 ### Jump to Artboard (⌃ ⇧ J)
 
+Quickly jump to the layer’s associated artboard.
+
 1. Select the magic shape layer you’re currently working on.
-2. Press `⌃ ⇧ J` or use `Plugin > Magic Mirror > Jump to Artboard` to quickly jump to view the corresponding Artboard. Super handy!
+2. Press `⌃ ⇧ J` or use `Plugin > Magic Mirror > Jump to Artboard`.
+
+### Rotate Points (⌃ ⌘ ⇧ R)
+
+Rotate the content orientation of the layer fill.
+
+1. Select the layer
+2. Press `⌃ ⌘ ⇧ R` or use `Plugin > Magic Mirror > Rotate Points`.
 
 ### Quick Tip
 
