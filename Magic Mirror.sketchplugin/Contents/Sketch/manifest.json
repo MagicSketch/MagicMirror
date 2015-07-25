@@ -2,22 +2,22 @@
   "author" : "James Tang",
   "commands" : [
     {
-      "script" : "MagicMirror.cocoascript",
+      "script" : "script.cocoascript",
       "handler" : "mirrorPage",
       "shortcut" : "control shift m",
       "name" : "Magic Mirror!",
       "identifier" : "magic mirror"
     },
     {
-      "script" : "JumpToArtboard.cocoascript",
-      "handler" : "onRun",
+      "script" : "script.cocoascript",
+      "handler" : "jumpToArtboard",
       "shortcut" : "control shift j",
       "name" : "Jump To Artboard",
       "identifier" : "jump to artboard",
     },
     {
-      "script" : "RotatePoints.cocoascript",
-      "handler" : "onRun",
+      "script" : "script.cocoascript",
+      "handler" : "rotatePoints",
       "shortcut" : "control command shift r",
       "name" : "Rotate Points",
       "identifier" : "rotate points",

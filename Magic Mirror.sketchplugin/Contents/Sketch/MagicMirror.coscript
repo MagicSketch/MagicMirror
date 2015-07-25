@@ -1,0 +1,227 @@
+@import "helper.js"
+@import "SketchLayers.cocoascript"
+@import "LayerHelper.cocoascript"
+@import "BezierPathHelper.cocoascript"
+@import "ImageHelper.cocoascript"
+
+var MagicMirror = function(context) {
+
+    var ctx = MagicMirror.context(context)
+    var util = MagicMirror.util
+    var ui = MagicMirror.ui
+    var flattener = MagicMirror.flattener
+
+    return {
+        context : ctx,
+
+        jumpToArtboard : function() {
+            var context = this.context
+            var run = function(selections, view, artboards, ui, util) {
+                log("MagicMirror.jumpToArtboard()")
+                if (util.empty(selections)) {
+                    ui.alert("No Selection!")
+                }
+
+                var selection = selections[0] || {}
+                var lookup = util.createLookup(artboards)
+                var artboard = lookup[selection.name]
+                if (artboard) {
+                    view.zoomToArtboard(artboard)
+                }
+            }
+
+            run(context.selections() || [], context.view, context.artboards(), ui, util)
+        },
+
+        mirrorPage : function() {
+            var context = this.context
+            var run = function(artboards, layers, util, flattener) {
+                log("MagicMirror.mirrorPage()")
+                var lookup = util.createLookup(artboards)
+                for (var i = 0; i < layers.length ; i++) {
+                    var layer = layers[i]
+                    var parent = layer.artboard
+                    var artboard = lookup[layer.name]
+                    if (layer.mirrorable && artboard) {
+                        flattener.perspectiveTransform(artboard, layer)
+                    }
+                }
+            }
+            run(context.artboards(), context.layers(), util, flattener)
+        },
+
+        rotatePoints : function(context) {
+            var context = this.context
+            var run = function(artboards, selections, ui, util, flattener) {
+                log("MagicMirror.rotatePoints()")
+
+                if (util.empty(selections)) {
+                    ui.alert("No Selection!")
+                    return
+                }
+
+                var lookup = util.createLookup(artboards)
+                for (var i = 0; i < count(selections); i++) {
+                    var selection = selections[i]
+                    if (selection.pointsRotatable) {
+                        selection.rotatePoints()
+                        var artboard = lookup[selection.name] 
+                        if (selection.mirrorable && artboard) {
+                            flattener.perspectiveTransform(artboard, selection)
+                        }
+                    } else {
+                        util.debug("selection: " + selection.name + " not rotatable")
+                    }
+                }
+            }
+
+            run(context.artboards(), context.selections(), ui, util, flattener)
+        }
+    }
+}
+
+MagicMirror.context = function(context) {
+
+    var pri = (function(context){
+        var doc = context.document;           // the current document (MSDocument)
+        var page = [doc currentPage];         // the current page (MSPage)
+        var artboards = [page artboards];     // all artboards
+        var view = [doc currentView];
+        var selections = context.selection
+
+        return {
+            doc: doc,
+            page : page,
+            artboards : artboards,
+            view : view,
+            selections : selections,
+        }
+    }(context));
+
+    var view = MagicMirror.view(view)
+    var artboards = function() {
+        return map(pri.artboards, function(artboard) {
+            return MagicMirror.artboard(artboard)
+        })
+    }
+    var selections = function() {
+        var selections = map(pri.selections, function(item) {
+            return MagicMirror.layer(item)
+        })
+        return selections 
+    }
+    var layers = function() {
+        return map([page children], function(layer) {
+            return MagicMirror.layer(layer)
+        })
+    }
+    var page = pri.page
+
+    var context = {}
+    context.page = page
+    context.view = view
+    context.artboards = artboards
+    context.selections = selections
+    context.layers = layers
+    return context
+}
+
+MagicMirror.flattener = {
+    flattener : MSLayerFlattener.alloc().init(),
+    perspectiveTransform : function(from, to) {
+        var layer = to.layer
+        var image = LayerHelper.getImage(from.layer, this.flattener)
+        var bezierPath = LayerHelper.getBezierPathInBounds(layer)
+        var quad = BezierPathHelper.getQuad(bezierPath)
+        var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)   // For unknown reason, resizing before doing transform seemed to fix missing thumbnail issue when first applying Magic Mirror
+        var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
+        LayerHelper.fillBottom(layer, transformed)
+        log("perspectiveTransforming: from " + from.name + ", to: " + to.name)
+    }
+}
+
+MagicMirror.artboard = function(artboard) {
+    return {
+        name: artboard.name(),
+        frame:MagicMirror.frame([artboard rect]),
+        layer : artboard,
+    }
+}
+
+MagicMirror.frame = function(frame) {
+    return {
+        toString: function() { return "{" + this.rect.x + ", " + this.rect.y + ", " + this.rect.width + ", " + this.rect.height + "}"},
+        rect : {x:frame.origin.x, y:frame.origin.y, width:frame.size.width, height:frame.size.height},
+        inset : function(amount) {
+            this.rect.x += amount
+            this.rect.y += amount
+            this.rect.width -= amount
+            this.rect.height -= amount
+        }
+    }
+}
+
+MagicMirror.layer = function(layer) {
+    if (layer.className && layer.className().toString() == "MSShapeGroup") {
+        var artboard = MagicMirror.artboard(layer.parentArtboard())
+        var layerName = layer.name()
+        return {
+            artboard: artboard,
+            name: layerName,
+            mirrorable: (artboard.name != layerName),
+            pointsRotatable: true,
+            rotatePoints:function() {
+                log("rotate: " + this.name)
+            },
+            frame: {
+                inset: function(points) {
+                    log("insetting frame for " + points + " points")
+                }
+            },
+            layer : layer,
+        }
+    } else {
+        return {
+            name: layer.name(),
+            mirrorable: false,
+            pointsRotatable: false,
+            frame: {
+                inset: function(points) {
+                    log("insetting frame for " + points + " points")
+                }
+            }
+        }
+    }
+}
+
+MagicMirror.view = function(view) {
+    return {
+        zoomToArtboard:function(artboard) {
+            log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame)
+        }
+    }
+}
+
+MagicMirror.util = {
+    empty : function(array) {
+        return (array == nil || array.length == 0)
+    },
+    createLookup : function(identifiables) {
+        var lookup = {}
+        for (var i = 0; i < count(identifiables); i++) {
+            var item = identifiables[i]
+            lookup[item.name] = item
+        }
+        return lookup
+    },
+    debug : function(text) {
+        log(text)
+    }
+}
+
+MagicMirror.ui = {
+    alert : function(title, message) {
+        var app = [NSApplication sharedApplication];
+	    [app displayDialog:message withTitle:title];
+    }
+}

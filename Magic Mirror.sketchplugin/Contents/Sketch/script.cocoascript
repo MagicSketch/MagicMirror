@@ -1,0 +1,18 @@
+@import "MagicMirror.coscript"
+
+function mirrorPage(context) {
+    var mirror = MagicMirror(context)
+    mirror.mirrorPage()
+}
+
+
+function jumpToArtboard(context) {
+    var mirror = MagicMirror(context)
+    mirror.jumpToArtboard()
+}
+
+
+function rotatePoints(context) {
+    var mirror = MagicMirror(context)
+    mirror.rotatePoints()
+}
