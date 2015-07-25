@@ -172,6 +172,9 @@ MagicMirror.layer = function(layer) {
             mirrorable: (artboard.name != layerName),
             pointsRotatable: true,
             rotatePoints:function() {
+                var bezierPath = LayerHelper.getBezierPath(this.layer)
+                var rotated = BezierPathHelper.rotatePoints(bezierPath)
+                this.layer.setBezierPath(rotated)
                 log("rotate: " + this.name)
             },
             frame: {
