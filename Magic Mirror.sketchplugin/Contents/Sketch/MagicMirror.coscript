@@ -37,8 +37,7 @@ var MagicMirror = function(context) {
             var run = function(artboards, layers, util, flattener) {
                 log("MagicMirror.mirrorPage()")
                 var lookup = util.createLookup(artboards)
-                for (var i = 0; i < layers.length ; i++) {
-                    var layer = layers[i]
+                for (layer of layers) {
                     var parent = layer.artboard
                     var artboard = lookup[layer.name]
                     if (layer.mirrorable && artboard) {
@@ -60,8 +59,7 @@ var MagicMirror = function(context) {
                 }
 
                 var lookup = util.createLookup(artboards)
-                for (var i = 0; i < count(selections); i++) {
-                    var selection = selections[i]
+                for (selection of selections) {
                     if (selection.pointsRotatable) {
                         selection.rotatePoints()
                         var artboard = lookup[selection.name] 
@@ -191,8 +189,7 @@ MagicMirror.util = {
     },
     createLookup : function(identifiables) {
         var lookup = {}
-        for (var i = 0; i < count(identifiables); i++) {
-            var item = identifiables[i]
+        for (item of identifiables) {
             lookup[item.name] = item
         }
         return lookup
