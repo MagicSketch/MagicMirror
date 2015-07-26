@@ -16,3 +16,8 @@ function rotatePoints(context) {
     var mirror = MagicMirror(context)
     mirror.rotatePoints()
 }
+
+function highlightMirrors(context) {
+    var mirror = MagicMirror(context)
+    mirror.highlightMirrors()
+}

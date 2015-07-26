@@ -73,6 +73,22 @@ var MagicMirror = function(context) {
             }
 
             run(context.artboards(), context.selections(), ui, util, createFlattener())
+        },
+
+        highlightMirrors: function(context) {
+            var context = this.context
+            var run = function(artboards, layers, util, flattener) {
+                log("MagicMirror.highlightMirrors()")
+                var lookup = util.createLookup(artboards)
+                for (layer of layers) {
+                    var parent = layer.artboard
+                    var artboard = lookup[layer.name]
+                    if (layer.mirrorable && artboard) {
+                        layer.fillColor("#FFFF00")
+                    }
+                }
+            }
+            run(context.artboards(), context.layers(), util, createFlattener())
         }
     }
 }
@@ -145,6 +161,9 @@ MagicMirror.layer = function(layer) {
                 var rotated = BezierPathHelper.rotatePoints(bezierPath)
                 this.layer.setBezierPath(rotated)
                 log("rotate: " + this.name)
+            },
+            fillColor: function(hex) {
+                LayerHelper.fillColor(layer, hex)
             },
             layer : layer,
         }
