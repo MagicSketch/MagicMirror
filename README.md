@@ -75,7 +75,7 @@ Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentat
 ## Troubleshoot (if mirroring fails)
 
 1. Make sure the Artboard is in the same page as your shape layer is.
-2. Check that the `Fill` layer is on, especially when you’re using the tool.
+2. Check that the `Fill` layer is on, especially when you’re using the Vector tool.
 
 ## Limitations
 
