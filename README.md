@@ -26,7 +26,7 @@ Magic Mirror currently offer three handy methods.
 
 Apply perpective transform to all layers that can be associated with an artboard with the same name.
 
-[![](http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif)](https://youtu.be/aLoqCxshf4s)
+![](http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif)]
 
 1. Prepare an artboard as the source
 2. Use the `Rectangle (R)`  or `Vector (V)` tool to draw a 4 point polygon. It’s important NOT to use the `Round Rect` tool because in order for Magic Mirror to work is to have **exactly 4 control points**.
