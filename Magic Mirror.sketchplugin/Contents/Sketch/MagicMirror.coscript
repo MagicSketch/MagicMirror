@@ -84,7 +84,7 @@ var MagicMirror = function(context) {
                     var parent = layer.artboard
                     var artboard = lookup[layer.name]
                     if (layer.mirrorable && artboard) {
-                        layer.fillColor("#FFFF00")
+                        layer.fillColor("#CCCCCC")
                     }
                 }
             }
@@ -139,37 +139,42 @@ MagicMirror.context = function(context) {
     return context
 }
 
-MagicMirror.artboard = function(artboard) {
+MagicMirror.artboard = function(msartboard) {
+    if (!msartboard) {
+        return {}
+    }
     return {
-        name: artboard.name(),
-        rect: [artboard rect],
-        layer : artboard,
+        name: msartboard.name(),
+        rect: [msartboard rect],
+        layer : msartboard,
     }
 }
 
-MagicMirror.layer = function(layer) {
-    if (layer.className && layer.className().toString() == "MSShapeGroup") {
-        var artboard = MagicMirror.artboard(layer.parentArtboard())
-        var layerName = layer.name()
+MagicMirror.layer = function(mslayer) {
+    if (mslayer.className && mslayer.className().toString() == "MSShapeGroup") {
+        var artboard = MagicMirror.artboard(mslayer.parentArtboard())
+        var layerName = mslayer.name()
         return {
             artboard: artboard,
             name: layerName,
-            mirrorable: (artboard.name != layerName),
+            mirrorable: true || (artboard.name != layerName),
             pointsRotatable: true,
             rotatePoints:function() {
-                var bezierPath = LayerHelper.getBezierPath(this.layer)
+                var bezierPath = LayerHelper.getBezierPath(mslayer)
                 var rotated = BezierPathHelper.rotatePoints(bezierPath)
-                this.layer.setBezierPath(rotated)
+                mslayer.setBezierPath(rotated)
                 log("rotate: " + this.name)
             },
             fillColor: function(hex) {
-                LayerHelper.fillColor(layer, hex)
+                LayerHelper.fillColor(mslayer, hex)
             },
-            layer : layer,
+            layer : mslayer,
         }
     } else {
+        //var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         return {
-            name: layer.name(),
+            //artboard: artboard,
+            name: mslayer.name(),
             mirrorable: false,
             pointsRotatable: false
         }
