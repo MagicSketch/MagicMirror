@@ -15,25 +15,30 @@ Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitm
 [![](http://cl.ly/image/0B1O3J021S44/magic-mirror-download.png)](https://github.com/jamztang/MagicMirror.sketchplugin/archive/master.zip)
 
 
+## Installation
+
+1. Download the package, unzip it and locate `Magic Mirror.sketchplugin`.
+2. Double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.
+3. Check that it’s available in the `Plugins` menu.
+
+![](http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png)
+
 ## Usage
 
 Magic Mirror currently offer three handy methods.
-1. Magic Mirror
-2. Jump to Artboard
-3. Rotate Points
 
-### Magic Mirror! (⌃ ⇧ M)
+### 1. Magic Mirror! (⌃ ⇧ M)
 
 Apply perpective transform to all layers that can be associated with an artboard with the same name.
 
-![](http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif)]
+[![](http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif)](https://youtu.be/aLoqCxshf4s)
 
 1. Prepare an artboard as the source
 2. Use the `Rectangle (R)`  or `Vector (V)` tool to draw a 4 point polygon. It’s important NOT to use the `Round Rect` tool because in order for Magic Mirror to work is to have **exactly 4 control points**.
 3. Rename your shape layer to **exactly match the Artboard’s name** you want to mirror.
 4. Press `⌃ ⇧ M` or go to `Plugin > Magic Mirror > Magic Mirror!` to see the results!
 
-### Jump to Artboard (⌃ ⇧ J)
+### 2. Jump to Artboard (⌃ ⇧ J)
 
 Quickly jump to the layer’s associated artboard.
 
@@ -42,7 +47,7 @@ Quickly jump to the layer’s associated artboard.
 1. Select the magic shape layer you’re currently working on.
 2. Press `⌃ ⇧ J` or use `Plugin > Magic Mirror > Jump to Artboard`.
 
-### Rotate Points (⌃ ⌘ ⇧ R)
+### 3. Rotate Points (⌃ ⌘ ⇧ R)
 
 ![](http://cl.ly/image/1w3y3O0P0F0t/magic-mirror-feature3.gif)
 
@@ -50,11 +55,6 @@ Rotate the content orientation of the layer fill.
 
 1. Select the layer
 2. Press `⌃ ⌘ ⇧ R` or use `Plugin > Magic Mirror > Rotate Points`.
-
-### Quick Tips
-
-1. You’ll want to reapply the mirroring whenever you change the size of your magic shape layer, that will help regenerate the optimized bitmap resolution and corresponding perspective.
-2. It’ll only update (or create if not exists) for the bottomost `Fill` layer. So you can put overlays and filters on top of the first layer.
 
 ## So how does it work? (In short)
 
@@ -64,18 +64,15 @@ Look into the path (NSBezierPath) and extract the 4 corner points.
 
 Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html)) to do `Perspective Transformation`, and apply the transformed image using Pattern Fill.
 
-## Installation
+## Quick Tips
 
-1. Download the package, unzip it and locate `Magic Mirror.sketchplugin`.
-2. Double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.
-3. Check that it’s available in the `Plugins` menu.
-
-![](http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png)
+1. You’ll want to reapply the mirroring whenever you change the size of your magic shape layer, that will help regenerate the optimized bitmap resolution and corresponding perspective.
+2. It’ll only update (or create if not exists) for the bottomost `Fill` layer. So you can put overlays and filters on top of the first layer.
 
 ## Troubleshoot (if mirroring fails)
 
 1. Make sure the Artboard is in the same page as your shape layer is.
-2. Check that the `Fill` layer is on, especially when you’re using the Vector tool.
+2. Check that the `Fill` layer is on, especially when you’re using the tool.
 
 ## Limitations
 
