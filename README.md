@@ -2,7 +2,9 @@
 
 ![](http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif)
 
-Magic Mirror for Sketch 3 is a Plugin that can mirror content from an Artboard to a corresponding shape layer.
+Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.
+
+![](http://cl.ly/image/243S012T201L/magic-mirror-intro.gif)
 
 You might also refer it as a simple version of [Photoshop’s Embeded Smart Objects](https://helpx.adobe.com/photoshop/using/create-smart-objects.html) for Sketch.
 
@@ -10,12 +12,49 @@ Unlike [Symbols](http://bohemiancoding.com/sketch/support/documentation/07-symbo
 
 Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a distructive manner (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, edited paths are also preserved and can be easily updated.
 
-Download `Magic Mirror.sketchplugin`
-
-## Demo
+[![](http://cl.ly/image/0B1O3J021S44/magic-mirror-download.png)](https://github.com/jamztang/MagicMirror.sketchplugin/archive/master.zip)
 
 
-As seen in the video, we’re able to simutaneously fill up certain shape layers with our screenshot, and creating new shapes that mirrors the content are as easy as well.
+## Usage
+
+Magic Mirror currently offer three handy methods.
+1. Magic Mirror
+2. Jump to Artboard
+3. Rotate Points
+
+### Magic Mirror! (⌃ ⇧ M)
+
+Apply perpective transform to all layers that can be associated with an artboard with the same name.
+
+![](http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif)]
+
+1. Prepare an artboard as the source
+2. Use the `Rectangle (R)`  or `Vector (V)` tool to draw a 4 point polygon. It’s important NOT to use the `Round Rect` tool because in order for Magic Mirror to work is to have **exactly 4 control points**.
+3. Rename your shape layer to **exactly match the Artboard’s name** you want to mirror.
+4. Press `⌃ ⇧ M` or go to `Plugin > Magic Mirror > Magic Mirror!` to see the results!
+
+### Jump to Artboard (⌃ ⇧ J)
+
+Quickly jump to the layer’s associated artboard.
+
+![](http://cl.ly/image/2f3o0s1T3L2W/magic-mirror-feature2.gif)
+
+1. Select the magic shape layer you’re currently working on.
+2. Press `⌃ ⇧ J` or use `Plugin > Magic Mirror > Jump to Artboard`.
+
+### Rotate Points (⌃ ⌘ ⇧ R)
+
+![](http://cl.ly/image/1w3y3O0P0F0t/magic-mirror-feature3.gif)
+
+Rotate the content orientation of the layer fill.
+
+1. Select the layer
+2. Press `⌃ ⌘ ⇧ R` or use `Plugin > Magic Mirror > Rotate Points`.
+
+### Quick Tips
+
+1. You’ll want to reapply the mirroring whenever you change the size of your magic shape layer, that will help regenerate the optimized bitmap resolution and corresponding perspective.
+2. It’ll only update (or create if not exists) for the bottomost `Fill` layer. So you can put overlays and filters on top of the first layer.
 
 ## So how does it work? (In short)
 
@@ -25,60 +64,32 @@ Look into the path (NSBezierPath) and extract the 4 corner points.
 
 Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html)) to do `Perspective Transformation`, and apply the transformed image using Pattern Fill.
 
-## Usage
-
-### Magic Mirror! (⌃ ⇧ M)
-
-Apply perpective transform to all layers that can be associated with an artboard with the same name.
-
-1. Use the `Rectangle (R)`  or `Vector (V)` tool to draw a 4 point polygon. It’s important NOT to use the `Round Rect` tool because in order for Magic Mirror to work is to have **exactly 4 control points** in the corresponding order (Top Left, Top Right, Bottom Right, Bottom Left).
-2. Rename your shape layer to **exactly match the Artboard’s name** you want to mirror.
-3. Press `⌃ ⇧ M` or go to `Plugin > Magic Mirror > Magic Mirror!` to see the results!
-
-### Jump to Artboard (⌃ ⇧ J)
-
-Quickly jump to the layer’s associated artboard.
-
-1. Select the magic shape layer you’re currently working on.
-2. Press `⌃ ⇧ J` or use `Plugin > Magic Mirror > Jump to Artboard`.
-
-### Rotate Points (⌃ ⌘ ⇧ R)
-
-Rotate the content orientation of the layer fill.
-
-1. Select the layer
-2. Press `⌃ ⌘ ⇧ R` or use `Plugin > Magic Mirror > Rotate Points`.
-
-### Quick Tip
-
-1. You’ll want to reapply the mirroring whenever you change the size of your magic shape layer, that will help regenerate the optimized bitmap resolution and corresponding perspective.
-2. It’ll only update (or create if not exists) for the bottomost `Fill` layer. So you can put overlays and filters on top of the first layer.
-
 ## Installation
 
 1. Download the package, unzip it and locate `Magic Mirror.sketchplugin`.
 2. Double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.
 3. Check that it’s available in the `Plugins` menu.
-![](http://cl.ly/image/3E2R1H0n0G3S/magic-mirror-menu.png)
+
+![](http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png)
 
 ## Troubleshoot (if mirroring fails)
 
 1. Make sure the Artboard is in the same page as your shape layer is.
-2. Check that the `Fill` layer is on, especially when you’re using the tool.
-3. If your shape doesn’t seemed to appear in the `Fill` thumbnail, you might have a wrong ordering of the 4 points. You should delete it and redraw in this order: TopLeft, TopRight, BottomRight, BottomLeft.
+2. Check that the `Fill` layer is on, especially when you’re using the Vector tool.
 
 ## Limitations
 
 1. No live resizing, if you are Sketch plugin developer and aware how to, send a pull request or let me know!
-2. Using Pattern fill means that you may not want to be a bit more careful about Shared Styles.
-3. Updating the layer’s name or the Artboard’s name is currently the only way to opt out from the magic mirroring.
+2. Using Pattern fill means that you may want to be more careful with using Shared Styles on those layers.
+3. Updating either the layer’s name or the Artboard’s name is currently the only way to opt out from the magic mirroring.
 
 ## Future Enhancement
 
-1. Fixing limitations!
+1. Eliminate limitations!
 2. Highlighting active magic layer?
 3. Support mirroring Symbols?
-2. Shortcut to toggle between Artboard and selected layer?
+4. Shortcut to toggle between Artboard and selected layer?
+5. Better layer opt-out mechanism?
 
 As long as the project lives, pull requests for features and bug fixes will be highly appreciated!
 
@@ -86,11 +97,8 @@ As long as the project lives, pull requests for features and bug fixes will be h
 
 If you find it useful, you can always refer or contribute to this project.
 
-### Today for iOS | Pomodoro Timer + Daily Target List
-![](http://cl.ly/image/0k1j003a342B/03.jpg)
-The sparkling behind this idea was because I went solely independant for the past 4 months to work on this app. You can always support me by downloading and purchasing a few features in the app :)
+> **[Send me a coffee ($5 USD)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUERV9YM2RT6U)** :)
 
-[Download Today on AppStore](https://itunes.apple.com/app/today-plan-focus-review-to/id991615593?ls=1&mt=8) | [Homepage](http://today.gd)
 
 ## Credits
 
