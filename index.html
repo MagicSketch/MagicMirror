@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Magicmirror.sketchplugin by jamztang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Magicmirror.sketchplugin</h1>
+      <h2 class="project-tagline">Perspective Transformation for Sketch Artboards</h2>
+      <a href="https://github.com/jamztang/MagicMirror.sketchplugin" class="btn">View on GitHub</a>
+      <a href="https://github.com/jamztang/MagicMirror.sketchplugin/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jamztang/MagicMirror.sketchplugin/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="magic-mirror-for-sketch-3" class="anchor" href="#magic-mirror-for-sketch-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magic Mirror for Sketch 3</h1>
+
+<p><img src="http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif" alt=""></p>
+
+<p>Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.</p>
+
+<p><img src="http://cl.ly/image/243S012T201L/magic-mirror-intro.gif" alt=""></p>
+
+<p>You might also refer it as a simple version of <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Photoshop’s Embeded Smart Objects</a> for Sketch.</p>
+
+<p>Unlike <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a>, Magic Mirror uses Pattern Fill to create the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but ALSO responds to the shape’s distortion (perspective transformation).</p>
+
+<p>Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a distructive manner (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, edited paths are also preserved and can be easily updated.</p>
+
+<p><a href="https://github.com/jamztang/MagicMirror.sketchplugin/archive/master.zip"><img src="http://cl.ly/image/0B1O3J021S44/magic-mirror-download.png" alt=""></a></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Download the package, unzip it and locate <code>Magic Mirror.sketchplugin</code>.</li>
+<li>Double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.</li>
+<li>Check that it’s available in the <code>Plugins</code> menu.</li>
+</ol>
+
+<p><img src="http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png" alt=""></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Magic Mirror currently offer three handy methods.</p>
+
+<h3>
+<a id="1-magic-mirror---m" class="anchor" href="#1-magic-mirror---m" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Magic Mirror! (⌃ ⇧ M)</h3>
+
+<p>Apply perpective transform to all layers that can be associated with an artboard with the same name.</p>
+
+<p><img src="http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif" alt=""></p>
+
+<ol>
+<li>Prepare an artboard as the source</li>
+<li>Use the <code>Rectangle (R)</code>  or <code>Vector (V)</code> tool to draw a 4 point polygon. It’s important NOT to use the <code>Round Rect</code> tool because in order for Magic Mirror to work is to have <strong>exactly 4 control points</strong>.</li>
+<li>Rename your shape layer to <strong>exactly match the Artboard’s name</strong> you want to mirror.</li>
+<li>Press <code>⌃ ⇧ M</code> or go to <code>Plugin &gt; Magic Mirror &gt; Magic Mirror!</code> to see the results!</li>
+</ol>
+
+<h3>
+<a id="2-jump-to-artboard---j" class="anchor" href="#2-jump-to-artboard---j" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Jump to Artboard (⌃ ⇧ J)</h3>
+
+<p>Quickly jump to the layer’s associated artboard.</p>
+
+<p><img src="http://cl.ly/image/2f3o0s1T3L2W/magic-mirror-feature2.gif" alt=""></p>
+
+<ol>
+<li>Select the magic shape layer you’re currently working on.</li>
+<li>Press <code>⌃ ⇧ J</code> or use <code>Plugin &gt; Magic Mirror &gt; Jump to Artboard</code>.</li>
+</ol>
+
+<h3>
+<a id="3-rotate-points----r" class="anchor" href="#3-rotate-points----r" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Rotate Points (⌃ ⌘ ⇧ R)</h3>
+
+<p><img src="http://cl.ly/image/1w3y3O0P0F0t/magic-mirror-feature3.gif" alt=""></p>
+
+<p>Rotate the content orientation of the layer fill.</p>
+
+<ol>
+<li>Select the layer</li>
+<li>Press <code>⌃ ⌘ ⇧ R</code> or use <code>Plugin &gt; Magic Mirror &gt; Rotate Points</code>.</li>
+</ol>
+
+<h2>
+<a id="so-how-does-it-work-in-short" class="anchor" href="#so-how-does-it-work-in-short" aria-hidden="true"><span class="octicon octicon-link"></span></a>So how does it work? (In short)</h2>
+
+<p>Magic Mirror operation iterates through all the “Shape” layers (MSShapeGroup) in current page and find out the Artboard-Layer pair that shares the exact same name.</p>
+
+<p>Look into the path (NSBezierPath) and extract the 4 corner points.</p>
+
+<p>Hand it over to (<a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html">Core Image</a>) to do <code>Perspective Transformation</code>, and apply the transformed image using Pattern Fill.</p>
+
+<h2>
+<a id="support-this-project" class="anchor" href="#support-this-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support this project</h2>
+
+<p>If you find it useful, you can always refer or contribute to this project.</p>
+
+<p><img src="http://cl.ly/image/111y2W1J1l3U/artboard-light-color.png" alt=""></p>
+
+<p><strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RUERV9YM2RT6U">Send me a coffee ($5 USD)</a></strong>
+You’ll get a copy of my perspective layout create entirely in Sketch ;)</p>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Special thanks to <a href="http://twitter.com/@simonpang">Simon Pang</a> to help point me back to the right direction when I was lost in reverse engineering Sketch header files without an obvious answer and attempted to manually apply the 3D transformation matrix to the image.</p>
+
+<p>Without him this would likely took me few more nights, or might at worst not possible due to some <a href="https://github.com/ccgus/CocoaScript/issues/30">complications of expressing certain language syntax in the scripting bridge</a>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jamztang/MagicMirror.sketchplugin">Magicmirror.sketchplugin</a> is maintained by <a href="https://github.com/jamztang">jamztang</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
