@@ -11,13 +11,17 @@ function jumpToArtboard(context) {
     mirror.jumpToArtboard()
 }
 
+function highlightMirrors(context) {
+    var mirror = MagicMirror(context)
+    mirror.highlightMirrors()
+}
 
 function rotatePoints(context) {
     var mirror = MagicMirror(context)
     mirror.rotatePoints()
 }
 
-function highlightMirrors(context) {
+function flipHorizontally(context) {
     var mirror = MagicMirror(context)
-    mirror.highlightMirrors()
+    mirror.flipHorizontally()
 }

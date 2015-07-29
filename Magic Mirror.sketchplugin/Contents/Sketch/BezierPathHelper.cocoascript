@@ -41,6 +41,31 @@ var BezierPathHelper = {
 		return newPath
 	},
 
+    "flipHorizontally" : function(nsbezierpath) {
+        var point0 = nsbezierpath.pointAtIndex(0)
+        var point1 = nsbezierpath.pointAtIndex(1)
+        var point2 = nsbezierpath.pointAtIndex(2)
+        var point3 = nsbezierpath.pointAtIndex(3)
+        var flipped0 = CGPointMake(point0.x, point1.y)
+        var flipped1 = CGPointMake(point1.x, point0.y)
+        var flipped2 = CGPointMake(point2.x, point3.y)
+        var flipped3 = CGPointMake(point3.x, point2.y)
+        var points = [flipped0, flipped1, flipped2, flipped3]
+        var path = CGPathCreateMutable();
+        if (points && points.length > 0) {
+            var p = points[0];
+            CGPathMoveToPoint(path, nil, p.x, p.y);
+            for (var i = 1; i < points.length; i++) {
+                p = points[i];
+                CGPathAddLineToPoint(path, nil, p.x, p.y);
+            }
+        }
+        CGPathCloseSubpath(path)
+        var newPath = [NSBezierPath bezierPathWithCGPath:path]
+        CGPathRelease(path)
+        return newPath
+    },
+
 	"isClockwise" : function(nsbezierpath) {
 
 		// http://stackoverflow.com/questions/1165647/how-to-determine-if-a-list-of-polygon-points-are-in-clockwise-order

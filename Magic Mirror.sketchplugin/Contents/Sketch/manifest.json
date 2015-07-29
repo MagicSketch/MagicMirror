@@ -22,6 +22,20 @@
       "name" : "Rotate Points",
       "identifier" : "rotate points",
     },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "highlightMirrors",
+      "shortcut" : "control command shift h",
+      "name" : "Highlight Mirrors",
+      "identifier" : "highlight mirrors",
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "flipHorizontally",
+      "shortcut" : "",
+      "name" : "Flip Horizontally",
+      "identifier" : "flip horizontally",
+    },
   ],
   "menu" : {
     "isRoot" : false,
@@ -30,6 +44,8 @@
       "magic mirror",
       "jump to artboard",
       "rotate points",
+      "highlight mirrors",
+      "flip horizontally",
     ],
     "title" : "Magic Mirror"
   },
