@@ -1,0 +1,210 @@
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6, figure {
+    margin:0;
+    padding:0;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust:none;
+	font-weight: 300;
+ 	background-color: #666;
+}
+
+#body {
+  /*background-color: #333;*/
+  background-color: #666;
+  width: 100%;
+  /*background-image: linear-gradient(180deg, #333, #666);*/
+}
+
+.container {
+	max-width: 960px;
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+section {
+	max-width: 960px;
+	margin: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+p, ol, h3 {
+	max-width: 780px;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+
+p.img {
+    max-width: 820px;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+section.page-header {
+  color: #fff;
+  max-width:100%;
+  text-align: center;
+  background-image: linear-gradient(180deg, #333, #666);
+}
+
+#topnav {
+	margin-top: 13px;
+	margin-bottom: 27px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#hero img {
+	max-width:940px;
+}
+
+h1 {
+/* Introducing Magic Mi: */
+	text-align: center;
+  font-size: 50px;
+  line-height: 57px;
+  opacity: 0.6;
+  font-family: OpenSans-Light;
+  color: rgba(255,255,255,0.95);
+  margin-top: 42px;
+  margin-bottom: 30px;
+}
+
+h2 {
+	/* How to use: */
+	text-align: center;
+	opacity: 0.6;
+	font-family: OpenSans-Light;
+	font-size: 42px;
+	color: rgba(255,255,255,0.95);
+	line-height: 57px;
+  margin-top: 42px;
+    margin-bottom: 30px;
+}
+
+h3 {
+/* 1. Magic Mirror! (⌃ : */
+	opacity: 0.6;
+	font-family: OpenSans-Light;
+	font-size: 32px;
+	color: rgba(255,255,255,0.95);
+	line-height: 43px;
+    margin-bottom: 30px;
+}
+
+p, ol {
+	/* Magic Mirror for Ske: */
+opacity: 1.0;
+font-family: OpenSans-Light;
+font-size: 20px;
+color: rgba(255,255,255,0.6);
+letter-spacing: 0.4px;
+line-height: 32px;
+margin-bottom: 30px;
+}
+
+p ol .img {
+	padding-left:0px;
+}
+
+ol p.img {
+	padding-left:0px;
+}
+
+li {
+	margin-bottom:16px;
+}
+
+li p {
+	margin-left:0px;
+}
+
+li img {
+	margin-top: 20px;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+footer {
+	opacity: 0.69;
+	font-family: OpenSans-Light;
+	font-size: 16px;
+	color: rgba(255,255,255,0.90);
+	letter-spacing: 0.4px;
+	line-height: 32px;
+	margin-bottom: 30px;
+	margin-top: 60px;
+	text-align: center;
+}
+
+a {
+	/* purchase: */
+	font-family: OpenSans;
+	font-size: 20px;
+	color: #FAAE11;
+	line-height: 30px;
+	text-decoration: none;
+}
+a:hover {
+	color: #BD820D;
+}
+a.normal {
+	opacity: 0.69;
+	color: rgba(255,255,255,0.90);
+}
+a.normal:hover {
+	opacity: 0.69;
+	color: rgba(255,255,255,0.60);
+}
+
+#topnav a {
+	margin-left: 20px;
+}
+
+footer a {
+	font-size:16px;
+}
+/*img {
+	max-width: 100%;
+}*/
+
+img.fill {
+	width: 100%;
+}
+
+code {
+	padding: 2px 4px;
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 0.9rem;
+	color: #383e41;
+	background-color: #f3f6fa;
+	border-radius: 0.3rem; 
+}
+
+.donate {
+	text-align: center;
+}
+
+.donate a {
+	font-size: 30px;
+}
+
+div#computer {
+	background-color:transparent;
+}
+div#computer img {
+	width: 100%;
+}
+
+footer .license {
+	max-width: 620px;
+	padding-left:160px;
+	padding-right:160px;
+}
+
+ .license,  .license a {
+	/* Type something: */
+	font-family: OpenSans-Light;
+	font-size: 14px;
+	line-height: 22px;
+ }
