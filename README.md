@@ -79,3 +79,8 @@ You’ll get a copy of my perspective layout create entirely in Sketch ;)
 Special thanks to [Simon Pang](http://twitter.com/@simonpang) to help point me back to the right direction when I was lost in reverse engineering Sketch header files without an obvious answer and attempted to manually apply the 3D transformation matrix to the image.
 
 Without him this would likely took me few more nights, or might at worst not possible due to some [complications of expressing certain language syntax in the scripting bridge](https://github.com/ccgus/CocoaScript/issues/30).
+
+## License
+
+This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
+
