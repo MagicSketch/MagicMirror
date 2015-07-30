@@ -189,11 +189,25 @@ footer {
 	line-height: 22px;
 }
 
+
 #demo iframe {
 	width: 640px;
 	height: 400px;
 }
 
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
 @media print, screen and (max-width: 480px), screen and (max-device-width: 640px) {
 
@@ -290,13 +304,4 @@ li img, p.img, p img {
 	padding-right:0px;
 }
 
-
-#demo iframe{
-/*	width: 768px;
-	height: 576px;*/
-	width: 320px;
-	height: 200px;
-	    /*width: auto;*/
-    /*height: auto;*/
-}
 }
