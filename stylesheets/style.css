@@ -189,6 +189,10 @@ footer {
 	line-height: 22px;
 }
 
+#demo iframe {
+	width: 640px;
+	height: 400px;
+}
 
 
 @media print, screen and (max-width: 480px), screen and (max-device-width: 640px) {
@@ -286,4 +290,13 @@ li img, p.img, p img {
 	padding-right:0px;
 }
 
+
+#demo iframe{
+/*	width: 768px;
+	height: 576px;*/
+	width: 320px;
+	height: 200px;
+	    /*width: auto;*/
+    /*height: auto;*/
+}
 }
