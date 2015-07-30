@@ -1,0 +1,30 @@
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6, figure {
+ 	background-color: #DADADA;
+}
+
+section.page-header {
+  background-image: linear-gradient(180deg, #CCC, #DADADA);
+}
+
+h1, h2 {
+  color: rgba(77,77,77,0.60);
+  opacity:1;
+}
+
+p, ol {
+	color: rgba(64,64,64,0.70);
+}
+
+a {
+	color: #F49000;
+	text-decoration: none;
+}
+a:hover {
+	color: #C97600;
+}
+a.normal {
+	color: #999;
+}
+a.normal:hover {
+	color: #666;
+}

@@ -8,10 +8,7 @@ html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6, figure {
 }
 
 #body {
-  /*background-color: #333;*/
-  background-color: #666;
   width: 100%;
-  /*background-image: linear-gradient(180deg, #333, #666);*/
 }
 
 .container {
@@ -45,7 +42,6 @@ p.img {
 }
 
 section.page-header {
-  color: #fff;
   max-width:100%;
   text-align: center;
   background-image: linear-gradient(180deg, #333, #666);
@@ -63,12 +59,10 @@ section.page-header {
 
 h1 {
 /* Introducing Magic Mi: */
-	text-align: center;
+  text-align: center;
   font-size: 50px;
   line-height: 57px;
-  opacity: 0.6;
   font-family: 'Open Sans';
-  color: rgba(255,255,255,0.95);
   margin-top: 42px;
   margin-bottom: 30px;
 }
@@ -76,21 +70,17 @@ h1 {
 h2 {
 	/* How to use: */
 	text-align: center;
-	opacity: 0.6;
 	font-family: 'Open Sans';
 	font-size: 42px;
-	color: rgba(255,255,255,0.95);
 	line-height: 57px;
-  margin-top: 42px;
+    margin-top: 42px;
     margin-bottom: 30px;
 }
 
 h3 {
 /* 1. Magic Mirror! (⌃ : */
-	opacity: 0.6;
 	font-family: 'Open Sans';
 	font-size: 32px;
-	color: rgba(255,255,255,0.95);
 	line-height: 43px;
     margin-bottom: 30px;
 }
@@ -100,7 +90,6 @@ p, ol {
 opacity: 1.0;
 font-family: 'Open Sans';
 font-size: 20px;
-color: rgba(255,255,255,0.6);
 letter-spacing: 0.4px;
 line-height: 32px;
 margin-bottom: 30px;
@@ -143,22 +132,8 @@ a {
 	font-family: 'Open Sans';
 	font-weight: normal;
 	font-size: 20px;
-	color: #FAAE11;
 	line-height: 30px;
-	text-decoration: none;
 }
-a:hover {
-	color: #BD820D;
-}
-a.normal {
-	opacity: 0.69;
-	color: rgba(255,255,255,0.90);
-}
-a.normal:hover {
-	opacity: 0.69;
-	color: rgba(255,255,255,0.60);
-}
-
 #topnav a {
 	margin-left: 20px;
 }

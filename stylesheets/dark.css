@@ -1,0 +1,37 @@
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6, figure {
+ 	background-color: #666;
+}
+
+section.page-header {
+  color: #fff;
+}
+
+h1, h2 {
+  opacity: 0.6;
+  color: rgba(255,255,255,0.95);
+}
+
+h3 {
+  opacity: 0.6;
+  color: rgba(255,255,255,0.95);
+}
+
+p, ol {
+	color: rgba(255,255,255,0.6);
+}
+
+a {
+	color: #FAAE11;
+	text-decoration: none;
+}
+a:hover {
+	color: #BD820D;
+}
+a.normal {
+	opacity: 0.69;
+	color: rgba(255,255,255,0.90);
+}
+a.normal:hover {
+	opacity: 0.69;
+	color: rgba(255,255,255,0.60);
+}
