@@ -50,10 +50,10 @@ As long as the project lives, pull requests for features and bug fixes will be h
 
 If you find it useful, you can always refer or contribute to this project.
 
-![](http://cl.ly/image/2S2X2Y1U0015/purchase.jpg)
+![](http://cl.ly/image/1a2n0k1L3S2z/donate.jpg)
 
 **[Send me a coffee ($5 USD)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUERV9YM2RT6U)**
-You’ll get a copy of my perspective layout create entirely in Sketch ;)
+You’ll get a copy of my perspective layout create entirely in Sketch and a permissive license for commercial use.
 
 ### Credits
 
@@ -64,3 +64,4 @@ Without him this would likely took me few more nights, or might at worst not pos
 ## License
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
+License file is located at `Magic Mirror.sketchplugin/LICENSE.html`
