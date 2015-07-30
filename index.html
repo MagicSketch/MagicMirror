@@ -77,9 +77,9 @@
 
 <p></p>
 
-<p>Magic Mirror for Sketch 3 is a Sketch Plugin that can create a perspective-transformed image from an artboard and apply it to a shape.</p>
+<p>Magic Mirror is a Sketch 3 Plugin that can create a perspective-transformed image from an artboard and apply it to a shape.</p>
 
-<p>You can consider it a simple version of <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Photoshop’s Embeded Smart Objects</a> for Sketch.</p>
+<p>You can consider it a simple version of Photoshop’s <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Embeded Smart Objects</a> for Sketch.</p>
 
 <p>Here's what Magic Mirror can do:</p>
 
@@ -94,9 +94,9 @@
 
 <h2>What's different?</h2>
 
-<p>Unlike <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a>, Magic Mirror uses a Pattern Fill to create the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but ALSO responds to the shape’s distortion (perspective transformation).</p>
+<p>Unlike <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a>, Magic Mirror uses a <a href="http://bohemiancoding.com/sketch/support/documentation/08-styling/1-fills.html">Pattern Fill</a> to preform the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but <em>also</em> responds to the shape’s distortion (perspective transformation).</p>
 
-<p>Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a destructive way (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, editable paths are preserved and can be easily updated.</p>
+<p>Unlike when editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a destructive way (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, editable paths are preserved and can be easily updated.</p>
 
 <!-- <p><a href="https://github.com/jamztang/MagicMirror.sketchplugin/archive/master.zip"><img src="http://cl.ly/image/0B1O3J021S44/magic-mirror-download.png" alt=""></a></p> -->
 
@@ -105,8 +105,8 @@
 
 <p class="center"><a href="https://github.com/jamztang/MagicMirror.sketchplugin/zipball/master"><img src="images/download-plugin.png"></img></a></p>
 <ol>
-<li>Download the plugin, unzip it and locate <code>Magic Mirror.sketchplugin</code>.</li>
-<li>Double click to install the plugin. If you have multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.</li>
+<li>Download the plugin, unzip it, and locate <code>Magic Mirror.sketchplugin</code>.</li>
+<li>Double click it to install the plugin! (If you have multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.)</li>
 <li>Check that it’s available in the <code>Plugins</code> menu.
 <img src="http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png" alt=""></li>
 <li>Consider <a href="#donate">donating</a> to the project :)</li>
@@ -114,28 +114,28 @@
 
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use?</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p class="center"><a href="http://cl.ly/2C160N3V0P1b/download/magicmirror-sample.sketch"><img src="images/download-sketch.png"></img></a></p>
 
 <p>Magic Mirror currently offers three handy methods.</p>
 
 <h3>
-<a id="1-magic-mirror---m" class="anchor" href="#1-magic-mirror---m" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Magic Mirror! (⌃ ⇧ M)</h3>
+<a id="1-magic-mirror---m" class="anchor" href="#1-magic-mirror---m" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Magic Mirror! (&#x2303; &#x21E7; M)</h3>
 
 <p>Apply perpective transform to all layers that can be associated with an artboard with the same name.</p>
 
 <p class="img"><img src="http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif" class="fill" alt=""></p>
 
 <ol>
-<li>Prepare a source artboard</li>
-<li>Use the <code>Rectangle (R)</code> or <code>Vector (V)</code> tool to draw a 4 points polygon. It’s important NOT to use the <code>Round Rect</code> tool, because Magic Mirror needs <strong>exactly 4 control points</strong> to work properly.</li>
+<li>Prepare a source artboard.</li>
+<li>Use the <code>Rectangle (R)</code> or <code>Vector (V)</code> tool to draw a 4-point polygon. It’s important to <em>not</em> use the <code>Round Rect</code> tool, because Magic Mirror needs <strong>exactly 4 control points</strong> to work properly.</li>
 <li>Rename your shape layer to <strong>exactly match the Artboard’s name</strong> you want to mirror.</li>
-<li>Press <code>⌃ ⇧ M</code> or go to <code>Plugin &gt; Magic Mirror &gt; Magic Mirror!</code> to see the results!</li>
+<li>Press <code>&#x2303; &#x21E7; M</code> or go to <code>Plugin <strong>&gt;</strong> Magic Mirror <strong>&gt;</strong> Magic Mirror!</code> to see the results!</li>
 </ol>
 
 <h3>
-<a id="2-jump-to-artboard---j" class="anchor" href="#2-jump-to-artboard---j" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Jump to Artboard (⌃ ⇧ J)</h3>
+<a id="2-jump-to-artboard---j" class="anchor" href="#2-jump-to-artboard---j" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Jump to Artboard (&#x2303; &#x21E7; J)</h3>
 
 <p>Quickly jump to the layer’s associated artboard.</p>
 
@@ -143,35 +143,37 @@
 
 <ol>
 <li>Select the magic shape layer you’re currently working on.</li>
-<li>Press <code>⌃ ⇧ J</code> or use <code>Plugin &gt; Magic Mirror &gt; Jump to Artboard</code>.</li>
+<li>Press <code>&#x2303; &#x21E7; J</code> or use <code>Plugin <strong>&gt;</strong> Magic Mirror <strong>&gt;</strong> Jump to Artboard</code>.</li>
 </ol>
 
 <h3>
-<a id="3-rotate-points----r" class="anchor" href="#3-rotate-points----r" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Rotate Points (⌃ ⌘ ⇧ R)</h3>
+<a id="3-rotate-points----r" class="anchor" href="#3-rotate-points----r" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Rotate Points (&#x2303; &#x2318; &#x21E7; R)</h3>
 
 <p><img src="http://cl.ly/image/1w3y3O0P0F0t/magic-mirror-feature3.gif" class="center" alt=""></p>
 
 <p>Rotate the content orientation of the layer fill.</p>
 
 <ol>
-<li>Select the layer</li>
-<li>Press <code>⌃ ⌘ ⇧ R</code> or use <code>Plugin &gt; Magic Mirror &gt; Rotate Points</code>.</li>
+<li>Select the layer.</li>
+<li>Press <code>&#x2303; &#x2318; &#x21E7; R</code> or use <code>Plugin <strong>&gt;</strong> Magic Mirror <strong>&gt;</strong> Rotate Points</code>.</li>
 </ol>
 
 <h2>
-<a id="so-how-does-it-work-in-short" class="anchor" href="#so-how-does-it-work-in-short" aria-hidden="true"><span class="octicon octicon-link"></span></a>So how does it work? (In short)</h2>
+<a id="so-how-does-it-work-in-short" class="anchor" href="#so-how-does-it-work-in-short" aria-hidden="true"><span class="octicon octicon-link"></span></a>So how does it work?</h2>
 
-<p>Magic Mirror iterates through all the “Shape” layers (MSShapeGroup) in the current page, and finds all the Artboard-Layer pairs that share the exact same name.</p>
+<p>In short, Magic Mirror iterates through all the “Shape” layers (MSShapeGroup) in the current page, and finds all the Artboard-Layer pairs that share the exact same name.</p>
 
 <p>Then it looks into the path (NSBezierPath) and extracts the 4 corner points.</p>
 
-<p>It then hands the content over to (<a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html">Core Image</a>) to do Perspective Transformation, and apply the transformed image using Pattern Fill.</p>
+<p>It then hands the content over to <a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html">Core Image</a> to do Perspective Transformation, and apply the transformed image using Pattern Fill.</p>
 
 <h2>
 
 <a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donation</h2>
 
-<p>Magic Mirror is an <a href="https://github.com/jamztang/MagicMirror.sketchplugin">open source project</a> on GitHub. You can freely checkout the source code and contribute to the project. However, if you decide to donate to the project, you'll get a special package for free :)</p>
+<p class="purchase center"><strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RUERV9YM2RT6U">&gt;&gt; Donate ($5 USD) &lt;&lt;</a></strong>
+
+<p>Magic Mirror is an <a href="https://github.com/jamztang/MagicMirror.sketchplugin">open source project</a> on GitHub. You can freely checkout the source code (and contribute to the project!) However, if you decide to donate to the project, you'll get a special package: ;)</p>
 <!-- 
 
 <h2>
@@ -180,13 +182,11 @@
 
 <p class="img"><img src="./images/donate-dark.jpg" class="fill" alt=""></p>
 
-<p>You've probably seen similar perspective mockup tools like this before, but they're all for Photoshop. I recreated this entirely in Sketch, everything is adjustable and scalable.</p>
-
-<p class="purchase center"><strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RUERV9YM2RT6U">&gt;&gt; Donate ($5 USD) &lt;&lt;</a></strong>
+<p>You've probably seen similar perspective mockup tools like this before, but they're all for Photoshop. I wanted to recreate this entirely in Sketch, and ensure your work remains adjustable and scalable.</p>
 
 <h2>Why should I donate?</h2>
-<p>First, because I would like to continue developing the product and keep helping the community to better utilize our tools. I believe good ideas and things with proper execution require dedicated time and effort. The only way for me to do so is to have sustainable revenue from the things we work on.</p>
-<p>Second, this represent a new era of design possibilites that we'll be able to do with Sketch. I hope from now on we'll see more and more perspective mockups dedicated for Sketch, which we all loved.</p>
+<p>First, because I would like to continue developing the product and keep helping the community to better utilize our tools. I believe good ideas, and proper execution of those ideas, requires dedicated time and effort. The only way for us to produce things like that is to have sustainable revenue from the things we work on.</p>
+<p>Second, this represents a new era of design possibilites within Sketch. I hope from now on we'll see more and more perspective mockups dedicated for Sketch, which we all love! :)</p>
 
 
 <!-- 
@@ -198,7 +198,7 @@
  -->
 
 <!-- Begin MailChimp Signup Form -->
-<p><div id="mc_embed_signup" class="center">
+</p><div id="mc_embed_signup" class="center">
 <form action="//jamztang.us10.list-manage.com/subscribe/post?u=d0e153cc5be5d4a9389546767&amp;id=3c04db4085" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
   <label for="mce-EMAIL">Do you want to hear more from Magic Mirror for Sketch 3?</label>
@@ -208,14 +208,14 @@
     <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
     </div>
 </form>
-</div></p>
+</div>
 
 <!--End mc_embed_signup-->
 
       <footer class="site-footer">
 <!--         <span class="site-footer-owner"><a href="https://github.com/jamztang/MagicMirror.sketchplugin">Magic Mirror</a> is made by<a href="https://github.com/jamztang"> James Tang</a> 2015</span>
  -->        <div class="license">
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Magic Mirror for Sketch 3</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://magicmirror.design" property="cc:attributionName" rel="cc:attributionURL">James Tang</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/jamztang/MagicMirror.sketchplugin" rel="dct:source">https://github.com/jamztang/MagicMirror.sketchplugin</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://magicmirror.design/#donate" rel="cc:morePermissions">http://magicmirror.design/#donate</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Magic Mirror for Sketch 3</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://magicmirror.design" property="cc:attributionName" rel="cc:attributionURL">James Tang</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/jamztang/MagicMirror.sketchplugin" rel="dct:source">https://github.com/jamztang/MagicMirror.sketchplugin</a>.<br />Permissions beyond the scope of this license may be available to those who <a xmlns:cc="http://creativecommons.org/ns#" href="http://magicmirror.design/#donate" rel="cc:morePermissions">donate</a>.
         </div>
       </footer>
     </section>
