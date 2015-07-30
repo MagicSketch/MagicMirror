@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/dark.css" media="screen">
   </head>
-  <body>
+    <body>
     <!--
     <section class="page-header">
       <h1 class="project-name">Magicmirror.sketchplugin</h1>
@@ -69,9 +69,9 @@
 
 <p></p>
 
-<p>Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.</p>
+<p>Magic Mirror for Sketch 3 is a Sketch Plugin that can create a perspective-transformed image from an artboard and apply it to a shape.</p>
 
-<p>You might want to refer it as a simple version of <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Photoshop’s Embeded Smart Objects</a> for Sketch.</p>
+<p>You can consider it a simple version of <a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Photoshop’s Embeded Smart Objects</a> for Sketch.</p>
 
 <p>Here's what Magic Mirror can do:</p>
 
@@ -85,9 +85,9 @@
 
 <h2>What's different?</h2>
 
-<p>Unlike <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a>, Magic Mirror uses Pattern Fill to create the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but ALSO responds to the shape’s distortion (perspective transformation).</p>
+<p>Unlike <a href="http://bohemiancoding.com/sketch/support/documentation/07-symbols/">Symbols</a>, Magic Mirror uses a Pattern Fill to create the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but ALSO responds to the shape’s distortion (perspective transformation).</p>
 
-<p>Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a distructive manner (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, edited paths are also preserved and can be easily updated.</p>
+<p>Unlike editing Bitmaps in Sketch, Magic Mirror does not modify the original bitmap in a destructive way (since we’re sourcing from an Artboard). Using Shape layers instead of Bitmap layers, editable paths are preserved and can be easily updated.</p>
 
 <!-- <p><a href="https://github.com/jamztang/MagicMirror.sketchplugin/archive/master.zip"><img src="http://cl.ly/image/0B1O3J021S44/magic-mirror-download.png" alt=""></a></p> -->
 
@@ -97,10 +97,10 @@
 <p class="center"><a href="https://github.com/jamztang/MagicMirror.sketchplugin/zipball/master"><img src="images/download-plugin.png"></img></a></p>
 <ol>
 <li>Download the plugin, unzip it and locate <code>Magic Mirror.sketchplugin</code>.</li>
-<li>Double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.</li>
+<li>Double click to install the plugin. If you have multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.</li>
 <li>Check that it’s available in the <code>Plugins</code> menu.
 <img src="http://cl.ly/image/2z0l023u0O2f/magic-mirror-menu.png" alt=""></li>
-<li>Consider <a href="#donate"> donating </a> to the project :)</li>
+<li>Consider <a href="#donate">donating</a> to the project :)</li>
 </ol>
 
 
@@ -109,7 +109,7 @@
 
 <p class="center"><a href="http://cl.ly/2C160N3V0P1b/download/magicmirror-sample.sketch"><img src="images/download-sketch.png"></img></a></p>
 
-<p>Magic Mirror currently offer three handy methods.</p>
+<p>Magic Mirror currently offers three handy methods.</p>
 
 <h3>
 <a id="1-magic-mirror---m" class="anchor" href="#1-magic-mirror---m" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Magic Mirror! (⌃ ⇧ M)</h3>
@@ -119,8 +119,8 @@
 <p class="img"><img src="http://cl.ly/image/3K0X2m2e0X04/magic-mirror-feature1.gif" class="fill" alt=""></p>
 
 <ol>
-<li>Prepare an artboard as the source</li>
-<li>Use the <code>Rectangle (R)</code>  or <code>Vector (V)</code> tool to draw a 4 point polygon. It’s important NOT to use the <code>Round Rect</code> tool because in order for Magic Mirror to work is to have <strong>exactly 4 control points</strong>.</li>
+<li>Prepare a source artboard</li>
+<li>Use the <code>Rectangle (R)</code> or <code>Vector (V)</code> tool to draw a 4 points polygon. It’s important NOT to use the <code>Round Rect</code> tool, because Magic Mirror needs <strong>exactly 4 control points</strong> to work properly.</li>
 <li>Rename your shape layer to <strong>exactly match the Artboard’s name</strong> you want to mirror.</li>
 <li>Press <code>⌃ ⇧ M</code> or go to <code>Plugin &gt; Magic Mirror &gt; Magic Mirror!</code> to see the results!</li>
 </ol>
@@ -152,17 +152,17 @@
 <h2>
 <a id="so-how-does-it-work-in-short" class="anchor" href="#so-how-does-it-work-in-short" aria-hidden="true"><span class="octicon octicon-link"></span></a>So how does it work? (In short)</h2>
 
-<p>Magic Mirror operation iterates through all the “Shape” layers (MSShapeGroup) in current page and find out the Artboard-Layer pair that shares the exact same name.</p>
+<p>Magic Mirror iterates through all the “Shape” layers (MSShapeGroup) in the current page, and finds all the Artboard-Layer pairs that share the exact same name.</p>
 
-<p>Look into the path (NSBezierPath) and extract the 4 corner points.</p>
+<p>Then it looks into the path (NSBezierPath) and extracts the 4 corner points.</p>
 
-<p>Hand it over to (<a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html">Core Image</a>) to do Perspective Transformation, and apply the transformed image using Pattern Fill.</p>
+<p>It then hands the content over to (<a href="https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html">Core Image</a>) to do Perspective Transformation, and apply the transformed image using Pattern Fill.</p>
 
 <h2>
 
 <a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donation</h2>
 
-<p>Magic Mirror is an <a href="https://github.com/jamztang/MagicMirror.sketchplugin">opensource project</a> on github. You can freely checkout the source code and contribute to the project. However if you decided to donate to the project, you'll get a special package for free :)</p>
+<p>Magic Mirror is an <a href="https://github.com/jamztang/MagicMirror.sketchplugin">open source project</a> on GitHub. You can freely checkout the source code and contribute to the project. However, if you decide to donate to the project, you'll get a special package for free :)</p>
 <!-- 
 
 <h2>
@@ -171,15 +171,12 @@
 
 <p class="img"><img src="./images/donate-dark.jpg" class="fill" alt=""></p>
 
-<p>You may have seen few similar perspective mockup like this before but they're all for Photoshop. I recreated this entirely in Sketch, everything is adjustable and scalable.
-</p>
+<p>You've probably seen similar perspective mockup tools like this before, but they're all for Photoshop. I recreated this entirely in Sketch, everything is adjustable and scalable.</p>
 
 <p class="purchase center"><strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RUERV9YM2RT6U">&gt;&gt; Donate ($5 USD) &lt;&lt;</a></strong>
 
-<h2>
-Why should I donate?</h2>
-<p>First, because I would like to continue develop on this product and keep helping the community to better utilize our tools. I believe good ideas and things with proper execution requires dedicated time and effort. The only way for me to do so is to have sustainable revenue from the things we worked on.
-</p>
+<h2>Why should I donate?</h2>
+<p>First, because I would like to continue developing the product and keep helping the community to better utilize our tools. I believe good ideas and things with proper execution require dedicated time and effort. The only way for me to do so is to have sustainable revenue from the things we work on.</p>
 <p>Second, this represent a new era of design possibilites that we'll be able to do with Sketch. I hope from now on we'll see more and more perspective mockups dedicated for Sketch, which we all loved.</p>
 
 
@@ -213,4 +210,3 @@ Why should I donate?</h2>
 
 </script>
 </html>
-
