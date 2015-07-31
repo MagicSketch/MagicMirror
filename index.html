@@ -41,6 +41,24 @@
       /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
          We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
+
+    <script>
+    function downloadPluginClicked() {
+
+        ga('send', 'event', 'button', 'click', 'downloadPlugin');
+
+        var confirmed = confirm("Magic Mirror is under Common Creative Attribution-NonCommercial 4.0 International license.\n\nIt's completely free for personal and non-commercial use, while a more permissive license can be obtained to those who donate.\n\nAcknowledge and continue to download?");
+
+        if (confirmed) {
+          ga('send', 'event', 'button', 'click', 'confirmDownload');
+          window.location.href = "https://github.com/jamztang/MagicMirror.sketchplugin/releases/download/v1.0/MagicMirror-20150730-free.zip"
+          console.log("confirmed");
+        } else {
+          ga('send', 'event', 'button', 'click', 'cancelDownload');
+          console.log("cancelled");
+        }
+    }
+    </script>
   </head>
     <body>
     <!--
@@ -103,7 +121,7 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p class="center"><a href="https://github.com/jamztang/MagicMirror.sketchplugin/releases/download/v1.0/MagicMirror-20150730-free.zip"><img src="images/download-plugin.png"></img></a></p>
+<p class="center"><a href="javascript:void(0);" onclick="downloadPluginClicked()"><img src="images/download-plugin.png"></img></a></p>
 <ol>
 <li>Download the plugin, unzip it, and locate <code>Magic Mirror.sketchplugin</code>.</li>
 <li>Double click it to install the plugin! (If you have multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.)</li>
