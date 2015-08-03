@@ -223,8 +223,7 @@ MagicMirror.flattener = function() {
             var image = LayerHelper.getImage(from.layer, this.flattener)
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
             var quad = BezierPathHelper.getQuad(bezierPath)
-            var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)   // For unknown reason, resizing before doing transform seemed to fix missing thumbnail issue when first applying Magic Mirror
-            var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
+            var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name)
         }

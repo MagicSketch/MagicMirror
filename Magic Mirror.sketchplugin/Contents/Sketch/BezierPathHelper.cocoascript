@@ -17,6 +17,7 @@ var BezierPathHelper = {
 				"bl" : bezierPath.pointAtIndex(1),
 			}
 		}
+		quad.size = bezierPath.bounds().size
 		return quad
 	},
 
