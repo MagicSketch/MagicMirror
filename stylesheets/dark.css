@@ -16,7 +16,7 @@ h3 {
   color: rgba(255,255,255,0.95);
 }
 
-p, ol {
+p, ol, small {
 	color: rgba(255,255,255,0.6);
 }
 

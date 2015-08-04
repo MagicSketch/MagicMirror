@@ -58,6 +58,11 @@
           console.log("cancelled");
         }
     }
+
+    function donateClicked() {
+        ga('send', 'event', 'donate', 'click', 'headingPaypal');
+        window.location.href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUERV9YM2RT6U"
+    }
     </script>
   </head>
     <body>
@@ -122,6 +127,7 @@
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p class="center"><a href="javascript:void(0);" onclick="downloadPluginClicked()"><img src="images/download-plugin.png"></img></a></p>
+<p class="center"><small>free for personal use, for commerical use please consider <a href="#donate">donate</a></small></p>
 <ol>
 <li>Download the plugin, unzip it, and locate <code>Magic Mirror.sketchplugin</code>.</li>
 <li>Double click it to install the plugin! (If you have multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.)</li>
@@ -189,7 +195,7 @@
 
 <a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donation</h2>
 
-<p class="purchase center"><strong><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=RUERV9YM2RT6U">&gt;&gt; Donate ($5 USD) &lt;&lt;</a></strong>
+<p class="donate center"><strong><a href="javascript:void(0);" onclick="donateClicked()">&gt;&gt; Donate ($5 USD) &lt;&lt;</a></strong>
 
 <p>Magic Mirror is an <a href="https://github.com/jamztang/MagicMirror.sketchplugin">open source project</a> on GitHub. You can freely checkout the source code (and contribute to the project!) However, if you decide to donate to the project, you'll get a special package: ;)</p>
 <!-- 
