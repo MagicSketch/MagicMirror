@@ -60,7 +60,7 @@ var MagicMirror = function(context) {
                 }
 
                 var lookup = util.createLookup(artboards)
-                for (selection of selections) {
+                each(selections, function(selection) {
                     if (selection.pointsRotatable) {
                         selection.flipHorizontally()
                         var artboard = lookup[selection.name] 
@@ -70,7 +70,7 @@ var MagicMirror = function(context) {
                     } else {
                         util.debug("selection: " + selection.name + " not rotatable")
                     }
-                }
+                })
             }
 
             run(context.artboards(), context.selections(), ui, util, createFlattener())
