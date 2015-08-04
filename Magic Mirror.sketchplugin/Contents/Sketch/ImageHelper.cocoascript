@@ -43,7 +43,6 @@ var ImageHelper = {
 		var cgimage = ImageHelper.getCGImage(nsimage)
 		var ciimage = ImageHelper.getCIImage(cgimage)
     	var y = size.height;
-    	var filter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
     	var filter = [CIFilter filterWithName:"CIPerspectiveTransform"];
         [filter setValue:ciimage forKey:"inputImage"];
         [filter setValue:[CIVector vectorWithX:topLeft.x Y:y - topLeft.y] forKey:"inputTopLeft"];
@@ -52,6 +51,13 @@ var ImageHelper = {
         [filter setValue:[CIVector vectorWithX:bottomLeft.x Y:y - bottomLeft.y] forKey:"inputBottomLeft"];
 		var output = filter.outputImage() // CIImage
 		return ImageHelper.getNSImage(output)
+	},
+
+	"horizontalTransform" : function(nsimage) {
+		var cgimage = ImageHelper.getCGImage(nsimage)
+		var c = ImageHelper.getCIImage(cgimage)
+		c = [c imageByApplyingTransform:CGAffineTransformTranslate(CGAffineTransformMakeScale(-1, 1), 0, c.extent().size.height)];
+		return ImageHelper.getNSImage(c)
 	},
 
 	"resizeImage": function(nsimage, nssize) {

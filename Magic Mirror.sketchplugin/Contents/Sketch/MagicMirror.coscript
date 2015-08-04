@@ -195,8 +195,12 @@ MagicMirror.layer = function(mslayer) {
             },
             flipHorizontally:function() {
                 var bezierPath = LayerHelper.getBezierPath(mslayer)
+                // mslayer.isFlippedHorizontal = !mslayer.isFlippedHorizontal()
+                // log("flipped: " + mslayer.isFlippedHorizontal)
                 var rotated = BezierPathHelper.flipHorizontally(bezierPath)
                 mslayer.setBezierPath(rotated)
+
+
                 log("rotate: " + this.name)
             },
             fillColor: function(hex) {
