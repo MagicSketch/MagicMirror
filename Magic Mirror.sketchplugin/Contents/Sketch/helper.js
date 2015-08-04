@@ -22,3 +22,10 @@ var map = function(array, callback) {
     }
     return values
 }
+
+// Mavericks doesn't have for...of loop
+var each = function(array, callback) {
+    for (var i = 0; i < count(array); i++) {
+        callback(array[i])
+    }
+}

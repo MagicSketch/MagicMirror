@@ -50,7 +50,7 @@ var ImageHelper = {
 		var resized = [NSImage imageWithSize:nssize];
     	[resized lockFocus]
         var rect = NSMakeRect(0, 0, nssize.width, nssize.height)
-	    var context = NSGraphicsContext.currentContext().CGContext()
+        // var context = NSGraphicsContext.currentContext().graphicsPort()
 		[nsimage drawInRect:rect];
     	[resized unlockFocus];
 		return resized
