@@ -1,4 +1,28 @@
 var BezierPathHelper = {
+
+	"reverse" : function(nsbezierpath) {
+		var point0 = nsbezierpath.pointAtIndex(0)
+		var point1 = nsbezierpath.pointAtIndex(1)
+		var point2 = nsbezierpath.pointAtIndex(2)
+		var point3 = nsbezierpath.pointAtIndex(3)
+		return this.fromPoints([point0, point3, point2, point1])
+	},
+
+	"fromPoints" : function(points) {
+        var path = CGPathCreateMutable();
+        if (points && points.length > 0) {
+            var p = points[0];
+            CGPathMoveToPoint(path, nil, p.x, p.y);
+            for (var i = 1; i < points.length; i++) {
+                p = points[i];
+                CGPathAddLineToPoint(path, nil, p.x, p.y);
+            }
+        }
+        CGPathCloseSubpath(path)
+        var newPath = [NSBezierPath bezierPathWithCGPath:path]
+		CGPathRelease(path)
+        return newPath
+	},
 	
 	"getQuad": function(bezierPath) {
 		var quad;
@@ -22,24 +46,47 @@ var BezierPathHelper = {
 	},
 
 	"rotatePoints" : function(nsbezierpath) {
+		return this.clockwisePoints(nsbezierpath)
+	},
+
+	"clockwisePoints" : function(nsbezierpath) {
 		var point0 = nsbezierpath.pointAtIndex(0)
 		var point1 = nsbezierpath.pointAtIndex(1)
 		var point2 = nsbezierpath.pointAtIndex(2)
 		var point3 = nsbezierpath.pointAtIndex(3)
 		var points = [point3, point0, point1, point2]
-        var path = CGPathCreateMutable();
-        if (points && points.length > 0) {
-            var p = points[0];
-            CGPathMoveToPoint(path, nil, p.x, p.y);
-            for (var i = 1; i < points.length; i++) {
-                p = points[i];
-                CGPathAddLineToPoint(path, nil, p.x, p.y);
-            }
-        }
-		CGPathCloseSubpath(path)
-		var newPath = [NSBezierPath bezierPathWithCGPath:path]
-		CGPathRelease(path)
+		var newPath = this.fromPoints(points)
 		return newPath
+	},
+
+	"antiClockwisePoints" : function(nsbezierpath) {
+		var point0 = nsbezierpath.pointAtIndex(0)
+		var point1 = nsbezierpath.pointAtIndex(1)
+		var point2 = nsbezierpath.pointAtIndex(2)
+		var point3 = nsbezierpath.pointAtIndex(3)
+		var points = [point1, point2, point3, point0]
+		var newPath = this.fromPoints(points)
+		return newPath
+	},
+
+	"flipShiftX" : function(nsbezierpath) {
+		if (this.isClockwise(nsbezierpath)) {
+			var shifted = this.antiClockwisePoints(nsbezierpath)
+			return this.flipX(shifted)
+		} else {
+			var shifted = this.clockwisePoints(nsbezierpath)
+			return this.flipX(shifted)
+		}
+	},
+	"flipX" : function(nsbezierpath) {
+	    var bezierPath = nsbezierpath;
+	    var transform = [NSAffineTransform transform];
+	    [transform translateXBy:CGRectGetMidX(bezierPath.bounds()) yBy:0];
+	    [transform scaleXBy:-1 yBy:1];
+	    [transform translateXBy:-CGRectGetMidX(bezierPath.bounds()) yBy:0];
+	    var flipped = [transform transformBezierPath:bezierPath];
+	    return flipped;
+	    // return bezierPath;
 	},
 
     "flipHorizontally" : function(nsbezierpath) {
@@ -52,18 +99,7 @@ var BezierPathHelper = {
         var flipped2 = CGPointMake(point2.x, point3.y)
         var flipped3 = CGPointMake(point3.x, point2.y)
         var points = [flipped0, flipped1, flipped2, flipped3]
-        var path = CGPathCreateMutable();
-        if (points && points.length > 0) {
-            var p = points[0];
-            CGPathMoveToPoint(path, nil, p.x, p.y);
-            for (var i = 1; i < points.length; i++) {
-                p = points[i];
-                CGPathAddLineToPoint(path, nil, p.x, p.y);
-            }
-        }
-        CGPathCloseSubpath(path)
-        var newPath = [NSBezierPath bezierPathWithCGPath:path]
-        CGPathRelease(path)
+        var newPath = this.fromPoints(points)
         return newPath
     },
 

@@ -19,8 +19,15 @@
       "script" : "script.cocoascript",
       "handler" : "rotatePoints",
       "shortcut" : "control command shift r",
-      "name" : "Rotate Points",
+      "name" : "Rotate Contents",
       "identifier" : "rotate points",
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "flipHorizontally",
+      "shortcut" : "control command shift f",
+      "name" : "Flip Contents",
+      "identifier" : "flip horizontally",
     },
     {
       "script" : "script.cocoascript",
@@ -28,13 +35,6 @@
       "shortcut" : "control command shift h",
       "name" : "Highlight Mirrors",
       "identifier" : "highlight mirrors",
-    },
-    {
-      "script" : "script.cocoascript",
-      "handler" : "flipHorizontally",
-      "shortcut" : "",
-      "name" : "Flip Horizontally",
-      "identifier" : "flip horizontally",
     },
   ],
   "menu" : {
