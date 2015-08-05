@@ -19,7 +19,7 @@ Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentat
 ## Contributions
 
 1. Clone the repository
-`git clone https://github.com/jamztang/MagicMirror.sketchplugin.git`
+`git clone https://github.com/jamztang/MagicMirror.git`
 2. Locate `Magic Mirror.sketchplugin`, double click to install the plugin, if you’ve multiple versions of Sketch, you can drag the plugin into the specific Sketch dock icon.
 3. Check that it’s available in the `Plugins` menu.
 
