@@ -1,7 +1,3 @@
-@import "helper.js"
-@import "LayerHelper.cocoascript"
-@import "BezierPathHelper.cocoascript"
-@import "ImageHelper.cocoascript"
 
 var MagicMirror = function(context) {
 

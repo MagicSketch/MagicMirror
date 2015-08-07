@@ -1,10 +1,13 @@
+@import "helper.js"
+@import "LayerHelper.cocoascript"
+@import "BezierPathHelper.cocoascript"
+@import "ImageHelper.cocoascript"
 @import "MagicMirror.coscript"
 
 function mirrorPage(context) {
     var mirror = MagicMirror(context)
     mirror.mirrorPage()
 }
-
 
 function jumpToArtboard(context) {
     var mirror = MagicMirror(context)
