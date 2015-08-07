@@ -112,6 +112,14 @@ var MagicMirror = function(context) {
                 })
             }
             run(context.artboards(), context.layers(), util, createFlattener())
+        },
+
+        activate: function() {
+            var run = function(validator) {
+                log("MagicMirror.activate")
+                validator.promptToValidate()
+            }
+            run(validator)
         }
     }
 
@@ -129,6 +137,7 @@ var MagicMirror = function(context) {
         "rotatePoints": locker.rotatePoints,
         "flipHorizontally": locker.flipHorizontally,
         "highlightMirrors": locker.highlightMirrors,
+        "activate": actioner.activate,
     }
 }
 
@@ -338,8 +347,56 @@ MagicMirror.validator = function(ui, persister) {
     }
 
     function promptToValidate() {
-        var license = ui.input("Please enter your Paypal transaction id:", "")
-        return validate(license)
+
+        var defaultValue = ""
+        var placeholderValue = "e.g. 59J79294TW1881135"
+        var title = "Magic Mirror - Donation" 
+        var message = "Magic Mirror for Sketch 3 is made by a single individual with many hours of effort. If you like the plugin and what it can do for you, please consider donating!\n\nYou can enter your Paypal Transaction ID after donate to activate your license, please click the \"Donate…\" button for more info."
+        var defaultButton = "Enter"
+        var alternateButton = "Donate…"
+        var otherButton = "Later"
+        var statusValue = ""
+
+        var defaultAction = function(value) {
+           log("Enter Tapped")
+            if (value && value.length()) {
+                var info = validate(value)
+
+                if (info && info["success"] == 1) {
+                   log("License Validated! info:")
+                   var desc = "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+                   + "\n\nRegistered to: " + info.first_name + " " + info.last_name
+                   + "\nEmail: " + info.email
+                   + "\nLicense: " + info.transaction_id
+                   + "\n\nThanks for your donation! :)"
+
+                   ui.alert("Magic Mirror - Licensed", desc, "OK", nil, nil)
+
+                   return
+                } else {
+                    statusValue = "incorrect"
+                    log("License failed to validate: " + info)
+                }
+            } else {
+                statusValue = "please"
+                log("no value")
+            }
+
+            ui.inputAlert(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+        }
+        var otherAction = function(value) {
+            log("Later Tapped")
+        }
+        var alternateAction = function(value) {
+            log("Donate… Tapped")
+            statusValue = ""
+            ui.open("http://magicmirror.design/#donate?ref=plugin")
+            ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+        }
+
+        ui.inputAlert(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+
+        return false
     }
 
     function now() {
@@ -349,9 +406,9 @@ MagicMirror.validator = function(ui, persister) {
 
     function validate(license)
     {
-        var url = "http://api.magicmirror.design/verify/" + license + ".json"
+        var url = "http://localhost:5000/verify/" + license + ".json"
         var response = get(url)
-        return response.json()["success"]
+        return response.json()
     }
 
     function lastValidation() {
@@ -375,10 +432,11 @@ MagicMirror.validator = function(ui, persister) {
     }
 
     return {
-        "needsRevalidate": needsRevalidate,
-        "validate": function() {
+        needsRevalidate: needsRevalidate,
+        promptToValidate: promptToValidate,
+        validate: function() {
             var success = promptToValidate()
-            persister.setLicensed(success)
+            // persister.setLicensed(success)
             setLastValidation(now())
             return {
                 "success":success,
@@ -392,23 +450,7 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
     var isLicensed = persister.licensed || false;
 
     function needsPromptDonation() {
-        return (actionsCount % 10 == 0)
-    }
-
-    function promptDonation() {
-        ui.alert("Enjoying Magic Mirror for Sketch 3?, please consider donating :)",
-            [
-                {
-                    name:"Donate",
-                    action: function() {
-                        ui.open("http://magicmirror.design/#donate")
-                    }
-                },
-                {
-                    name:"Later",
-                }
-            ]
-        )
+        return (actionsCount % 1 == 0)
     }
 
     function increaseActionsCount() {
@@ -421,7 +463,7 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
         log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + isLicensed)
         if (needsPromptDonation() && !isLicensed) {
             log("prompt")
-            promptDonation(actionsCount)
+            validator.promptToValidate()
         }
     }
 
@@ -469,17 +511,14 @@ MagicMirror.util = {
 
 MagicMirror.ui = function(context) {
     return {
-        alert : function(message, actions) {
-          var alert = [[NSAlert alloc] init]
-          [alert setMessageText:message]
-          
-          each(actions, function(action) {
-            [alert addButtonWithTitle:action.name]
-          })
-          var responseCode = [alert runModal]
-          var action = actions[responseCode - 1000]["action"] || function() {}
-          action()
-          return responseCode
+        alert: function(title, message, defaultButton, alternateButton, otherButton) {
+            var alert = [NSAlert alertWithMessageText: title
+                                             defaultButton:defaultButton
+                                           alternateButton:alternateButton
+                                               otherButton:otherButton
+                                 informativeTextWithFormat:message];
+
+            return [alert runModal];
         },
         dialog : function(title, message) {
             var app = [NSApplication sharedApplication];
@@ -490,8 +529,43 @@ MagicMirror.ui = function(context) {
             var doc = context.document
             return [doc askForUserInput:question initialValue:initialValue];
         },
+        inputAlert : function(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction) {
+            log("alert:")
+            var alert = [NSAlert alertWithMessageText: title
+                                             defaultButton:defaultButton
+                                           alternateButton:alternateButton
+                                               otherButton:otherButton
+                                 informativeTextWithFormat:message];
+
+            var input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+            [input setStringValue:defaultValue];
+            [input setPlaceholderString:placeholderValue]
+            var statusLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(210, 3, 100, 18)];
+            [statusLabel setStringValue:statusValue];
+            [statusLabel setBordered:false];
+            [statusLabel setBackgroundColor:[NSColor clearColor]];
+            var container = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 310, 24)];
+            [container addSubview:input];
+            [container addSubview:statusLabel];
+            [alert setAccessoryView:container];
+
+            var modal = [alert runModal];
+            [input validateEditing];
+            var inputText = [input stringValue];
+
+            if (modal == NSAlertDefaultReturn ) {
+                defaultAction(inputText)
+            } else if (modal == NSAlertAlternateReturn) {
+                alternateAction(inputText)
+            } else {
+                otherAction(inputText)
+            }
+        },
         open: function(url) {
             [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
-        }
+        },
+        show: function(message) {
+            // this.alert("Magic Mirror", "Thanks for your donation!")
+        },
     }
 }

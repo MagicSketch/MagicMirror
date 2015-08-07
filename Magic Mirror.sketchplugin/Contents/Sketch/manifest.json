@@ -36,6 +36,13 @@
       "name" : "Clear content",
       "identifier" : "clear content",
     },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "activate",
+      "shortcut" : "",
+      "name" : "Activate...",
+      "identifier" : "activate",
+    },
   ],
   "menu" : {
     "isRoot" : false,
@@ -46,6 +53,7 @@
       "rotate content",
       "clear content",
       "flip content",
+      "activate",
     ],
     "title" : "Magic Mirror"
   },

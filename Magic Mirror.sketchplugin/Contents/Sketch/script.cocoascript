@@ -28,3 +28,9 @@ function flipHorizontally(context) {
     var mirror = MagicMirror(context)
     mirror.flipHorizontally()
 }
+
+function activate(context) {
+    log("MagicMirror.donation")
+    var mirror = MagicMirror(context)
+    mirror.activate()
+}
