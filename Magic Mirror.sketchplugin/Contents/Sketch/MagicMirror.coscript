@@ -420,7 +420,7 @@ MagicMirror.validator = function(ui, persister) {
 
     function validate(license)
     {
-        var url = "http://localhost:5000/verify/" + license + ".json"
+        var url = "http://api.magicmirror.design/verify/" + license + ".json"
         var response = get(url)
         return response.json()
     }
@@ -469,7 +469,7 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
     var licensedTo = persister.licensedTo;
 
     function needsPromptDonation() {
-        return (actionsCount % 1 == 0)
+        return (actionsCount % 10 == 0)
     }
 
     function increaseActionsCount() {
