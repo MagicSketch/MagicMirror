@@ -6,11 +6,10 @@
 var MagicMirror = function(context) {
 
     var ctx = MagicMirror.context(context)
+    var ui = MagicMirror.ui(context)
     var util = MagicMirror.util
-    var ui = MagicMirror.ui
     var createFlattener = MagicMirror.flattener
-
-    return {
+    var actioner = {
         context : ctx,
 
         jumpToArtboard : function() {
@@ -18,7 +17,7 @@ var MagicMirror = function(context) {
             var run = function(selections, view, artboards, ui, util) {
                 log("MagicMirror.jumpToArtboard()")
                 if (util.empty(selections)) {
-                    ui.alert("Magic Mirror", "No layer selected. Please select a shape layer in order to perform the Jump To Artboard action.")
+                    ui.dialog("Magic Mirror", "No layer selected. Please select a shape layer in order to perform the Jump To Artboard action.")
                 }
 
                 var selection = selections[0] || {}
@@ -55,7 +54,7 @@ var MagicMirror = function(context) {
                 log("MagicMirror.flipHorizontally()")
 
                 if (util.empty(selections)) {
-                    ui.alert("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
                     return
                 }
 
@@ -82,7 +81,7 @@ var MagicMirror = function(context) {
                 log("MagicMirror.rotatePoints()")
 
                 if (util.empty(selections)) {
-                    ui.alert("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
                     return
                 }
 
@@ -118,6 +117,22 @@ var MagicMirror = function(context) {
             }
             run(context.artboards(), context.layers(), util, createFlattener())
         }
+    }
+
+    var persister = MagicMirror.persister()
+    var validator = MagicMirror.validator(ui, persister)
+    var locker = MagicMirror.locker(actioner, validator, persister, ui)
+
+    return {
+        "needsRevalidate" : validator.needsRevalidate,
+        "validate": validator.validate,
+        "isLicensed" : persister.licensed,
+        "actionsCount": locker.actionsCount,
+        "jumpToArtboard": locker.jumpToArtboard,
+        "mirrorPage": locker.mirrorPage,
+        "rotatePoints": locker.rotatePoints,
+        "flipHorizontally": locker.flipHorizontally,
+        "highlightMirrors": locker.highlightMirrors,
     }
 }
 
@@ -240,6 +255,206 @@ MagicMirror.view = function(view) {
     }
 }
 
+
+MagicMirror.persister = function() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var allKeys = {
+        "actionsCount":"design.magicmirror.actionscount",
+        "lastValidation":"design.magicmirror.lastvalidation",
+        "licensed":"design.magicmirror.licensed",
+    }
+    var actionsCount = 0
+    var lastValidation = null
+    var licensed = false
+    reload()
+
+    function save() {
+        defaults.synchronize()
+    }
+
+    function reset() {
+        log("reset")
+        for (key in allKeys) {
+            defaults.removeObjectForKey(allKeys[key])
+        }
+        save()
+        reload()
+    }
+
+    function reload() {
+        actionsCount = defaults.integerForKey(allKeys["actionsCount"])
+        lastValidation = defaults.objectForKey(allKeys["lastValidation"])
+        licensed = defaults.boolForKey(allKeys["licensed"])
+        print("actionsCount: " + actionsCount)
+    }
+
+    return {
+        "reset":function() {
+            reset()
+            this.actionsCount = actionsCount
+            this.lastValidation = lastValidation
+            this.licensed = licensed
+        },
+        "actionsCount":actionsCount,
+        "setActionsCount":function(count) {
+            defaults.setInteger_forKey_(count, allKeys["actionsCount"])
+            save()
+        },
+        "lastValidation":lastValidation,
+        "setLastValidation":function(date) {
+            defaults.setObject_forKey_(date, allKeys["lastValidation"])
+            save()
+        },
+        "licensed":licensed,
+        "setLicensed":function(licensed) {
+            defaults.setBool_forKey_(licensed, allKeys["licensed"])
+            save()
+        }
+    }
+}
+
+MagicMirror.validator = function(ui, persister) {
+
+    function get(urlString) {
+        var theUrl = [NSURL URLWithString:urlString]
+        
+        // define the request
+        var theRequest = NSMutableURLRequest.requestWithURL_cachePolicy_timeoutInterval(theUrl, NSURLRequestReloadIgnoringLocalCacheData, 60);
+        theRequest.setHTTPMethod_("GET");
+        
+        // get response data
+        var theResponse = null, error = null, theResponseData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:theResponse error:error];
+        
+        return {
+            "url":theUrl,
+            "response": theResponse,
+            "data":theResponseData,
+            "error":error,
+            "json":function() {
+                if (this.data) {
+                    var theText = [[NSString alloc] initWithData:this.data encoding:NSUTF8StringEncoding];
+                    var parsed = JSON.parse(theText);
+                    return parsed
+                }
+                return {}
+            },
+        }
+    }
+
+    function promptToValidate() {
+        var license = ui.input("Please enter your Paypal transaction id:", "")
+        return validate(license)
+    }
+
+    function now() {
+        var now = NSDate.alloc().init()
+        return now
+    }
+
+    function validate(license)
+    {
+        var url = "http://api.magicmirror.design/verify/" + license + ".json"
+        var response = get(url)
+        return response.json()["success"]
+    }
+
+    function lastValidation() {
+        var date = persister.lastValidation
+        return date
+    }
+
+    function setLastValidation(date) {
+        persister.setLastValidation(date)
+    }
+
+    function sinceLastValidation() {    
+        var past = lastValidation() || NSDate.distantPast()
+        var seconds = now().timeIntervalSinceDate(past)
+        return seconds
+    }
+
+    function needsRevalidate() {
+        var day = 24 * 60 * 60 // one day
+        return sinceLastValidation() >= day
+    }
+
+    return {
+        "needsRevalidate": needsRevalidate,
+        "validate": function() {
+            var success = promptToValidate()
+            persister.setLicensed(success)
+            setLastValidation(now())
+            return {
+                "success":success,
+            }
+        },
+    }
+};
+
+MagicMirror.locker = function(actioner, validator, persister, ui) {
+    var actionsCount = persister.actionsCount || 0
+    var isLicensed = persister.licensed || false;
+
+    function needsPromptDonation() {
+        return (actionsCount % 10 == 0)
+    }
+
+    function promptDonation() {
+        ui.alert("Enjoying Magic Mirror for Sketch 3?, please consider donating :)",
+            [
+                {
+                    name:"Donate",
+                    action: function() {
+                        ui.open("http://magicmirror.design/#donate")
+                    }
+                },
+                {
+                    name:"Later",
+                }
+            ]
+        )
+    }
+
+    function increaseActionsCount() {
+        actionsCount++
+        persister.setActionsCount(actionsCount)
+    }
+
+    function afterAction() {
+        increaseActionsCount()
+        log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + isLicensed)
+        if (needsPromptDonation() && !isLicensed) {
+            log("prompt")
+            promptDonation(actionsCount)
+        }
+    }
+
+    return {
+        actionsCount:actionsCount,
+        isLicensed:isLicensed,
+        mirrorPage:function() {
+            actioner.mirrorPage()
+            afterAction()
+        },
+        jumpToArtboard:function() {
+            actioner.jumpToArtboard()
+            afterAction()
+        },
+        rotatePoints:function() {
+            actioner.rotatePoints()
+            afterAction()
+        },
+        flipHorizontally:function() {
+            actioner.flipHorizontally()
+            afterAction()
+        },
+        highlightMirrors:function() {
+            actioner.highlightMirrors()
+            afterAction()
+        }
+    }
+}
+
 MagicMirror.util = {
     empty : function(array) {
         return (array == nil || array.length == 0)
@@ -256,9 +471,31 @@ MagicMirror.util = {
     }
 }
 
-MagicMirror.ui = {
-    alert : function(title, message) {
-        var app = [NSApplication sharedApplication];
-	    [app displayDialog:message withTitle:title];
+MagicMirror.ui = function(context) {
+    return {
+        alert : function(message, actions) {
+          var alert = [[NSAlert alloc] init]
+          [alert setMessageText:message]
+          
+          each(actions, function(action) {
+            [alert addButtonWithTitle:action.name]
+          })
+          var responseCode = [alert runModal]
+          var action = actions[responseCode - 1000]["action"] || function() {}
+          action()
+          return responseCode
+        },
+        dialog : function(title, message) {
+            var app = [NSApplication sharedApplication];
+    	    var dialog = [app displayDialog:message withTitle:title];
+            return dialog
+        },
+        input: function(question, initialValue) {
+            var doc = context.document
+            return [doc askForUserInput:question initialValue:initialValue];
+        },
+        open: function(url) {
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        }
     }
 }
