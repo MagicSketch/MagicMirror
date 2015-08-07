@@ -117,7 +117,7 @@ var MagicMirror = function(context) {
         activate: function() {
             var run = function(validator) {
                 log("MagicMirror.activate")
-                validator.promptToValidate()
+                validator.promptActivation()
             }
             run(validator)
         }
@@ -130,7 +130,7 @@ var MagicMirror = function(context) {
     return {
         "needsRevalidate" : validator.needsRevalidate,
         "validate": validator.validate,
-        "isLicensed" : persister.licensed,
+        "licensedTo" : persister.licensedTo,
         "actionsCount": locker.actionsCount,
         "jumpToArtboard": locker.jumpToArtboard,
         "mirrorPage": locker.mirrorPage,
@@ -266,11 +266,11 @@ MagicMirror.persister = function() {
     var allKeys = {
         "actionsCount":"design.magicmirror.actionscount",
         "lastValidation":"design.magicmirror.lastvalidation",
-        "licensed":"design.magicmirror.licensed",
+        "licensedTo":"design.magicmirror.licensedto",
     }
     var actionsCount = 0
     var lastValidation = null
-    var licensed = false
+    var licensedTo = {}
     reload()
 
     function save() {
@@ -289,8 +289,8 @@ MagicMirror.persister = function() {
     function reload() {
         actionsCount = defaults.integerForKey(allKeys["actionsCount"])
         lastValidation = defaults.objectForKey(allKeys["lastValidation"])
-        licensed = defaults.boolForKey(allKeys["licensed"])
-        print("actionsCount: " + actionsCount)
+        licensedTo = defaults.objectForKey(allKeys["licensedTo"])
+        print("licensedTo: " + licensedTo)
     }
 
     return {
@@ -298,7 +298,7 @@ MagicMirror.persister = function() {
             reset()
             this.actionsCount = actionsCount
             this.lastValidation = lastValidation
-            this.licensed = licensed
+            this.licensedTo = licensedTo
         },
         "actionsCount":actionsCount,
         "setActionsCount":function(count) {
@@ -310,9 +310,13 @@ MagicMirror.persister = function() {
             defaults.setObject_forKey_(date, allKeys["lastValidation"])
             save()
         },
-        "licensed":licensed,
-        "setLicensed":function(licensed) {
-            defaults.setBool_forKey_(licensed, allKeys["licensed"])
+        "licensedTo":licensedTo,
+        "setLicensedTo":function(licensedTo) {
+            if (!licensedTo) {
+                defaults.removeObjectForKey(allKeys["licensedTo"])
+            } else {
+                defaults.setObject_forKey_(licensedTo, allKeys["licensedTo"])
+            }
             save()
         }
     }
@@ -346,6 +350,22 @@ MagicMirror.validator = function(ui, persister) {
         }
     }
 
+    function promptLicenseInfo(info) {
+       var desc = "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+       + "\n\nRegistered to: " + info.first_name + " " + info.last_name
+       + "\nEmail: " + info.email
+       + "\nLicense: " + info.transaction_id
+       + "\n\nThanks for your donation! :)"
+
+        var modal = ui.alert("Magic Mirror - Licensed", desc, "OK", "Cancel", "Deregister...")
+        if (modal == NSAlertDefaultReturn ) {
+            
+        } else if (modal == NSAlertAlternateReturn) {
+        } else {
+            persister.setLicensedTo(null)
+        }
+    }
+
     function promptToValidate() {
 
         var defaultValue = ""
@@ -361,24 +381,18 @@ MagicMirror.validator = function(ui, persister) {
            log("Enter Tapped")
             if (value && value.length()) {
                 var info = validate(value)
-
                 if (info && info["success"] == 1) {
+                   persister.setLicensedTo(info)
                    log("License Validated! info:")
-                   var desc = "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
-                   + "\n\nRegistered to: " + info.first_name + " " + info.last_name
-                   + "\nEmail: " + info.email
-                   + "\nLicense: " + info.transaction_id
-                   + "\n\nThanks for your donation! :)"
-
-                   ui.alert("Magic Mirror - Licensed", desc, "OK", nil, nil)
-
+                   log(info)
+                   promptLicenseInfo(info)
                    return
                 } else {
                     statusValue = "incorrect"
                     log("License failed to validate: " + info)
                 }
             } else {
-                statusValue = "please"
+                statusValue = "please input"
                 log("no value")
             }
 
@@ -433,10 +447,15 @@ MagicMirror.validator = function(ui, persister) {
 
     return {
         needsRevalidate: needsRevalidate,
-        promptToValidate: promptToValidate,
+        promptActivation: function() {
+            if (!persister.licensedTo) {
+                promptToValidate()
+            } else {
+                promptLicenseInfo(persister.licensedTo)
+            }
+        },
         validate: function() {
             var success = promptToValidate()
-            // persister.setLicensed(success)
             setLastValidation(now())
             return {
                 "success":success,
@@ -447,7 +466,7 @@ MagicMirror.validator = function(ui, persister) {
 
 MagicMirror.locker = function(actioner, validator, persister, ui) {
     var actionsCount = persister.actionsCount || 0
-    var isLicensed = persister.licensed || false;
+    var licensedTo = persister.licensedTo;
 
     function needsPromptDonation() {
         return (actionsCount % 1 == 0)
@@ -460,16 +479,16 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
 
     function afterAction() {
         increaseActionsCount()
-        log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + isLicensed)
-        if (needsPromptDonation() && !isLicensed) {
+        log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + licensedTo)
+        if (needsPromptDonation() && !licensedTo) {
             log("prompt")
-            validator.promptToValidate()
+            validator.promptActivation()
         }
     }
 
     return {
         actionsCount:actionsCount,
-        isLicensed:isLicensed,
+        licensedTo:licensedTo,
         mirrorPage:function() {
             actioner.mirrorPage()
             afterAction()
@@ -522,7 +541,7 @@ MagicMirror.ui = function(context) {
         },
         dialog : function(title, message) {
             var app = [NSApplication sharedApplication];
-    	    var dialog = [app displayDialog:message withTitle:title];
+            var dialog = [app displayDialog:message withTitle:title];
             return dialog
         },
         input: function(question, initialValue) {
