@@ -64,4 +64,5 @@ Without him this would likely took me few more nights, or might at worst not pos
 ## License
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
-License file is located at `Magic Mirror.sketchplugin/LICENSE.html`
+A more permissive license for commercial use can be optained through [donation](http://magicmirror.design/#donate)
+
