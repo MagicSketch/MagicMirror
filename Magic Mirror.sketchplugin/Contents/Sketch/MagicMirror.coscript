@@ -502,8 +502,12 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
             afterAction()
         },
         flipHorizontally:function() {
-            actioner.flipHorizontally()
-            afterAction()
+            if (!licensedTo) {
+                log("no license")
+                validator.promptActivation()
+            } else {
+                actioner.flipHorizontally()
+            }
         },
         highlightMirrors:function() {
             actioner.highlightMirrors()
