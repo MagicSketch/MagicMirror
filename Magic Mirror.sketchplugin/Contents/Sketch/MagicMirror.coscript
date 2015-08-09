@@ -404,7 +404,7 @@ MagicMirror.validator = function(ui, persister) {
         var alternateAction = function(value) {
             log("Donate… Tapped")
             statusValue = ""
-            ui.open("http://magicmirror.design/#donate?ref=plugin")
+            ui.open("http://magicmirror.design/#donate?utm_source=plugin&utm_medium=plugin&utm_campaign=flipcontent")
             ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
         }
 
