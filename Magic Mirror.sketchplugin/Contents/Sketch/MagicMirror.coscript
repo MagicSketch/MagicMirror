@@ -351,7 +351,7 @@ MagicMirror.validator = function(ui, persister) {
     }
 
     function promptLicenseInfo(info) {
-       var desc = "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+       var desc = "\"Magic Mirror - Licensed\" is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
        + "\n\nRegistered to: " + info.first_name + " " + info.last_name
        + "\nEmail: " + info.email
        + "\nLicense: " + info.transaction_id
@@ -370,8 +370,8 @@ MagicMirror.validator = function(ui, persister) {
 
         var defaultValue = ""
         var placeholderValue = "e.g. 59J79294TW1881135"
-        var title = "Magic Mirror - Donation" 
-        var message = "Magic Mirror for Sketch 3 is made by a single individual with many hours of effort. If you like the plugin and what it can do for you, please consider donating!\n\nYou can enter your Paypal Transaction ID after donate to activate your license, please click the \"Donate…\" button for more info."
+        var title = "Magic Mirror - Free" 
+        var message = "\"Magic Mirror - Free\" is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.\n\nIt's free for personal use, and a more permissive license can be obtained through donation.\n\nYou can enter your Paypal Transaction ID to activate your license, please click the \"Donate…\" button for more info."
         var defaultButton = "Enter"
         var alternateButton = "Donate…"
         var otherButton = "Later"
@@ -512,6 +512,31 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
     }
 }
 
+MagicMirror.resource = function(context) {
+    
+    var plugin = context.plugin
+    var imageFromURL = function(url) {
+        var image = [[NSImage alloc] initWithContentsOfURL:url];
+        return image;
+    }
+    var urlForResourceNamed = function(name) {
+        var url = [plugin urlForResourceNamed:name]
+        return url
+    }
+
+    return {
+        image: function(name) {
+            log("name: " + name)
+            var url = urlForResourceNamed(name)
+            log("url: " + url)
+            if (url) {
+                return imageFromURL(url)
+            }
+            return null
+        }
+    }
+}
+
 MagicMirror.util = {
     empty : function(array) {
         return (array == nil || array.length == 0)
@@ -529,6 +554,8 @@ MagicMirror.util = {
 }
 
 MagicMirror.ui = function(context) {
+
+    var resource = MagicMirror.resource(context)
     return {
         alert: function(title, message, defaultButton, alternateButton, otherButton) {
             var alert = [NSAlert alertWithMessageText: title
@@ -555,6 +582,8 @@ MagicMirror.ui = function(context) {
                                            alternateButton:alternateButton
                                                otherButton:otherButton
                                  informativeTextWithFormat:message];
+            var icon = resource.image("icon.png")
+            [alert setIcon:icon]
 
             var input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
             [input setStringValue:defaultValue];
