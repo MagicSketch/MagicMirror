@@ -1,16 +1,11 @@
-@import "helper.js"
-@import "LayerHelper.cocoascript"
-@import "BezierPathHelper.cocoascript"
-@import "ImageHelper.cocoascript"
 
 var MagicMirror = function(context) {
 
     var ctx = MagicMirror.context(context)
+    var ui = MagicMirror.ui(context)
     var util = MagicMirror.util
-    var ui = MagicMirror.ui
     var createFlattener = MagicMirror.flattener
-
-    return {
+    var actioner = {
         context : ctx,
 
         jumpToArtboard : function() {
@@ -18,7 +13,7 @@ var MagicMirror = function(context) {
             var run = function(selections, view, artboards, ui, util) {
                 log("MagicMirror.jumpToArtboard()")
                 if (util.empty(selections)) {
-                    ui.alert("Magic Mirror", "No layer selected. Please select a shape layer in order to perform the Jump To Artboard action.")
+                    ui.dialog("Magic Mirror", "No layer selected. Please select a shape layer in order to perform the Jump To Artboard action.")
                 }
 
                 var selection = selections[0] || {}
@@ -48,13 +43,41 @@ var MagicMirror = function(context) {
             run(context.artboards(), context.layers(), util, createFlattener())
         },
 
+
+        flipHorizontally : function(context) {
+            var context = this.context
+            var run = function(artboards, selections, ui, util, flattener) {
+                log("MagicMirror.flipHorizontally()")
+
+                if (util.empty(selections)) {
+                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    return
+                }
+
+                var lookup = util.createLookup(artboards)
+                each(selections, function(selection) {
+                    if (selection.pointsRotatable) {
+                        selection.flipHorizontally()
+                        var artboard = lookup[selection.name] 
+                        if (selection.mirrorable && artboard) {
+                            flattener.perspectiveTransform(artboard, selection)
+                        }
+                    } else {
+                        util.debug("selection: " + selection.name + " not rotatable")
+                    }
+                })
+            }
+
+            run(context.artboards(), context.selections(), ui, util, createFlattener())
+        },
+
         rotatePoints : function(context) {
             var context = this.context
             var run = function(artboards, selections, ui, util, flattener) {
                 log("MagicMirror.rotatePoints()")
 
                 if (util.empty(selections)) {
-                    ui.alert("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
                     return
                 }
 
@@ -84,12 +107,37 @@ var MagicMirror = function(context) {
                     var parent = layer.artboard
                     var artboard = lookup[layer.name]
                     if (layer.mirrorable && artboard) {
-                        layer.fillColor("#CCCCCC")
+                        layer.fillColor("#FFFFFF")
                     }
                 })
             }
             run(context.artboards(), context.layers(), util, createFlattener())
+        },
+
+        activate: function() {
+            var run = function(validator) {
+                log("MagicMirror.activate")
+                validator.promptActivation()
+            }
+            run(validator)
         }
+    }
+
+    var persister = MagicMirror.persister()
+    var validator = MagicMirror.validator(ui, persister)
+    var locker = MagicMirror.locker(actioner, validator, persister, ui)
+
+    return {
+        "needsRevalidate" : validator.needsRevalidate,
+        "validate": validator.validate,
+        "licensedTo" : persister.licensedTo,
+        "actionsCount": locker.actionsCount,
+        "jumpToArtboard": locker.jumpToArtboard,
+        "mirrorPage": locker.mirrorPage,
+        "rotatePoints": locker.rotatePoints,
+        "flipHorizontally": locker.flipHorizontally,
+        "highlightMirrors": locker.highlightMirrors,
+        "activate": actioner.activate,
     }
 }
 
@@ -165,6 +213,12 @@ MagicMirror.layer = function(mslayer) {
                 mslayer.setBezierPath(rotated)
                 log("rotate: " + this.name)
             },
+            flipHorizontally:function() {
+                var bezierPath = LayerHelper.getBezierPath(mslayer)
+                var flipped = BezierPathHelper.flipShiftX(bezierPath)
+                mslayer.setBezierPath(flipped)
+                mslayer.isFlippedHorizontal = !mslayer.isFlippedHorizontal()
+            },
             fillColor: function(hex) {
                 LayerHelper.fillColor(mslayer, hex)
             },
@@ -189,8 +243,7 @@ MagicMirror.flattener = function() {
             var image = LayerHelper.getImage(from.layer, this.flattener)
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
             var quad = BezierPathHelper.getQuad(bezierPath)
-            var resized = ImageHelper.resizeImage(image, layer.boundsRect().size)   // For unknown reason, resizing before doing transform seemed to fix missing thumbnail issue when first applying Magic Mirror
-            var transformed = ImageHelper.perspectiveTransform(resized, quad.tl, quad.tr, quad.bl, quad.br)
+            var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name)
         }
@@ -203,6 +256,283 @@ MagicMirror.view = function(view) {
         zoomToArtboard:function(artboard) {
             log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame + ", view:" + this.view)
             this.view.zoomToFitRect(NSInsetRect(artboard.rect, -50, -50));
+        }
+    }
+}
+
+
+MagicMirror.persister = function() {
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var allKeys = {
+        "actionsCount":"design.magicmirror.actionscount",
+        "lastValidation":"design.magicmirror.lastvalidation",
+        "licensedTo":"design.magicmirror.licensedto",
+    }
+    var actionsCount = 0
+    var lastValidation = null
+    var licensedTo = {}
+    reload()
+
+    function save() {
+        defaults.synchronize()
+    }
+
+    function reset() {
+        log("reset")
+        for (key in allKeys) {
+            defaults.removeObjectForKey(allKeys[key])
+        }
+        save()
+        reload()
+    }
+
+    function reload() {
+        actionsCount = defaults.integerForKey(allKeys["actionsCount"])
+        lastValidation = defaults.objectForKey(allKeys["lastValidation"])
+        licensedTo = defaults.objectForKey(allKeys["licensedTo"])
+        print("licensedTo: " + licensedTo)
+    }
+
+    return {
+        "reset":function() {
+            reset()
+            this.actionsCount = actionsCount
+            this.lastValidation = lastValidation
+            this.licensedTo = licensedTo
+        },
+        "actionsCount":actionsCount,
+        "setActionsCount":function(count) {
+            defaults.setInteger_forKey_(count, allKeys["actionsCount"])
+            save()
+        },
+        "lastValidation":lastValidation,
+        "setLastValidation":function(date) {
+            defaults.setObject_forKey_(date, allKeys["lastValidation"])
+            save()
+        },
+        "licensedTo":licensedTo,
+        "setLicensedTo":function(licensedTo) {
+            if (!licensedTo) {
+                defaults.removeObjectForKey(allKeys["licensedTo"])
+            } else {
+                defaults.setObject_forKey_(licensedTo, allKeys["licensedTo"])
+            }
+            save()
+        }
+    }
+}
+
+MagicMirror.validator = function(ui, persister) {
+
+    function get(urlString) {
+        var theUrl = [NSURL URLWithString:urlString]
+        
+        // define the request
+        var theRequest = NSMutableURLRequest.requestWithURL_cachePolicy_timeoutInterval(theUrl, NSURLRequestReloadIgnoringLocalCacheData, 60);
+        theRequest.setHTTPMethod_("GET");
+        
+        // get response data
+        var theResponse = null, error = null, theResponseData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:theResponse error:error];
+        
+        return {
+            "url":theUrl,
+            "response": theResponse,
+            "data":theResponseData,
+            "error":error,
+            "json":function() {
+                if (this.data) {
+                    var theText = [[NSString alloc] initWithData:this.data encoding:NSUTF8StringEncoding];
+                    var parsed = JSON.parse(theText);
+                    return parsed
+                }
+                return {}
+            },
+        }
+    }
+
+    function promptLicenseInfo(info) {
+       var desc = "\"Magic Mirror - Licensed\" is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+       + "\n\nRegistered to: " + info.first_name + " " + info.last_name
+       + "\nEmail: " + info.email
+       + "\nLicense: " + info.transaction_id
+       + "\n\nThanks for your donation! :)"
+
+        var modal = ui.alert("Magic Mirror - Licensed", desc, "OK", "Cancel", "Deregister...")
+        if (modal == NSAlertDefaultReturn ) {
+            
+        } else if (modal == NSAlertAlternateReturn) {
+        } else {
+            persister.setLicensedTo(null)
+        }
+    }
+
+    function promptToValidate() {
+
+        var defaultValue = ""
+        var placeholderValue = "e.g. 59J79294TW1881135"
+        var title = "Magic Mirror - Free" 
+        var message = "\"Magic Mirror - Free\" is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.\n\nIt's free for personal use, and a more permissive license can be obtained through donation.\n\nYou can enter your Paypal Transaction ID to activate your license, please click the \"Donate…\" button for more info."
+        var defaultButton = "Enter"
+        var alternateButton = "Donate…"
+        var otherButton = "Later"
+        var statusValue = ""
+
+        var defaultAction = function(value) {
+           log("Enter Tapped")
+            if (value && value.length()) {
+                var info = validate(value)
+                if (info && info["success"] == 1) {
+                   persister.setLicensedTo(info)
+                   log("License Validated! info:")
+                   log(info)
+                   promptLicenseInfo(info)
+                   return
+                } else {
+                    statusValue = "incorrect"
+                    log("License failed to validate: " + info)
+                }
+            } else {
+                statusValue = "please input"
+                log("no value")
+            }
+
+            ui.inputAlert(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+        }
+        var otherAction = function(value) {
+            log("Later Tapped")
+        }
+        var alternateAction = function(value) {
+            log("Donate… Tapped")
+            statusValue = ""
+            ui.open("http://magicmirror.design/#donate?utm_source=plugin&utm_medium=plugin&utm_campaign=flipcontent")
+            ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+        }
+
+        ui.inputAlert(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
+
+        return false
+    }
+
+    function now() {
+        var now = NSDate.alloc().init()
+        return now
+    }
+
+    function validate(license)
+    {
+        var url = "http://api.magicmirror.design/verify/" + license + ".json"
+        var response = get(url)
+        return response.json()
+    }
+
+    function lastValidation() {
+        var date = persister.lastValidation
+        return date
+    }
+
+    function setLastValidation(date) {
+        persister.setLastValidation(date)
+    }
+
+    function sinceLastValidation() {    
+        var past = lastValidation() || NSDate.distantPast()
+        var seconds = now().timeIntervalSinceDate(past)
+        return seconds
+    }
+
+    function needsRevalidate() {
+        var day = 24 * 60 * 60 // one day
+        return sinceLastValidation() >= day
+    }
+
+    return {
+        needsRevalidate: needsRevalidate,
+        promptActivation: function() {
+            if (!persister.licensedTo) {
+                promptToValidate()
+            } else {
+                promptLicenseInfo(persister.licensedTo)
+            }
+        },
+        validate: function() {
+            var success = promptToValidate()
+            setLastValidation(now())
+            return {
+                "success":success,
+            }
+        },
+    }
+};
+
+MagicMirror.locker = function(actioner, validator, persister, ui) {
+    var actionsCount = persister.actionsCount || 0
+    var licensedTo = persister.licensedTo;
+
+    function needsPromptDonation() {
+        return (actionsCount % 10 == 0)
+    }
+
+    function increaseActionsCount() {
+        actionsCount++
+        persister.setActionsCount(actionsCount)
+    }
+
+    function afterAction() {
+        increaseActionsCount()
+        log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + licensedTo)
+        if (needsPromptDonation() && !licensedTo) {
+            log("prompt")
+            validator.promptActivation()
+        }
+    }
+
+    return {
+        actionsCount:actionsCount,
+        licensedTo:licensedTo,
+        mirrorPage:function() {
+            actioner.mirrorPage()
+            afterAction()
+        },
+        jumpToArtboard:function() {
+            actioner.jumpToArtboard()
+            afterAction()
+        },
+        rotatePoints:function() {
+            actioner.rotatePoints()
+            afterAction()
+        },
+        flipHorizontally:function() {
+            actioner.flipHorizontally()
+            afterAction()
+        },
+        highlightMirrors:function() {
+            actioner.highlightMirrors()
+            afterAction()
+        }
+    }
+}
+
+MagicMirror.resource = function(context) {
+    
+    var plugin = context.plugin
+    var imageFromURL = function(url) {
+        var image = [[NSImage alloc] initWithContentsOfURL:url];
+        return image;
+    }
+    var urlForResourceNamed = function(name) {
+        var url = [plugin urlForResourceNamed:name]
+        return url
+    }
+
+    return {
+        image: function(name) {
+            log("name: " + name)
+            var url = urlForResourceNamed(name)
+            log("url: " + url)
+            if (url) {
+                return imageFromURL(url)
+            }
+            return null
         }
     }
 }
@@ -223,9 +553,67 @@ MagicMirror.util = {
     }
 }
 
-MagicMirror.ui = {
-    alert : function(title, message) {
-        var app = [NSApplication sharedApplication];
-	    [app displayDialog:message withTitle:title];
+MagicMirror.ui = function(context) {
+
+    var resource = MagicMirror.resource(context)
+    return {
+        alert: function(title, message, defaultButton, alternateButton, otherButton) {
+            var alert = [NSAlert alertWithMessageText: title
+                                             defaultButton:defaultButton
+                                           alternateButton:alternateButton
+                                               otherButton:otherButton
+                                 informativeTextWithFormat:message];
+
+            return [alert runModal];
+        },
+        dialog : function(title, message) {
+            var app = [NSApplication sharedApplication];
+            var dialog = [app displayDialog:message withTitle:title];
+            return dialog
+        },
+        input: function(question, initialValue) {
+            var doc = context.document
+            return [doc askForUserInput:question initialValue:initialValue];
+        },
+        inputAlert : function(title, message, defaultValue, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction) {
+            log("alert:")
+            var alert = [NSAlert alertWithMessageText: title
+                                             defaultButton:defaultButton
+                                           alternateButton:alternateButton
+                                               otherButton:otherButton
+                                 informativeTextWithFormat:message];
+            var icon = resource.image("icon.png")
+            [alert setIcon:icon]
+
+            var input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+            [input setStringValue:defaultValue];
+            [input setPlaceholderString:placeholderValue]
+            var statusLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(210, 3, 100, 18)];
+            [statusLabel setStringValue:statusValue];
+            [statusLabel setBordered:false];
+            [statusLabel setBackgroundColor:[NSColor clearColor]];
+            var container = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 310, 24)];
+            [container addSubview:input];
+            [container addSubview:statusLabel];
+            [alert setAccessoryView:container];
+
+            var modal = [alert runModal];
+            [input validateEditing];
+            var inputText = [input stringValue];
+
+            if (modal == NSAlertDefaultReturn ) {
+                defaultAction(inputText)
+            } else if (modal == NSAlertAlternateReturn) {
+                alternateAction(inputText)
+            } else {
+                otherAction(inputText)
+            }
+        },
+        open: function(url) {
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        },
+        show: function(message) {
+            // this.alert("Magic Mirror", "Thanks for your donation!")
+        },
     }
 }

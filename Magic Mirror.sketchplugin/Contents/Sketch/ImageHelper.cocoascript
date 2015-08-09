@@ -20,6 +20,13 @@ var ImageHelper = {
 		return imageRef
 	},
 
+	"getCIImageFromNSImage":function(nsimage) {
+		var tiffData = [nsimage TIFFRepresentation];
+		var bitmap = [NSBitmapImageRep imageRepWithData:tiffData];
+		var ciImage = [[CIImage alloc] initWithBitmapImageRep:bitmap];
+		return ciImage;
+	},
+
 	"getCIImage":function(cgimage) {
 		var ciimage = [CIImage imageWithCGImage:cgimage];
 		return ciimage;
@@ -32,18 +39,25 @@ var ImageHelper = {
 		return image;
 	},
 
-	"perspectiveTransform": function (nsimage, topLeft, topRight, bottomLeft, bottomRight) {
+	"perspectiveTransform": function (nsimage, topLeft, topRight, bottomLeft, bottomRight, size) {
 		var cgimage = ImageHelper.getCGImage(nsimage)
 		var ciimage = ImageHelper.getCIImage(cgimage)
-    	var y = nsimage.size().height;
-    	var filter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
-        [filter setValue:ciimage forKey:@"inputImage"];
+    	var y = size.height;
+    	var filter = [CIFilter filterWithName:"CIPerspectiveTransform"];
+        [filter setValue:ciimage forKey:"inputImage"];
         [filter setValue:[CIVector vectorWithX:topLeft.x Y:y - topLeft.y] forKey:"inputTopLeft"];
         [filter setValue:[CIVector vectorWithX:topRight.x Y:y - topRight.y] forKey:"inputTopRight"];
         [filter setValue:[CIVector vectorWithX:bottomRight.x Y:y - bottomRight.y] forKey:"inputBottomRight"];
         [filter setValue:[CIVector vectorWithX:bottomLeft.x Y:y - bottomLeft.y] forKey:"inputBottomLeft"];
 		var output = filter.outputImage() // CIImage
 		return ImageHelper.getNSImage(output)
+	},
+
+	"horizontalTransform" : function(nsimage) {
+		var cgimage = ImageHelper.getCGImage(nsimage)
+		var c = ImageHelper.getCIImage(cgimage)
+		c = [c imageByApplyingTransform:CGAffineTransformTranslate(CGAffineTransformMakeScale(-1, 1), 0, c.extent().size.height)];
+		return ImageHelper.getNSImage(c)
 	},
 
 	"resizeImage": function(nsimage, nssize) {
