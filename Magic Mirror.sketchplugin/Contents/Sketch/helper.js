@@ -29,3 +29,7 @@ var each = function(array, callback) {
         callback(array[i])
     }
 }
+
+var contains = function(array, object) {
+    return array.indexOf(object) != -1
+}

@@ -18,7 +18,7 @@ var MagicMirror = function(context) {
 
                 var selection = selections[0] || {}
                 var lookup = util.createLookup(artboards)
-                var artboard = lookup[selection.name]
+                var artboard = selection.matchingArtboard(lookup)
                 if (artboard) {
                     view.zoomToArtboard(artboard)
                 }
@@ -34,8 +34,8 @@ var MagicMirror = function(context) {
                 var lookup = util.createLookup(artboards)
                 each(layers, function(layer) {
                     var parent = layer.artboard
-                    var artboard = lookup[layer.name]
-                    if (layer.mirrorable && artboard) {
+                    var artboard = layer.matchingArtboard(lookup)
+                    if (artboard) {
                         flattener.perspectiveTransform(artboard, layer)
                     }
                 })
@@ -58,8 +58,8 @@ var MagicMirror = function(context) {
                 each(selections, function(selection) {
                     if (selection.pointsRotatable) {
                         selection.flipHorizontally()
-                        var artboard = lookup[selection.name] 
-                        if (selection.mirrorable && artboard) {
+                        var artboard = selection.matchingArtboard(lookup)
+                        if (artboard) {
                             flattener.perspectiveTransform(artboard, selection)
                         }
                     } else {
@@ -85,8 +85,8 @@ var MagicMirror = function(context) {
                 each (selections, function(selection) {
                     if (selection.pointsRotatable) {
                         selection.rotatePoints()
-                        var artboard = lookup[selection.name] 
-                        if (selection.mirrorable && artboard) {
+                        var artboard = selection.matchingArtboard(lookup)
+                        if (artboard) {
                             flattener.perspectiveTransform(artboard, selection)
                         }
                     } else {
@@ -105,8 +105,8 @@ var MagicMirror = function(context) {
                 var lookup = util.createLookup(artboards)
                 each(layers, function(layer) {
                     var parent = layer.artboard
-                    var artboard = lookup[layer.name]
-                    if (layer.mirrorable && artboard) {
+                    var artboard = layer.matchingArtboard(lookup)
+                    if (artboard) {
                         layer.fillColor("#FFFFFF")
                     }
                 })
@@ -121,6 +121,7 @@ var MagicMirror = function(context) {
             }
             run(validator)
         }
+
     }
 
     var persister = MagicMirror.persister()
@@ -138,6 +139,7 @@ var MagicMirror = function(context) {
         "flipHorizontally": locker.flipHorizontally,
         "highlightMirrors": locker.highlightMirrors,
         "activate": actioner.activate,
+        "selections": ctx.selections,
     }
 }
 
@@ -202,10 +204,18 @@ MagicMirror.layer = function(mslayer) {
     if (mslayer.className && mslayer.className().toString() == "MSShapeGroup") {
         var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         var layerName = mslayer.name()
+        var tokenizedName = layerName.split(" ")
+        var identifier = tokenizedName[0]
         return {
             artboard: artboard,
             name: layerName,
-            mirrorable: true || (artboard.name != layerName),
+            identifier: identifier,
+            matchingArtboard:function(lookup) {
+                return lookup[this.identifier]
+            },
+            tokens: function() {
+                return LayerHelper.getTokens(this.layer)
+            },
             pointsRotatable: true,
             rotatePoints:function() {
                 var bezierPath = LayerHelper.getBezierPath(mslayer)
@@ -227,9 +237,10 @@ MagicMirror.layer = function(mslayer) {
     } else {
         //var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         return {
-            //artboard: artboard,
+            matchingArtboard: function(lookup) {
+                return null
+            },
             name: mslayer.name(),
-            mirrorable: false,
             pointsRotatable: false
         }
     }
@@ -242,7 +253,10 @@ MagicMirror.flattener = function() {
             var layer = to.layer
             var image = LayerHelper.getImage(from.layer, this.flattener)
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
-            var quad = BezierPathHelper.getQuad(bezierPath).scale(2,2)
+            var quad = BezierPathHelper.getQuad(bezierPath)
+            if (!contains(to.tokens(), ".1x")) {
+                quad = quad.scale(2, 2)
+            }
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name)

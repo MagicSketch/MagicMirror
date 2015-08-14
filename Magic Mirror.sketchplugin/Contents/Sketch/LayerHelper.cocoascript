@@ -32,4 +32,16 @@ var LayerHelper = {
 		var image = [mslayerflattener imageFromLayers:layers];
 		return image
 	},
+
+	"getIdentifier" : function(mslayer) {
+		var name = mslayer.name
+		var identifier = name.split(" ").first
+		return identifier
+	},
+
+	"getTokens" : function(mslayer) {
+		var name = mslayer.name()
+		var identifiers = name.split(" ")
+		return identifiers
+	}
 }
