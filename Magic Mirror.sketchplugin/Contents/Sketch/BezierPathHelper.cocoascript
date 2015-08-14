@@ -54,7 +54,7 @@ var BezierPathHelper = {
 			this.br = CGPointMake(br.x * x, br.y * y)
 			this.bl = CGPointMake(bl.x * x, bl.y * y)
 
-			this.size = CGSizeMake(this.size.width * 2, this.size.height * 2)
+			this.size = CGSizeMake(this.size.width * x, this.size.height * y)
 			return this
 		}
 		return quad

@@ -204,8 +204,7 @@ MagicMirror.layer = function(mslayer) {
     if (mslayer.className && mslayer.className().toString() == "MSShapeGroup") {
         var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         var layerName = mslayer.name()
-        var tokenizedName = layerName.split(" ")
-        var identifier = tokenizedName[0]
+        var identifier = LayerHelper.getIdentifier(mslayer)
         return {
             artboard: artboard,
             name: layerName,
@@ -232,6 +231,7 @@ MagicMirror.layer = function(mslayer) {
             fillColor: function(hex) {
                 LayerHelper.fillColor(mslayer, hex)
             },
+            rect:[mslayer rect],
             layer : mslayer,
         }
     } else {
@@ -254,12 +254,16 @@ MagicMirror.flattener = function() {
             var image = LayerHelper.getImage(from.layer, this.flattener)
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
             var quad = BezierPathHelper.getQuad(bezierPath)
-            if (!contains(to.tokens(), ".1x")) {
+            var size = quad.size
+            var scale = 1
+            var tokens = to.tokens()
+            if (!contains(tokens, ".1x")) {
+                scale = 2
                 quad = quad.scale(2, 2)
-            }
+            } 
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
-            log("perspectiveTransforming: from " + from.name + ", to: " + to.name)
+            log("perspectiveTransforming: from " + from.name + ", to: " + to.name + ", scale: " + scale + ", size:" + transformed.size())
         }
     }
 }

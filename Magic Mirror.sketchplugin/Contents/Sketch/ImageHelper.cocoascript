@@ -2,8 +2,8 @@
 var ImageHelper = {
 
 	"getCGImage" : function(nsimage) {
-   		var rect = CGRectMake(0, 0, nsimage.size().width, nsimage.size().height);
 		var size = nsimage.size();
+   		var rect = CGRectMake(0, 0, size.width, size.height);
 		var bitmapCtx = CGBitmapContextCreate(nil, 
 												   size.width,  
 												   size.height, 
@@ -13,7 +13,7 @@ var ImageHelper = {
 												   kCGBitmapByteOrder32Host|kCGImageAlphaPremultipliedFirst);
 		[NSGraphicsContext saveGraphicsState];
 		[NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithGraphicsPort:bitmapCtx flipped:false]];
-		[nsimage drawInRect:NSMakeRect(0,0, size.width, size.height) fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+		[nsimage drawInRect:NSMakeRect(0,0, size.width, size.height) fromRect:NSZeroRect operation:NSCompositeCopy fraction:2.0];
 		[NSGraphicsContext restoreGraphicsState];
 		var imageRef = CGBitmapContextCreateImage(bitmapCtx);
 		CGContextRelease(bitmapCtx);
@@ -39,6 +39,11 @@ var ImageHelper = {
 		return image;
 	},
 
+	"getNSImageFromCGImage" : function(cgimage, size) {
+		var image = [[NSImage alloc] initWithCGImage:cgimage size:size];
+		return image
+	},
+
 	"perspectiveTransform": function (nsimage, topLeft, topRight, bottomLeft, bottomRight, size) {
 		var cgimage = ImageHelper.getCGImage(nsimage)
 		var ciimage = ImageHelper.getCIImage(cgimage)
@@ -50,7 +55,10 @@ var ImageHelper = {
         [filter setValue:[CIVector vectorWithX:bottomRight.x Y:y - bottomRight.y] forKey:"inputBottomRight"];
         [filter setValue:[CIVector vectorWithX:bottomLeft.x Y:y - bottomLeft.y] forKey:"inputBottomLeft"];
 		var output = filter.outputImage() // CIImage
-		return ImageHelper.getNSImage(output)
+		// return ImageHelper.getNSImage(output)
+		var ns = ImageHelper.getNSImage(output)
+		var cg = ImageHelper.getCGImage(ns)
+		return ImageHelper.getNSImageFromCGImage(cg, size)
 	},
 
 	"horizontalTransform" : function(nsimage) {

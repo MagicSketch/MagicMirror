@@ -34,8 +34,9 @@ var LayerHelper = {
 	},
 
 	"getIdentifier" : function(mslayer) {
-		var name = mslayer.name
-		var identifier = name.split(" ").first
+		var name = mslayer.name()
+		var array = name.match(/[^\.|@|#]+/)
+		var identifier = array[0].trim()
 		return identifier
 	},
 
