@@ -242,7 +242,7 @@ MagicMirror.flattener = function() {
             var layer = to.layer
             var image = LayerHelper.getImage(from.layer, this.flattener)
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
-            var quad = BezierPathHelper.getQuad(bezierPath)
+            var quad = BezierPathHelper.getQuad(bezierPath).scale(2,2)
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name)
@@ -290,7 +290,6 @@ MagicMirror.persister = function() {
         actionsCount = defaults.integerForKey(allKeys["actionsCount"])
         lastValidation = defaults.objectForKey(allKeys["lastValidation"])
         licensedTo = defaults.objectForKey(allKeys["licensedTo"])
-        print("licensedTo: " + licensedTo)
     }
 
     return {

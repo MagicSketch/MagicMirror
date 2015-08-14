@@ -42,6 +42,21 @@ var BezierPathHelper = {
 			}
 		}
 		quad.size = bezierPath.bounds().size
+		quad.scale = function(x, y){
+
+			log("quad1: " + this.tr)
+			var tl = this.tl
+			var tr = this.tr
+			var br = this.br
+			var bl = this.bl
+			this.tl = CGPointMake(tl.x * x, tl.y * y)
+			this.tr = CGPointMake(tr.x * x, tr.y * y)
+			this.br = CGPointMake(br.x * x, br.y * y)
+			this.bl = CGPointMake(bl.x * x, bl.y * y)
+
+			this.size = CGSizeMake(this.size.width * 2, this.size.height * 2)
+			return this
+		}
 		return quad
 	},
 
