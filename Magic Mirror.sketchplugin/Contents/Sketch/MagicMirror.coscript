@@ -205,6 +205,7 @@ MagicMirror.artboard = function(msartboard) {
         name: msartboard.name(),
         rect: [msartboard rect],
         layer : msartboard,
+        page : msartboard.parentPage(),
     }
 }
 
@@ -283,8 +284,12 @@ MagicMirror.flattener = function() {
 MagicMirror.view = function(view) {
     return {
         view: view,
+        setPage: function(page) {
+            this.view.setCurrentPage(page)
+        },
         zoomToArtboard:function(artboard) {
             log("jump to artboard for layer: " + artboard.name + ", frame: " + artboard.frame + ", view:" + this.view)
+            this.setPage(artboard.page)
             this.view.zoomToFitRect(NSInsetRect(artboard.rect, -50, -50));
         }
     }
