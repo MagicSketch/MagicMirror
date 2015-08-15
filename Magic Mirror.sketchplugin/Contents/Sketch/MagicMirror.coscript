@@ -211,7 +211,7 @@ MagicMirror.layer = function(mslayer) {
             identifier: identifier,
             matchingArtboard:function(lookup) {
                 var ab = lookup[this.identifier]
-                if (artboard.name != ab.name) {
+                if (ab && artboard.name != ab.name) {
                     return ab
                 }
                 return null
