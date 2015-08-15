@@ -210,7 +210,11 @@ MagicMirror.layer = function(mslayer) {
             name: layerName,
             identifier: identifier,
             matchingArtboard:function(lookup) {
-                return lookup[this.identifier]
+                var ab = lookup[this.identifier]
+                if (artboard.name != ab.name) {
+                    return ab
+                }
+                return null
             },
             tokens: function() {
                 return LayerHelper.getTokens(this.layer)
