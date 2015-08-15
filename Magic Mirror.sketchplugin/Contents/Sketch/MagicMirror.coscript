@@ -149,13 +149,21 @@ MagicMirror.context = function(context) {
         var doc = context.document;           // the current document (MSDocument)
         var page = [doc currentPage];         // the current page (MSPage)
         var artboards = [page artboards];     // all artboards
+
+        var allArtboards = []
+        var pages = [[doc pages] valueForKeyPath:"artboards"]
+        each(pages, function(page) {
+            each(page, function(artboard) {
+                allArtboards.push(artboard)
+            })
+        })
         var view = [doc currentView];
         var selections = context.selection
 
         return {
             doc: doc,
             page : page,
-            artboards : artboards,
+            artboards : allArtboards,
             view : view,
             selections : selections,
         }
