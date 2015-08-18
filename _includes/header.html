@@ -2,7 +2,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ site.baseurl }}/"><img src="/images/magic-mirror-trimmed.gif"></a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -17,7 +17,7 @@
         {% assign pages = site.pages | sort:"weight"  %}
         {% for page in pages %}
           {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title | downcase }}</a>
           {% endif %}
         {% endfor %}
       </div>
