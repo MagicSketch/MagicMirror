@@ -30,7 +30,7 @@ body {
  */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
-ul, ol, dl, figure,
+ul, ol, dl, figure, table,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
@@ -209,3 +209,21 @@ pre {
         }
     }
 }
+
+
+/**
+ * Tables
+ */
+
+ table {
+    width: 100%;
+
+    tr:nth-child(odd) td {
+      background-color: #F2F2F2;
+    }   
+
+    tr:nth-child(even) td {
+      background-color: transparent;
+    }
+ }
+
