@@ -1,21 +1,89 @@
 ---
-layout: page
+layout: flex
+showcases:
+- author: Meng To, Author of Design+Code
+  liner: Magic Mirror is the plugin we've been waiting for. No more switching to Photoshop for creating perspective mockups. It works that great.
+  avatar: /images/meng.jpg
+  image: /images/meng-showcase.jpg
+  link: http://designcode.io
+- author: Marko Vuletič, UI/UX Design Professional
+  liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
+  avatar: /images/marko.jpg
+  image: /images/marko-showcase.jpg
+- author: Jesse Kyle, Author of Design Tether
+  liner: Magic Mirror is great for showing off my app designs. It's much more user-friendly than Photoshop with double the possibilities
+  avatar: /images/jesse.jpg
+  image: /images/jesse-showcase.jpg
+  link: http://designtether.com/design/magic-mirror-sketch-plugin/
+- author: Arjen van Reeven, Product Design Lead at NGTI/Swisscom
+  liner: Sketch plugin lets you perspective transform artboard to a shape. Great for product shots!
+  avatar: /images/arjen.jpg
+  image: /images/arjen-showcase.jpg
 ---
 
-![](/images/magic-mirror-trimmed.gif)
+# When Sketch Meets Perspective Mockups
+
+<div class="wrapper">
+<div class="clearfix">
+<div class="sm-col sm-col-4 center btn orange">
+	<a href="/campaign" class="">Get a free license campaign</a>
+	<sup class="red">NEW (19/8-23/8)</sup>
+</div>
+<a href="/features" class="sm-col sm-col-4 center btn orange">See all features</a>
+<a href="/download" class="sm-col sm-col-4 center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
+</div>
+</div>
+
+
+<div class="videoWrapper">
+    <!-- Copy & Pasted from YouTube
+    <iframe width="560" height="349" src="http://www.youtube.com/embed/YhdjuL5ju8Y?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+     -->
+</div>
+
+<div class="flex container">
+<img src="/images/computer.png" class="flex-stretch col-12 m2"/>
+</div>
+
+
+<div class='wrapper' markdown='1'>
 
 Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.
 
 You can consider it a simple version of Photoshop’s [Embeded Smart Objects](https://helpx.adobe.com/photoshop/using/create-smart-objects.html) for Sketch.
 
-Here's what Magic Mirror can do:
-
-<div class="videoWrapper">
-    <!-- Copy & Pasted from YouTube -->
-    <iframe width="560" height="349" src="http://www.youtube.com/embed/YhdjuL5ju8Y?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<section class="my2 py2 border-top">
+<h1>Showcase</h1>
 
+<div class="clearfix">
+{% for showcase in page.showcases %}
+<div class="sm-col sm-col-6 showcase">
+	<img src="{{ showcase.image }}" />
+	<a href="{{ showcase.link }}" class="overlay">
+		<img src="/images/showcase-placeholder.png" />
+		<div class="overlay flex flex-end">
+			<div class="flex flex-end m2">
+				<div class="flex-none mr2">
+					<img src="{{ showcase.avatar }}" class="avatar">
+				</div>
+				<div class="flex flex-column">
+					<div class="flex-auto liner">“{{ showcase.liner }}” </div>
+					<div class="flex-auto author">- {{ showcase.author }}</div>
+				</div>
+			</div>
+		</div>
+	</a>
+</div>
+{% endfor %}
+</div>
+
+</section>
+
+<!-- </div> -->
+
+<!--
 ## What's different?
 
 Unlike [Symbols](http://bohemiancoding.com/sketch/support/documentation/07-symbols/), Magic Mirror uses [Pattern Fill](http://bohemiancoding.com/sketch/support/documentation/08-styling/1-fills.html) to preform the mirroring. It can mirror any number of Artboards to any number of shape layers in any size, any angle, but <em>also</em> responds to the shape’s distortion (perspective transformation).
@@ -141,4 +209,4 @@ Second, this represents a new era of design possibilites within Sketch. I hope f
 [LevelUpTut](https://www.youtube.com/watch?v=Gm5wPXOgVtM&list=PLXM9Shjg7jenAH19HHSWYPJ4EtB4RNDc1&index=3)
 
 
-
+-->

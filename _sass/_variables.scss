@@ -1,0 +1,46 @@
+.orange  { color: $brand-color }
+.btn { font-weight: normal; }
+.btn-outline {
+  border-radius: 22px;
+}
+.showcase {
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: white;
+    .liner {
+		font-family: Asap-MediumItalic;
+		font-size: 15px;
+		color: #D9D9D9;
+		line-height: 22px;
+    }
+    .author {
+		font-size: 14px;
+		color: #E6E6E6;
+		line-height: 22px;
+    }
+    a {
+    	background-color: rgba(0, 0, 0, 0.5);
+    }
+    a:hover {
+    	background-color: rgba(0, 0, 0, 0.0);
+    	* {
+	    	opacity:0;
+	    }
+    }
+}
+.avatar {
+	height: 66px;
+	width: 66px;
+    border-radius: 33px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
