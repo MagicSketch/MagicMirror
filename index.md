@@ -72,14 +72,29 @@ backtracks:
 </div>
 
 
-<div class="videoWrapper">
-    <!-- Copy & Pasted from YouTube
-    <iframe width="560" height="349" src="http://www.youtube.com/embed/YhdjuL5ju8Y?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
-     -->
-</div>
 
 <div class="flex container">
-<img src="/images/computer.png" class="flex-stretch col-12 m2"/>
+	<div id="computer" class="flex-stretch col-12 m2">
+		<img src="/images/computer.png" class="flow flex-stretch col-12"/>
+
+		<div class="videodom flex">
+
+		<!-- <div class="left"> </div> -->
+
+		<div class="screen flex flex-center">
+
+			<div class="videoWrapper">
+			    <!-- Copy & Pasted from YouTube -->
+			    <iframe width="560" height="349" src="http://www.youtube.com/embed/YhdjuL5ju8Y?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+		</div>
+
+		<!-- <div class="right"></div> -->
+
+
+		</div>
+	</div>
 </div>
 
 
