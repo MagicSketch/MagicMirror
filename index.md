@@ -61,13 +61,13 @@ backtracks:
 # When Sketch Meets Perspective Mockups
 
 <div class="wrapper">
-<div class="clearfix">
-<div class="sm-col sm-col-4 center btn orange">
-	<a href="/campaign" class="">Get a free license campaign</a>
+<div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
+<div class="col-4 center btn orange border-box">
+	<a href="/campaign" class="clearfix">Get a free license</a>
 	<sup class="red">NEW (19/8-23/8)</sup>
 </div>
-<a href="/#features" class="sm-col sm-col-4 center btn orange">See all features</a>
-<a href="/download" class="sm-col sm-col-4 center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
+<a href="/#features" class="col-4 border-box center btn orange">See all features</a>
+<a href="/download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
 </div>
 
