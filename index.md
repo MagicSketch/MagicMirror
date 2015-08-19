@@ -81,6 +81,50 @@ You can consider it a simple version of Photoshop’s [Embeded Smart Objects](ht
 
 </section>
 
+
+
+<section class="my2 py2 border-top">
+<h1>Features</h1>
+
+<div class="container sm-flex flex-wrap mxn1 px1 flex-center">
+
+	<div class="sm-col-8 border-box p1">
+		<img src="/images/magic-mirror-feature1.gif" />
+	</div>
+
+	<div class="sm-col-4 border-box p1" markdown="1">
+
+
+## Magic Mirror! (⌃ ⇧ M)
+1. Prepare a source artboard.
+2. Draw a 4-point polygon
+3. Rename the shape to match the artboard
+4. Press the shortcut
+
+</div>
+
+<div class="sm-flex mt2">
+<div class="sm-col-4 border-box p1 flex flex-column flex-center">
+	<img src="/images/magic-mirror-feature2.gif" class="flex-grow"/>
+	<p class="p1">Jump to Artboard (⌃ ⇧ J)</p>
+</div>
+
+<div class="sm-col-4 border-box p1 flex flex-column flex-center">
+	<img src="/images/magic-mirror-feature3.gif" class="flex-grow"/>
+	<p class="p1">Rotate Content (⌃ ⌘ ⇧ R)</p>
+</div>
+
+<div class="sm-col-4 border-box p1 flex flex-column flex-center">
+	<img src="/images/magic-mirror-feature4.gif" class="flex-grow"/>
+	<p class="p1">Flip Content (⌃ ⌘ ⇧ F)</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
 <!-- </div> -->
 
 <!--
