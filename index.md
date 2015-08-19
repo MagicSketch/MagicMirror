@@ -66,7 +66,7 @@ backtracks:
 	<a href="/campaign" class="">Get a free license campaign</a>
 	<sup class="red">NEW (19/8-23/8)</sup>
 </div>
-<a href="/features" class="sm-col sm-col-4 center btn orange">See all features</a>
+<a href="/#features" class="sm-col sm-col-4 center btn orange">See all features</a>
 <a href="/download" class="sm-col sm-col-4 center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
 </div>
@@ -119,8 +119,8 @@ You can consider it a simple version of Photoshop’s [Embeded Smart Objects](ht
 </section>
 
 
-
-<section class="my2 py2 border-top">
+<a id="features"></a>
+<section class="my2 py2 ">
 <h1>Features</h1>
 
 <div class="container sm-flex flex-wrap mxn1 px1 flex-center">
