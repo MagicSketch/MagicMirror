@@ -19,6 +19,37 @@ showcases:
   liner: Sketch plugin lets you perspective transform artboard to a shape. Great for product shots!
   avatar: /images/arjen.jpg
   image: /images/arjen-showcase.jpg
+
+
+featured:
+- title: TheNextWeb (03/08)
+  image: /images/thenextweb.png
+  link: http://thenextweb.com/dd/2015/08/03/magic-mirror-for-sketch-3-lets-you-quickly-create-hands-on-mockups-of-your-apps/
+- title: Smashing Newsletter
+  image: /images/smashingmagazine.png
+  link: http://www.smashingmagazine.com/smashing-newsletter-issue-142/
+- title: Sidebar.io (31/07)
+  image: /images/sidebar.png
+  link: http://sidebar.io/2015/7/31
+
+backtracks:
+- title: DesignerNews
+  link: https://www.designernews.co/stories/53390-magic-mirror-for-sketch-3--plugin-to-create-perspective-designs
+- title: Sketchtalk.io
+  link: http://sketchtalk.io/discussion/1371/magic-mirror-perspective-3d-for-your-artboards
+- title: HeyDesigner
+  link: http://heydesigner.com/sketchapp/
+- title: T3n
+  link: http://t3n.de/news/magic-mirror-sketch-plugin-627330/
+- title: Applech2
+  link: http://applech2.com/archives/45794567.html
+- title: Sketchcast #47
+  link: http://www.sketchcasts.net/episodes/47
+- title: LevelUpTuts
+  link: https://www.youtube.com/watch?v=Gm5wPXOgVtM&list=PLXM9Shjg7jenAH19HHSWYPJ4EtB4RNDc1&index=3
+- title: SketchAppTV
+  link: https://www.youtube.com/watch?v=F7wOPtKjVps
+
 ---
 
 # When Sketch Meets Perspective Mockups
@@ -125,7 +156,22 @@ You can consider it a simple version of Photoshop’s [Embeded Smart Objects](ht
 </section>
 
 
-<!-- </div> -->
+<section class="my2 py2 border-top">
+<h1>Media</h1>
+
+<div class="wrapper sm-flex flex-wrap mxn1 px1 flex-center">
+	{% for site in page.featured %}
+	<div class="sm-col-4 border-box p2 center">
+	   <a href="{{ site.link }}"><img src="{{ site.image }}" class="grayscale"></a>
+	</div>
+	{% endfor %}
+
+	<h2 class="sm-col-12">Backtracks</h2>
+	{% for site in page.backtracks %}
+	<a href="{{ site.link }}" class="px1 border-box flex-auto center">{{ site.title }}</a>
+	{% endfor %}
+</div>
+</section>
 
 <!--
 ## What's different?
