@@ -1,0 +1,12 @@
+{% if page.image %}
+<style>
+.hero {
+	background-image: url("{{ page.image }}");
+}
+</style>
+<div class="hero">
+	<div class="overlay flex flex-center">
+		<h1 class="mx-auto">{{ page.title }}</h1>
+	</div>
+</div>
+{% endif %}

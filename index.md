@@ -62,11 +62,11 @@ backtracks:
 
 <div class="wrapper">
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
+<a href="/#features" class="col-4 border-box center btn orange">See all features</a>
 <div class="col-4 center btn orange border-box">
-	<a href="/campaign" class="clearfix">Get a free license</a>
+	<a href="/madewithmagicmirror" class="clearfix">Get a free license</a>
 	<sup class="red">NEW (19/8-23/8)</sup>
 </div>
-<a href="/#features" class="col-4 border-box center btn orange">See all features</a>
 <a href="/download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
 </div>
