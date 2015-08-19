@@ -168,7 +168,7 @@ You can consider it a simple version of Photoshop’s [Embeded Smart Objects](ht
 <div class="wrapper sm-flex flex-wrap mxn1 px1 flex-center">
 	{% for site in page.featured %}
 	<div class="sm-col-4 border-box p2 center">
-	   <a href="{{ site.link }}"><img src="{{ site.image }}" class="grayscale"></a>
+	   <a href="{{ site.link }}"><img src="{{ site.image }}" class="grayscale animated"></a>
 	</div>
 	{% endfor %}
 

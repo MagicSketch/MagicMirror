@@ -26,12 +26,6 @@
     	background-color: rgba(0, 0, 0, 0.5);
     }
     a, a * {
-	    -o-transition: all 0.24s linear;
-	    -moz-transition: all 0.24s linear;
-	    -khtml-transition: all 0.24s linear;
-	    -webkit-transition: all 0.24s linear;
-	    -ms-transition: all 0.24s linear;
-	    transition: all 0.24s linear;
     	opacity:1;
     }
     a:hover {
@@ -58,8 +52,15 @@ img.grayscale {
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
 }
-
 img.grayscale:hover {
   filter: none;
   -webkit-filter: grayscale(0%);
+}
+.animated, .showcase a, .showcase a * {
+    -o-transition: all 0.24s linear;
+    -moz-transition: all 0.24s linear;
+    -khtml-transition: all 0.24s linear;
+    -webkit-transition: all 0.24s linear;
+    -ms-transition: all 0.24s linear;
+    transition: all 0.24s linear;
 }
