@@ -1,25 +1,31 @@
 ---
 layout: flex
+
 showcases:
-- author: Meng To, Author of Design+Code
-  liner: Magic Mirror is the plugin we've been waiting for. No more switching to Photoshop for creating perspective mockups. It works that great.
-  avatar: /images/meng.jpg
-  image: /images/meng-showcase.jpg
-  link: http://designcode.io
 - author: Marko Vuletič, UI/UX Design Professional
   liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
   avatar: /images/marko.jpg
   image: /images/marko-showcase.jpg
+  link: http://markovuletic.com/blog/posts/perspective-mockups-in-sketch
 - author: Jesse Kyle, Author of Design Tether
   liner: Magic Mirror is great for showing off my app designs. It's much more user-friendly than Photoshop with double the possibilities
   avatar: /images/jesse.jpg
   image: /images/jesse-showcase.jpg
   link: http://designtether.com/design/magic-mirror-sketch-plugin/
+- author: Meng To, Author of Design+Code
+  liner: Magic Mirror is the plugin we've been waiting for. No more switching to Photoshop for creating perspective mockups. It works that great.
+  avatar: /images/meng.jpg
+  image: /images/meng-showcase.jpg
+  link: http://designcode.io
+- author: Julie Bug, UI/UX Designer
+  liner: Using Magic Mirror to create perspective mockups is amazingly easy and joyful.
+  avatar: /images/julie.jpg
+  image: /images/julie-showcase.jpg
+  link: http://juliebug.xfym.info/post/mzzads-dashboard-redesign
 - author: Arjen van Reeven, Product Design Lead at NGTI/Swisscom
   liner: Sketch plugin lets you perspective transform artboard to a shape. Great for product shots!
   avatar: /images/arjen.jpg
   image: /images/arjen-showcase.jpg
-
 
 featured:
 - title: TheNextWeb (03/08)
