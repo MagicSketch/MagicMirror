@@ -3,8 +3,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.title %}
+    {% assign title2 = page.title %}
+  {% else %}
+    {% assign title2 = site.title %}
+  {% endif %}
+
+  <title>{{ page.title }} ·2 {{ site.title }}</title>
+
+  {% if page.excerpt %}
+    {% assign description = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+  {% else %}
+    {% assign description = site.description %}
+  {% endif %}
+
+  {% if page.excerpt %}
+
+  {% endif}
+  <meta name="description" content="{{ description }}">
+  <meta itemprop="description" content="{{ description }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta name="twitter:description" content="{{ description }}">
+
+  <meta property="og:title" content="{{ title2 }}">
+  <meta property="og:site_name" content="{{ title2 }}">
+  <meta name="twitter:title" content="{{ title }}">
 
   <link href="{{ "/css/basscss.min.css" | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
