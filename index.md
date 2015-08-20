@@ -64,7 +64,7 @@ backtracks:
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
 <a href="/#features" class="col-4 border-box center btn orange">See all features</a>
 <div class="col-4 center btn orange border-box">
-	<a href="/madewithmagicmirror" class="clearfix">Get a free license</a>
+	<a href="/madewithmagicmirror" class="clearfix">Get a license for free</a>
 	<sup class="red">NEW (20/8-24/8)</sup>
 </div>
 <a href="https://github.com/jamztang/MagicMirror/releases/download/v1.2/magicmirror-20150820-free.zip" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>

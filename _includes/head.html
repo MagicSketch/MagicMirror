@@ -4,12 +4,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% if page.title %}
-    {% assign title2 = page.title %}
+    {% capture title %}{{ page.title }} · {{ site.title }}{% endcapture %}
   {% else %}
-    {% assign title2 = site.title %}
+    {% assign title = site.title %}
   {% endif %}
 
-  <title>{{ page.title }} ·2 {{ site.title }}</title>
+  <title>{{ title }}</title>
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:site_name" content="{{ title }}">
+  <meta name="twitter:title" content="{{ title }}">
 
   {% if page.excerpt %}
     {% assign description = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
@@ -17,17 +20,25 @@
     {% assign description = site.description %}
   {% endif %}
 
-  {% if page.excerpt %}
-
-  {% endif}
   <meta name="description" content="{{ description }}">
   <meta itemprop="description" content="{{ description }}">
   <meta property="og:description" content="{{ description }}">
   <meta name="twitter:description" content="{{ description }}">
 
-  <meta property="og:title" content="{{ title2 }}">
-  <meta property="og:site_name" content="{{ title2 }}">
-  <meta name="twitter:title" content="{{ title }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:image" content="{{ site.url }}/images/madewithmagicmirror.jpg">
+  <meta name="twitter:image" content="{{ site.url }}/images/ogimage1_1.jpg">
+
+  <meta name="author" content="{{ site.author }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="keywords" content="perspective,mockup,transform,sketch,plugin,smart objects,photoshop,alternative,magic mirror,artboard">
+
 
   <link href="{{ "/css/basscss.min.css" | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">

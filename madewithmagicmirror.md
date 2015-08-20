@@ -1,12 +1,13 @@
 ---
 layout: flex
-title: MadeWithMagicMirror
+title: Get a license for free
 permalink: /madewithmagicmirror/
 image: /images/madewithmagicmirror.jpg
 weight: 1
+excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015. Top 3 Photos Tweets of the day will be given 1 commercial license per each! See more about the campaign...
 ---
 
-# Get a commercial license for FREE
+# MadeWithMagicMirror
 
 <div class="wrapper" markdown="1">
 
@@ -16,7 +17,7 @@ The **Top 3 Photos Tweets** of the day will be given 1 commercial license per ea
 
 There’ll also be 1 license give away to the winner of Author’s Choice.
   
-  
+
 # How to attend?
 
 Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
