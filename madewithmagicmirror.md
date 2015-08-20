@@ -28,4 +28,4 @@ Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure yo
 
 # Winner Announcement
 
-Results will be snapshotted and announcement will be made by the other day's 20:00+08:00
+Winners will be announced daily at 20:00+08:00 for previous day.
