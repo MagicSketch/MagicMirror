@@ -13,7 +13,7 @@ var MagicMirror = function(context) {
             var run = function(selections, view, artboards, ui, util) {
                 log("MagicMirror.jumpToArtboard()")
                 if (util.empty(selections)) {
-                    ui.dialog("Magic Mirror", "No layer selected. Please select a shape layer in order to perform the Jump To Artboard action.")
+                    ui.show("Magic Mirror: No layer is selected to perform Jump To Artboard.")
                 }
 
                 var selection = selections[0] || {}
@@ -21,6 +21,7 @@ var MagicMirror = function(context) {
                 var artboard = selection.matchingArtboard(lookup)
                 if (artboard) {
                     view.zoomToArtboard(artboard)
+                    ui.show("Magic Mirror: Jump To Artboard named \"" + artboard.name + "\"")
                 }
             }
 
@@ -32,13 +33,22 @@ var MagicMirror = function(context) {
             var run = function(artboards, layers, util, flattener) {
                 log("MagicMirror.mirrorPage()")
                 var lookup = util.createLookup(artboards)
+                var artboardNames = {}
+                var matchingLayersCount = 0
+                var pageNames = {}
                 each(layers, function(layer) {
                     var parent = layer.artboard
                     var artboard = layer.matchingArtboard(lookup)
                     if (artboard) {
+                        matchingLayersCount++
+                        artboardNames[artboard.name] = true
+                        pageNames[artboard.pageName] = true
                         flattener.perspectiveTransform(artboard, layer)
                     }
                 })
+                var artboardsCount = Object.keys(artboardNames).length
+                var pagesCount = Object.keys(pageNames).length
+                ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s)")
             }
             run(context.artboards(), context.layers(), util, createFlattener())
         },
@@ -50,7 +60,7 @@ var MagicMirror = function(context) {
                 log("MagicMirror.flipHorizontally()")
 
                 if (util.empty(selections)) {
-                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    ui.show("Magic Mirror: Select one or more layers to perform Flip Content.")
                     return
                 }
 
@@ -66,6 +76,7 @@ var MagicMirror = function(context) {
                         util.debug("selection: " + selection.name + " not rotatable")
                     }
                 })
+                ui.show("Magic Mirror: Flip Content is applied to " + count(selections) + " layer(s).")
             }
 
             run(context.artboards(), context.selections(), ui, util, createFlattener())
@@ -77,7 +88,7 @@ var MagicMirror = function(context) {
                 log("MagicMirror.rotatePoints()")
 
                 if (util.empty(selections)) {
-                    ui.dialog("Magic Mirror", "No shape layers selected. Please select a shape layer to continue the Rotate Points operation.")
+                    ui.show("Magic Mirror: Select one or more layers to perform Rotate Content.")
                     return
                 }
 
@@ -93,6 +104,7 @@ var MagicMirror = function(context) {
                         util.debug("selection: " + selection.name + " not rotatable")
                     }
                 })
+                ui.show("Magic Mirror: Rotate Content is applied to " + count(selections) + " layer(s).")
             }
 
             run(context.artboards(), context.selections(), ui, util, createFlattener())
@@ -206,6 +218,7 @@ MagicMirror.artboard = function(msartboard) {
         rect: [msartboard rect],
         layer : msartboard,
         page : msartboard.parentPage(),
+        pageName : msartboard.parentPage().name()
     }
 }
 
@@ -651,7 +664,8 @@ MagicMirror.ui = function(context) {
             [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
         },
         show: function(message) {
-            // this.alert("Magic Mirror", "Thanks for your donation!")
+            var doc = context.document
+            doc.showMessage(message)
         },
     }
 }
