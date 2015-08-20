@@ -151,7 +151,9 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 
 
 <a id="features"></a>
-<section class="my2 py2 ">
+
+
+<section class="my2 py2">
 <h1>Features</h1>
 
 <div class="container sm-flex flex-wrap mxn1 px1 flex-center">
@@ -199,7 +201,6 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 </div>
 
 </div>
-
 </section>
 
 
