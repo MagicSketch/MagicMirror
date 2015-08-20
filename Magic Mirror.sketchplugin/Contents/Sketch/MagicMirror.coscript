@@ -4,7 +4,7 @@ var MagicMirror = function(context) {
     var ctx = MagicMirror.context(context)
     var ui = MagicMirror.ui(context)
     var util = MagicMirror.util
-    var createFlattener = MagicMirror.flattener
+
     var actioner = {
         context : ctx,
 
@@ -48,7 +48,8 @@ var MagicMirror = function(context) {
                 })
                 var artboardsCount = Object.keys(artboardNames).length
                 var pagesCount = Object.keys(pageNames).length
-                ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s)")
+                var retinaEnabled = locker.isLicensed()
+                ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s). Retina: (" + retinaEnabled + ")")
             }
             run(context.artboards(), context.layers(), util, createFlattener())
         },
@@ -139,6 +140,10 @@ var MagicMirror = function(context) {
     var persister = MagicMirror.persister()
     var validator = MagicMirror.validator(ui, persister)
     var locker = MagicMirror.locker(actioner, validator, persister, ui)
+
+    var createFlattener = function() {
+        return MagicMirror.flattener(locker)
+    }
 
     return {
         "needsRevalidate" : validator.needsRevalidate,
@@ -272,7 +277,7 @@ MagicMirror.layer = function(mslayer) {
     }
 }
 
-MagicMirror.flattener = function() {
+MagicMirror.flattener = function(locker) {
     return {
         flattener : MSLayerFlattener.alloc().init(),
         perspectiveTransform : function(from, to) {
@@ -283,7 +288,7 @@ MagicMirror.flattener = function() {
             var size = quad.size
             var scale = 1
             var tokens = to.tokens()
-            if (!contains(tokens, ".1x")) {
+            if (locker.isLicensed() && (!contains(tokens, ".1x") || contains(tokens, ".2x"))) {
                 scale = 2
                 quad = quad.scale(2, 2)
             } 
@@ -398,7 +403,7 @@ MagicMirror.validator = function(ui, persister) {
     }
 
     function promptLicenseInfo(info) {
-       var desc = "\"Magic Mirror - Licensed\" is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+       var desc = "\"Magic Mirror - Licensed\" is now available for commercial use with pro features unlocked."
        + "\n\nRegistered to: " + info.first_name + " " + info.last_name
        + "\nEmail: " + info.email
        + "\nLicense: " + info.transaction_id
@@ -427,7 +432,8 @@ MagicMirror.validator = function(ui, persister) {
         var defaultAction = function(value) {
            log("Enter Tapped")
             if (value && value.length()) {
-                var info = validate(value)
+                var response = validate(value)
+                var info = response.json()
                 if (info && info["success"] == 1) {
                    persister.setLicensedTo(info)
                    log("License Validated! info:")
@@ -469,7 +475,7 @@ MagicMirror.validator = function(ui, persister) {
     {
         var url = "http://api.magicmirror.design/verify/" + license + ".json"
         var response = get(url)
-        return response.json()
+        return response
     }
 
     function lastValidation() {
@@ -536,6 +542,9 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
     return {
         actionsCount:actionsCount,
         licensedTo:licensedTo,
+        isLicensed: function() {
+            return licensedTo != nil
+        },
         mirrorPage:function() {
             actioner.mirrorPage()
             afterAction()
