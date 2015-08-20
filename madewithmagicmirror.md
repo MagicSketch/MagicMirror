@@ -25,11 +25,14 @@ There’ll also be 1 license give away to the winner of Author’s Choice.
 
 Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
 
-
-<div class="flex flex-center twitter-timeline">
-<a class="twitter-timeline" href="https://twitter.com/hashtag/MadeWithMagicMirror" data-widget-id="634013791378759681">#MadeWithMagicMirror Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
+<a class="twitter-timeline" href="https://twitter.com/hashtag/MadeWithMagicMirror" data-widget-id="634013791378759681">#MadeWithMagicMirror Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+<div class="wrapper" markdown="1">
 # Winner Announcement
 
 Winners will be announced daily at 20:00+08:00 for previous day.
+
+</div>
