@@ -34,16 +34,18 @@ For the pricing, please welcome our new "Coffee Menu".
 
 Magic Mirror initially launch at 30 July has quickly become my most successful product. The plugin went on top of DesignerNews front page within hours, four days later cracked into TheNextWeb. Till now and counting, nearly 500 retweets is marked on this site. My email has received tons of feedbacks from awesome people, appreciations and feature requests.
 
-Moreover, Google Analytics reported more than 10,000 page views in just 5 days. My Github recorded more than 2,200 downloads, plus an unknown number of people that uses SketchToolbox or the forgotten number that I've used Cloudly which got deleted due to traffic overused.
+Moreover, Google Analytics reported more than 10,000 page views in just 5 days. My Github tracked more than 2,200 downloads, plus an unknown number of people that uses SketchToolbox or the forgotten number that I've used Cloudly which got deleted due to traffic overload.
 
-Sounds promising right? In fact, only 55 donations has been made in this 20 days. That's less than 2% of the users has taken out their pockets. Considering 10% been taken from using Paypal, a quick math can quickly calculate the actual number that Magic Mirror has made.
+Sounds like it's doing well, right? In fact, only 55 donations has been made in this 20 days. That's less than 2% of the users has taken out their wallets. Considering every $5 transaction, $0.5 will be somehow charged by Paypal, I am sure you can quickly do a math and know how much Magic Mirror had made.
 
-It's pretty clear that the donation modal will never be sustainable. From an individual developer point of view, there could be two possible ways:
+It's pretty clear that the donation modal will never be sustainable. From an individual developer's point of view, there could be two possible route:
 
-1. Continue to be nice and leave the modal unchanged until something else more important takes up the time
-2. Be a better product owner and make decisions based on what the product needs to be successful
+1. Continue to be nice and feel good about having people donating occationally, until something else more cost effective takes up my time
+2. Be better product owner and make decisions based on what should made the product successful
 
-After days of thinking, my decision inevitably goes to #2.
+![](/images/red-blue-pill.jpg)
+
+After lots of struggle, I decided to take the red pill.
 
 To justify the value of Magic Mirror, I've taken a look at some others. One of the very rarely available commerical plugin for Sketch (originally came from Photoshop) charges for $39.99, designed to provide better markups on design specs. Another one creating perspective mockups in Photoshop selling for $19.99. Nothing else offer similar functionality like Magic Mirror does is yet available to Sketch user.
 
