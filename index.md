@@ -97,19 +97,13 @@ backtracks:
 	</div>
 </div>
 
+{% include showstart.html class="wrapper" %}
 
-<div class='wrapper center'>
-
-<input type="checkbox" class="read-more-state" id="post-1" />
-
-<div markdown="1" class="left-align">
 Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.
 
 You can consider it a simple version of Photoshop’s [Embeded Smart Objects](https://helpx.adobe.com/photoshop/using/create-smart-objects.html) for Sketch.
-</div>
 
-<span class="read-more-wrap clearfix">
-<div class="read-more-target left-align" markdown="1">
+{% include showhidden.html %}
 
 ## What's different?
 
@@ -126,12 +120,7 @@ Then it looks into the path (NSBezierPath) and extracts the 4 corner points.
 
 It then hands the content over to [Core Image](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html) to do Perspective Transformation, and apply the transformed image using Pattern Fill.
 
-
-</div>
-</span>
-<label for="post-1" class="read-more-trigger mb2"></label>
-
-</div>
+{% include showend.html %}
 
 <section class="my2 py2 border-top" style='background-color:black'>
 <h1>Showcase</h1>
