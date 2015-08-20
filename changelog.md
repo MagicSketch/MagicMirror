@@ -10,6 +10,7 @@ weight: 4
 - Across Page Screen Mirroring
 - Retina Image Preview and Export
 - Fixed display issues when zoomed out
+- More friendly toast style feedback
 
 ### v1.1 (2015-08-09)
 
