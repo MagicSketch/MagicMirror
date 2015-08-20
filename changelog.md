@@ -14,7 +14,7 @@ weight: 4
 
 ### v1.1 (2015-08-09)
 
-- Flip Content [Read the blog post]()
+- Flip Content [Read the blog post](https://medium.com/perspective-design-in-sketch/perspective-mockups-in-sketch-reflections-5fa275ce947)
 - Slightly improved image quality and performance
 - Updated Menu Ordering
 - Inapp License Activation
