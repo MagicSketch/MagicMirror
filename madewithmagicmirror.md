@@ -10,7 +10,7 @@ weight: 1
 
 <div class="wrapper" markdown="1">
 
-The **#MadeWithMagicMirror** campaign will start today from **20th to 23th Aug 2015**.
+The **#MadeWithMagicMirror** campaign will start today from **20th to 24th Aug 2015**.
 
 The **Top 3 Photos Tweets** of the day will be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search-advanced?lang=en).
 
