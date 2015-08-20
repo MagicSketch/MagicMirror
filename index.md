@@ -99,7 +99,7 @@ backtracks:
 
 {% include showstart.html class="wrapper" %}
 
-Magic Mirror for Sketch 3 is a Sketch Plugin can create perspective transformed image from an artboard and apply to corresponding shape.
+Magic Mirror for Sketch 3 is a Sketch Plugin that can create perspective transformed image from an artboard and apply to corresponding shape.
 
 You can consider it a simple version of Photoshop’s [Embeded Smart Objects](https://helpx.adobe.com/photoshop/using/create-smart-objects.html) for Sketch.
 
