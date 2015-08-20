@@ -389,7 +389,7 @@ MagicMirror.validator = function(ui, persister) {
        + "\n\nRegistered to: " + info.first_name + " " + info.last_name
        + "\nEmail: " + info.email
        + "\nLicense: " + info.transaction_id
-       + "\n\nThanks for your donation! :)"
+       + "\n\nThanks for purchasing Magic Mirror! :)"
 
         var modal = ui.alert("Magic Mirror - Licensed", desc, "OK", "Cancel", "Deregister...")
         if (modal == NSAlertDefaultReturn ) {
@@ -405,9 +405,9 @@ MagicMirror.validator = function(ui, persister) {
         var defaultValue = ""
         var placeholderValue = "e.g. 59J79294TW1881135"
         var title = "Magic Mirror - Free" 
-        var message = "\"Magic Mirror - Free\" is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.\n\nIt's free for personal use, and a more permissive license can be obtained through donation.\n\nYou can enter your Paypal Transaction ID to activate your license, please click the \"Donate…\" button for more info."
+        var message = "\"Magic Mirror - Free\" is free for personal use, advanced features and a more permissive commercial license can be obtained through purchasing.\n\nEnter your Paypal Transaction ID to activate your license, please click the \"Purchase…\" button to visit the website for more info."
         var defaultButton = "Enter"
-        var alternateButton = "Donate…"
+        var alternateButton = "Purchase…"
         var otherButton = "Later"
         var statusValue = ""
 
@@ -436,9 +436,9 @@ MagicMirror.validator = function(ui, persister) {
             log("Later Tapped")
         }
         var alternateAction = function(value) {
-            log("Donate… Tapped")
+            log("Purchase… Tapped")
             statusValue = ""
-            ui.open("http://magicmirror.design/#donate?utm_source=plugin&utm_medium=plugin&utm_campaign=flipcontent")
+            ui.open("http://magicmirror.design/purchase/?utm_source=plugin&utm_medium=plugin&utm_campaign=1.2")
             ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
         }
 
