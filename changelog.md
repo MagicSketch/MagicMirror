@@ -8,9 +8,9 @@ weight: 4
 ### v1.2 (2015-08-20)
 
 - Across Page Screen Mirroring
-- Retina Image Preview and Export
+- Retina Image Support
 - Fixed display issues when zoomed out
-- More friendly toast style feedback
+- Friendly toast style action feedback
 
 ### v1.1 (2015-08-09)
 

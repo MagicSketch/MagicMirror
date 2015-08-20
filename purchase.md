@@ -22,9 +22,9 @@ For the pricing, please welcome our new "Coffee Menu".
 |Rotate Content|x|x|
 |Jump To Artboard|x|x|
 |Flip Content| |x|
-|Retina (@2x) Image Export| |x|
+|Retina Images (@2x)| |x|
 |Across Page Screen Mirroring| |x|
-|*Crystal Clear (@3x or above) Export| |...|
+|*Crystal Clear Images (@3x or above)| |...|
 |*Cross Sketch File Reference| |...|
 |*Circle/Round Rect Support| |...|
 |Commercial Use| |x|
