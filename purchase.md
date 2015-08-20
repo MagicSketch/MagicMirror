@@ -6,11 +6,11 @@ weight: 5
 ---
 
 
-Magic Mirror is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
+Magic Mirror is free to download for personal use, it's also an [opensourced on Github](http://github.com/jamztang/MagicMirror) for code review and contributions.
 
-It means that it's is free to download for personal use, and it's also [opensourced on Github](http://github.com/jamztang/MagicMirror) for code review and contributions.
+Current version of Magic Mirror is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
 
-To use it for commerical projects however means you'll have to purchase the commercial license.
+To use it for commerical projects, you'll have to obtain commercial license through purchasing below.
 
 For the pricing, please welcome our new "Coffee Menu".
 
@@ -36,12 +36,12 @@ Magic Mirror initially launch at 30 July has quickly become my most successful p
 
 Moreover, Google Analytics reported more than 10,000 page views in just 5 days. My Github recorded more than 2,200 downloads, plus an unknown number of people that uses SketchToolbox or the forgotten number that I've used Cloudly which got deleted due to traffic overused.
 
-Sounds promising right? In fact, only 55 donations has been made in this 20 days. That's less than 2% of the users has taken out their pockets. Considering 10% been taken from using Paypal, a quick math can quickly evaluate the actualy number Magic Mirror made.
+Sounds promising right? In fact, only 55 donations has been made in this 20 days. That's less than 2% of the users has taken out their pockets. Considering 10% been taken from using Paypal, a quick math can quickly calculate the actual number that Magic Mirror has made.
 
-It's pretty clear that the donation modal will never be sustainable. There're basically two decisions for an individual developer:
+It's pretty clear that the donation modal will never be sustainable. From an individual developer point of view, there could be two possible ways:
 
-1. Be nice to people and leave the modal unchange until something else takes up my time
-2. Be a better product owner and do whatever it takes to continue focus and improve on the product
+1. Continue to be nice and leave the modal unchanged until something else more important takes up the time
+2. Be a better product owner and make decisions based on what the product needs to be successful
 
 After days of thinking, my decision inevitably goes to #2.
 
