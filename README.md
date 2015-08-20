@@ -8,14 +8,6 @@ You might also refer it as a simple version of [Photoshop’s Embeded Smart Obje
 
 To see it in action, please visit [homepage](http://magicmirror.design).
 
-## So how does it work? (In short)
-
-Magic Mirror operation iterates through all the “Shape” layers (MSShapeGroup) in current page and find out the Artboard-Layer pair that shares the exact same name.
-
-Look into the path (NSBezierPath) and extract the 4 corner points.
-
-Hand it over to ([Core Image](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html)) to do `Perspective Transformation`, and apply the transformed image using Pattern Fill.
-
 ## Contributions
 
 1. Clone the repository
@@ -48,12 +40,7 @@ As long as the project lives, pull requests for features and bug fixes will be h
 
 ## Support this project
 
-If you find it useful, you can always refer or contribute to this project.
-
-![](http://cl.ly/image/1a2n0k1L3S2z/donate.jpg)
-
-**[Send me a coffee ($5 USD)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUERV9YM2RT6U)**
-You’ll get a copy of my perspective layout create entirely in Sketch and a permissive license for commercial use.
+Consider [purchasing](http://magicmirror.design/purchase/?ref=github) the plugin.
 
 ### Credits
 
@@ -64,5 +51,5 @@ Without him this would likely took me few more nights, or might at worst not pos
 ## License
 
 This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/.
-A more permissive license for commercial use can be optained through [donation](http://magicmirror.design/#donate)
+A more permissive license for commercial use can be optained through [purchasing](http://magicmirror.design/purchase/?ref=github)
 
