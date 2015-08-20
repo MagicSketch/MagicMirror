@@ -171,7 +171,7 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 
 </div>
 
-<div class="sm-flex mt2">
+<div class="sm-flex mt2 flex-wrap">
 <div class="sm-col-4 border-box p1 flex flex-column flex-center">
 	<img src="/images/magic-mirror-feature2.gif" class="flex-grow"/>
 	<p class="p1">Jump to Artboard (⌃ ⇧ J)</p>
@@ -185,6 +185,16 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 <div class="sm-col-4 border-box p1 flex flex-column flex-center">
 	<img src="/images/magic-mirror-feature4.gif" class="flex-grow"/>
 	<p class="p1">Flip Content (⌃ ⌘ ⇧ F)</p>
+</div>
+
+<div class="sm-col-4 border-box p1 flex flex-column flex-center">
+	<img src="/images/magic-mirror-feature-retina.png" class="flex-grow"/>
+	<p class="p1">Retina Image Support <sup class="red">NEW</sup></p>
+</div>
+
+<div class="sm-col-4 border-box p1 flex flex-column flex-center">
+	<img src="/images/magic-mirror-feature-crosspage-mirroring.gif" class="flex-grow"/>
+	<p class="p1">Cross Page Screen Mirroring<sup class="red">NEW</sup></p>
 </div>
 </div>
 
