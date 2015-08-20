@@ -7,16 +7,19 @@ weight: 1
 excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015. Top 3 Photos Tweets of the day will be given 1 commercial license per each! See more about the campaign...
 ---
 
+<div class="wrapper" markdown="1">
+ 
+### News:  
+> 2015-08-20: Magic Mirror has just [released v1.2](/#features) with the two highly requested features - 1. Across Page Screen Mirroring, 2. Retina Image Support. I also completely redesigned this website and the [pricing model](/purchase). The **#MadeWithMagicMirror** campaign is to celebrate the relaunch :)    
+> - J
+
 # MadeWithMagicMirror
 
-<div class="wrapper" markdown="1">
+The #MadeWithMagicMirror campaign starts immediately from **20th to 24th Aug 2015**.
 
-The **#MadeWithMagicMirror** campaign will start today from **20th to 24th Aug 2015**.
-
-The **Top 3 Photos Tweets** of the day will be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search-advanced?lang=en).
+**Top 3 Photos Tweets** of the day will be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search-advanced?lang=en).
 
 There’ll also be 1 license give away to the winner of Author’s Choice.
-  
 
 # How to attend?
 
