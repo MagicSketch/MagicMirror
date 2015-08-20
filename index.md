@@ -26,6 +26,7 @@ showcases:
   liner: Sketch plugin lets you perspective transform artboard to a shape. Great for product shots!
   avatar: /images/arjen.jpg
   image: /images/arjen-showcase.jpg
+  link: http://twitter.com/@arjenvr
 
 featured:
 - title: TheNextWeb (03/08)
