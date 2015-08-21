@@ -7,14 +7,14 @@ weight: 4
 
 ### v1.2 (2015-08-20)
 
-- Across Page Screen Mirroring
+- Across Page Screen Mirroring ([Read the blog post](https://medium.com/perspective-design-in-sketch/create-a-simple-poster-mockup-in-sketch-with-magic-mirror-92b4a8c3207d))
 - Retina Image Support
 - Fixed display issues when zoomed out
 - Friendly toast style action feedback
 
 ### v1.1 (2015-08-09)
 
-- Flip Content [Read the blog post](https://medium.com/perspective-design-in-sketch/perspective-mockups-in-sketch-reflections-5fa275ce947)
+- Flip Content ([Read the blog post](https://medium.com/perspective-design-in-sketch/perspective-mockups-in-sketch-reflections-5fa275ce947))
 - Slightly improved image quality and performance
 - Updated Menu Ordering
 - Inapp License Activation
