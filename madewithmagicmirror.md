@@ -29,6 +29,8 @@ There’ll also be 1 license give away to the winner of Author’s Choice.
 
 <div class="wrapper" markdown="1">
 
+<a id="20150820"></a>
+
 # Winner of the 20th!
 
 Congraduations Hafid, Reony, and Kaitlyn, you're the winner of 20th! Not so hard isn't it? I'll contact you via Twitter for how to retrieve the winning prize :)
