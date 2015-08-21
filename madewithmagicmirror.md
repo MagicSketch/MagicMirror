@@ -21,18 +21,29 @@ The #MadeWithMagicMirror campaign starts immediately from **20th to 24th Aug 201
 
 There’ll also be 1 license give away to the winner of Author’s Choice.
 
+</div>
+
+# Currently Participating
+
+<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=%23madewithmagicmirror%20pic.twitter.com%20-jamztang" data-widget-id="634663660531544064">Tweets about #madewithmagicmirror pic.twitter.com -jamztang</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div class="wrapper" markdown="1">
+
+# Winner of the 20th!
+
+Congraduations Hafid, Reony, and Kaitlyn, you're the winner of 20th! Not so hard isn't it? I'll contact you via Twitter for how to retrieve the winning prize :)
+
+<div class="flex mxn2">
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> Magic Mirror is launching a free license campaign. &#10;Already tried and I love it. <a href="http://t.co/Ki4WLCaxbl">pic.twitter.com/Ki4WLCaxbl</a></p>&mdash; Hafid Bourhim (@hafidbourhim) <a href="https://twitter.com/hafidbourhim/status/634396649222094848">August 20, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Make awesome perspective mockups with <a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a>! <a href="http://t.co/mARAr385RQ">http://t.co/mARAr385RQ</a> <a href="https://twitter.com/sketchapp">@sketchapp</a> <a href="http://t.co/idlEMqefZ7">pic.twitter.com/idlEMqefZ7</a></p>&mdash; Reony T (@reoT004) <a href="https://twitter.com/reoT004/status/634363085223014401">August 20, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> Great tool for UI design. Free license giveaway is happening now. <a href="http://t.co/WL3taD6ABp">pic.twitter.com/WL3taD6ABp</a></p>&mdash; Kaitlyn Vu (@kaitlynkv) <a href="https://twitter.com/kaitlynkv/status/634360177374859269">August 20, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+
 # How to attend?
 
 Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
-
-</div>
-
-<a class="twitter-timeline" href="https://twitter.com/hashtag/MadeWithMagicMirror" data-widget-id="634013791378759681">#MadeWithMagicMirror Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-
-<div class="wrapper" markdown="1">
-# Winner Announcement
-
-Winners will be announced daily at 20:00+08:00 for previous day.
-
-</div>
