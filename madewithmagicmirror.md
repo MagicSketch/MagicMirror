@@ -29,6 +29,10 @@ There’ll also be 1 license give away to the winner of Author’s Choice.
 
 <div class="wrapper" markdown="1">
 
+# How to attend?
+
+Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
+
 <a id="20150820"></a>
 
 # Winners of the 20th!
@@ -44,8 +48,3 @@ Congraduations Hafid, Reony, and Kaitlyn, you're the winner of 20th! Not so hard
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> Great tool for UI design. Free license giveaway is happening now. <a href="http://t.co/WL3taD6ABp">pic.twitter.com/WL3taD6ABp</a></p>&mdash; Kaitlyn Vu (@kaitlynkv) <a href="https://twitter.com/kaitlynkv/status/634360177374859269">August 20, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
-
-
-# How to attend?
-
-Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
