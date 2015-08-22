@@ -37,3 +37,9 @@ items:
 
 </div>
 
+
+<div class="center wrapper mt4" markdown="1">
+
+You can [contact me](mailto:{{ site.email }}) if you want to submit your templates :)
+
+</div>
