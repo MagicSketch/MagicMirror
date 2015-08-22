@@ -40,6 +40,6 @@ items:
 
 <div class="center wrapper mt4" markdown="1">
 
-You can [contact me](mailto:{{ site.email }}) if you want to submit your templates :)
+Magic Mirror Templates is still in beta. If you want to help or want to have your own templates show up please [contact me](mailto:{{ site.email }}) :)
 
 </div>
