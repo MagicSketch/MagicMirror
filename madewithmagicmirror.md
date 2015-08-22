@@ -8,8 +8,10 @@ excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015.
 ---
 
 <div class="wrapper" markdown="1">
- 
-### News:  
+	
+{% include tweetbutton.html %}
+
+### News:
 > 2015-08-20: Magic Mirror has just [released v1.2](/#features) with the two highly requested features - 1. Across Page Screen Mirroring, 2. Retina Image Support. I also completely redesigned this website and the [pricing model](/purchase). The **#MadeWithMagicMirror** campaign is to celebrate the relaunch :)    
 > - J
 
