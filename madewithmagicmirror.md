@@ -8,7 +8,7 @@ excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015.
 ---
 
 <div class="wrapper" markdown="1">
-	
+
 {% include tweetbutton.html %}
 
 ### News:
@@ -33,13 +33,33 @@ There’ll also be 1 license give away to the winner of Author’s Choice.
 
 # How to attend?
 
-Just make a public tweet with the hashtag **#MadeWithMagicMirror**, make sure you attach your mockup, and you’re in!
+Make a public tweet **with your mockup**, and hashtag **#MadeWithMagicMirror**, then you’re in! 
+
+p.s. It's also good to utilize the 140 characters :)
+
+<a id="20150821"></a>
+
+# Winners of the 21st!
+
+Congraduations Wilson, Steven, and Mahdi, you're the winners of 21st!. Great work pays off! I've followed you on Twitter, please DM me your email address, I'll activate your license shortly!
+([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20%23madewithmagicmirror%20pic.twitter.com%20-jamztang%20since%3A2015-08-21%20until%3A2015-08-22&src=typd))
+
+<div class="flex mxn2">
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Using <a href="https://twitter.com/hashtag/Sketch?src=hash">#Sketch</a> for <a href="https://twitter.com/hashtag/WebDesign?src=hash">#WebDesign</a> or <a href="https://twitter.com/hashtag/AppDesign?src=hash">#AppDesign</a>? Check what you can do with <a href="http://t.co/w3CJXrPAYO">http://t.co/w3CJXrPAYO</a> <a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="http://t.co/lGeGSPeOUZ">pic.twitter.com/lGeGSPeOUZ</a></p>&mdash; Wilson Muñoz (@yosoywil) <a href="https://twitter.com/yosoywil/status/634531933146480640">August 21, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Create perspective mockups easily in <a href="https://twitter.com/sketchapp">@sketchapp</a> with <a href="http://t.co/9mXcG7GcXx">http://t.co/9mXcG7GcXx</a> <a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="http://t.co/KUnLcoqyK1">pic.twitter.com/KUnLcoqyK1</a></p>&mdash; Steven Chan (@stevnchan) <a href="https://twitter.com/stevnchan/status/634822351939461120">August 21, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Give it to me <a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="http://t.co/5s2GRyUmF4">pic.twitter.com/5s2GRyUmF4</a></p>&mdash; Mahdi Al-Farra (@MahdiF) <a href="https://twitter.com/MahdiF/status/634640561635520512">August 21, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
 
 <a id="20150820"></a>
 
 # Winners of the 20th!
 
-Congraduations Hafid, Reony, and Kaitlyn, you're the winner of 20th! Not so hard isn't it? I've followed you on Twitter, please DM me your email address, and Full Name, I'll activate your license shortly!
+Congraduations Hafid, Reony, and Kaitlyn, you're the winners of 20th! Not so hard isn't it? I've followed you on Twitter, please DM me your email address, and Full Name, I'll activate your license shortly!
+([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20%23madewithmagicmirror%20pic.twitter.com%20-jamztang%20since%3A2015-08-20%20until%3A2015-08-21&src=typd))
 
 <div class="flex mxn2">
 
