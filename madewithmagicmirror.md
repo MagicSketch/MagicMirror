@@ -37,6 +37,20 @@ Make a public tweet **with your mockup**, and hashtag **#MadeWithMagicMirror**, 
 
 p.s. It's also good to utilize the 140 characters :)
 
+# Winners of the 22nd!
+
+Awesome work Julie, Keith and Luis, you're the winners of the 22nd! I've followed you on Twitter, please DM your email to me and I'll send you the license key! ([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-22%20until%3A2015-08-23&src=typd))
+
+<div class="flex mxn2">
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> Make mockups in Sketch with Magic Mirror~ get license for free <a href="https://twitter.com/jamztang">@jamztang</a> <a href="https://twitter.com/sketchtricks">@sketchtricks</a> <a href="http://t.co/N9ydAhfz55">pic.twitter.com/N9ydAhfz55</a></p>&mdash; Julie Bug (@xfym_JulieBug) <a href="https://twitter.com/xfym_JulieBug/status/634976954131746822">August 22, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="http://t.co/nRbWoyrsXC">pic.twitter.com/nRbWoyrsXC</a></p>&mdash; Keith Lam (@thlamkeith) <a href="https://twitter.com/thlamkeith/status/635024563940683777">August 22, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="es" dir="ltr">🌵 Maqueta de mi sitio web en <a href="https://twitter.com/sketchapp">@sketchapp</a> ¿Te gusta? 📌 <a href="http://t.co/wTZWdE1fks">http://t.co/wTZWdE1fks</a> <a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="https://twitter.com/hashtag/webdesign?src=hash">#webdesign</a> <a href="http://t.co/hQyC7JwfrX">pic.twitter.com/hQyC7JwfrX</a></p>&mdash; Luis Alfredo (@unluisco) <a href="https://twitter.com/unluisco/status/635124870385389568">August 22, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
 <a id="20150821"></a>
 
 # Winners of the 21st!
