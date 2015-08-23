@@ -4,8 +4,8 @@ title: Templates
 permalink: /templates/
 weight: 2
 items:
-- title: Expenses
-  description: The expenses tracker I designed but never have time to work on
+- title: Three Cards Layout
+  description: Made for the expenses tracker I never had time to work on
   image: expenses.jpg
   author: jamztang
   download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/magicmirror-perspective-expenses.sketch
