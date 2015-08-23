@@ -10,7 +10,7 @@ Magic Mirror is free to download for personal use, it's also an [opensourced on 
 
 Current version of Magic Mirror is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License.
 
-To use it for commerical projects, you'll have to obtain commercial license through purchasing below.
+To use it for commerical projects, you'll have to obtain commercial license through purchasing below. <sub>(Early donors in v1.1 or before will **not** need to pay anything extra to continue to use the plugin for commercial purpose.)</sub>
 
 For the pricing, please welcome our new "Coffee Menu".
 
@@ -53,7 +53,7 @@ To justify the value of Magic Mirror, I've taken a look at some others. One of t
 
 It feels right to start the initial price of Magic Mirror at $10. The updated version will still be free for personal use, however advanced features will require a license key to unlock.
 
-Early donors will regarded as already purchased the commercial license and will be able to use the advanced features :) (of course, man!)
+But again, early donors are already having the commercial license and will be able continue to use all the advanced features :) (of course, man!)
 
 A number of beta testers for v1.2 were amazed and satisfied with the new features.
 
