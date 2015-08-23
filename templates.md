@@ -14,9 +14,14 @@ items:
   image: madewithmagicmirror.jpg
   author: jamztang
   download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/magicmirror-perspective-madewithmagicmirror.sketch
+- title: AppIcon
+  description: iOS App Icon template
+  image: appicon.jpg
+  author: FradSer
+  download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/app-icon-by-fradser.sketch
 ---
 
-<div class="flex flex-wrap mxn2">
+<div class="flex flex-wrap mxn2 templates">
 
   {% for item in page.items %}
     <div class="flex sm-col-6 border-box p1 template">
@@ -27,8 +32,11 @@ items:
 	        <span class="flex-auto">
 		        <h4 class="title mt1 mb1 bold">{{ item.title }}</h4>
 		        <i class="meta m0">{{ item.description }}</i>
+            {% assign author = site.data.authors[item.author] %}
+            <p class="author"><img src="{{ author.avatar }}" class="avatar"/><a href="{{ author.link }}" class="name">{{ item.author }}</a></p>
 		    </span>
 	    	<a href="{{ item.download_link }}" class="border-box center btn btn-outline green flex-none" width="100px" max-width="100px">FREE</a>
+
 		</span>
 		</div>
       </div>
