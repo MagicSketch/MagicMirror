@@ -37,6 +37,8 @@ Make a public tweet **with your mockup**, and hashtag **#MadeWithMagicMirror**, 
 
 p.s. It's also good to utilize the 140 characters :)
 
+<a id="20150822"></a>
+
 # Winners of the 22nd!
 
 Awesome work Julie, Keith and Luis, you're the winners of the 22nd! I've followed you on Twitter, please DM your email to me and I'll send you the license key! ([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-22%20until%3A2015-08-23&src=typd))
