@@ -37,6 +37,21 @@ Make a public tweet **with your mockup**, and hashtag **#MadeWithMagicMirror**, 
 
 p.s. It's also good to utilize the 140 characters :)
 
+<a id="20150823"></a>
+
+# Winners of the 23rd!
+
+Alex, Kai, I've a question for you. Do you guys rest on Sundays? You DESERVE the prize! Please DM your email to me and you'll be getting a license key for free! ([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-23%20until%3A2015-08-24&src=typd))
+
+<div class="flex mxn2">
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/jamztang">@jamztang</a> Whatever good things we build end up building us. <a href="https://twitter.com/hashtag/madewithmagicmirror?src=hash">#madewithmagicmirror</a> <a href="https://twitter.com/hashtag/tipped?src=hash">#tipped</a> <a href="https://twitter.com/hashtag/fashionworthbuying?src=hash">#fashionworthbuying</a> <a href="http://t.co/CG4pahao9p">pic.twitter.com/CG4pahao9p</a></p>&mdash; Alex Macleod (@alexrmacleod) <a href="https://twitter.com/alexrmacleod/status/635436517385605121">August 23, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> <a href="https://twitter.com/talent_rank">@talent_rank</a> Hong Kong Startups! Signup before Aug 31 get free hiring services from Talent Rank! <a href="http://t.co/lahn9wSIN9">pic.twitter.com/lahn9wSIN9</a></p>&mdash; Kai Hung (@aptxmiu) <a href="https://twitter.com/aptxmiu/status/635436583949234177">August 23, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+</div>
+
 <a id="20150822"></a>
 
 # Winners of the 22nd!
