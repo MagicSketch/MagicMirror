@@ -1,6 +1,6 @@
 ---
 layout: flex
-title: campaign
+title: Get a license for free
 permalink: /madewithmagicmirror/
 image: /images/madewithmagicmirror.jpg
 weight: 1
