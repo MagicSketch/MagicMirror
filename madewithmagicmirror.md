@@ -1,6 +1,6 @@
 ---
 layout: flex
-title: Get a license for free
+title: campaign
 permalink: /madewithmagicmirror/
 image: /images/madewithmagicmirror.jpg
 weight: 1
@@ -11,37 +11,38 @@ excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015.
 
 {% include tweetbutton.html %}
 
-### News:
-> 2015-08-20: Magic Mirror has just [released v1.2](/#features) with the two highly requested features - 1. Across Page Screen Mirroring, 2. Retina Image Support. I also completely redesigned this website and the [pricing model](/purchase). The **#MadeWithMagicMirror** campaign is to celebrate the relaunch :)    
-> - J
+# MadeWithMagicMirror (finished)
 
-# MadeWithMagicMirror
+The #MadeWithMagicMirror campaign was held at the **20th to 24th Aug 2015**. It's made to celebrate the launch of a [new version 1.2](http://magicmirror.com) and a completely new website.
 
-The #MadeWithMagicMirror campaign starts immediately from **20th to 24th Aug 2015**.
+**Top 3 Photos Tweets** of the day had been be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-19%20until%3A2015-08-25&src=typd).
 
-**Top 3 Photos Tweets** of the day will be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search-advanced?lang=en).
+Attendees had to make a public tweet **attached with a product shot**, and hashtagged **#MadeWithMagicMirror**.
 
-There’ll also be 1 license give away to the winner of Author’s Choice.
+The 5 days campaign has been a great experience for all of us, thanks for all the participants, and congraduations to all the winners of the campaign! :) Hope you enjoy your free license!
+
+<a id="20150824"></a>
+
+# Winners of the 24th!
+
+Hey Melody, Chris and Gary, you have done a great shot and you earn the winner prize of the 24th! Please DM your email to me and you will find the license key attached in the confirmation letter :)
+
+<div class="flex mxn2">
+
+<blockquote class="twitter-tweet" lang="en"><p lang="und" dir="ltr"><a href="https://twitter.com/hashtag/madewithmagicmirror?src=hash">#madewithmagicmirror</a> <a href="http://t.co/V3NisqIhKv">pic.twitter.com/V3NisqIhKv</a></p>&mdash; Melody Cheng (@melodypug) <a href="https://twitter.com/melodypug/status/635771009803554817">August 24, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
+
+</script>
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/MadeWithMagicMirror?src=hash">#MadeWithMagicMirror</a> Talented iOS Indie <a href="https://twitter.com/jamztang">@jamztang</a> created a sketch plugin that makes perspective mockup easy. <a href="http://t.co/esncaJJJUY">pic.twitter.com/esncaJJJUY</a></p>&mdash; Christopher Yeung (@chrisyeung1121) <a href="https://twitter.com/chrisyeung1121/status/635728645978374148">August 24, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Created a mockup in Sketch with Magic Mirror. Slick! <a href="https://twitter.com/hashtag/madewithmagicmirror?src=hash">#madewithmagicmirror</a> <a href="http://t.co/4k5s1ljszd">pic.twitter.com/4k5s1ljszd</a></p>&mdash; Gary Chan (@garychanym) <a href="https://twitter.com/garychanym/status/635682030735327232">August 24, 2015</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
-
-# Currently Participating
-
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/search?q=%23madewithmagicmirror%20pic.twitter.com%20-jamztang" data-widget-id="634663660531544064">Tweets about #madewithmagicmirror pic.twitter.com -jamztang</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<div class="wrapper" markdown="1">
-
-# How to attend?
-
-Make a public tweet **with your mockup**, and hashtag **#MadeWithMagicMirror**, then you’re in! 
-
-p.s. It's also good to utilize the 140 characters :)
 
 <a id="20150823"></a>
 
 # Winners of the 23rd!
 
-Alex, Kai, I've a question for you. Do you guys rest on Sundays? You DESERVE the prize! Please DM your email to me and you'll be getting a license key for free! ([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-23%20until%3A2015-08-24&src=typd))
+Alex, Kai, I've a question for you. Do you guys rest on Sundays? You DESERVE the prize! Please DM your email to me and you'll be getting a license key for free!
 
 <div class="flex mxn2">
 
@@ -56,7 +57,7 @@ Alex, Kai, I've a question for you. Do you guys rest on Sundays? You DESERVE the
 
 # Winners of the 22nd!
 
-Awesome work Julie, Keith and Luis, you're the winners of the 22nd! I've followed you on Twitter, please DM your email to me and I'll send you the license key! ([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-22%20until%3A2015-08-23&src=typd))
+Awesome work Julie, Keith and Luis, you're the winners of the 22nd! I've followed you on Twitter, please DM your email to me and I'll send you the license key!
 
 <div class="flex mxn2">
 
@@ -73,7 +74,6 @@ Awesome work Julie, Keith and Luis, you're the winners of the 22nd! I've followe
 # Winners of the 21st!
 
 Congraduations Wilson, Steven, and Mahdi, you're the winners of 21st!. Great work pays off! I've followed you on Twitter, please DM me your email address, I'll activate your license shortly!
-([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20%23madewithmagicmirror%20pic.twitter.com%20-jamztang%20since%3A2015-08-21%20until%3A2015-08-22&src=typd))
 
 <div class="flex mxn2">
 
@@ -90,7 +90,6 @@ Congraduations Wilson, Steven, and Mahdi, you're the winners of 21st!. Great wor
 # Winners of the 20th!
 
 Congraduations Hafid, Reony, and Kaitlyn, you're the winners of 20th! Not so hard isn't it? I've followed you on Twitter, please DM me your email address, and Full Name, I'll activate your license shortly!
-([participants of the day](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20%23madewithmagicmirror%20pic.twitter.com%20-jamztang%20since%3A2015-08-20%20until%3A2015-08-21&src=typd))
 
 <div class="flex mxn2">
 
