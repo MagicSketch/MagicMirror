@@ -19,6 +19,11 @@ items:
   image: appicon.jpg
   author: FradSer
   download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/app-icon-by-fradser.sketch
+- title: Sample
+  description: The Original Sample Sketch file
+  image: sample.jpg
+  author: jamztang
+  download_link: https://github.com/jamztang/MagicMirror/releases/download/v1.0/magicmirror-sample.sketch
 ---
 
 <div class="flex flex-wrap mxn2 templates">
