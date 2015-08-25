@@ -2,7 +2,7 @@
 layout: page
 title: Templates
 permalink: /templates/
-weight: 2
+weight: 1
 items:
 - title: Three Cards Layout
   description: Made for the expenses tracker I never had time to work on
