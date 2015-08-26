@@ -24,6 +24,12 @@ items:
   image: sample.jpg
   author: jamztang
   download_link: https://github.com/jamztang/MagicMirror/releases/download/v1.0/magicmirror-sample.sketch
+- title: Three Standing Cards
+  description: The gift template for early Sketch donors
+  image: standing.jpg
+  author: jamztang
+  download_link: /videos/three-standing-cards
+  verify: true
 ---
 
 <div class="flex flex-wrap mxn2 templates">
@@ -40,7 +46,12 @@ items:
             {% assign author = site.data.authors[item.author] %}
             <p class="author"><img src="{{ author.avatar }}" class="avatar"/><a href="{{ author.link }}" class="name">{{ item.author }}</a></p>
 		    </span>
-	    	<a href="{{ item.download_link }}" class="border-box center btn btn-outline green flex-none" width="100px" max-width="100px">FREE</a>
+
+        {% if item.verify %}
+        <a href="{{ item.download_link }}" class="border-box center btn btn-outline gray flex-none" width="100px" max-width="100px">MEMBERS</a>
+        {% else %}
+        <a href="{{ item.download_link }}" class="border-box center btn btn-outline green flex-none" width="100px" max-width="100px">FREE</a>
+        {% endif %}
 
 		</span>
 		</div>
