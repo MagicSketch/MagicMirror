@@ -10,3 +10,8 @@ github_username:  jamztang
 
 # Build settings
 markdown: kramdown
+
+collections:
+  templates:
+    output: true
+    permalink: /templates/:path/

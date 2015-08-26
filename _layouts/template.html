@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body class="template-body">
+
+    {% include header.html %}
+
+    {% assign author = site.data.authors[page.author] %}
+
+    <img src="{{ page.image }}" class="hero"/>
+
+    <div class="wrapper flex flex-center">
+      <img src="{{ author.avatar }}" class="col-2 round" />
+      <h1 class="col-8 center">{{ page.title }}</h1>
+    </div>
+
+    <div class="wrapper border-box center">
+      <div class="left-align clearfix sm-col-8 mx-auto">
+      {{ content }}
+      </div>
+
+      <div class="mx-auto">
+      <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" placeholder="Enter your license key...">
+      <a href="{{ page.download_link }}" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1">DOWNLOAD</a>
+      </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

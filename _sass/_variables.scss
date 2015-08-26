@@ -171,19 +171,7 @@ sup {
   margin-right: auto;
 }
 
-/* Templates */
-
-.templates {
-  .author {
-    margin-top:4px;
-    margin-bottom:0px;
-    .avatar {
-      height:22px;
-      width: 22px;
-      border-radius: 11px;
-    }
-    .name {
-      margin-left: 4px;
-    }
-  }
+/* Round */
+.round {
+  border-radius: 50%;
 }

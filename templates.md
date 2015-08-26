@@ -28,7 +28,7 @@ items:
   description: The gift template for early Sketch donors
   image: standing.jpg
   author: jamztang
-  download_link: /videos/three-standing-cards
+  download_link: /templates/three-standing-cards
   verify: true
 ---
 
