@@ -1,5 +1,5 @@
 ---
-title: MadeWithMagicMirror
+title: Made With Magic Mirror
 description: The hero image of the campaign
 image: madewithmagicmirror.jpg
 author: jamztang

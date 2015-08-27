@@ -1,5 +1,5 @@
 ---
-title: Sample
+title: Launch Sample
 description: The original sample Sketch file
 image: sample.jpg
 author: jamztang
