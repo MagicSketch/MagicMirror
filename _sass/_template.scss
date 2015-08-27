@@ -31,8 +31,21 @@
 
 .templates {
 	
-	.avatar {
-		width: 22px;
-		height: 22px;
+	.author {
+		margin-top: 2px;
+		margin-bottom: 4px;
+		.avatar {
+			width: 22px;
+			height: 22px;
+		}
+		.name {
+			padding-left: 2px;
+			padding-top: 2px;
+		}
 	}
+
+	.members-btn {
+		color: #999;
+	}
+
 }

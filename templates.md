@@ -34,21 +34,21 @@ items:
 
 <div class="flex flex-wrap mxn2 templates">
 
-  {% for item in page.items %}
+  {% for item in site.templates %}
     <div class="flex sm-col-6 border-box p1 template">
       <div class="p1 border rounded">
-        <img src="/images/templates/{{ item.image }}" height="auto" />
+        <img src="{{ item.image }}" height="auto" />
         <div class="mx-auto">
         <span class="flex flex-center">
 	        <span class="flex-auto">
 		        <h4 class="title mt1 mb1 bold">{{ item.title }}</h4>
 		        <i class="meta m0">{{ item.description }}</i>
             {% assign author = site.data.authors[item.author] %}
-            <p class="author"><img src="{{ author.avatar }}" class="avatar"/><a href="{{ author.link }}" class="name">{{ item.author }}</a></p>
+            <p class="author"><a href="{{ author.link }}" class="name"><img src="{{ author.avatar }}" class="avatar"/> {{ item.author }}</a></p>
 		    </span>
 
         {% if item.verify %}
-        <a href="{{ item.download_link }}" class="border-box center btn btn-outline gray flex-none" width="100px" max-width="100px">MEMBERS</a>
+        <a href="{{ item.download_link }}" class="members-btn border-box center btn btn-outline gray flex-none" width="100px" max-width="100px">MEMBERS</a>
         {% else %}
         <a href="{{ item.download_link }}" class="border-box center btn btn-outline green flex-none" width="100px" max-width="100px">FREE</a>
         {% endif %}
