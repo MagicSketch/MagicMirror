@@ -9,7 +9,7 @@
 
     {% assign author = site.data.authors[page.author] %}
 
-    <img src="{{ page.image }}" class="hero"/>
+    <img src="/images/templates/{{ page.image }}" class="hero"/>
 
     <div class="wrapper flex flex-center">
       <img src="{{ author.avatar }}" class="col-2 round" />
@@ -21,11 +21,17 @@
       {{ content }}
       </div>
 
-      <div class="mx-auto">
+      {% if page.members %}
+      <div class="mx-auto members">
       <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" placeholder="Enter your license key...">
       <a href="{{ page.download_link }}" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1">DOWNLOAD</a>
       </div>
       </div>
+      {% else %}
+      <div class="mx-auto non-members">
+      <a href="{{ page.download_link }}" class="border-box center btn btn-outline orange col-4 sm-col-2 mt1">DOWNLOAD</a>
+      </div>
+      {% endif %}
     </div>
 
     {% include footer.html %}

@@ -15,3 +15,9 @@ collections:
   templates:
     output: true
     permalink: /templates/:path/
+
+defaults:
+  - scope:
+      type: templates
+    values:
+      layout: template

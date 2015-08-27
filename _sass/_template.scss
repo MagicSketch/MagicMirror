@@ -17,12 +17,19 @@
 		margin-top: 2rem;
 	}
 
+
 	.btn {
 		padding-left: 5px;
 		padding-right: 5px;
-		color: #999;
 	}
 
+	.non-members .btn {
+		color: $brand-color
+	}
+	.members .btn {
+		color: #999;
+	}
+	
 	.license-box {
 		@extend .btn-outline;
 		border-radius: 4px;
@@ -47,5 +54,6 @@
 	.members-btn {
 		color: #999;
 	}
+
 
 }
