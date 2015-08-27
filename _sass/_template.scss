@@ -23,13 +23,6 @@
 		padding-right: 5px;
 	}
 
-	.non-members .btn {
-		color: $brand-color
-	}
-	.members .btn {
-		color: #999;
-	}
-	
 	.license-box {
 		@extend .btn-outline;
 		border-radius: 4px;
@@ -51,9 +44,16 @@
 		}
 	}
 
-	.members-btn {
-		color: #999;
+}
+
+.members {
+	.members-btn, .status, .download {
+		color: $brand-color;
 	}
+}
 
-
+.free {
+	.status, .download {
+		color: #2ecc40
+	}
 }
