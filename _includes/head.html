@@ -62,5 +62,14 @@
         results = regex.exec(location.search);
       return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+
+    function setLicense() {
+      var license = document.getElementById("license").value
+      sessionStorage.license = license
+    }
+
+    function fillLicense() {
+       document.getElementById("license").value = sessionStorage.license || ""
+    }
   </script>
 </head>

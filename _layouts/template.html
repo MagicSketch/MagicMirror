@@ -32,7 +32,7 @@
           <form action="{{ site.downloadurl }}/{{ page.identifier }}">
             <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" id="license" placeholder="Enter your license key..." />
             <input type="hidden" name="redirect_url" value="{{ site.url }}{{ page.url }}" />
-            <input type="submit" value="ENTER" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" />
+            <input type="submit" value="ENTER" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" onclick="setLicense()"/>
           </form>
           <p id="message" class="mt1"></p>
         </div>
@@ -54,10 +54,8 @@
   </body>
 
   <script>
-    var license = getParameterByName("license")
-    if (license) {
-      document.getElementById("license").value = license
-    }
+
+    fillLicense()
 
     var message = getParameterByName("message")
     var style = getParameterByName("style")
