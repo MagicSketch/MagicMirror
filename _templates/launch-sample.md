@@ -3,7 +3,7 @@ title: Launch Sample
 description: The original sample Sketch file
 image: sample.jpg
 author: jamztang
-download_link: https://github.com/jamztang/MagicMirror/releases/download/v1.0/magicmirror-sample.sketch
+identifier: launch-sample
 ---
 
 The original sample Sketch file.

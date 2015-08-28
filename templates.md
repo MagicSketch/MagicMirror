@@ -9,6 +9,10 @@ weight: 1
 
   {% for item in site.templates %}
 
+    {% if item.hidden %}
+
+    {% else %}
+
     {% if item.members %}
     <div class="flex sm-col-6 border-box p1 template members">
     {% else %}
@@ -51,6 +55,7 @@ weight: 1
     		</div>
       </div>
     </div>
+    {% endif %}
   {% endfor %}
 
 

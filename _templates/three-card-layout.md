@@ -3,7 +3,7 @@ title: Three Cards Layout
 description: Made for the expenses tracker I never had time to work on
 image: expenses.jpg
 author: jamztang
-download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/magicmirror-perspective-expenses.sketch
+identifier: three-cards-layout
 ---
 
 Made for the expenses tracker I never had time to work on.

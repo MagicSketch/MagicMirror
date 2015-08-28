@@ -3,8 +3,9 @@ title: Donor's Gift
 description: A template made for early Magic Mirror donors
 image: standing.jpg
 author: jamztang
-download_link: /templates/three-standing-cards
+identifier: donors-gift
 members: true
+hidden: true
 ---
 
 A template made for early Magic Mirror donors

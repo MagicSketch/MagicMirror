@@ -29,13 +29,21 @@
 
         {% if page.members %}
         <div class="mx-auto">
-        <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" placeholder="Enter your license key...">
-        <a href="{{ page.download_link }}" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download">DOWNLOAD</a>
-        </div>
+          <form action="{{ site.downloadurl }}/{{ page.identifier }}">
+            <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" id="license" placeholder="Enter your license key..." />
+            <input type="hidden" name="redirect_url" value="{{ site.url }}{{ page.url }}" />
+            <input type="submit" value="ENTER" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" />
+          </form>
+          <p id="message" class="mt1"></p>
         </div>
         {% else %}
         <div class="mx-auto">
-        <a href="{{ page.download_link }}" class="border-box center btn btn-outline col-4 sm-col-2 mt1 download">DOWNLOAD</a>
+            <form action="{{ site.downloadurl }}/{{ page.identifier }}">
+            <input type="hidden" name="redirect_url" value="{{ site.url }}{{ page.url }}" />
+            <input type="submit" value="DOWNLOAD" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" />
+          </form>
+          <p id="message" class="mt1"></p>
+<!--         <a href="{{ site.downloadurl }}/{{ page.identifier }}" class="border-box center btn btn-outline col-4 sm-col-2 mt1 download">DOWNLOAD</a> -->
         </div>
         {% endif %}
       </div>
@@ -44,5 +52,25 @@
     {% include footer.html %}
 
   </body>
+
+  <script>
+    var license = getParameterByName("license")
+    if (license) {
+      document.getElementById("license").value = license
+    }
+
+    var message = getParameterByName("message")
+    var style = getParameterByName("style")
+    var d = document.getElementById("message")
+    d.innerHTML = message
+    d.className += " " + style
+
+    var link = getParameterByName("link")
+    if (link) {
+      setTimeout(function() {
+        window.location = link
+      }, 1000);
+    }
+  </script>
 
 </html>

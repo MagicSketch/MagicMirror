@@ -3,7 +3,7 @@ title: Made With Magic Mirror
 description: The hero image of the campaign
 image: madewithmagicmirror.jpg
 author: jamztang
-download_link: https://github.com/jamztang/MagicMirror/releases/download/templates/magicmirror-perspective-madewithmagicmirror.sketch
+identifier: madewithmagicmirror
 ---
 
 The hero image of the campaign

@@ -4,6 +4,7 @@ email: james@magicmirror.design
 description: When Sketch Meets Perspective Mockups. A Powerful Sketch 3 Plugin to Perspective Transform Artboards into Shapes, just like Smart Objects in Photoshop.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://magicmirror.design" # the base hostname & protocol for your site
+downloadurl: "http://api.magicmirror.design/download"
 author: James Tang
 twitter_username: jamztang
 github_username:  jamztang
