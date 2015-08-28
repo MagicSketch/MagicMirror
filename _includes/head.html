@@ -66,12 +66,17 @@
     }
 
     function setLicense() {
-      var license = $("#license").val()
-      sessionStorage.license = license
+      if ($("#license").length > 0) { 
+        var license = $("#license").val()
+        sessionStorage.setItem("license", license)
+      }
     }
 
     function fillLicense() {
-       document.getElementById("license").value = sessionStorage.license || ""
+       var license = sessionStorage.getItem("license")
+       if (license) {
+         $("#license").val(license)
+       }
     }
   </script>
 </head>
