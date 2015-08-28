@@ -61,6 +61,9 @@
     });
     $('#submitButton').click(function() {
       setLicense()
+
+      $("#message").html("Loading...").removeClass("green").removeClass("red")
+
       $.ajax({
         dataType: "json",
         url: "{{ site.downloadurl }}/{{ page.identifier }}.json?license=" + $('#license').val(),
