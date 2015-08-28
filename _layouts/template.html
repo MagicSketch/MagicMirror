@@ -32,18 +32,17 @@
           <form action="{{ site.downloadurl }}/{{ page.identifier }}">
             <input type="text" class="license-box col-12 sm-col-6 clearfix border-box mr1 mt1" name="license" id="license" placeholder="Enter your license key..." />
             <input type="hidden" name="redirect_url" value="{{ site.url }}{{ page.url }}" />
-            <input type="submit" value="ENTER" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" onclick="setLicense()"/>
+            <input type="button" value="ENTER" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" onclick="submitForm()" id="submitButton"/>
           </form>
           <p id="message" class="mt1"></p>
         </div>
         {% else %}
         <div class="mx-auto">
-            <form action="{{ site.downloadurl }}/{{ page.identifier }}">
+            <form action="{{ site.downloadurl }}/{{ page.identifier }}" id="downloadForm">
             <input type="hidden" name="redirect_url" value="{{ site.url }}{{ page.url }}" />
-            <input type="submit" value="DOWNLOAD" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" />
+            <input type="button" value="DOWNLOAD" class="border-box center btn btn-outline gray col-4 sm-col-2 mt1 download" onclick="submitForm()" id="submitButton"/>
           </form>
           <p id="message" class="mt1"></p>
-<!--         <a href="{{ site.downloadurl }}/{{ page.identifier }}" class="border-box center btn btn-outline col-4 sm-col-2 mt1 download">DOWNLOAD</a> -->
         </div>
         {% endif %}
       </div>
@@ -54,21 +53,33 @@
   </body>
 
   <script>
+    $('#license').keypress(function (e) {
+      if (e.which == 13) {
+        $('#submitButton').trigger("click");
+        return false;    //<---- Add this line
+      }
+    });
+    $('#submitButton').click(function() {
+      setLicense()
+      $.ajax({
+        dataType: "json",
+        url: "{{ site.downloadurl }}/{{ page.identifier }}.json?license=" + $('#license').val(),
+        success: function(data) {
+          $("#message").removeClass("red").addClass("green")
+          $("#message").html("Download in process...")
+          window.location = data["target"]
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          if (xhr.status >= 400) {
+            $("#message").removeClass("green").addClass("red")
+          }
+          $("#message").html(xhr.statusText)
+          $("#license").select()
+        }
+      });
+    });
 
     fillLicense()
-
-    var message = getParameterByName("message")
-    var style = getParameterByName("style")
-    var d = document.getElementById("message")
-    d.innerHTML = message
-    d.className += " " + style
-
-    var link = getParameterByName("link")
-    if (link) {
-      setTimeout(function() {
-        window.location = link
-      }, 1000);
-    }
   </script>
 
 </html>
