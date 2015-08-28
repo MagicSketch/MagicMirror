@@ -76,7 +76,7 @@ backtracks:
 	<a href="/madewithmagicmirror" class="clearfix">Get a license for free</a>
 	<sup class="red">NEW (20/8-24/8)</sup>
 </div>
-<a href="https://github.com/jamztang/MagicMirror/releases/download/v1.2/magicmirror-20150820-free.zip" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
+<a href="{{ site.downloadurl }}/latest" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
 </div>
 
