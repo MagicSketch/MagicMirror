@@ -5,7 +5,7 @@ permalink: /templates/
 weight: 1
 ---
 
-<div class="flex flex-wrap mxn2 templates">
+<div class="flex flex-wrap p1 templates">
 
   {% for item in site.templates %}
 
@@ -14,9 +14,9 @@ weight: 1
     {% else %}
 
     {% if item.members %}
-    <div class="flex sm-col-6 border-box p1 template members">
+    <div class="flex sm-col-6 md-col-4 border-box p1 template members">
     {% else %}
-    <div class="flex sm-col-6 border-box p1 template free">
+    <div class="flex sm-col-6 md-col-4 border-box p1 template free">
     {% endif %}
 
 
