@@ -27,6 +27,14 @@ var LayerHelper = {
 		return msshapegroup.bezierPathInBounds()
 	},
 
+
+	"rotatePoints": function(msshapegroup) {
+		var shape = msshapegroup.layers().firstObject()
+		var path = shape.path()
+		var lastPoint = path.lastPoint()
+		path.removeLastPoint()
+		[path insertPoint:lastPoint atIndex:0]
+	},
 	"getImage": function(mslayer, mslayerflattener) {
 		var layers = [MSLayerArray arrayWithLayer:mslayer];
 		var image = [mslayerflattener imageFromLayers:layers];

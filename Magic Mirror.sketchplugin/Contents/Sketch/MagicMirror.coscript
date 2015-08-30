@@ -248,9 +248,7 @@ MagicMirror.layer = function(mslayer) {
             },
             pointsRotatable: true,
             rotatePoints:function() {
-                var bezierPath = LayerHelper.getBezierPath(mslayer)
-                var rotated = BezierPathHelper.rotatePoints(bezierPath)
-                mslayer.setBezierPath(rotated)
+                LayerHelper.rotatePoints(mslayer)
                 log("rotate: " + this.name)
             },
             flipHorizontally:function() {
