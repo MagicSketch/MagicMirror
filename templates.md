@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: flex
 title: Templates
 permalink: /templates/
 weight: 1
 ---
+
+# Templates
 
 <div class="flex flex-wrap p1 templates">
 

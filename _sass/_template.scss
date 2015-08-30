@@ -28,9 +28,16 @@
 		border-radius: 4px;
 	}
 }
+	
+#templates {
+    font-weight: 300;
+    font-size: 42px;
+    @extend .post-title;
+}
 
 .templates {
-	
+
+
 	.author {
 		margin-top: 2px;
 		margin-bottom: 4px;
