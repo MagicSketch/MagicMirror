@@ -5,7 +5,7 @@ image: face-up.jpg
 author: jamztang
 identifier: face-up
 members: true
-hidden: true
+hidden: false
 ---
 
 Today for iOS App's PressKit hero image.

@@ -5,7 +5,7 @@ image: standing.jpg
 author: jamztang
 identifier: donors-gift
 members: true
-hidden: true
+hidden: false
 ---
 
 A template made for early Magic Mirror donors
