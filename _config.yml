@@ -8,6 +8,10 @@ downloadurl: "http://api.magicmirror.design/download"
 author: James Tang
 twitter_username: jamztang
 github_username:  jamztang
+analytics:
+  google: UA-65727569-1
+  mixpanel: 3cfd84dad73057910e2e1ca896a4ab6b
+
 
 # Build settings
 markdown: kramdown
