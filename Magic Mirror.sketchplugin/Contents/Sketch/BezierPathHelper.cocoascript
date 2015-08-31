@@ -43,8 +43,6 @@ var BezierPathHelper = {
 		}
 		quad.size = bezierPath.bounds().size
 		quad.scale = function(x, y){
-
-			log("quad1: " + this.tr)
 			var tl = this.tl
 			var tr = this.tr
 			var br = this.br

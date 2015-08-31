@@ -281,17 +281,33 @@ MagicMirror.flattener = function(locker) {
         perspectiveTransform : function(from, to) {
             var layer = to.layer
             var image = LayerHelper.getImage(from.layer, this.flattener)
+
+            // original size
             var bezierPath = LayerHelper.getBezierPathInBounds(layer)
             var quad = BezierPathHelper.getQuad(bezierPath)
             var size = quad.size
             var scale = 1
             var tokens = to.tokens()
-            if (locker.isLicensed() && (!contains(tokens, ".1x") || contains(tokens, ".2x"))) {
+
+            if (locker.isLicensed() && (!tokens[".1x"] || tokens[".2x"])) {
                 scale = 2
                 quad = quad.scale(2, 2)
-            } 
+                size.width *= 2
+                size.height *= 2
+            }
+
+            var insets = (tokens[".inset"] || "0,0,0,0").split(",")
+            insets = {
+                top: insets[0] * scale,
+                left: insets[1] * scale,
+                bottom: insets[2] * scale,
+                right: insets[3] * scale,
+            }
+
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
-            LayerHelper.fillBottom(layer, transformed)
+            var cropped = ImageHelper.crop(transformed, NSMakeRect(-insets.left, -insets.bottom, quad.size.width + insets.left + insets.right, quad.size.height + insets.bottom + insets.top), size)
+
+            LayerHelper.fillBottom(layer, cropped)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name + ", scale: " + scale + ", size:" + transformed.size())
         }
     }

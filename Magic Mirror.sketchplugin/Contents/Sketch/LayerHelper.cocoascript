@@ -50,7 +50,26 @@ var LayerHelper = {
 
 	"getTokens" : function(mslayer) {
 		var name = mslayer.name()
-		var identifiers = name.split(" ")
-		return identifiers
+		var tokens = name.split(" ")
+		var keyvalues = {}
+
+		each(tokens, function(token) {
+			var items = token.split(":")
+			// log(items)
+
+			// each(items, function(item) {
+			// 	log(item)
+			// })
+			if (count(items) > 1) {
+				var key = items[0]
+				var value = items[1]
+				keyvalues[key] = value
+			} else {
+				var key = items[0]
+				keyvalues[key] = true
+			}
+		})
+
+		return keyvalues
 	}
 }

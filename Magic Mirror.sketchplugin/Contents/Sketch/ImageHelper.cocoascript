@@ -61,6 +61,16 @@ var ImageHelper = {
 		return ImageHelper.getNSImageFromCGImage(cg, size)
 	},
 
+	"crop": function(nsimage, rect, size) {
+		var resized = [NSImage imageWithSize:size];
+    	[resized lockFocus]
+        // var rect = NSMakeRect(-offset.x, -offset.y, size.width, size.height)
+        // var context = NSGraphicsContext.currentContext().graphicsPort()
+		[nsimage drawInRect:rect];
+    	[resized unlockFocus];
+		return resized
+	},
+
 	"horizontalTransform" : function(nsimage) {
 		var cgimage = ImageHelper.getCGImage(nsimage)
 		var c = ImageHelper.getCIImage(cgimage)
