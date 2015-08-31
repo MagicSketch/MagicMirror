@@ -32,7 +32,7 @@ weight: 1
   		        <h4 class="title mt1 mb1 bold">{{ item.title }}</h4>
   		        <i class="meta m0">{{ item.description }}</i>
               {% assign author = site.data.authors[item.author] %}
-              <p class="author"><a href="{{ author.link }}" class="name"><img src="{{ author.avatar }}" class="avatar"/> {{ item.author }}</a></p>
+              <p class="author"><a href="{{ author.link }}" identifier="{{ item.author }}" class="name"><img src="{{ author.avatar }}" class="avatar"/> {{ item.author }}</a></p>
   		      </span>
 
         <!--

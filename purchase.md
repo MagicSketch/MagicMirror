@@ -28,7 +28,7 @@ For the pricing, please welcome our new "Coffee Menu".
 |*Cross Sketch File Reference| |...|
 |*Circle/Round Rect Support| |...|
 |Commercial Use| |x|
-| |Free|<a href="javascript:void(0);" onclick="donateClicked()" class="center btn btn-outline orange">$10</a>|
+| |Free|<a href="javascript:void(0);" identifier="Buy" onclick="donateClicked()" class="center btn btn-outline orange">$10</a>|
 
 ## Why I make it paid?
 

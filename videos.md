@@ -36,7 +36,7 @@ items:
             <i class="meta m0">{{ item.description }}</i>
             <div><i class="fa fa-download"></i><a href="{{ item.sketch }}"> .sketch file</a></div>
             {% assign author = site.data.authors[item.author] %}
-            <p class="author"><img src="{{ author.avatar }}" class="avatar"/><a href="{{ author.link }}" class="name">{{ item.author }}</a></p>
+            <p class="author"><img src="{{ author.avatar }}" class="avatar"/><a href="{{ author.link }}" identifier="{{ item.author }}" class="name">{{ item.author }}</a></p>
         </span>
     </span>
     </div>

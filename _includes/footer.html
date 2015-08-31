@@ -75,4 +75,38 @@
     ga('send', 'pageview');
 
   </script>
+
+
+  <script>
+    mixpanel.track("View {{ page.title }}");
+  </script>
+
+  <script>
+    $("#submitButton").click(function(event) {
+        var cb = generate_callback($(this));
+        event.preventDefault();
+        var name = $( this ).val();
+        var htmlString = $( this ).attr("href");
+        mixpanel.track("Clicked " + name, { "href" : htmlString }, cb);
+        setTimeout(cb, 500);
+    })
+
+    $(".page-content a").click(function(event) {
+        var cb = generate_callback($(this));
+        event.preventDefault();
+        var name = $( this ).attr("identifier");
+        if (name) {
+          var htmlString = $( this ).attr("href");
+          mixpanel.track("Clicked " + name, { "href" : htmlString }, cb);
+        }
+        setTimeout(cb, 500);
+    })
+        
+    function generate_callback(a) {
+        return function() {
+            window.location = a.attr("href");
+        }
+    }
+  </script>
+
 </footer>

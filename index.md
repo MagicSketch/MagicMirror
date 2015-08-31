@@ -1,6 +1,6 @@
 ---
 layout: flex
-
+title: Index
 showcases:
 - author: Marko Vuletič, UI/UX Design Professional
   liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
@@ -71,12 +71,12 @@ backtracks:
 
 <div class="wrapper">
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
-<a href="/#features" class="col-4 border-box center btn orange">See all features</a>
+<a href="/#features" identifier="See-All-Features" class="col-4 border-box center btn orange">See all features</a>
 <div class="col-4 center btn orange border-box">
-	<a href="/madewithmagicmirror" class="clearfix">Get a license for free</a>
+	<a href="/madewithmagicmirror" identifier="Get-License-Free" class="clearfix">Get a license for free</a>
 	<sup class="red">NEW (20/8-24/8)</sup>
 </div>
-<a href="{{ site.downloadurl }}/latest" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
+<a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
 </div>
 
@@ -138,7 +138,7 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 {% for showcase in page.showcases %}
 <div class="sm-col sm-col-6 showcase">
 	<img src="{{ showcase.image }}" />
-	<a href="{{ showcase.link }}" class="overlay">
+	<a href="{{ showcase.link }}" identifier="{{ showcase.author }}" class="overlay">
 		<img src="/images/showcase-placeholder.png" />
 		<div class="overlay flex flex-end">
 			<div class="flex flex-end m2">
