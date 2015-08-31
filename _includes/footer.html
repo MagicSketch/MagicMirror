@@ -67,11 +67,11 @@
 
   {% include googleanalytics.html %}
 
-  <script>
-    mixpanel.track("View {{ page.title }}");
-  </script>
+  {% if site.analytics.mixpanel %}
 
   <script>
+    mixpanel.track("View {{ page.title }}");
+
     $("#submitButton").click(function(event) {
         var cb = generate_callback($(this));
         event.preventDefault();
@@ -98,5 +98,7 @@
         }
     }
   </script>
+
+  {% endif %}
 
 </footer>
