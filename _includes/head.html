@@ -78,6 +78,25 @@
          $("#license").val(license)
        }
     }
+
+    function pickTitleForVideos() {
+      var title = sessionStorage.getItem("videoTitle")
+      if (title == null) {
+        console.log("randomizing title...")
+        var test_id = 1 % Math.ceil(2 * Math.random());
+        if (test_id) { title = "videos"; }
+        else { title = "tutorials"; }
+        sessionStorage.setItem("videoTitle", title)
+      }
+      return title
+    }
+
+    $( document ).ready(function() {
+      console.log( "ready!" );
+      var title = pickTitleForVideos()
+      console.log("title: " + title);
+      $("#videoLink").html(title)
+    });
   </script>
 
   {% include mixpanel.html %}
