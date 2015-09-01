@@ -89,11 +89,11 @@
         var name = $( this ).attr("identifier");
         if (name) {
           var htmlString = $( this ).attr("href");
-          mixpanel.track("Clicked " + name, { "href" : htmlString }, cb);
+          mixpanel.track("Clicked Link", { "href" : htmlString, "identifier": name }, cb);
         }
         setTimeout(cb, 500);
     })
-        
+
     function generate_callback(a) {
         return function() {
             window.location = a.attr("href");
