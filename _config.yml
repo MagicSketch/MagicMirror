@@ -26,3 +26,4 @@ defaults:
       type: templates
     values:
       layout: template
+      pagename: Template # for tracking
