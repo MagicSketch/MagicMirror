@@ -5,6 +5,18 @@ var MagicMirror = function(context) {
     var ui = MagicMirror.ui(context)
     var util = MagicMirror.util
 
+    var selections = ctx.selections()
+    var reselectLayers = function() {
+        coscript.setShouldKeepAround(true)
+        var cosi = [coscript scheduleWithInterval:0.1 jsFunction:function(cinterval)
+        {
+            each (selections, function(selection) {
+                selection.selectIfNecessary()
+            });
+            coscript.setShouldKeepAround(false)
+        }];
+    }
+
     var actioner = {
         context : ctx,
 
@@ -77,6 +89,7 @@ var MagicMirror = function(context) {
                         util.debug("selection: " + selection.name + " not rotatable")
                     }
                 })
+                reselectLayers()
                 ui.show("Magic Mirror: Flip Content is applied to " + count(selections) + " layer(s).")
             }
 
@@ -105,16 +118,7 @@ var MagicMirror = function(context) {
                         util.debug("selection: " + selection.name + " not rotatable")
                     }
                 })
-
-                coscript.setShouldKeepAround(true)
-                var cosi = [coscript scheduleWithInterval:0.1 jsFunction:function(cinterval)
-                {
-                    each (selections, function(selection) {
-                        selection.selectIfNecessary()
-                    });
-                    coscript.setShouldKeepAround(false)
-                }];
-
+                reselectLayers()
                 ui.show("Magic Mirror: Rotate Content is applied to " + count(selections) + " layer(s).")
             }
 

@@ -33,6 +33,16 @@ var LayerHelper = {
 	},
 
 
+	"flipPoints": function(msshapegroup) {
+		var mslayer = msshapegroup
+        var array = LayerHelper.dropCornerRadius(mslayer)
+	    var bezierPath = LayerHelper.getFrameBezierPath(mslayer)
+	    var flipped = BezierPathHelper.flipShiftX(bezierPath)
+	    msshapegroup.setBezierPath(flipped)
+	    msshapegroup.isFlippedHorizontal = !mslayer.isFlippedHorizontal()
+	    LayerHelper.applyCornerRadius(mslayer, array)
+	},
+
 	"rotatePoints": function(msshapegroup) {
 		var shape = msshapegroup.layers().firstObject()
 		var path = shape.path()
@@ -55,6 +65,20 @@ var LayerHelper = {
 
 		return this.getBezierPathInBounds(group)
 	},
+
+	"getFrameBezierPath": function(msshapegroup) {
+		var group = msshapegroup.copy()
+		var shape = group.layers().firstObject()
+		var path = shape.path()
+
+		for (var i = 0; i < path.points().length(); i++) {
+			var point = path.pointAtIndex(i)
+			point.setCornerRadius(0)
+		}
+
+		return this.getBezierPath(group)
+	},
+
 
 	"getCurvePoints": function(msshapegroup) {
 		var shape = msshapegroup.layers().firstObject()
