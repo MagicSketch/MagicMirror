@@ -18,6 +18,11 @@ var LayerHelper = {
 		fill.setFillType(0);
 		fill.setColor([MSColor colorWithSVGString:hex])
 	},
+
+	"refreshFill" : function(mslayer) {
+		var fill = mslayer.style().fills().addNewStylePart();
+		mslayer.style().fills().removeStylePart(fill)
+	},
 	
 	"getBezierPath": function(msshapegroup) {
 		return msshapegroup.bezierPath()
@@ -62,6 +67,31 @@ var LayerHelper = {
 		return image
 	},
 
+	"applyCornerRadius" : function(msshapegroup, cornerradiusarray) {
+		var group = msshapegroup
+		var shape = group.layers().firstObject()
+		var path = shape.path()
+		for (var i = 0; i < path.points().length(); i++) {
+			var point = path.pointAtIndex(i)
+			var radius = cornerradiusarray[i]
+			point.setCornerRadius(radius)
+		}
+	},
+
+	"dropCornerRadius": function(msshapegroup) {
+		var group = msshapegroup
+		var shape = group.layers().firstObject()
+		var path = shape.path()
+
+		var cornerRadiusArray = []
+		for (var i = 0; i < path.points().length(); i++) {
+			var point = path.pointAtIndex(i)
+			cornerRadiusArray.push(point.cornerRadius())
+			point.setCornerRadius(0)
+		}
+
+		return cornerRadiusArray
+	},
 	"getIdentifier" : function(mslayer) {
 		var name = mslayer.name()
 		var array = name.match(/[^\.|@|#]+/)

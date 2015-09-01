@@ -4,6 +4,10 @@ MagicMirror.layer = function(mslayer) {
         var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         var layerName = mslayer.name()
         var identifier = LayerHelper.getIdentifier(mslayer)
+
+        var refreshStyles = function() {
+                LayerHelper.refreshFill(mslayer)
+        }
         return {
             artboard: artboard,
             name: layerName,
@@ -39,12 +43,18 @@ MagicMirror.layer = function(mslayer) {
                 mslayer.deselectAllLayers()
             },
             quad: function() {
-                // var array = LayerHelper.dropCornerRadius(mslayer)
-                // this.refresh()
+                var array = LayerHelper.dropCornerRadius(mslayer)
+                this.refresh()
                 var bezierPath = LayerHelper.getBoundsBezierPath(mslayer)
                 var quad = BezierPathHelper.getQuad(bezierPath)
-                // LayerHelper.applyCornerRadius(mslayer, array)
-                // this.refresh()
+                coscript.setShouldKeepAround(true)
+                var cosi = [coscript scheduleWithInterval:0.1 jsFunction:function(cinterval)
+                {
+                    LayerHelper.applyCornerRadius(mslayer, array)
+                    refreshStyles()
+                    coscript.setShouldKeepAround(false)
+                }];
+                
                 return quad
             },
             insets: function(scale) {
