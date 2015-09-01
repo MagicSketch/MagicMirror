@@ -74,7 +74,7 @@ backtracks:
 <a href="/#features" identifier="See-All-Features" class="col-4 border-box center btn orange">See all features</a>
 <div class="col-4 center btn orange border-box">
 	<a href="/madewithmagicmirror" identifier="Get-License-Free" class="clearfix">Get a license for free</a>
-	<sup class="red">NEW (20/8-24/8)</sup>
+	<sup class="gray">ENDED (20/8-24/8)</sup>
 </div>
 <a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
 </div>
