@@ -12,7 +12,7 @@ excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015.
 
 # MadeWithMagicMirror (finished)
 
-The #MadeWithMagicMirror campaign was held at the **20th to 24th Aug 2015**. It's made to celebrate the launch of a [new version 1.2](http://magicmirror.com) and a completely new website.
+The #MadeWithMagicMirror campaign was held at the **20th to 24th Aug 2015**. It's made to celebrate the launch of a [new version 1.2](/changelog) and a completely new website.
 
 **Top 3 Photos Tweets** of the day had been be given 1 commercial license per each, ranked using [Twitter Advanced Search](https://twitter.com/search?q=-RT%20%23MadeWithMagicMirror%20pic.twitter.com%20since%3A2015-08-19%20until%3A2015-08-25&src=typd).
 
