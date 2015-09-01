@@ -4,9 +4,9 @@ MagicMirror.layer = function(mslayer) {
         var artboard = MagicMirror.artboard(mslayer.parentArtboard())
         var layerName = mslayer.name()
         var identifier = LayerHelper.getIdentifier(mslayer)
-
+        var isSelected = mslayer.isSelected()
         var refreshStyles = function() {
-                LayerHelper.refreshFill(mslayer)
+            LayerHelper.refreshFill(mslayer)
         }
         return {
             artboard: artboard,
@@ -39,8 +39,15 @@ MagicMirror.layer = function(mslayer) {
             rect:[mslayer rect],
             layer : mslayer,
             refresh: function() {
-                mslayer.handleDoubleClick()
-                mslayer.deselectAllLayers()
+                if (isSelected) {
+                    mslayer.handleDoubleClick()
+                    mslayer.deselectAllLayers()
+                }
+            },
+            selectIfNecessary: function() {
+                if (isSelected) {
+                    mslayer.setIsSelected(true)
+                }
             },
             quad: function() {
                 var array = LayerHelper.dropCornerRadius(mslayer)
