@@ -53,8 +53,11 @@ var BezierPathHelper = {
 			this.bl = CGPointMake(bl.x * x, bl.y * y)
 
 			this.size = CGSizeMake(this.size.width * x, this.size.height * y)
+			this.bounds = CGRectMake(this.bounds.origin.x * x, this.bounds.origin.y * 2,
+				this.bounds.size.width * x, this.bounds.size.height * x)
 			return this
 		}
+		quad.bounds = bezierPath.bounds()
 		return quad
 	},
 

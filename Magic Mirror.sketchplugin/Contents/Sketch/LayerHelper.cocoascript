@@ -35,6 +35,27 @@ var LayerHelper = {
 		path.removeLastPoint()
 		[path insertPoint:lastPoint atIndex:0]
 	},
+
+	"getBoundsBezierPath": function(msshapegroup) {
+		var group = msshapegroup.copy()
+		var shape = group.layers().firstObject()
+		var path = shape.path()
+
+		for (var i = 0; i < path.points().length(); i++) {
+			var point = path.pointAtIndex(i)
+
+
+			point.setCornerRadius(0)
+		}
+
+		return this.getBezierPathInBounds(group)
+	},
+
+	"getCurvePoints": function(msshapegroup) {
+		var shape = msshapegroup.layers().firstObject()
+		return shape.allCurvePoints()
+	},
+
 	"getImage": function(mslayer, mslayerflattener) {
 		var layers = [MSLayerArray arrayWithLayer:mslayer];
 		var image = [mslayerflattener imageFromLayers:layers];

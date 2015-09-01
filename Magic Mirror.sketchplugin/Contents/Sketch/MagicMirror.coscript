@@ -227,54 +227,6 @@ MagicMirror.artboard = function(msartboard) {
     }
 }
 
-MagicMirror.layer = function(mslayer) {
-    if (mslayer.className && mslayer.className().toString() == "MSShapeGroup") {
-        var artboard = MagicMirror.artboard(mslayer.parentArtboard())
-        var layerName = mslayer.name()
-        var identifier = LayerHelper.getIdentifier(mslayer)
-        return {
-            artboard: artboard,
-            name: layerName,
-            identifier: identifier,
-            matchingArtboard:function(lookup) {
-                var ab = lookup[this.identifier]
-                if (ab && artboard.name != ab.name) {
-                    return ab
-                }
-                return null
-            },
-            tokens: function() {
-                return LayerHelper.getTokens(this.layer)
-            },
-            pointsRotatable: true,
-            rotatePoints:function() {
-                LayerHelper.rotatePoints(mslayer)
-                log("rotate: " + this.name)
-            },
-            flipHorizontally:function() {
-                var bezierPath = LayerHelper.getBezierPath(mslayer)
-                var flipped = BezierPathHelper.flipShiftX(bezierPath)
-                mslayer.setBezierPath(flipped)
-                mslayer.isFlippedHorizontal = !mslayer.isFlippedHorizontal()
-            },
-            fillColor: function(hex) {
-                LayerHelper.fillColor(mslayer, hex)
-            },
-            rect:[mslayer rect],
-            layer : mslayer,
-        }
-    } else {
-        //var artboard = MagicMirror.artboard(mslayer.parentArtboard())
-        return {
-            matchingArtboard: function(lookup) {
-                return null
-            },
-            name: mslayer.name(),
-            pointsRotatable: false
-        }
-    }
-}
-
 MagicMirror.flattener = function(locker) {
     return {
         flattener : MSLayerFlattener.alloc().init(),
@@ -282,33 +234,25 @@ MagicMirror.flattener = function(locker) {
             var layer = to.layer
             var image = LayerHelper.getImage(from.layer, this.flattener)
 
-            // original size
-            var bezierPath = LayerHelper.getBezierPathInBounds(layer)
-            var quad = BezierPathHelper.getQuad(bezierPath)
+            var quad = to.quad()
             var size = quad.size
+
             var scale = 1
             var tokens = to.tokens()
-
             if (locker.isLicensed() && (!tokens[".1x"] || tokens[".2x"])) {
                 scale = 2
                 quad = quad.scale(2, 2)
                 size.width *= 2
                 size.height *= 2
             }
-
-            var insets = (tokens[".inset"] || "0,0,0,0").split(",")
-            insets = {
-                top: insets[0] * scale,
-                left: insets[1] * scale,
-                bottom: insets[2] * scale,
-                right: insets[3] * scale,
-            }
+            var insets = to.insets(scale)
 
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             var cropped = ImageHelper.crop(transformed, NSMakeRect(-insets.left, -insets.bottom, quad.size.width + insets.left + insets.right, quad.size.height + insets.bottom + insets.top), size)
 
             LayerHelper.fillBottom(layer, cropped)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name + ", scale: " + scale + ", size:" + transformed.size())
+
         }
     }
 }
