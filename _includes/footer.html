@@ -72,7 +72,11 @@
   <script>
 
     {% if page.pagename %}
-    mixpanel.track("View {{ page.pagename }}", {"identifier" : "{{ page.identifier }}" });
+    mixpanel.track("View {{ page.pagename }}",
+    {
+      "identifier" : "{{ page.identifier }}",
+      "title" : "{{ page.title }}",
+    });
     {% else %}
     mixpanel.track("View {{ page.title }}");
     {% endif %}

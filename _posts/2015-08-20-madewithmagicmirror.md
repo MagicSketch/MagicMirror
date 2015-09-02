@@ -4,6 +4,7 @@ title: Get a license for free
 permalink: /madewithmagicmirror/
 image: /images/madewithmagicmirror.jpg
 excerpt: The MadeWithMagicMirror campaign will start from 20th to 24th Aug 2015. Top 3 Photos Tweets of the day will be given 1 commercial license per each! See more about the campaign...
+identifier: campaign-madewithmagicmirror
 ---
 
 <div class="wrapper" markdown="1">
