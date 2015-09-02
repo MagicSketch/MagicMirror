@@ -95,7 +95,7 @@
           var htmlString = $( this ).attr("href");
           mixpanel.track("Clicked Link", { "href" : htmlString, "identifier": name }, cb);
         }
-        setTimeout(cb, 500);
+        // setTimeout(cb, 500);
     })
 
     function generate_callback(a) {
