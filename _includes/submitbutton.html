@@ -1,0 +1,33 @@
+
+  <script>
+    $('#license').keypress(function (e) {
+      if (e.which == 13) {
+        $('#submitButton').trigger("click");
+        return false;    //<---- Add this line
+      }
+    });
+    $('#submitButton').click(function() {
+      setLicense()
+
+      $("#message").html("Loading...").removeClass("green").removeClass("red")
+
+      $.ajax({
+        dataType: "json",
+        url: "{{ site.downloadurl }}/{{ page.identifier }}.json?license=" + $('#license').val(),
+        success: function(data) {
+          $("#message").removeClass("red").addClass("green")
+          $("#message").html("Download in process...")
+          window.location = data["target"]
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          if (xhr.status >= 400) {
+            $("#message").removeClass("green").addClass("red")
+          }
+          $("#message").html(xhr.statusText)
+          $("#license").select()
+        }
+      });
+    });
+
+    fillLicense()
+  </script>
