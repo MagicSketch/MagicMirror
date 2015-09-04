@@ -72,7 +72,7 @@ backtracks:
 <div class="wrapper">
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
 <div class="col-4 border-box center btn orange">
-	<a href="/beta/v1.3" identifier="Beta-v1.3" class="clearfix">v1.3 Beta + Corner Radius</a>
+	<a href="/beta/v1.3" identifier="Beta-v1.3" class="clearfix">v1.3 Beta 2 + Corner Radius</a>
 	<sup class="red">NEW</sup>
 </div>
 <div class="col-4 center btn orange border-box">
