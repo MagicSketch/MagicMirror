@@ -1,7 +1,7 @@
 # Site settings
-title: Magic Mirror for Sketch 3
+title: Magic Mirror Sketch 3 Plugin
 email: james@magicmirror.design
-description: When Sketch Meets Perspective Mockups. A Powerful Sketch 3 Plugin to Perspective Transform Artboards into Shapes, just like Smart Objects in Photoshop.
+description: Create Perspective Mockups in Sketch. A Powerful Plugin to Perspective Transform Artboards into Shapes, just like Smart Objects in Photoshop.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://magicmirror.design" # the base hostname & protocol for your site
 downloadurl: "http://api.magicmirror.design/download"

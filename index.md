@@ -1,6 +1,6 @@
 ---
 layout: flex
-title: Index
+title: Create Perspective Mockups in Sketch
 showcases:
 - author: Marko Vuletič, UI/UX Design Professional
   liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
@@ -67,7 +67,7 @@ backtracks:
 
 ---
 
-# When Sketch Meets Perspective Mockups
+# Create Perspective Mockups in Sketch
 
 <div class="wrapper">
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
