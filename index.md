@@ -72,8 +72,8 @@ backtracks:
 <div class="wrapper">
 <div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
 <div class="col-4 border-box center btn orange">
-	<a href="/beta/v1.3" identifier="Beta-v1.3" class="clearfix">v1.3 Beta 2 + Corner Radius</a>
-	<sup class="red">NEW</sup>
+	<a href="/beta/v1.3" identifier="Beta-2-v1.3" class="clearfix">v1.3 Beta 2 + Corner Radius</a>
+	<sup class="red">UPDATED (05/09)</sup>
 </div>
 <div class="col-4 center btn orange border-box">
 	<a href="/madewithmagicmirror" identifier="Get-License-Free" class="clearfix">Get a license for free</a>
