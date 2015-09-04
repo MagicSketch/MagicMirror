@@ -44,26 +44,24 @@ var MagicMirror = function(context) {
             var context = this.context
             var run = function(artboards, layers, util, flattener) {
                 log("MagicMirror.mirrorPage()")
-                var lookup = util.createLookup(artboards)
                 var artboardNames = {}
                 var matchingLayersCount = 0
                 var pageNames = {}
                 each(layers, function(layer) {
-                    var parent = layer.artboard
-                    var artboard = layer.matchingArtboard(lookup)
-                    if (artboard) {
-                        matchingLayersCount++
-                        artboardNames[artboard.name] = true
-                        pageNames[artboard.pageName] = true
-                        flattener.perspectiveTransform(artboard, layer)
-                    }
+                    var artboard = layer.source
+                    matchingLayersCount++
+                    artboardNames[artboard.name] = true
+                    pageNames[artboard.pageName] = true
+                    flattener.perspectiveTransform(artboard, layer)
                 })
                 var artboardsCount = Object.keys(artboardNames).length
                 var pagesCount = Object.keys(pageNames).length
                 var retinaEnabled = locker.isLicensed()
+                reselectLayers()
                 ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s). Retina: (" + retinaEnabled + ")")
             }
-            run(context.artboards(), context.layers(), util, createFlattener())
+            var layers = context.matchingLayers()
+            run(context.artboards(), layers, util, createFlattener())
         },
 
 
@@ -121,7 +119,6 @@ var MagicMirror = function(context) {
                 reselectLayers()
                 ui.show("Magic Mirror: Rotate Content is applied to " + count(selections) + " layer(s).")
             }
-
             run(context.artboards(), context.selections(), ui, util, createFlattener())
         },
 
@@ -129,16 +126,14 @@ var MagicMirror = function(context) {
             var context = this.context
             var run = function(artboards, layers, util, flattener) {
                 log("MagicMirror.highlightMirrors()")
-                var lookup = util.createLookup(artboards)
                 each(layers, function(layer) {
-                    var parent = layer.artboard
-                    var artboard = layer.matchingArtboard(lookup)
-                    if (artboard) {
-                        layer.fillColor("#FFFFFF")
-                    }
+                    layer.fillColor("#FFFFFF")
                 })
+                reselectLayers()
+                ui.show("Magic Mirror: Clear Content is applied to " + count(layers) + " layer(s).")
             }
-            run(context.artboards(), context.layers(), util, createFlattener())
+            var layers = context.matchingLayers()
+            run(context.artboards(), layers, util, createFlattener())
         },
 
         activate: function() {
@@ -217,6 +212,21 @@ MagicMirror.context = function(context) {
             return MagicMirror.layer(layer)
         })
     }
+    var currentLayers = function() {
+        var selectedLayers = count(selections()) ? selections() : layers()
+        var lookup = MagicMirror.util.createLookup(artboards())
+        var validLayers = []
+        each(selectedLayers, function(layer) {
+            var parent = layer.artboard
+            var artboard = layer.matchingArtboard(lookup)
+            if (artboard) {
+                validLayers.push(layer)
+                layer.source = artboard
+            }
+        })
+        return validLayers
+    }
+
     var page = pri.page
 
     var context = {}
@@ -225,6 +235,7 @@ MagicMirror.context = function(context) {
     context.artboards = artboards
     context.selections = selections
     context.layers = layers
+    context.matchingLayers = currentLayers
     return context
 }
 
