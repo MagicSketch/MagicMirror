@@ -43,9 +43,9 @@ It's pretty clear that the donation modal will never be sustainable. From an ind
 1. Continue to be nice and feel good about having people donating occationally, until something else more cost effective takes up my time
 2. Be better product owner and make decisions based on what should made the product successful
 
-![](/images/red-blue-pill.jpg)
+<!-- ![](/images/red-blue-pill.jpg) -->
 
-After lots of struggle, I decided to take the red pill.
+After lots of struggle, I decided to take path 2.
 
 To justify the value of Magic Mirror, I've taken a look at some others. One of the very rarely available commerical plugin for Sketch (originally came from Photoshop) charges for $39.99, designed to provide better markups on design specs. Another one creating perspective mockups in Photoshop selling for $19.99. Nothing else offer similar functionality like Magic Mirror does is yet available to Sketch user.
 
