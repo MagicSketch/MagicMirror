@@ -75,17 +75,17 @@ sup {
 
 	.screen {
 		position: absolute;
-		width: 74.6%;
+		width: 76.6%;
 		height: 80%;
 		top: 6.18%;
 		bottom: 11.0%;
 		left: 11.7%;
 		right: 11.7%;
-		background-image: url("/images/screen.jpg");
+		/* background-image: url("/images/screen.jpg"); */
 		background-size: cover;
 		background-position: center;
 	    background-repeat: no-repeat;
-	    padding: 1%;
+	    padding: 0%;
 	}
 
 }
@@ -105,7 +105,7 @@ sup {
     clear: both;
     width: 100%;
     position: relative;
-    padding-bottom: 54.8%;
+    padding-bottom: 62%;
     padding-top: 25px;
     height: 0;
 }
