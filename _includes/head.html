@@ -103,7 +103,11 @@
       console.log("title: " + title);
       $("#videoLink").html(title)
       {% if site.analytics.mixpanel %}
-        mixpanel.register({"video_title":title})
+      mixpanel.register(
+        {
+          "video_title":title,
+          "video":"intro20150907",
+        })
       {% endif %}
       mixpanel
     });
