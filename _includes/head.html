@@ -107,16 +107,38 @@
       return title
     }
 
+    function pickCenterLink() {
+
+      var title = sessionStorage.getItem("center_link")
+      if (title == null) {
+        console.log("randomizing center_link...")
+        var index = getRandomInt(0, 1)
+        var titles = [
+          "#see-templates",
+          "#get-license-free"
+        ]
+        title = titles[index]
+        sessionStorage.setItem("center_link", title)
+      }
+      console.log("pick center link", title)
+      return title
+    }
+
     $( document ).ready(function() {
       console.log( "ready!" );
+      
       var title = pickTitleForVideos()
+      var center_link = pickCenterLink()
       console.log("title: " + title);
       $("#videoLink").html(title)
+      $(center_link).removeClass("none")
+
       {% if site.analytics.mixpanel %}
       mixpanel.register(
         {
           "video_title":title,
           "video":"intro20150907",
+          "center_link":center_link,
         })
       {% endif %}
       mixpanel
