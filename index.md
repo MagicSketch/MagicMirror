@@ -80,7 +80,7 @@ backtracks:
 	<sup class="gray">ENDED (20/8-24/8)</sup>
 </div>
 <div class="col-4 center btn orange border-box none" id="see-templates">
-	<a href="/tempaltes" identifier="See-Templates" class="clearfix">See templates</a>
+	<a href="/templates" identifier="See-Templates" class="clearfix">See templates</a>
 	<sup class="red">UPDATED (1/9)</sup>
 </div>
 <a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
