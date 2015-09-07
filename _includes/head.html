@@ -28,8 +28,14 @@
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
 
-  <meta property="og:image" content="{{ site.url }}/images/madewithmagicmirror.jpg">
-  <meta name="twitter:image" content="{{ site.url }}/images/madewithmagicmirror.jpg">
+  {% if page.image %}
+    {% capture image %}{{ site.url }}/images/templates/{{ page.image }}{% endcapture %}
+  {% else %}
+    {% capture image %}{{ site.url }}/images/ogimage.jpg{% endcapture %}
+  {% endif %}
+
+  <meta property="og:image" content="{{ image }}">
+  <meta name="twitter:image" content="{{ image }}">
 
   <meta name="author" content="{{ site.author }}">
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
