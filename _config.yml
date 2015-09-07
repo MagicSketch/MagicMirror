@@ -27,7 +27,9 @@ defaults:
     values:
       layout: template
       pagename: Template # for tracking
+      is_template: true
   - scope:
       type: "posts"
     values:
       pagename: Post
+      is_post: true
