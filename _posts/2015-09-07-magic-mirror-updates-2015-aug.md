@@ -1,10 +1,13 @@
 ---
-layout: post
+layout: flex
+image: /images/2015-aug.jpg
 title: Magic Mirror Updates - 2015 Aug
 permalink: /magic-mirror-updates-2015-aug/
 excerpt: 3 new features, 7 new templates, 3 new articles, 1 new video tutorial.
 identifier: magic-mirror-updates-2015-aug
 ---
+
+<div class="wrapper" markdown="1">
 
 2015 Aug has been a crazy month. I added tons of new resources and new features, it is a truely amazing experience as an independant developer.
 
@@ -55,3 +58,4 @@ I'm on [Twitter](http://twitter.com/@jamztang) and [TeamSketch](https://teamsket
 
 _James_
 
+</div>

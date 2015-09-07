@@ -29,9 +29,13 @@
   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
 
   {% if page.image %}
-    {% capture image %}{{ site.url }}/images/templates/{{ page.image }}{% endcapture %}
+    {% if page.is_template %}
+      {% capture image %}{{ site.url }}/images/templates/{{ page.image }}{% endcapture %}
+    {% else %}
+      {% capture image %}{{ site.url }}{{ page.image }}{% endcapture %}
+    {% endif %}
   {% else %}
-    {% capture image %}{{ site.url }}/images/ogimage.jpg{% endcapture %}
+    {% capture image %}{{ site.url }}/images/ogimage-julie.jpg{% endcapture %}
   {% endif %}
 
   <meta property="og:image" content="{{ image }}">
