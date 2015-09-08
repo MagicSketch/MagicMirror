@@ -4,7 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% if page.title %}
-    {% capture title %}{{ page.title }} · {{ site.title }}{% endcapture %}
+
+    {% if page.is_template %}
+      {% capture title %}{{ page.title }} · Sketch Perspective Mockup{% endcapture %}
+    {% else %}
+      {% capture title %}{{ page.title }} · {{ site.title }}{% endcapture %}
+    {% endif %}
   {% else %}
     {% assign title = site.title %}
   {% endif %}
