@@ -2,6 +2,11 @@
 layout: flex
 title: Create Perspective Mockups in Sketch
 showcases:
+- author: Chris LaFay, Owner of Classic City Consulting
+  liner: There’s no way the only thing I had to do was to draw a box around where I wanted my mockup to be placed, push a keyboard shortcut and then it magically appears right where I wanted it to.
+  avatar: /images/chris-lafay.jpg
+  image: /images/chris-showcase.jpg
+  link: http://classiccity.com/2015/09/magicmirror-for-sketch-improves-workflow/
 - author: Marko Vuletič, UI/UX Design Professional
   liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
   avatar: /images/marko.jpg
