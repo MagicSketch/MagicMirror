@@ -65,10 +65,10 @@
 
   </div>
 
-  {% if site.analytics.mixpanel %}
 
   <script>
 
+    {% if site.analytics.mixpanel %}
     {% if page.pagename %}
     mixpanel.track("View {{ page.pagename }}",
     {
@@ -78,11 +78,17 @@
     {% else %}
     mixpanel.track("View {{ page.title }}");
     {% endif %}
+    {% endif %}
 
     $("#submitButton").click(function(event) {
         var identifier = $( this ).attr("identifier")
         var htmlString = $( this ).attr("href");
+
+        {% if site.analytics.mixpanel %}
         mixpanel.track("Download Template", { "identifier" : identifier });
+        {% endif %}
+
+        ga('send', 'event', 'template', 'download', identifier);
     })
 
     $(".page-content a").click(function(event) {
@@ -91,7 +97,12 @@
         var name = $( this ).attr("identifier");
         if (name) {
           var htmlString = $( this ).attr("href");
+
+          {% if site.analytics.mixpanel %}
           mixpanel.track("Clicked Link", { "href" : htmlString, "identifier": name }, cb);
+          {% endif %}
+
+          ga('send', 'event', 'link', 'click', identifier);
         }
         setTimeout(cb, 500);
     })
@@ -103,6 +114,5 @@
     }
   </script>
 
-  {% endif %}
 
 </footer>
