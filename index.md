@@ -75,20 +75,23 @@ backtracks:
 # Create Perspective Mockups in Sketch
 
 <div class="wrapper">
-<div class="flex flex-wrap mxn1 px1 flex-center flex-start nav">
-<div class="col-4 border-box center btn orange">
+<div class="flex flex-wrap mxn1 px1 py2 flex-center flex-start nav">
+<div class="flex-auto border-box center btn orange">
 	<a href="/beta/v1.3" identifier="Beta-2-v1.3" class="clearfix">v1.3 Beta 2 + Corner Radius</a>
 	<sup class="red">UPDATED (05/09)</sup>
 </div>
-<div class="col-4 center btn orange border-box none" id="get-license-free">
+<div class="flex-auto center btn orange border-box none" id="get-license-free">
 	<a href="/madewithmagicmirror" identifier="Get-License-Free" class="clearfix">Get a license for free</a>
 	<sup class="gray">ENDED (20/8-24/8)</sup>
 </div>
-<div class="col-4 center btn orange border-box none" id="see-templates">
+<div class="flex-auto center btn orange border-box none" id="see-templates">
 	<a href="/templates" identifier="See-Templates" class="clearfix">See templates</a>
 	<sup class="red">UPDATED (1/9)</sup>
 </div>
-<a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="col-4 border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Free Download (v1.2)</a>
+<div class="flex-auto center">
+	<a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="flex-auto border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Try</a>
+	<a href="/purchase" identifier="Get-Full-License-Top" class="flex-auto border-box center btn btn-outline orange strong">Get License 50% off</a>
+</div>
 </div>
 </div>
 
