@@ -1,5 +1,5 @@
 ---
-title: iPhone 6 and 6S
+title: iPhone 6 and 6 Plus
 description: A template mimicing Apple's website
 image: iphone-6-and-6s.jpg
 author: jamztang
