@@ -29,6 +29,7 @@ For the pricing, please welcome our new "Coffee Menu".
 |*Circle/Round Rect Support| |...|
 |Commercial Use| |x|
 | |Free|<a href="javascript:void(0);" identifier="Buy" onclick="donateClicked()" class="center btn btn-outline orange">$10</a>|
+| ||<s>$19</s>|
 
 ## Why I make it paid?
 
