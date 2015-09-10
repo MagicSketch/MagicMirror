@@ -6,6 +6,7 @@ author: jamztang
 identifier: iphone6s
 members: false
 hidden: false
+permalink: /templates/iphone6s/
 ---
 
 The only thing that’s changed is now we’re using Sketch.

@@ -85,8 +85,8 @@ backtracks:
 	<sup class="gray">ENDED (20/8-24/8)</sup>
 </div>
 <div class="flex-auto center btn orange border-box none" id="see-templates">
-	<a href="/templates" identifier="See-Templates" class="clearfix">See templates</a>
-	<sup class="red">UPDATED (1/9)</sup>
+	<a href="/templates" identifier="See-Templates" class="clearfix">New iPhone6s Template</a>
+	<sup class="red">UPDATED (11/9)</sup>
 </div>
 <div class="flex-auto center">
 	<a href="{{ site.downloadurl }}/latest" identifier="Free-Download" class="flex-auto border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Try</a>
