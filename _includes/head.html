@@ -129,11 +129,63 @@
       return title
     }
 
+    var DateDiff = {
+
+        inMinutes: function(d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2-t1)/(60*1000));
+        },
+
+        inHours: function(d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2-t1)/(3600*1000));
+        },
+
+        inDays: function(d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2-t1)/(24*3600*1000));
+        },
+
+        inWeeks: function(d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2-t1)/(24*3600*1000*7));
+        },
+
+        inMonths: function(d1, d2) {
+            var d1Y = d1.getFullYear();
+            var d2Y = d2.getFullYear();
+            var d1M = d1.getMonth();
+            var d2M = d2.getMonth();
+
+            return (d2M+12*d2Y)-(d1M+12*d1Y);
+        },
+
+        inYears: function(d1, d2) {
+            return d2.getFullYear()-d1.getFullYear();
+        }
+    }
+
+    function updateCount() {
+        var date = new Date(2015, 08, 12, 04, 33, 0)
+        var now = new Date()
+        var count = Math.round(DateDiff.inHours(date, now)) + 4123
+        $("#count").html(count)
+    }
+
     $( document ).ready(function() {
       console.log( "ready!" );
       
       var title = pickTitleForVideos()
       var center_link = pickCenterLink()
+      updateCount()
       console.log("title: " + title);
       $("#videoLink").html(title)
       $(center_link).removeClass("none")

@@ -245,3 +245,8 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 </div>
 </section>
 
+<div class="flex-auto center mt2">
+	<a href="{{ site.downloadurl }}/latest" identifier="Free-Download-Bottom" class="flex-auto border-box center btn btn-outline orange"><i class="fa fa-arrow-circle-o-down"></i>    Try</a>
+	<a href="/purchase" identifier="Get-Full-License-Bottom" class="flex-auto border-box center btn btn-outline orange strong">Get License 50% off</a><sub class="clearfix">Join the <span id="count">4,123</span> designers already using Magic Mirror!</sub>
+</div>
+
