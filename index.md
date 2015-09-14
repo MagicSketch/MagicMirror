@@ -1,75 +1,6 @@
 ---
 layout: flex
 title: Create Perspective Mockups in Sketch
-showcases:
-- author: Chris LaFay, Owner of Classic City Consulting
-  liner: There’s no way the only thing I had to do was to draw a box around where I wanted my mockup to be placed, push a keyboard shortcut and then it magically appears right where I wanted it to.
-  avatar: /images/chris-lafay.jpg
-  image: /images/chris-showcase.jpg
-  link: http://classiccity.com/2015/09/magicmirror-for-sketch-improves-workflow/
-- author: Marko Vuletič, UI/UX Design Professional
-  liner: The only time I open Photoshop nowadays is when I’m creating a presentation mockup of my designs. But this is about to change.
-  avatar: /images/marko.jpg
-  image: /images/marko-showcase.jpg
-  link: http://markovuletic.com/blog/posts/perspective-mockups-in-sketch
-- author: Jesse Kyle, Author of Design Tether
-  liner: Magic Mirror is great for showing off my app designs. It's much more user-friendly than Photoshop with double the possibilities
-  avatar: /images/jesse.jpg
-  image: /images/jesse-showcase.jpg
-  link: http://designtether.com/design/magic-mirror-sketch-plugin/
-- author: Meng To, Author of Design+Code
-  liner: Magic Mirror is the plugin we've been waiting for. No more switching to Photoshop for creating perspective mockups. It works that great.
-  avatar: /images/meng.jpg
-  image: /images/meng-showcase.jpg
-  link: http://designcode.io
-- author: Julie Bug, UI/UX Designer
-  liner: Using Magic Mirror to create perspective mockups is amazingly easy and joyful.
-  avatar: /images/julie.jpg
-  image: /images/julie-showcase.jpg
-  link: http://juliebug.xfym.info/post/mzzads-dashboard-redesign
-- author: Arjen van Reeven, Product Design Lead at NGTI/Swisscom
-  liner: Sketch plugin lets you perspective transform artboard to a shape. Great for product shots!
-  avatar: /images/arjen.jpg
-  image: /images/arjen-showcase.jpg
-  link: http://twitter.com/@arjenvr
-
-featured:
-- title: TheNextWeb (03/08)
-  image: /images/thenextweb.png
-  link: http://thenextweb.com/dd/2015/08/03/magic-mirror-for-sketch-3-lets-you-quickly-create-hands-on-mockups-of-your-apps/
-- title: Smashing Newsletter
-  image: /images/smashingmagazine.png
-  link: http://www.smashingmagazine.com/smashing-newsletter-issue-142/
-- title: Sidebar.io (31/07)
-  image: /images/sidebar.png
-  link: http://sidebar.io/2015/7/31
-
-backtracks:
-- title: Applech2
-  link: http://applech2.com/archives/45794567.html
-- title: DesignerNews
-  link: https://www.designernews.co/stories/53390-magic-mirror-for-sketch-3--plugin-to-create-perspective-designs
-- title: Design+Code
-  link: https://designcode.io/learn
-- title: HeyDesigner
-  link: http://heydesigner.com/sketchapp/
-- title: iOSDevWeekly
-  link: https://iosdevweekly.com/issues/209
-- title: LevelUpTuts
-  link: https://www.youtube.com/watch?v=Gm5wPXOgVtM&list=PLXM9Shjg7jenAH19HHSWYPJ4EtB4RNDc1&index=3
-- title: Sketch App Sources
-  link: http://www.sketchappsources.com/plugins-for-sketch.html
-- title: SketchAppTV
-  link: https://www.youtube.com/watch?v=F7wOPtKjVps
-- title: SketchCasts
-  link: http://www.sketchcasts.net/episodes/47
-- title: SketchHunt
-  link: http://sketchhunt.com/?s=magic+mirror
-- title: Sketchtalk.io
-  link: http://sketchtalk.io/discussion/1371/magic-mirror-perspective-3d-for-your-artboards
-- title: T3n
-  link: http://t3n.de/news/magic-mirror-sketch-plugin-627330/
-
 ---
 
 # Create Perspective Mockups in Sketch
@@ -150,7 +81,7 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 <h1>Showcase</h1>
 
 <div class="clearfix">
-{% for showcase in page.showcases %}
+{% for showcase in site.data.showcases %}
 <div class="sm-col sm-col-6 showcase">
 	<img src="{{ showcase.image }}" />
 	<a href="{{ showcase.link }}" identifier="{{ showcase.author }}" class="overlay">
@@ -232,14 +163,14 @@ It then hands the content over to [Core Image](https://developer.apple.com/libra
 <h1>Media</h1>
 
 <div class="wrapper sm-flex flex-wrap mxn1 px1 flex-center">
-	{% for site in page.featured %}
+	{% for site in site.data.featured %}
 	<div class="sm-col-4 border-box p2 center">
 	   <a href="{{ site.link }}"><img src="{{ site.image }}" class="grayscale animated"></a>
 	</div>
 	{% endfor %}
 
 	<!-- <h2 class="sm-col-12">Backtracks</h2> -->
-	{% for site in page.backtracks %}
+	{% for site in site.data.backtracks %}
 	<a href="{{ site.link }}" class="px1 border-box flex-auto center">{{ site.title }}</a>
 	{% endfor %}
 </div>
