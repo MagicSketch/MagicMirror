@@ -3,14 +3,14 @@ title: Magic Mirror Sketch 3 Plugin
 email: james@magicmirror.design
 description: Create Perspective Mockups in Sketch. A Powerful Plugin to Perspective Transform Artboards into Shapes, just like Smart Objects in Photoshop.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://localhost:4000" # the base hostname & protocol for your site
-downloadurl: "http://localhost:5000/download"
+url: "http://magicmirror.design" # the base hostname & protocol for your site
+downloadurl: "http://api.magicmirror.design/download"
 author: James Tang
 twitter_username: jamztang
 github_username:  jamztang
 analytics:
-  google: UA-65727569-3
-  mixpanel: 6ba7071e7855c0925266804032a85acc
+  google: UA-65727569-1
+  mixpanel: 3cfd84dad73057910e2e1ca896a4ab6b
 
 
 # Build settings
