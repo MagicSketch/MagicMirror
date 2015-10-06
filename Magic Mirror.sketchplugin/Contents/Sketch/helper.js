@@ -57,3 +57,11 @@ function getResultOf(original, offset) {
         return 0
     }
 }
+
+// Strings
+
+function replace(original, from, to) {
+    var message = NSString.stringWithString(original)
+    var result = message.stringByReplacingOccurrencesOfString_withString_(from, to);
+    return result
+}
