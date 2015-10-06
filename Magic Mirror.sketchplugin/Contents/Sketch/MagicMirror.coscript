@@ -270,10 +270,10 @@ MagicMirror.flattener = function(locker) {
                 size.width *= 2
                 size.height *= 2
             }
-            var insets = to.insets(scale)
+            var padding = to.padding(scale)
 
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
-            var cropped = ImageHelper.crop(transformed, NSMakeRect(-insets.left, -insets.bottom, quad.size.width + insets.left + insets.right, quad.size.height + insets.bottom + insets.top), size)
+            var cropped = ImageHelper.crop(transformed, NSMakeRect(padding.left, padding.bottom, quad.size.width - padding.left - padding.right, quad.size.height - padding.bottom - padding.top), size)
 
             LayerHelper.fillBottom(layer, cropped)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name + ", scale: " + scale + ", size:" + transformed.size())

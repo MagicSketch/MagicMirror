@@ -33,3 +33,27 @@ var each = function(array, callback) {
 var contains = function(array, object) {
     return array.indexOf(object) != -1
 }
+
+// Maths
+
+function getPercentage(string) {
+    var array = string.match(/(\-?[0-9]+\.?[0-9]+)%/)
+    if (array && array.length > 1) {
+        return parseFloat(array[1]) / 100
+    }
+    return nil
+}
+
+function getNumber(string) {
+    return parseFloat(string)
+}
+
+function getResultOf(original, offset) {
+    if (getPercentage(offset)) {
+        return original * getPercentage(offset)
+    } else if (getNumber(offset)) {
+        return original + getNumber(offset)
+    } else {
+        return 0
+    }
+}

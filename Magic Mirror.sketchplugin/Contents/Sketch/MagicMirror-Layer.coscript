@@ -62,15 +62,33 @@ MagicMirror.layer = function(mslayer) {
                 
                 return quad
             },
-            insets: function(scale) {
+            padding: function(scale) {
                 var tokens = this.tokens()
-                var insets = (tokens[".inset"] || "0,0,0,0").split(",")
-                insets = {
-                    top: insets[0] * scale,
-                    left: insets[1] * scale,
-                    bottom: insets[2] * scale,
-                    right: insets[3] * scale,
+                var padding = (tokens[".padding"] || "0,0,0,0").split(",")
+
+                var size = this.rect.size
+                var paddingOf = function(original, value, scale) {
+                    if (getPercentage(value)) {
+                        return original * getPercentage(value) * scale
+                    } else if (getNumber(value)) {
+                        return getNumber(value) * scale
+                    } else {
+                        return 0
+                    }
                 }
+                padding = {
+                    top: paddingOf(size.height, padding[0], scale),
+                    left: paddingOf(size.width, padding[1], scale),
+                    bottom: paddingOf(size.height, padding[2], scale),
+                    right: paddingOf(size.width, padding[3], scale),
+                }
+
+                log("padding")
+                log(padding)
+
+                log("this.rect")
+                log(this.rect.size.height)
+                log(this.rect.size.width)
 
                 // var bezierPath = LayerHelper.getBezierPathInBounds(mslayer)
                 // var quad = BezierPathHelper.getQuad(bezierPath)
@@ -81,7 +99,7 @@ MagicMirror.layer = function(mslayer) {
                 // quad = BezierPathHelper.getQuad(bezierPath)
                 // var bounds2 = quad.bounds
 
-                // var insets = {
+                // var padding = {
                 //     left : Math.max(-bounds2.origin.x, bounds1.origin.x),
                 //     top : 0,
                 //     right: 0,
@@ -90,7 +108,7 @@ MagicMirror.layer = function(mslayer) {
 
                 // LayerHelper.applyCornerRadius(mslayer, array)
 
-                return insets
+                return padding
             }
         }
     } else {
