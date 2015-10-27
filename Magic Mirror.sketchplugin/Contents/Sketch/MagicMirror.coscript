@@ -479,6 +479,21 @@ MagicMirror.validator = function(ui, persister) {
                 promptLicenseInfo(persister.licensedTo)
             }
         },
+        manualActivation: function(license, persister) {
+            log(license)
+            if (license && license.length) {
+                var response = validate(license)
+                var info = response.json()
+                if (info && info["success"] == 1) {
+                   persister.setLicensedTo(info)
+                    log("activated!")
+                } else {
+                    log("incorrect license")
+                }
+            } else {
+                log("missing license")
+            }
+        },
         validate: function() {
             var success = promptToValidate()
             setLastValidation(now())
