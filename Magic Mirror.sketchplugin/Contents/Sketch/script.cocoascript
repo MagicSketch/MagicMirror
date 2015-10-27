@@ -3,7 +3,6 @@
 @import "BezierPathHelper.cocoascript"
 @import "ImageHelper.cocoascript"
 @import "MagicMirror.coscript"
-@import "MagicMirror-Layer.coscript"
 
 function mirrorPage(context) {
     var mirror = MagicMirror(context)

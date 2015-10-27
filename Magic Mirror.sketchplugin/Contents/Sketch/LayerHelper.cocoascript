@@ -18,11 +18,6 @@ var LayerHelper = {
 		fill.setFillType(0);
 		fill.setColor([MSColor colorWithSVGString:hex])
 	},
-
-	"refreshFill" : function(mslayer) {
-		var fill = mslayer.style().fills().addNewStylePart();
-		mslayer.style().fills().removeStylePart(fill)
-	},
 	
 	"getBezierPath": function(msshapegroup) {
 		return msshapegroup.bezierPath()
@@ -32,90 +27,12 @@ var LayerHelper = {
 		return msshapegroup.bezierPathInBounds()
 	},
 
-
-	"flipPoints": function(msshapegroup) {
-		var mslayer = msshapegroup
-        var array = LayerHelper.dropCornerRadius(mslayer)
-	    var bezierPath = LayerHelper.getFrameBezierPath(mslayer)
-	    var flipped = BezierPathHelper.flipShiftX(bezierPath)
-	    msshapegroup.setBezierPath(flipped)
-	    msshapegroup.isFlippedHorizontal = !mslayer.isFlippedHorizontal()
-	    LayerHelper.applyCornerRadius(mslayer, array)
-	},
-
-	"rotatePoints": function(msshapegroup) {
-		var shape = msshapegroup.layers().firstObject()
-		var path = shape.path()
-		var lastPoint = path.lastPoint()
-		path.removeLastPoint()
-		[path insertPoint:lastPoint atIndex:0]
-	},
-
-	"getBoundsBezierPath": function(msshapegroup) {
-		var group = msshapegroup.copy()
-		var shape = group.layers().firstObject()
-		var path = shape.path()
-
-		for (var i = 0; i < path.points().length(); i++) {
-			var point = path.pointAtIndex(i)
-
-
-			point.setCornerRadius(0)
-		}
-
-		return this.getBezierPathInBounds(group)
-	},
-
-	"getFrameBezierPath": function(msshapegroup) {
-		var group = msshapegroup.copy()
-		var shape = group.layers().firstObject()
-		var path = shape.path()
-
-		for (var i = 0; i < path.points().length(); i++) {
-			var point = path.pointAtIndex(i)
-			point.setCornerRadius(0)
-		}
-
-		return this.getBezierPath(group)
-	},
-
-
-	"getCurvePoints": function(msshapegroup) {
-		var shape = msshapegroup.layers().firstObject()
-		return shape.allCurvePoints()
-	},
-
 	"getImage": function(mslayer, mslayerflattener) {
 		var layers = [MSLayerArray arrayWithLayer:mslayer];
 		var image = [mslayerflattener imageFromLayers:layers];
 		return image
 	},
 
-	"applyCornerRadius" : function(msshapegroup, cornerradiusarray) {
-		var group = msshapegroup
-		var shape = group.layers().firstObject()
-		var path = shape.path()
-		for (var i = 0; i < path.points().length(); i++) {
-			var point = path.pointAtIndex(i)
-			var radius = cornerradiusarray[i]
-			point.setCornerRadius(radius)
-		}
-	},
-
-	"dropCornerRadius": function(msshapegroup) {
-		var group = msshapegroup
-		var shape = group.layers().firstObject()
-		var path = shape.path()
-
-		var cornerRadiusArray = []
-		for (var i = 0; i < path.points().length(); i++) {
-			var point = path.pointAtIndex(i)
-			cornerRadiusArray.push(point.cornerRadius())
-			point.setCornerRadius(0)
-		}
-
-		return cornerRadiusArray
-	},
 	"getIdentifier" : function(mslayer) {
 		var name = mslayer.name()
 		var array = name.match(/[^\.|@|#]+/)
@@ -125,26 +42,7 @@ var LayerHelper = {
 
 	"getTokens" : function(mslayer) {
 		var name = mslayer.name()
-		var tokens = name.split(" ")
-		var keyvalues = {}
-
-		each(tokens, function(token) {
-			var items = token.split(":")
-			// log(items)
-
-			// each(items, function(item) {
-			// 	log(item)
-			// })
-			if (count(items) > 1) {
-				var key = items[0]
-				var value = items[1]
-				keyvalues[key] = value
-			} else {
-				var key = items[0]
-				keyvalues[key] = true
-			}
-		})
-
-		return keyvalues
+		var identifiers = name.split(" ")
+		return identifiers
 	}
 }
