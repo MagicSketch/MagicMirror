@@ -29,7 +29,7 @@ var LayerHelper = {
 
 	"getImage": function(mslayer, mslayerflattener) {
 		var layers = [MSLayerArray arrayWithLayer:mslayer];
-		var image = [mslayerflattener imageFromLayers:layers];
+		var image = [mslayerflattener imageFromLayers:layers lightweightPage:mslayer];
 		return image
 	},
 
