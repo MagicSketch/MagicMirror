@@ -34,3 +34,11 @@ function activate(context) {
     var mirror = MagicMirror(context)
     mirror.activate()
 }
+
+function license(license) {
+    MagicMirror.validator().manualActivation(license, MagicMirror.persister())
+}
+
+function info() {
+    log(MagicMirror.persister().licensedTo)
+}
