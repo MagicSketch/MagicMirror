@@ -8,6 +8,7 @@ var LayerHelper = {
 		fill.setFillType(4);
 		fill.setPatternFillType(1);
 		fill.setPatternImage(nsimage);
+		fill.setIsEnabled(true);
 	},
 
 	"fillColor": function(mslayer, hex) {
