@@ -1,0 +1,17 @@
+MagicMirror.group = function(mslayer) {
+    var artboard = MagicMirror.artboard(mslayer.parentArtboard())
+    var layerName = mslayer.name()
+    var identifier = LayerHelper.getIdentifier(mslayer)
+    var isSelected = mslayer.isSelected()
+    return {
+        type: "group",
+        artboard: artboard,
+        name: layerName,
+        identifier: identifier,
+        children:function() {
+            return map(mslayer.children(), function(layer) {
+                return MagicMirror.transform(layer)
+            })
+        },
+    }
+}

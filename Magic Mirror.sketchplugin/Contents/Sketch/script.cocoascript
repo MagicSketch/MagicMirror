@@ -4,6 +4,7 @@
 @import "ImageHelper.cocoascript"
 @import "MagicMirror.coscript"
 @import "MagicMirror-Layer.coscript"
+@import "MagicMirror-Group.coscript"
 
 function mirrorPage(context) {
     var mirror = MagicMirror(context)

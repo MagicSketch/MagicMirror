@@ -9,9 +9,15 @@ MagicMirror.layer = function(mslayer) {
             LayerHelper.refreshFill(mslayer)
         }
         return {
+            type: "layer",
             artboard: artboard,
             name: layerName,
             identifier: identifier,
+            children:function() {
+                return map(mslayer.children(), function(layer) {
+                    return MagicMirror.transform(layer)
+                })
+            },
             matchingArtboard:function(lookup) {
                 var ab = lookup[this.identifier]
                 if (ab && artboard.name != ab.name) {

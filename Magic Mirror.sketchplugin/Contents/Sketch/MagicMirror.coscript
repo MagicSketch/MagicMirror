@@ -42,26 +42,45 @@ var MagicMirror = function(context) {
 
         mirrorPage : function() {
             var context = this.context
-            var run = function(artboards, layers, util, flattener) {
+            var run = function(artboards, selections, util, flattener) {
                 log("MagicMirror.mirrorPage()")
-                var artboardNames = {}
-                var matchingLayersCount = 0
-                var pageNames = {}
-                each(layers, function(layer) {
-                    var artboard = layer.source
-                    matchingLayersCount++
-                    artboardNames[artboard.name] = true
-                    pageNames[artboard.pageName] = true
-                    flattener.perspectiveTransform(artboard, layer)
-                })
-                var artboardsCount = Object.keys(artboardNames).length
-                var pagesCount = Object.keys(pageNames).length
-                var retinaEnabled = locker.isLicensed()
-                reselectLayers()
-                ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s). Retina: (" + retinaEnabled + ")")
+
+                if (selections && count(selections)) {
+                    var lookup = util.createLookup(artboards)
+                    each(selections, function(layer) {
+                        if (layer.type && layer.name) {
+                            log(layer.type + " " + layer.name + " is selected")
+                        }
+                        each(layer.children(), function(layer) {
+                            log("layer.name = " + layer.name)
+                            if (layer.matchingArtboard) {
+                                var artboard = layer.matchingArtboard(lookup)
+                                log("layer.artboard = " + artboard.name)
+                                flattener.perspectiveTransform(artboard, layer)
+                            }
+                        })
+                    })
+                } else {
+                    log("nothing is selected")
+                }
+                // var artboardNames = {}
+                // var matchingLayersCount = 0
+                // var pageNames = {}
+                // each(layers, function(layer) {
+                //     var artboard = layer.source
+                //     matchingLayersCount++
+                //     artboardNames[artboard.name] = true
+                //     pageNames[artboard.pageName] = true
+                //     flattener.perspectiveTransform(artboard, layer)
+                // })
+                // var artboardsCount = Object.keys(artboardNames).length
+                // var pagesCount = Object.keys(pageNames).length
+                // var retinaEnabled = locker.isLicensed()
+                // reselectLayers()
+                // ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s). Retina: (" + retinaEnabled + ")")
             }
-            var layers = context.matchingLayers()
-            run(context.artboards(), layers, util, createFlattener())
+            var selections = context.selections()
+            run(context.artboards(), selections, util, createFlattener())
         },
 
 
@@ -169,6 +188,29 @@ var MagicMirror = function(context) {
     }
 }
 
+
+MagicMirror.transform = function(object) {
+
+    var mapping = {
+        "MSArtboardGroup": function(artboard) {
+            return MagicMirror.artboard(artboard)
+        },
+        "MSShapeGroup": function(layer) {
+            return MagicMirror.layer(layer)
+        },
+        "MSLayerGroup": function(group) {
+            return MagicMirror.group(group)
+        }
+    }
+    if (object.className) {
+        var name = object.className().toString()
+        if (mapping[name]) {
+            return mapping[name](object)
+        }
+    }
+    return object
+}
+
 MagicMirror.context = function(context) {
 
     var pri = (function(context){
@@ -198,18 +240,18 @@ MagicMirror.context = function(context) {
     var view = MagicMirror.view(pri.view)
     var artboards = function() {
         return map(pri.artboards, function(artboard) {
-            return MagicMirror.artboard(artboard)
+            return MagicMirror.transform(artboard)
         })
     }
     var selections = function() {
         var selections = map(pri.selections, function(item) {
-            return MagicMirror.layer(item)
+            return MagicMirror.transform(item)
         })
         return selections 
     }
     var layers = function() {
         return map([page children], function(layer) {
-            return MagicMirror.layer(layer)
+            return MagicMirror.transform(layer)
         })
     }
     var currentLayers = function() {
@@ -244,11 +286,17 @@ MagicMirror.artboard = function(msartboard) {
         return {}
     }
     return {
+        type: "artboard",
         name: msartboard.name(),
         rect: [msartboard rect],
         layer : msartboard,
         page : msartboard.parentPage(),
-        pageName : msartboard.parentPage().name()
+        pageName : msartboard.parentPage().name(),
+        children:function() {
+            return map(msartboard.children(), function(layer) {
+                return MagicMirror.transform(layer)
+            })
+        },
     }
 }
 
@@ -530,7 +578,7 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
 
     function afterAction() {
         increaseActionsCount()
-        log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + licensedTo)
+        //log("actionsCount: " + actionsCount + " needs: " + needsPromptDonation() + " licensed: " + licensedTo)
         if (needsPromptDonation() && !licensedTo) {
             log("prompt")
             validator.promptActivation()
