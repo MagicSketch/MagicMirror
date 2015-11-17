@@ -47,21 +47,30 @@ var MagicMirror = function(context) {
 
                 if (selections && count(selections)) {
                     var lookup = util.createLookup(artboards)
+                    var counter = {}
+                    var retinaEnabled = locker.isLicensed()
                     each(selections, function(layer) {
                         if (layer.type && layer.name) {
+                            counter[layer.type] = (counter[layer.type] || 0) + 1
                             log(layer.type + " " + layer.name + " is selected")
                         }
                         each(layer.children(), function(layer) {
                             log("layer.name = " + layer.name)
                             if (layer.matchingArtboard) {
                                 var artboard = layer.matchingArtboard(lookup)
-                                log("layer.artboard = " + artboard.name)
-                                flattener.perspectiveTransform(artboard, layer)
+                                if (artboard) {
+                                    counter["updated"] = (counter["updated"] || 0) + 1
+                                    log("layer.artboard = " + artboard.name)
+                                    flattener.perspectiveTransform(artboard, layer)
+                                }
                             }
                         })
                     })
+                    ui.show("Magic Mirror: " + count(selections) + " selected, " + counter["updated"] + " updated. Retina: (" + retinaEnabled + ")")
+
                 } else {
                     log("nothing is selected")
+                    ui.show("Magic Mirror: nothing is selected")
                 }
                 // var artboardNames = {}
                 // var matchingLayersCount = 0
