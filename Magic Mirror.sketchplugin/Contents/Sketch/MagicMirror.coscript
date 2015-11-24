@@ -5,6 +5,8 @@ var MagicMirror = function(context) {
     var ui = MagicMirror.ui(context)
     var util = MagicMirror.util
 
+    var persister = MagicMirror.persister()
+
     var actioner = {
         context : ctx,
 
@@ -133,11 +135,20 @@ var MagicMirror = function(context) {
                 validator.promptActivation()
             }
             run(validator)
+        },
+
+        getTemplates: function() {
+            var run = function() {
+                log("MagicMirror.getTemplates")
+
+                var license_key = persister.licensedTo ? persister.licensedTo.transaction_id : ""
+                [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:"http://magicmirror.design/templates/?license=" + license_key]];
+            }
+            run()
         }
 
     }
 
-    var persister = MagicMirror.persister()
     var validator = MagicMirror.validator(ui, persister)
     var locker = MagicMirror.locker(actioner, validator, persister, ui)
 
@@ -157,6 +168,7 @@ var MagicMirror = function(context) {
         "highlightMirrors": locker.highlightMirrors,
         "activate": actioner.activate,
         "selections": ctx.selections,
+        "getTemplates": actioner.getTemplates,
     }
 }
 
