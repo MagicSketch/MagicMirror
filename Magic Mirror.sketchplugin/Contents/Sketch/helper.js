@@ -33,3 +33,19 @@ var each = function(array, callback) {
 var contains = function(array, object) {
     return array.indexOf(object) != -1
 }
+
+var merge = function(obj1, obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+var join = function(object, separator, string) {
+    var result = ""
+    for (var key in object) {
+        var value = object[key]
+        result += key + separator + value + string
+    }
+    return result
+}

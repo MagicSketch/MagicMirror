@@ -137,14 +137,15 @@ var MagicMirror = function(context) {
             run(validator)
         },
 
-        getTemplates: function() {
-            var run = function() {
+        getTemplates: function(context) {
+            var run = function(ui) {
                 log("MagicMirror.getTemplates")
 
                 var license_key = persister.licensedTo ? persister.licensedTo.transaction_id : ""
-                [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:"http://magicmirror.design/templates/?license=" + license_key]];
+                var params = { "l" : license_key }
+                ui.open("http://magicmirror.design/templates/", params)
             }
-            run()
+            run(ui)
         }
 
     }
@@ -469,7 +470,7 @@ MagicMirror.validator = function(ui, persister) {
         var alternateAction = function(value) {
             log("Purchase… Tapped")
             statusValue = ""
-            ui.open("http://magicmirror.design/purchase/?utm_source=plugin&utm_medium=plugin&utm_campaign=1.2")
+            ui.open("http://magicmirror.design/purchase/")
             ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
         }
 
@@ -696,8 +697,14 @@ MagicMirror.ui = function(context) {
                 otherAction(inputText)
             }
         },
-        open: function(url) {
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        open: function(url, params) {
+            var get_params = merge(params || {}, {
+                "utm_source":"plugin",
+                "utm_medium":"plugin",
+                "utm_campaign":"1.2.3"
+            })
+            var query = join(get_params, "=", "&")
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url + "?" + query]];
         },
         show: function(message) {
             var doc = context.document
