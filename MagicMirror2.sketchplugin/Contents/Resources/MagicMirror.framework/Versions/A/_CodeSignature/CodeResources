@@ -8,6 +8,10 @@
 		<data>
 		oPDaXfUD5karh3SsU30rrCIIyyc=
 		</data>
+		<key>Resources/Storyboard.storyboardc/Info.plist</key>
+		<data>
+		WQRmGHzdWxV2Tq0bF11AM53LfXs=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -22,6 +26,10 @@
 		<key>Resources/Info.plist</key>
 		<data>
 		oPDaXfUD5karh3SsU30rrCIIyyc=
+		</data>
+		<key>Resources/Storyboard.storyboardc/Info.plist</key>
+		<data>
+		WQRmGHzdWxV2Tq0bF11AM53LfXs=
 		</data>
 	</dict>
 	<key>rules</key>

@@ -17,6 +17,7 @@
 		1AB4A9631C15A7C200B7922D /* MagicMirror.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AB4A9671C15A7D800B7922D /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9371C15A55200B7922D /* MMViewController.m */; };
 		1AB4A9681C15A7F400B7922D /* MMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A9361C15A55200B7922D /* MMViewController.h */; };
+		1AB4A96C1C15D52B00B7922D /* MagicMirror.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,16 @@
 				1AB4A9631C15A7C200B7922D /* MagicMirror.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AB4A96B1C15D51800B7922D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PROJECT_DIR)/MagicMirror2.sketchplugin/Contents/Resources";
+			dstSubfolderSpec = 0;
+			files = (
+				1AB4A96C1C15D52B00B7922D /* MagicMirror.framework in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -193,6 +204,7 @@
 				1AB4A9561C15A7C200B7922D /* Frameworks */,
 				1AB4A9571C15A7C200B7922D /* Headers */,
 				1AB4A9581C15A7C200B7922D /* Resources */,
+				1AB4A96B1C15D51800B7922D /* CopyFiles */,
 			);
 			buildRules = (
 			);
