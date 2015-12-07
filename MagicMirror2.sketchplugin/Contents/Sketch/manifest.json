@@ -1,0 +1,29 @@
+{
+	"name": "💧 Fluid",
+	"description": "Auto Layout-like constraints in Sketch",
+	"author": "James Tang",
+	"homepage": "https://github.com/jamztang/MagicMirror2",
+	"version": "2.0",
+
+	"identifier": "com.jamztang.MagicMirror2",
+	"updateURL": "https://raw.githubusercontent.com/matt-curtis/Fluid-for-Sketch/master/Fluid.sketchplugin/Contents/Sketch/manifest.json",
+	"compatibleVersion": 3.4,
+	"bundleVersion": 1,
+
+	"commands": [
+		{
+			"name": "Run",
+			"identifier": "command_toggleToolbarVisiblity",
+			"shortcut": "ctrl shift t",
+			"script": "main.js",
+			"handler": "run"
+		},
+	],
+
+	"menu": {
+		"title": "💧 MagicMirror2",
+		"items": [
+			"command_toggleToolbarVisiblity",
+		]
+	}
+}
