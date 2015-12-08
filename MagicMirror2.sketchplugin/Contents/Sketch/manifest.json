@@ -1,29 +1,72 @@
 {
-	"name": "💧 Fluid",
-	"description": "Auto Layout-like constraints in Sketch",
+	"name": "✨ Magic Mirror 2",
+ 	"description" : "Mirror contents in an Artboard and apply to a Shape with perspective transform. It's like 'Smart Objects' for Sketch.",
 	"author": "James Tang",
-	"homepage": "https://github.com/jamztang/MagicMirror2",
+    "authorEmail" : "james@magicmirror.design",
+	"homepage": "https://github.com/jamztang/MagicMirror",
 	"version": "2.0",
-
-	"identifier": "com.jamztang.MagicMirror2",
-	"updateURL": "https://raw.githubusercontent.com/matt-curtis/Fluid-for-Sketch/master/Fluid.sketchplugin/Contents/Sketch/manifest.json",
+    "identifier" : "design.magicmirror.2",
 	"compatibleVersion": 3.4,
 	"bundleVersion": 1,
 
 	"commands": [
 		{
 			"name": "Run",
-			"identifier": "command_toggleToolbarVisiblity",
+			"identifier": "run",
 			"shortcut": "ctrl shift t",
 			"script": "main.js",
 			"handler": "run"
 		},
+	    {
+	      "name" : "1. Magic Mirror!",
+	      "script" : "main.js",
+	      "handler" : "mirrorPage",
+	      "shortcut" : "control shift m",
+	      "identifier" : "magic mirror"
+	    },
+	    {
+	      "name" : "2. Jump To Artboard",
+	      "script" : "script.cocoascript",
+	      "handler" : "jumpToArtboard",
+	      "shortcut" : "control shift j",
+	      "identifier" : "jump to artboard",
+	    },
+	    {
+	      "name" : "3. Rotate Content",
+	      "script" : "script.cocoascript",
+	      "handler" : "rotatePoints",
+	      "shortcut" : "control command shift r",
+	      "identifier" : "rotate content",
+	    },
+	    {
+	      "name" : "4. Flip Content (pro)",
+	      "script" : "script.cocoascript",
+	      "handler" : "flipHorizontally",
+	      "shortcut" : "control command shift f",
+	      "identifier" : "flip content",
+	    },
+	    {
+	      "name" : "5. Clear content",
+	      "script" : "script.cocoascript",
+	      "handler" : "highlightMirrors",
+	      "shortcut" : "control command shift c",
+	      "identifier" : "clear content",
+	    },
+	    {
+	      "script" : "script.cocoascript",
+	      "handler" : "activate",
+	      "shortcut" : "",
+	      "name" : "    License Info...",
+	      "identifier" : "activate",
+	    },
 	],
 
 	"menu": {
-		"title": "💧 MagicMirror2",
+		"title": "✨ Magic Mirror 2",
 		"items": [
-			"command_toggleToolbarVisiblity",
+			"run",
+			"-",
+			"magic mirror",
 		]
 	}
 }

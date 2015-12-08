@@ -39,3 +39,8 @@ var run = function(context) {
 	var magicmirror = init(context);
 	[magicmirror showWindow];
 }
+
+var mirrorPage = function(context) {
+	debug("mirrorPage");
+	var magicmirror = init(context);
+}
