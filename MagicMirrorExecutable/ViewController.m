@@ -30,7 +30,7 @@
 
 - (IBAction)buttonDidClick:(id)sender {
     self.magicmirror = [[MagicMirror alloc] init];
-    [self.magicmirror log];
+    [self.magicmirror showWindow];
 }
 
 @end

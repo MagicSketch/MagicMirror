@@ -17,7 +17,7 @@ var loadFramework = function(frameworkName, directory){
 var run = function(context) {
 	log("run");
 	var path = resourcesPath(context);
-	if (NSClassFromString("MMViewController") == null) {
+	if (NSClassFromString("MagicMirror") == null) {
 		if ( ! loadFramework("MagicMirror", path)) {
 			log("loadFramework failed");
 		}
@@ -27,6 +27,11 @@ var run = function(context) {
     // coscript.setShouldKeepAround(true);
     log(coscript);
 
-	var controller = [[MMViewController alloc] init];
-	log([controller showWindowCoscript:coscript]);
+	var magicmirror = [[MagicMirror alloc] initWithPlugin:context.plugin
+												 document:context.document
+											    selection:context.selection
+												  command:context.command];
+	[magicmirror showWindow]
+
+	log(context.command.session());
 }

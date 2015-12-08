@@ -15,30 +15,51 @@
 
 @property (nonatomic, strong) MMWindowController *controller;
 
+@property (nonatomic, strong) MSPluginBundle *plugin;
+@property (nonatomic, strong) MSPluginCommand *command;
+@property (nonatomic, copy) NSArray *selection;
+@property (nonatomic, strong) MSDocument *document;
+@property (nonatomic, strong) id <COScript> coscript;
+
 @end
 
 @implementation MagicMirror
 
-- (void)showWindow {
-    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
-    _controller = [storyboard instantiateInitialController];
-    [_controller showWindow:self];
+- (id)initWithPlugin:(MSPluginBundle *)plugin
+            document:(MSDocument *)document
+           selection:(NSArray *)selection
+             command:(MSPluginCommand *)command {
+    if (self = [super init]) {
+        _plugin = plugin;
+        _command = command;
+        _selection = [selection copy];
+        _document = document;
+        _coscript = (id <COScript>)command.session;
+        return self;
+    }
+    return nil;
 }
 
 - (void)log {
-    [self showWindow];
-    NSLog(@"something");
+    MMLog(@"logged something");
 }
 
-- (NSString *)something {
-    [self showWindow];
-    return @"someeee";
+- (void)showWindow {
+    [self keepAround];
+    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
+    _controller = [storyboard instantiateInitialController];
+    _controller.magicmirror = self;
+    [_controller showWindow:self];
 }
 
-- (void)showWindowCoscript:(id <COScript>)coscript {
-    NSLog(@"coscript %@", coscript);
-    [coscript setShouldKeepAround:YES];
-    [self showWindow];
+- (void)keepAround {
+    _coscript.shouldKeepAround = YES;
+    MMLog(@"keepAround");
+}
+
+- (void)goAway {
+    _coscript.shouldKeepAround = NO;
+    MMLog(@"goAway");
 }
 
 @end

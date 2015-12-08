@@ -7,6 +7,7 @@
 //
 
 #import "MMWindowController.h"
+#import "MagicMirror.h"
 
 @interface MMWindowController ()
 
@@ -16,14 +17,18 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    MMLog(@"MMWindowController did loaded");
 
-    NSLog(@"MMWindowController did loaded");
+    self.window.delegate = self;
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    [_magicmirror goAway];
 }
 
 - (void)dealloc {
-    NSLog(@"MMWindowController: dealloc");
+    MMLog(@"MMWindowController: dealloc");
+    [_magicmirror goAway];
 }
 
 @end
