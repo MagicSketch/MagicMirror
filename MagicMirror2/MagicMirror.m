@@ -6,35 +6,27 @@
 //  Copyright © 2015 James Tang. All rights reserved.
 //
 
+@import AppKit;
 #import "MagicMirror.h"
 #import "MMWindowController.h"
-#import "COScript.h"
-@import AppKit;
+#import "SketchPluginContext.h"
 
 @interface MagicMirror ()
 
 @property (nonatomic, strong) MMWindowController *controller;
+@property (nonatomic, strong) SketchPluginContext *context;
 
-@property (nonatomic, strong) MSPluginBundle *plugin;
-@property (nonatomic, strong) MSPluginCommand *command;
-@property (nonatomic, copy) NSArray *selection;
-@property (nonatomic, strong) MSDocument *document;
-@property (nonatomic, strong) id <COScript> coscript;
+@end
+
+@interface MagicMirror (MMWindowControllerDelegate) <MMWindowControllerDelegate>
 
 @end
 
 @implementation MagicMirror
 
-- (id)initWithPlugin:(MSPluginBundle *)plugin
-            document:(MSDocument *)document
-           selection:(NSArray *)selection
-             command:(MSPluginCommand *)command {
+- (id)initWithContext:(SketchPluginContext *)context {
     if (self = [super init]) {
-        _plugin = plugin;
-        _command = command;
-        _selection = [selection copy];
-        _document = document;
-        _coscript = (id <COScript>)command.session;
+        _context = context;
         return self;
     }
     return nil;
@@ -45,21 +37,35 @@
 }
 
 - (void)showWindow {
-    [self keepAround];
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateInitialController];
     _controller.magicmirror = self;
+    _controller.delegate = self;
     [_controller showWindow:self];
 }
 
 - (void)keepAround {
-    _coscript.shouldKeepAround = YES;
+    _context.shouldKeepAround = YES;
     MMLog(@"keepAround");
 }
 
 - (void)goAway {
-    _coscript.shouldKeepAround = NO;
+    _context.shouldKeepAround = NO;
     MMLog(@"goAway");
 }
 
 @end
+
+
+@implementation MagicMirror (MMWindowControllerDelegate)
+
+- (void)controllerDidShow:(MMWindowController *)controller {
+
+}
+
+- (void)controllerDidClose:(MMWindowController *)controller {
+    _controller = nil;
+}
+
+@end
+

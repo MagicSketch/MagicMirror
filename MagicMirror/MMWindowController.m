@@ -15,15 +15,21 @@
 
 @implementation MMWindowController
 
+- (void)showWindow:(nullable id)sender {
+    [_magicmirror keepAround];
+    [super showWindow:sender];
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     MMLog(@"MMWindowController did loaded");
-
     self.window.delegate = self;
+    [self.delegate controllerDidShow:self];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
     [_magicmirror goAway];
+    [self.delegate controllerDidClose:self];
 }
 
 - (void)dealloc {
