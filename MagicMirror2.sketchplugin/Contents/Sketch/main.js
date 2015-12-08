@@ -23,6 +23,10 @@ var run = function(context) {
 		}
 	}
 
+    // If I remove this the window disappears immediately after the plugin gets executed
+    // coscript.setShouldKeepAround(true);
+    log(coscript);
+
 	var controller = [[MMViewController alloc] init];
-	log([controller something]);
+	log([controller showWindowCoscript:coscript]);
 }

@@ -16,4 +16,13 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MagicMirror/PublicHeader.h>
 
+@protocol COScript;
 
+@interface MagicMirror : NSObject
+
+- (void)log;
+- (NSString *)something;
+
+- (void)showWindowCoscript:(id <COScript>)coscript;
+
+@end

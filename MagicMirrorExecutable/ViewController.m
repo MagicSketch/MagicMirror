@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "MMViewController.h"
+#import "MagicMirror.h"
 
 @interface ViewController ()
 
 @property (weak) IBOutlet NSButton *buttonDidClick;
+@property (strong) MagicMirror *magicmirror;
 
 @end
 
@@ -28,8 +29,8 @@
 }
 
 - (IBAction)buttonDidClick:(id)sender {
-    MMViewController *controller = [[MMViewController alloc] init];
-    [controller log];
+    self.magicmirror = [[MagicMirror alloc] init];
+    [self.magicmirror log];
 }
 
 @end
