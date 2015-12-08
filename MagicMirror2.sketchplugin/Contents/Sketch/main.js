@@ -19,8 +19,7 @@ var loadFramework = function(frameworkName, directory){
 	return false;
 };
 
-var run = function(context) {
-	debug("run");
+var init = function(context) {
 	var path = resourcesPath(context);
 	// if (NSClassFromString("MagicMirror") == null) {
 		loadFramework("MagicMirror", path);
@@ -32,5 +31,11 @@ var run = function(context) {
 													  command:context.command];
 
 	var magicmirror = [[MagicMirror alloc] initWithContext:context];
+	return magicmirror;
+}
+
+var run = function(context) {
+	debug("run");
+	var magicmirror = init(context);
 	[magicmirror showWindow];
 }
