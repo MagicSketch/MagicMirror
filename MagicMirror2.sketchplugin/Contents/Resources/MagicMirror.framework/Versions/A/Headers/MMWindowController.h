@@ -8,9 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 @class MagicMirror;
+@class MMWindowController;
+
+@protocol MMWindowControllerDelegate <NSObject>
+
+- (void)controllerDidShow:(MMWindowController *)controller;
+- (void)controllerDidClose:(MMWindowController *)controller;
+
+@end
 
 @interface MMWindowController : NSWindowController <NSWindowDelegate>
 
 @property (nonatomic, weak) MagicMirror *magicmirror;
+@property (nonatomic, weak) id <MMWindowControllerDelegate> delegate;
 
 @end

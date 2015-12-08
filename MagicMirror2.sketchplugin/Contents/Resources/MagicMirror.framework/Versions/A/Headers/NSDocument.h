@@ -11,3 +11,5 @@
 
 
 #endif /* NSDocument_h */
+
+@import AppKit;

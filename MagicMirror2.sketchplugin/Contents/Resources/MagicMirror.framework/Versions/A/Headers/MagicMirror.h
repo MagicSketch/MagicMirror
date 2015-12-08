@@ -7,8 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CDUnknownBlockType.h"
-#import "Sketch.h"
 
 //! Project version number for MagicMirror.
 FOUNDATION_EXPORT double MagicMirrorVersionNumber;
@@ -21,13 +19,11 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 #define MMLog(fmt, ...) NSLog((@"MagicMirror: %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 @protocol COScript;
+@class SketchPluginContext;
 
 @interface MagicMirror : NSObject
 
-- (id)initWithPlugin:(MSPluginBundle *)plugin
-            document:(MSDocument *)document
-           selection:(NSArray *)selection
-             command:(MSPluginCommand *)command;
+- (id)initWithContext:(SketchPluginContext *)context;
 
 - (void)log;
 - (void)showWindow;

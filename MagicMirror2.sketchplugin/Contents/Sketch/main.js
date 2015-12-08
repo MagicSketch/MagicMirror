@@ -1,3 +1,6 @@
+var debug = function(arg) {
+	log(arg);
+}
 
 var resourcesPath = function(context) {
 	if ( ! context.plugin) {
@@ -7,31 +10,27 @@ var resourcesPath = function(context) {
 }
 
 var loadFramework = function(frameworkName, directory){
-	log("loadFramework: " + frameworkName);
-	log("  in dir: " + directory);
 	var mocha = Mocha.sharedRuntime();
-	log("mocha: " + mocha);
-	return [mocha loadFrameworkWithName:frameworkName inDirectory:directory];
+	if ([mocha loadFrameworkWithName:frameworkName inDirectory:directory]) {
+		debug("loadFramework: `" + frameworkName + "` success!");
+		return true;
+	}
+	debug("loadFramework: `" + frameworkName + "` failed!");
+	return false;
 };
 
 var run = function(context) {
-	log("run");
+	debug("run");
 	var path = resourcesPath(context);
-	if (NSClassFromString("MagicMirror") == null) {
-		if ( ! loadFramework("MagicMirror", path)) {
-			log("loadFramework failed");
-		}
-	}
+	// if (NSClassFromString("MagicMirror") == null) {
+		loadFramework("MagicMirror", path);
+	// }
 
-    // If I remove this the window disappears immediately after the plugin gets executed
-    // coscript.setShouldKeepAround(true);
-    log(coscript);
+	var context = [[SketchPluginContext alloc] initWithPlugin:context.plugin
+													 document:context.document
+												    selection:context.selection
+													  command:context.command];
 
-	var magicmirror = [[MagicMirror alloc] initWithPlugin:context.plugin
-												 document:context.document
-											    selection:context.selection
-												  command:context.command];
-	[magicmirror showWindow]
-
-	log(context.command.session());
+	var magicmirror = [[MagicMirror alloc] initWithContext:context];
+	[magicmirror showWindow];
 }
