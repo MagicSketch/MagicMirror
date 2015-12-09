@@ -9,6 +9,7 @@
 #import "SketchPluginContext.h"
 #import "COScript.h"
 #import "MSPage.h"
+#import "MSLayerGroup.h"
 
 @interface SketchPluginContext ()
 
@@ -48,11 +49,20 @@
 
 - (NSArray *)artboards {
     NSMutableArray *artboards = [NSMutableArray array];
-
     [[self pages] enumerateObjectsUsingBlock:^(MSPage* page, NSUInteger idx, BOOL * _Nonnull stop) {
         [artboards addObjectsFromArray:[page artboards]];
     }];
     return artboards;
+}
+
+- (NSArray *)selectedLayers {
+    NSArray *layers = [_selection filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        if ([evaluatedObject isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {
+            return YES;
+        }
+        return NO;
+    }]];
+    return layers;
 }
 
 @end

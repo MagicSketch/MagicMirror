@@ -25,6 +25,8 @@
            selection:(NSArray *)selection
              command:(MSPluginCommand *)command;
 
+- (NSArray *)pages;
 - (NSArray *)artboards;
+- (NSArray *)selectedLayers;
 
 @end

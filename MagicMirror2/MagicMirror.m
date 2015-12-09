@@ -66,6 +66,10 @@
     return [_context artboards];
 }
 
+- (NSArray *)selectedLayers {
+    return [_context selectedLayers];
+}
+
 - (void)licenseInfo {
     NSLog(@"licenseInfo");
 }

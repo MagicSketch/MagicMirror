@@ -55,3 +55,9 @@ var licenseInfo = function(context) {
 	var magicmirror = init(context);
 	[magicmirror licenseInfo];
 }
+
+var selectedLayers = function(context) {
+	var magicmirror = init(context);
+	var layers = [magicmirror selectedLayers];
+	log(layers);
+}
