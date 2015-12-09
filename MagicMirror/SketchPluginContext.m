@@ -8,6 +8,7 @@
 
 #import "SketchPluginContext.h"
 #import "COScript.h"
+#import "MSPage.h"
 
 @interface SketchPluginContext ()
 
@@ -39,6 +40,19 @@
 - (void)setShouldKeepAround:(BOOL)shouldKeepAround {
     _shouldKeepAround = shouldKeepAround;
     _coscript.shouldKeepAround = shouldKeepAround;
+}
+
+- (NSArray *)pages {
+    return _document.pages;
+}
+
+- (NSArray *)artboards {
+    NSMutableArray *artboards = [NSMutableArray array];
+
+    [[self pages] enumerateObjectsUsingBlock:^(MSPage* page, NSUInteger idx, BOOL * _Nonnull stop) {
+        [artboards addObjectsFromArray:[page artboards]];
+    }];
+    return artboards;
 }
 
 @end

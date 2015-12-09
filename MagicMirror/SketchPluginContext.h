@@ -12,11 +12,19 @@
 
 @interface SketchPluginContext : NSObject
 
+@property (nonatomic, strong, readonly) MSPluginBundle *plugin;
+@property (nonatomic, strong, readonly) MSPluginCommand *command;
+@property (nonatomic, copy, readonly) NSArray *selection;
+@property (nonatomic, strong, readonly) MSDocument *document;
+@property (nonatomic, strong, readonly) id <COScript> coscript;
+
 @property (nonatomic) BOOL shouldKeepAround;
 
 - (id)initWithPlugin:(MSPluginBundle *)plugin
             document:(MSDocument *)document
            selection:(NSArray *)selection
              command:(MSPluginCommand *)command;
+
+- (NSArray *)artboards;
 
 @end

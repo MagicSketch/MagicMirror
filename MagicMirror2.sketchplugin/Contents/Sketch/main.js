@@ -43,4 +43,15 @@ var run = function(context) {
 var mirrorPage = function(context) {
 	debug("mirrorPage");
 	var magicmirror = init(context);
+	[magicmirror mirrorPage];
+}
+
+var artboards = function(context) {
+	var magicmirror = init(context);
+	log([magicmirror artboards]);
+}
+
+var licenseInfo = function(context) {
+	var magicmirror = init(context);
+	[magicmirror licenseInfo];
 }

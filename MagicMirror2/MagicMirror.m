@@ -54,6 +54,22 @@
     MMLog(@"goAway");
 }
 
+#pragma mark -
+
+- (void)mirrorPage {
+    [_context.selection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MMLog(@"%lul: %@", (unsigned long)idx, obj);
+    }];
+}
+
+- (NSArray *)artboards {
+    return [_context artboards];
+}
+
+- (void)licenseInfo {
+    NSLog(@"licenseInfo");
+}
+
 @end
 
 

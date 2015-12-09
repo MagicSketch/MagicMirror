@@ -6,19 +6,19 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		3K/891q9nFoL4Z7/Ur/k3V3C+JM=
+		oPDaXfUD5karh3SsU30rrCIIyyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		2j61jFTZTPdMC/m7DuchDzsklRY=
+		930WcJS+xcG7+uJDy6TG8hWXyiY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		T6VMSC24gIHDLFOFC79b8ViC3H4=
+		HJ2SvMxCzUGzmGJZ5decOy14Gy8=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		UTQbQmMInGnDucXbvKJyWlYz5eI=
+		0E+kdKy/BqwnSJCPN74zKMZ//sc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -3393,7 +3393,7 @@
 		</data>
 		<key>Headers/MagicMirror.h</key>
 		<data>
-		o2evk0emRelFttFGxtTMkiSZev8=
+		OJZiP3bgI593eNGiRyG02UD0urM=
 		</data>
 		<key>Headers/NSAffineTransform-CHAffineTransform_Additions.h</key>
 		<data>
@@ -3853,7 +3853,7 @@
 		</data>
 		<key>Headers/NSObject.h</key>
 		<data>
-		dzjXUB0VRfa1LuGdxakYwfIqkB8=
+		5BKcL4DEpxh86PD6CquC61xQviE=
 		</data>
 		<key>Headers/NSOutlineView-ECCore.h</key>
 		<data>
@@ -4853,19 +4853,19 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		3K/891q9nFoL4Z7/Ur/k3V3C+JM=
+		oPDaXfUD5karh3SsU30rrCIIyyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		2j61jFTZTPdMC/m7DuchDzsklRY=
+		930WcJS+xcG7+uJDy6TG8hWXyiY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		T6VMSC24gIHDLFOFC79b8ViC3H4=
+		HJ2SvMxCzUGzmGJZ5decOy14Gy8=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		UTQbQmMInGnDucXbvKJyWlYz5eI=
+		0E+kdKy/BqwnSJCPN74zKMZ//sc=
 		</data>
 	</dict>
 	<key>rules</key>
