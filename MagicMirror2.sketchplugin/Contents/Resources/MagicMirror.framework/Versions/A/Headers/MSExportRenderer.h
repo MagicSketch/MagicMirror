@@ -8,13 +8,7 @@
 
 @class MSExportRequest, NSColorSpace;
 
-@interface MSExportRenderer : NSObject
-{
-    BOOL _isPrinting;
-    MSExportRequest *_request;
-    NSColorSpace *_colorSpace;
-    struct CGRect _bounds;
-}
+@protocol MSExportRenderer <NSObject>
 
 + (id)exportRendererForRequest:(id)arg1 colorSpace:(id)arg2;
 

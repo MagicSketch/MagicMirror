@@ -29,7 +29,6 @@
 - (BOOL)containsObject:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (unsigned long long)count;
-- (unsigned long long)countByEnumeratingWithState:(CDStruct_70511ce9 *)arg1 objects:(id *)arg2 count:(unsigned long long)arg3;
 - (void)dealloc;
 - (void)decodePropertiesWithCoder:(id)arg1;
 @property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;

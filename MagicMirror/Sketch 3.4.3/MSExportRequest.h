@@ -8,24 +8,7 @@
 
 @class MSColor, MSPage, NSSet, NSString;
 
-@interface MSExportRequest : NSObject
-{
-    BOOL _shouldTrim;
-    BOOL _saveForWeb;
-    BOOL _progressive;
-    BOOL _compact;
-    BOOL _includeArtboardBackground;
-    NSString *_name;
-    unsigned long long _options;
-    NSSet *_includedLayerIDs;
-    MSColor *_backgroundColor;
-    double _scale;
-    MSPage *_page;
-    NSString *_format;
-    double _compression;
-    id _rootLayerID;
-    struct CGRect _rect;
-}
+@protocol MSExportRequest <NSObject>
 
 + (id)requestWithName:(id)arg1 rect:(struct CGRect)arg2;
 + (id)requestWithRect:(struct CGRect)arg1 scale:(double)arg2;

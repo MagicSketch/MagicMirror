@@ -10,6 +10,17 @@
 #import "MagicMirror.h"
 #import "MMWindowController.h"
 #import "SketchPluginContext.h"
+#import "SketchShapeGroup.h"
+#import "SketchArtboard.h"
+#import "MSLayerFlattener.h"
+#import "MSLayerArray.h"
+#import "MSArtboardGroup.h"
+#import "MSShapeGroup.h"
+#import "MSStyle.h"
+#import "MSStyleFill.h"
+#import "MSFillStyleCollection.h"
+#import "MSExportRequest.h"
+#import "MSExportRenderer.h"
 
 @interface MagicMirror ()
 
@@ -54,12 +65,50 @@
     MMLog(@"goAway");
 }
 
+- (NSImage *)imageWithLayerFlattener:(MSArtboardGroup *)artboard {
+    id <MSLayerFlattener> flattener = [[NSClassFromString(@"MSLayerFlattener") alloc] init];
+    id array = [NSClassFromString(@"MSLayerArray") arrayWithLayer:artboard];
+    NSImage *image = [flattener imageFromLayers:array lightweightPage:artboard];
+    return image;
+}
+
+- (NSImage *)imageWithExport:(id)artboard {
+    id <MSExportRequest> request = [NSClassFromString(@"MSExportRequest") requestWithRect:[artboard rect] scale:2];
+    id <MSExportRenderer> renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:[NSColorSpace genericRGBColorSpace]];
+    request.page = [artboard parentPage];
+    request.rootLayerID = [artboard originalObjectID];
+    NSImage *image = [renderer image];
+    return image;
+}
+
+- (NSImage *)imageForArtboard:(MSArtboardGroup *)artboard {
+    return [self imageWithExport:artboard];
+}
+
 #pragma mark -
 
 - (void)mirrorPage {
-    [_context.selection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    MMLog(@"mirrorPage");
+
+    NSDictionary *artboardLookup = [_context artboardsLookup];
+
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lul: %@", (unsigned long)idx, obj);
+        MSArtboardGroup *artboard = artboardLookup[obj.name];
+        if (artboard) {
+
+            NSImage *image = [self imageForArtboard:artboard];
+
+            id fill = [obj.style.fills firstObject];
+            if ( ! fill) {
+                fill = [obj.style.fills addNewStylePart];
+            }
+            [fill setFillType:4];
+            [fill setPatternFillType:1];
+            [fill setPatternImage:image];
+        }
     }];
+
 }
 
 - (NSArray *)artboards {

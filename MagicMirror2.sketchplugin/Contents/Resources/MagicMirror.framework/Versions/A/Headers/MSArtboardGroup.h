@@ -12,9 +12,6 @@
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
 @interface MSArtboardGroup : _MSArtboardGroup <MSRootLayer, MSLayerWithBackgroundColour>
-{
-    id <MSSliceLayerWatcher> _sliceWatcher;
-}
 
 + (unsigned long long)traits;
 
@@ -63,7 +60,6 @@
 - (void)setIsLocked:(BOOL)arg1;
 - (void)setName:(id)arg1;
 - (void)setRect:(struct CGRect)arg1;
-@property(nonatomic) __weak id <MSSliceLayerWatcher> sliceWatcher; // @synthesize sliceWatcher=_sliceWatcher;
 - (BOOL)shouldClickThroughMouse:(struct CGPoint)arg1 force:(BOOL)arg2 zoomValue:(double)arg3;
 - (id)slice;
 - (id)webExporterRepresentationOnPage:(id)arg1;

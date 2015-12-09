@@ -1054,7 +1054,6 @@
 		1AB4BB951C16E68400B7922D /* NSEPSImageRep-Alpha.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E21C16E68200B7922D /* NSEPSImageRep-Alpha.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB961C16E68400B7922D /* NSEPSImageRep-MSSmallerArchiving.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E31C16E68200B7922D /* NSEPSImageRep-MSSmallerArchiving.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB971C16E68400B7922D /* NSEvent-EventShouldDrag.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E41C16E68200B7922D /* NSEvent-EventShouldDrag.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AB4BB981C16E68400B7922D /* NSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E51C16E68200B7922D /* NSFastEnumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB991C16E68400B7922D /* NSFileHandle-ZKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E61C16E68200B7922D /* NSFileHandle-ZKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB9A1C16E68400B7922D /* NSFileManager-CHFileManagerExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E71C16E68200B7922D /* NSFileManager-CHFileManagerExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB9B1C16E68400B7922D /* NSFileManager-ZKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6E81C16E68200B7922D /* NSFileManager-ZKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1226,6 +1225,10 @@
 		1AB4BC481C16EC4E00B7922D /* NSDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC441C16E69500B7922D /* NSDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BC491C16EC4E00B7922D /* NSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC471C16EBEA00B7922D /* NSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BC4A1C16EC5F00B7922D /* COScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A9731C15E1B700B7922D /* COScript.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AB4BC4D1C18191000B7922D /* SketchArtboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC4C1C18191000B7922D /* SketchArtboard.h */; };
+		1AB4BC4F1C181CCE00B7922D /* SketchShapeGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC4E1C181CCE00B7922D /* SketchShapeGroup.h */; };
+		1AB4BC511C18219A00B7922D /* NSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */; };
+		1AB4BC531C182FA200B7922D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4BC521C182FA200B7922D /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2316,7 +2319,6 @@
 		1AB4B6E21C16E68200B7922D /* NSEPSImageRep-Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSEPSImageRep-Alpha.h"; sourceTree = "<group>"; };
 		1AB4B6E31C16E68200B7922D /* NSEPSImageRep-MSSmallerArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSEPSImageRep-MSSmallerArchiving.h"; sourceTree = "<group>"; };
 		1AB4B6E41C16E68200B7922D /* NSEvent-EventShouldDrag.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent-EventShouldDrag.h"; sourceTree = "<group>"; };
-		1AB4B6E51C16E68200B7922D /* NSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = NSFastEnumeration.h; sourceTree = "<group>"; };
 		1AB4B6E61C16E68200B7922D /* NSFileHandle-ZKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileHandle-ZKAdditions.h"; sourceTree = "<group>"; };
 		1AB4B6E71C16E68200B7922D /* NSFileManager-CHFileManagerExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager-CHFileManagerExtensions.h"; sourceTree = "<group>"; };
 		1AB4B6E81C16E68200B7922D /* NSFileManager-ZKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager-ZKAdditions.h"; sourceTree = "<group>"; };
@@ -2487,6 +2489,10 @@
 		1AB4BC441C16E69500B7922D /* NSDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDocument.h; sourceTree = "<group>"; };
 		1AB4BC451C16E70100B7922D /* CDUnknownBlockType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDUnknownBlockType.h; sourceTree = "<group>"; };
 		1AB4BC471C16EBEA00B7922D /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		1AB4BC4C1C18191000B7922D /* SketchArtboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchArtboard.h; sourceTree = "<group>"; };
+		1AB4BC4E1C181CCE00B7922D /* SketchShapeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchShapeGroup.h; sourceTree = "<group>"; };
+		1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFastEnumeration.h; sourceTree = "<group>"; };
+		1AB4BC521C182FA200B7922D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2576,10 +2582,13 @@
 				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
 				1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */,
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
+				1AB4BC4C1C18191000B7922D /* SketchArtboard.h */,
+				1AB4BC4E1C181CCE00B7922D /* SketchShapeGroup.h */,
 				1AB4A95E1C15A7C200B7922D /* Info.plist */,
 				1AB4A96D1C15D69800B7922D /* Storyboard.storyboard */,
 				1AB4A96F1C15D7B400B7922D /* MMWindowController.h */,
 				1AB4A9701C15D7B400B7922D /* MMWindowController.m */,
+				1AB4BC521C182FA200B7922D /* Images.xcassets */,
 			);
 			path = MagicMirror;
 			sourceTree = "<group>";
@@ -3618,7 +3627,7 @@
 				1AB4B6E21C16E68200B7922D /* NSEPSImageRep-Alpha.h */,
 				1AB4B6E31C16E68200B7922D /* NSEPSImageRep-MSSmallerArchiving.h */,
 				1AB4B6E41C16E68200B7922D /* NSEvent-EventShouldDrag.h */,
-				1AB4B6E51C16E68200B7922D /* NSFastEnumeration.h */,
+				1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */,
 				1AB4B6E61C16E68200B7922D /* NSFileHandle-ZKAdditions.h */,
 				1AB4B6E71C16E68200B7922D /* NSFileManager-CHFileManagerExtensions.h */,
 				1AB4B6E81C16E68200B7922D /* NSFileManager-ZKAdditions.h */,
@@ -4024,6 +4033,7 @@
 				1AB4BB901C16E68400B7922D /* NSDictionary-DescriptionDictionary.h in Headers */,
 				1AB4B92E1C16E68400B7922D /* MSContentDrawViewController.h in Headers */,
 				1AB4BA481C16E68400B7922D /* MSNormalInspector.h in Headers */,
+				1AB4BC4D1C18191000B7922D /* SketchArtboard.h in Headers */,
 				1AB4BB1B1C16E68400B7922D /* MSTextStyleMenuPreview.h in Headers */,
 				1AB4BB201C16E68400B7922D /* MSTileRenderer.h in Headers */,
 				1AB4B9601C16E68400B7922D /* MSExportAction.h in Headers */,
@@ -4067,6 +4077,7 @@
 				1AB4BC381C16E68400B7922D /* SVGTextSpan.h in Headers */,
 				1AB4B7AE1C16E68400B7922D /* _MSImmutableLayer.h in Headers */,
 				1AB4BB401C16E68400B7922D /* MSVerticalRulerView.h in Headers */,
+				1AB4BC4F1C181CCE00B7922D /* SketchShapeGroup.h in Headers */,
 				1AB4B9D41C16E68400B7922D /* MSImmutableTextLayer.h in Headers */,
 				1AB4BA201C16E68400B7922D /* MSMakeLowercaseAction.h in Headers */,
 				1AB4B8FE1C16E68400B7922D /* MSBitmapBackedRendering.h in Headers */,
@@ -4736,6 +4747,7 @@
 				1AB4BA591C16E68400B7922D /* MSPasteboardInternalImageReader.h in Headers */,
 				1AB4B9FB1C16E68400B7922D /* MSIOSRefreshRenderer.h in Headers */,
 				1AB4B7F81C16E68400B7922D /* _MSTextStyle.h in Headers */,
+				1AB4BC511C18219A00B7922D /* NSFastEnumeration.h in Headers */,
 				1AB4B8B01C16E68400B7922D /* FBEdgeCrossing.h in Headers */,
 				1AB4B8081C16E68400B7922D /* _SVGMask.h in Headers */,
 				1AB4BA221C16E68400B7922D /* MSManageSymbolsSheet.h in Headers */,
@@ -4991,7 +5003,6 @@
 				1AB4BC121C16E68400B7922D /* NSXMLNode-SVG.h in Headers */,
 				1AB4BAE81C16E68400B7922D /* MSSpiralShapeAction.h in Headers */,
 				1AB4BC1C1C16E68400B7922D /* SVGBasicShape.h in Headers */,
-				1AB4BB981C16E68400B7922D /* NSFastEnumeration.h in Headers */,
 				1AB4B82D1C16E68400B7922D /* BCBonjourConnection.h in Headers */,
 				1AB4BA151C16E68400B7922D /* MSLayerTraits.h in Headers */,
 				1AB4BB2B1C16E68400B7922D /* MSToolbarConstructor.h in Headers */,
@@ -5111,6 +5122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AB4A96E1C15D69800B7922D /* Storyboard.storyboard in Resources */,
+				1AB4BC531C182FA200B7922D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

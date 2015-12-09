@@ -16,20 +16,7 @@
 
 @class MSAbsoluteRect, NSAffineTransform, NSDictionary, NSMenu, NSString;
 
-@interface MSLayer : _MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
-{
-    long long skipDrawingSelectionCounter;
-    BOOL _isHovering;
-    BOOL _isAlreadyCaching;
-    BOOL _isSelected;
-    NSAffineTransform *_lightweightTransform;
-    unsigned long long _traits;
-    MSAbsoluteRect *_absoluteRect;
-    id _undoRefreshTimer;
-    struct CGRect _lightweightDrawableFrame;
-    struct CGRect _lightweightAbsoluteRect;
-    struct CGRect _cachedInfluenceRectForBounds;
-}
+@protocol MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
 
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;

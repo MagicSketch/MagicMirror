@@ -5,15 +5,13 @@
 //
 
 #import "_MSShapeGroup.h"
+#import "MSLayer.h"
 
 @class NSBezierPath;
 
-@interface MSShapeGroup : _MSShapeGroup
-{
-    BOOL _isEditingChild;
-    NSBezierPath *_lightweightBezierPathWithTransformsForMasking;
-    NSBezierPath *_lightweightBezierInBounds;
-}
+@protocol MSShapeGroup <MSLayer, NSObject>
+
+@property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
 
 + (void)cacheDecorations;
 + (id)closedArrowDecoration;

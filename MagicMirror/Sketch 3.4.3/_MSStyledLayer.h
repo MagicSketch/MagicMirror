@@ -8,25 +8,7 @@
 
 @class MSStyle;
 
-@interface _MSStyledLayer : MSLayer
-{
-    MSStyle *_style;
-}
-
-
-- (void)copyPropertiesToObjectCopy:(id)arg1;
-- (void)decodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
-- (void)fillInEmptyObjects;
-- (BOOL)hasDefaultValues;
-- (id)immutableModelObject;
-- (void)initEmptyObject;
-- (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-- (id)primitiveStyle;
-- (void)setAsParentOnChildren;
-- (void)setPrimitiveStyle:(id)arg1;
-@property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
+@interface _MSStyledLayer 
 
 @end
 

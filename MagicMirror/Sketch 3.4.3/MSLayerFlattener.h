@@ -6,9 +6,7 @@
 
 #import "NSObject.h"
 
-@interface MSLayerFlattener : NSObject
-{
-}
+@protocol MSLayerFlattener <NSObject>
 
 - (id)bitmapFromRect:(struct CGRect)arg1 fromLayers:(id)arg2 withImage:(id)arg3;
 - (void)flattenLayers:(id)arg1;

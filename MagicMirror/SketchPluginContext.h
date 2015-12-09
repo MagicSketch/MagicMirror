@@ -27,6 +27,7 @@
 
 - (NSArray *)pages;
 - (NSArray *)artboards;
+- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 
 @end

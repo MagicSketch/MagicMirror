@@ -4,17 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/Assets.car</key>
+		<data>
+		F8mFrDkiQrRIScLmnB9ERVZIs4M=
+		</data>
 		<key>Resources/Info.plist</key>
 		<data>
 		oPDaXfUD5karh3SsU30rrCIIyyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		3eoYDqn/q4gdgaSsIBfXTumZKQY=
+		JvNl8l0MTXoKe868CktykMLw96s=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		8VfWxmt2X9DaOns2hw7jLpOeHGo=
+		0J6eQbAIuczy45E1yxIqQxD+sQs=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
@@ -845,7 +849,7 @@
 		</data>
 		<key>Headers/MSArray.h</key>
 		<data>
-		ITZpodKdElJDR+NDKdknM9eSSU4=
+		LzAOOXZgmjK9aWKowOjzdPSohRo=
 		</data>
 		<key>Headers/MSArrayDelegate.h</key>
 		<data>
@@ -857,7 +861,7 @@
 		</data>
 		<key>Headers/MSArtboardGroup.h</key>
 		<data>
-		BODWDAOyblgzlafhV/cClu4vRHU=
+		tX7xEqnyj4r6m7kaXKnoGSa5iGE=
 		</data>
 		<key>Headers/MSArtboardGroupRenderer.h</key>
 		<data>
@@ -1393,7 +1397,7 @@
 		</data>
 		<key>Headers/MSExportRenderer.h</key>
 		<data>
-		c0xt6wVbmHYZ0Y/UxAmseMWUWKI=
+		Cz+kxzh2/P8e55Ie+70+9mocLFI=
 		</data>
 		<key>Headers/MSExportRendererView.h</key>
 		<data>
@@ -1409,7 +1413,7 @@
 		</data>
 		<key>Headers/MSExportRequest.h</key>
 		<data>
-		ReMEgtJzukjEeWTgzIEhoMkDdrg=
+		a7+SjA9QtLiLJysyPHPtJNcCDxc=
 		</data>
 		<key>Headers/MSExportSheet.h</key>
 		<data>
@@ -2025,11 +2029,11 @@
 		</data>
 		<key>Headers/MSLayer.h</key>
 		<data>
-		hZx4f8yGKF3MjEfmcwYaJJBOaUM=
+		q3n4+a1lWv/YOL2t2vVfX9eU5lA=
 		</data>
 		<key>Headers/MSLayerArray.h</key>
 		<data>
-		3OnA91JrD+eSC3dPbbpR71GUmtc=
+		8aIiJdyxLiQY1nKZiSHfKNCPd2s=
 		</data>
 		<key>Headers/MSLayerBuilder.h</key>
 		<data>
@@ -2045,7 +2049,7 @@
 		</data>
 		<key>Headers/MSLayerFlattener.h</key>
 		<data>
-		ItCVNVGYi97uI3ZqTR5iXz0dC1c=
+		RyWSm4D/3ghUUOlYv27/vwX+WYA=
 		</data>
 		<key>Headers/MSLayerGroup.h</key>
 		<data>
@@ -2749,7 +2753,7 @@
 		</data>
 		<key>Headers/MSShapeGroup.h</key>
 		<data>
-		01VlnE/XFVc+DT+wUw/PHpcgF/Y=
+		Xb4CAwrA9MEUocxktfF6LDAkgis=
 		</data>
 		<key>Headers/MSShapeGroupRenderer.h</key>
 		<data>
@@ -2997,7 +3001,7 @@
 		</data>
 		<key>Headers/MSStyle.h</key>
 		<data>
-		7W0liuEhcwEQjpaJ+SaTjxNxes8=
+		ZMk6N1OQ8LfQ90UvZI4bo4a8+7E=
 		</data>
 		<key>Headers/MSStyleBasicFill.h</key>
 		<data>
@@ -3662,10 +3666,6 @@
 		<key>Headers/NSEvent-EventShouldDrag.h</key>
 		<data>
 		1lrTNipDuyIu48+ZKBMTNiCyYnY=
-		</data>
-		<key>Headers/NSFastEnumeration.h</key>
-		<data>
-		Biij0l9UBa0g9TpTD/l6ti/RUI8=
 		</data>
 		<key>Headers/NSFileHandle-ZKAdditions.h</key>
 		<data>
@@ -4749,7 +4749,7 @@
 		</data>
 		<key>Headers/_MSStyledLayer.h</key>
 		<data>
-		7l2pG8Be+Ih+GvnirefhHwEMszc=
+		iJODQNeupFKalkHeJfnXDZOAL7I=
 		</data>
 		<key>Headers/_MSTextLayer.h</key>
 		<data>
@@ -4851,17 +4851,21 @@
 		<data>
 		tE3bx2gvf2D7hBrsJ9s0fl4dtWU=
 		</data>
+		<key>Resources/Assets.car</key>
+		<data>
+		F8mFrDkiQrRIScLmnB9ERVZIs4M=
+		</data>
 		<key>Resources/Info.plist</key>
 		<data>
 		oPDaXfUD5karh3SsU30rrCIIyyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		3eoYDqn/q4gdgaSsIBfXTumZKQY=
+		JvNl8l0MTXoKe868CktykMLw96s=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		8VfWxmt2X9DaOns2hw7jLpOeHGo=
+		0J6eQbAIuczy45E1yxIqQxD+sQs=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>

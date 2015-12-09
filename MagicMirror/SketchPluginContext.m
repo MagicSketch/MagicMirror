@@ -9,7 +9,7 @@
 #import "SketchPluginContext.h"
 #import "COScript.h"
 #import "MSPage.h"
-#import "MSLayerGroup.h"
+#import "SketchArtboard.h"
 
 @interface SketchPluginContext ()
 
@@ -53,6 +53,14 @@
         [artboards addObjectsFromArray:[page artboards]];
     }];
     return artboards;
+}
+
+- (NSDictionary *)artboardsLookup {
+    NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
+    [[self artboards] enumerateObjectsUsingBlock:^(id <SketchArtboard> artboard, NSUInteger idx, BOOL * _Nonnull stop) {
+        lookup[[artboard name]] = artboard;
+    }];
+    return [lookup copy];
 }
 
 - (NSArray *)selectedLayers {

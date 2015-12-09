@@ -25,6 +25,8 @@
 - (long long)determineMaskingMode;
 - (id)enabledBorders;
 - (id)enabledFills;
+@property(retain, nonatomic) MSFillStyleCollection *fills; // @synthesize fills=_fills;
+
 - (id)enabledInnerShadows;
 - (id)enabledShadows;
 - (id)enabledStyleParts:(id)arg1;
