@@ -21,6 +21,8 @@
 #import "MSFillStyleCollection.h"
 #import "MSExportRequest.h"
 #import "MSExportRenderer.h"
+#import "NSImage+Transform.h"
+#import "MSShapePath.h"
 
 @interface MagicMirror ()
 
@@ -98,6 +100,9 @@
         if (artboard) {
 
             NSImage *image = [self imageForArtboard:artboard];
+            NSBezierPath *bezierPath = [(id)obj bezierPath];
+//            id <MSShapePath> path = [[NSClassFromString(@"MSShapePath") alloc] initWithBezierPath:bezierPath inRect:[obj boundsRect]];
+            image = [image imageForPath:bezierPath];
 
             id fill = [obj.style.fills firstObject];
             if ( ! fill) {

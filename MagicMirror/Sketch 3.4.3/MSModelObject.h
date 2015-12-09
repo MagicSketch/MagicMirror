@@ -28,7 +28,6 @@
 - (void)appendSimpleStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (void)appendTreeStructureToString:(id)arg1 withIndent:(unsigned long long)arg2;
 - (id)cachedValueForKey:(id)arg1;
-- (id)cachedValueForKey:(id)arg1 setUsingBlock:(CDUnknownBlockType)arg2;
 - (void)clearCache;
 - (void)clearCachedValueForKey:(id)arg1;
 - (id)copyIncludingObjectIDS;
@@ -41,9 +40,6 @@
 - (void)encodeObjectIDWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateMigrations:(SEL *)arg1 fromVersion:(long long)arg2 block:(CDUnknownBlockType)arg3;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
 - (id)generateObjectID;
 @property(readonly, nonatomic) BOOL hasCache;

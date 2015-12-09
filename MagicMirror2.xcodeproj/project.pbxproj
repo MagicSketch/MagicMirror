@@ -1229,6 +1229,10 @@
 		1AB4BC4F1C181CCE00B7922D /* SketchShapeGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC4E1C181CCE00B7922D /* SketchShapeGroup.h */; };
 		1AB4BC511C18219A00B7922D /* NSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */; };
 		1AB4BC531C182FA200B7922D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4BC521C182FA200B7922D /* Images.xcassets */; };
+		1AB4BC581C18643200B7922D /* NSImage+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC561C18643200B7922D /* NSImage+Transform.h */; };
+		1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC571C18643200B7922D /* NSImage+Transform.m */; };
+		1AB4BC5C1C18671B00B7922D /* Quad.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC5A1C18671B00B7922D /* Quad.h */; };
+		1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC5B1C18671B00B7922D /* Quad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2493,6 +2497,10 @@
 		1AB4BC4E1C181CCE00B7922D /* SketchShapeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchShapeGroup.h; sourceTree = "<group>"; };
 		1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFastEnumeration.h; sourceTree = "<group>"; };
 		1AB4BC521C182FA200B7922D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1AB4BC561C18643200B7922D /* NSImage+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Transform.h"; sourceTree = "<group>"; };
+		1AB4BC571C18643200B7922D /* NSImage+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Transform.m"; sourceTree = "<group>"; };
+		1AB4BC5A1C18671B00B7922D /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
+		1AB4BC5B1C18671B00B7922D /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2589,6 +2597,10 @@
 				1AB4A96F1C15D7B400B7922D /* MMWindowController.h */,
 				1AB4A9701C15D7B400B7922D /* MMWindowController.m */,
 				1AB4BC521C182FA200B7922D /* Images.xcassets */,
+				1AB4BC561C18643200B7922D /* NSImage+Transform.h */,
+				1AB4BC571C18643200B7922D /* NSImage+Transform.m */,
+				1AB4BC5A1C18671B00B7922D /* Quad.h */,
+				1AB4BC5B1C18671B00B7922D /* Quad.m */,
 			);
 			path = MagicMirror;
 			sourceTree = "<group>";
@@ -4674,6 +4686,7 @@
 				1AB4BC031C16E68400B7922D /* NSURLSessionDownloadDelegate.h in Headers */,
 				1AB4B96E1C16E68400B7922D /* MSFillAndBorderColorScreenPicker.h in Headers */,
 				1AB4B92F1C16E68400B7922D /* MSContentTile.h in Headers */,
+				1AB4BC581C18643200B7922D /* NSImage+Transform.h in Headers */,
 				1AB4B8D31C16E68400B7922D /* MSAltButtonTarget.h in Headers */,
 				1AB4BA971C16E68400B7922D /* MSRevealInLayerListAction.h in Headers */,
 				1AB4B94C1C16E68400B7922D /* MSDocumentError.h in Headers */,
@@ -4731,6 +4744,7 @@
 				1AB4B8DC1C16E68400B7922D /* MSArtboardGroup.h in Headers */,
 				1AB4B8B61C16E68400B7922D /* FMDatabaseQueue.h in Headers */,
 				1AB4B96D1C16E68400B7922D /* MSFastPathBuilder.h in Headers */,
+				1AB4BC5C1C18671B00B7922D /* Quad.h in Headers */,
 				1AB4BBB91C16E68400B7922D /* NSNetServiceBrowserDelegate.h in Headers */,
 				1AB4B7F71C16E68400B7922D /* _MSTextLayer.h in Headers */,
 				1AB4B7F11C16E68400B7922D /* _MSStyledLayer.h in Headers */,
@@ -5143,7 +5157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
+				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,
 			);

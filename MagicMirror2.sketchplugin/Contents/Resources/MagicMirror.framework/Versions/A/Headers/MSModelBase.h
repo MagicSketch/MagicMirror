@@ -17,7 +17,6 @@
     MSDocumentData *_documentData;
 }
 
-+ (void)performWithoutUpdateEvents:(CDUnknownBlockType)arg1;
 
 - (void)breakConnectionWith:(id)arg1;
 @property(retain, nonatomic) id cachedImmutableModelObject;
@@ -46,7 +45,6 @@
 @property(nonatomic) __weak MSModelBase *parentObject; // @synthesize parentObject=_parentObject;
 - (void)prepareCopy:(id)arg1;
 - (void)prepareObjectCopy:(id)arg1;
-- (void)registerUndoNamed:(id)arg1 action:(CDUnknownBlockType)arg2;
 - (id)rootModelObject;
 - (void)setAsParentOnChildren;
 - (void)setUndoActionName:(id)arg1;

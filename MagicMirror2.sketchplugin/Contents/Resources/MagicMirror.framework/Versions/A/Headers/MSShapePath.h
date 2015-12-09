@@ -6,10 +6,9 @@
 
 #import "_MSShapePath.h"
 
-@interface MSShapePath : _MSShapePath
-{
-}
+@protocol MSShapePath <NSObject>
 
+- (CGPoint)pointAtIndex:(NSUInteger)index;
 + (id)pathWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)pathWithPoints:(id)arg1;
 - (void)addPoint:(id)arg1;
@@ -28,7 +27,7 @@
 - (id)layer;
 - (void)multiplyBy:(double)arg1;
 - (unsigned long long)numberOfPoints;
-- (id)pointAtIndex:(long long)arg1;
+//- (id)pointAtIndex:(long long)arg1;
 - (void)removeAllPoints;
 - (void)removeLastPoint;
 - (void)setIsClosed:(BOOL)arg1;
