@@ -18,6 +18,7 @@
 
 @protocol MSLayer <BCOutlineViewNode, MSLayerContainment, MSLayerManipulation, MSLayerTraits, NSCoding, NSCopying, MSRectDelegate>
 
+- (NSString *)objectID;
 + (void)alignLayers:(id)arg1 toValue:(double)arg2 forKey:(id)arg3;
 + (void)alignLayers:(id)arg1 withMode:(unsigned long long)arg2 toKey:(id)arg3 pixelFit:(BOOL)arg4;
 + (struct CGRect)alignmentRectForLayers:(id)arg1;
@@ -60,7 +61,6 @@
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGRect)boundsRect;
 - (id)cachedImage;
-- (id)cachedImageSetUsingBlock:(CDUnknownBlockType)arg1;
 @property(nonatomic) struct CGRect cachedInfluenceRectForBounds; // @synthesize cachedInfluenceRectForBounds=_cachedInfluenceRectForBounds;
 - (BOOL)calculateHasBlendedLayer;
 - (struct CGRect)calculateInfluenceRectForBounds;
@@ -115,9 +115,6 @@
 - (void)drawHoverWithZoom:(double)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 - (id)duplicate;
-- (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 classFilter:(Class)arg2 block:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) BOOL expandableInLayerList;
 @property(readonly, nonatomic) unsigned long long filterType;
 - (id)firstLayer;
@@ -192,7 +189,6 @@
 - (void)makeRectIntegral;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1 margins:(struct CGSize)arg2;
-- (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (void)moveToLayer:(id)arg1 beforeLayer:(id)arg2;
 - (void)multiplyBy:(double)arg1;
 - (id)namesOfAllLayersInContainer:(id)arg1;
@@ -216,7 +212,6 @@
 @property(nonatomic) struct CGRect rect;
 - (void)rectDidChange:(id)arg1 fromRect:(struct CGRect)arg2;
 - (void)refreshForPropertyChanged;
-- (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)refreshOfType:(unsigned long long)arg1 rect:(struct CGRect)arg2;
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (struct CGRect)relativeRectWithExporter:(id)arg1;

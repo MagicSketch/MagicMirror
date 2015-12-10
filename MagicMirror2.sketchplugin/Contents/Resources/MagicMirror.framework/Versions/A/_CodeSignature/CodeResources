@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		F8mFrDkiQrRIScLmnB9ERVZIs4M=
+		AQsb+YYmWi1zblkLldBZtQFvv1k=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
@@ -14,11 +14,11 @@
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		JvNl8l0MTXoKe868CktykMLw96s=
+		Scum4qSkBp04+pVPYs9/550MYWA=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		0J6eQbAIuczy45E1yxIqQxD+sQs=
+		Q3Do7RLY2MASTQEv+SZQUToL+ck=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
@@ -731,6 +731,10 @@
 		<data>
 		m10m3LRDHUysosUoQ+LqAZP7z5U=
 		</data>
+		<key>Headers/ImageRenderer.h</key>
+		<data>
+		smnV0Jq9MI+RNlBJlllsSadXHE0=
+		</data>
 		<key>Headers/KBDelayedPopUpButton.h</key>
 		<data>
 		TPS7//xCmCBEjEzqBUcSaGyIVV0=
@@ -861,7 +865,7 @@
 		</data>
 		<key>Headers/MSArtboardGroup.h</key>
 		<data>
-		tX7xEqnyj4r6m7kaXKnoGSa5iGE=
+		8pjMETurCWq2sevcOkPJFPeS7FQ=
 		</data>
 		<key>Headers/MSArtboardGroupRenderer.h</key>
 		<data>
@@ -2029,11 +2033,11 @@
 		</data>
 		<key>Headers/MSLayer.h</key>
 		<data>
-		q3n4+a1lWv/YOL2t2vVfX9eU5lA=
+		4A3GJYRi8V38JQIXRWFfZwAXRII=
 		</data>
 		<key>Headers/MSLayerArray.h</key>
 		<data>
-		8aIiJdyxLiQY1nKZiSHfKNCPd2s=
+		cYssIxVN3eTIBOg8Ch2zxOWfeCY=
 		</data>
 		<key>Headers/MSLayerBuilder.h</key>
 		<data>
@@ -2761,7 +2765,7 @@
 		</data>
 		<key>Headers/MSShapePath.h</key>
 		<data>
-		4jnB1kDbguBrpOXN7CKyZqho4Qc=
+		XLRnNfWswOnDJIa8oif9TdnMTQA=
 		</data>
 		<key>Headers/MSShapePathLayer.h</key>
 		<data>
@@ -3397,7 +3401,7 @@
 		</data>
 		<key>Headers/MagicMirror.h</key>
 		<data>
-		NXGsuqFSPuGTZg23n07Wa8CCeco=
+		LZcE2fPk78UuuBwdr8B0aABo+lk=
 		</data>
 		<key>Headers/NSAffineTransform-CHAffineTransform_Additions.h</key>
 		<data>
@@ -3666,6 +3670,10 @@
 		<key>Headers/NSEvent-EventShouldDrag.h</key>
 		<data>
 		1lrTNipDuyIu48+ZKBMTNiCyYnY=
+		</data>
+		<key>Headers/NSFastEnumeration.h</key>
+		<data>
+		5VvFAmO9kC/CRcrw7a4F+Ha/fY8=
 		</data>
 		<key>Headers/NSFileHandle-ZKAdditions.h</key>
 		<data>
@@ -4613,7 +4621,7 @@
 		</data>
 		<key>Headers/_MSLayer.h</key>
 		<data>
-		++CHFoVE/ymtyPyMCvd0XTbPLzU=
+		HregBZr1wqAqDJ7suTANkCPy4mI=
 		</data>
 		<key>Headers/_MSLayerGroup.h</key>
 		<data>
@@ -4853,7 +4861,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		F8mFrDkiQrRIScLmnB9ERVZIs4M=
+		AQsb+YYmWi1zblkLldBZtQFvv1k=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
@@ -4861,11 +4869,11 @@
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		JvNl8l0MTXoKe868CktykMLw96s=
+		Scum4qSkBp04+pVPYs9/550MYWA=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		0J6eQbAIuczy45E1yxIqQxD+sQs=
+		Q3Do7RLY2MASTQEv+SZQUToL+ck=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>

@@ -33,8 +33,6 @@
 - (id)effectiveArtboard;
 - (id)effectivePage;
 - (id)effectiveParent;
-- (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (id)firstLayer;
 - (unsigned long long)indexOfLayer:(id)arg1;
 - (id)initWithLayers:(id)arg1;
@@ -43,7 +41,6 @@
 - (id)layerToInsertAfter;
 @property(copy, nonatomic) NSArray *layers; // @synthesize layers=_layers;
 - (id)layersSuitableForInsertingIntoGroup:(id)arg1;
-- (id)map:(CDUnknownBlockType)arg1;
 - (void)removeUnusedStylePartsOfType:(unsigned long long)arg1;
 - (id)uniqueParents;
 

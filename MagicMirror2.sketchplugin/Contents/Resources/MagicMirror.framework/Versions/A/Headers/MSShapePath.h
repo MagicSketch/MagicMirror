@@ -36,3 +36,8 @@
 
 @end
 
+@import AppKit;
+
+@interface NSBezierPath (MSShapePath) <MSShapePath>
+
+@end

@@ -19,6 +19,10 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 #define MMLog(fmt, ...) NSLog((@"MagicMirror: %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 @protocol COScript;
+@protocol MSLayer;
+
+#import "ImageRenderer.h"
+
 @class SketchPluginContext;
 
 @interface MagicMirror : NSObject
@@ -34,5 +38,9 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (NSArray *)artboards;
 - (NSArray *)selectedLayers;
 - (void)licenseInfo;
+
+- (void)mirrorPageScale:(NSUInteger)scale
+             colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
+            perspective:(BOOL)perspective;
 
 @end

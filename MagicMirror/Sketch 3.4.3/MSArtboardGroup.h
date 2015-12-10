@@ -11,7 +11,7 @@
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid, NSString;
 
-@interface MSArtboardGroup : _MSArtboardGroup <MSRootLayer, MSLayerWithBackgroundColour>
+@protocol MSArtboardGroup <MSLayer, MSRootLayer, MSLayerWithBackgroundColour>
 
 + (unsigned long long)traits;
 

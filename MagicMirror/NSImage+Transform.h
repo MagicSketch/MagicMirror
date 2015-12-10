@@ -8,10 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class MSShapePath;
+@protocol MSShapePath;
 
 @interface NSImage (Transform)
 
-- (NSImage *)imageForPath:(MSShapePath *)path;
+- (NSImage *)imageForPath:(id <MSShapePath>)path;
 
 @end

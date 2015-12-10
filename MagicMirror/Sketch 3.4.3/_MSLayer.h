@@ -28,8 +28,6 @@
 
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) MSExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 - (void)fillInEmptyObjects;
 @property(retain, nonatomic) MSRect *frame; // @synthesize frame=_frame;

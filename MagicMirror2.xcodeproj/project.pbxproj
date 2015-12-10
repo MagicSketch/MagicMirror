@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0FAFD61C19957300B57F42 /* ImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0FAFD41C19957300B57F42 /* ImageRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* ImageRenderer.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
@@ -1270,6 +1272,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A0FAFD41C19957300B57F42 /* ImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRenderer.h; sourceTree = "<group>"; };
+		1A0FAFD51C19957300B57F42 /* ImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRenderer.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2588,6 +2592,8 @@
 				1AB4BC4B1C16EDEA00B7922D /* Bridges */,
 				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
 				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
+				1A0FAFD41C19957300B57F42 /* ImageRenderer.h */,
+				1A0FAFD51C19957300B57F42 /* ImageRenderer.m */,
 				1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */,
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
 				1AB4BC4C1C18191000B7922D /* SketchArtboard.h */,
@@ -4273,6 +4279,7 @@
 				1AB4B8981C16E68400B7922D /* ECErrorReporter.h in Headers */,
 				1AB4BA121C16E68400B7922D /* MSLayerSelectionDrawing.h in Headers */,
 				1AB4BC0B1C16E68400B7922D /* NSViewController-Chocolat.h in Headers */,
+				1A0FAFD61C19957300B57F42 /* ImageRenderer.h in Headers */,
 				1AB4B9531C16E68400B7922D /* MSDummyDocument.h in Headers */,
 				1AB4BAC61C16E68400B7922D /* MSSidebarControllerDelegate.h in Headers */,
 				1AB4BC391C16E68400B7922D /* SVGTitle.h in Headers */,
@@ -5159,6 +5166,7 @@
 			files = (
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
+				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,

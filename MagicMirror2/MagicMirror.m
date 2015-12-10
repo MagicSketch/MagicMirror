@@ -23,6 +23,7 @@
 #import "MSExportRenderer.h"
 #import "NSImage+Transform.h"
 #import "MSShapePath.h"
+#import "ImageRenderer.h"
 
 @interface MagicMirror ()
 
@@ -67,25 +68,22 @@
     MMLog(@"goAway");
 }
 
-- (NSImage *)imageWithLayerFlattener:(MSArtboardGroup *)artboard {
-    id <MSLayerFlattener> flattener = [[NSClassFromString(@"MSLayerFlattener") alloc] init];
-    id array = [NSClassFromString(@"MSLayerArray") arrayWithLayer:artboard];
-    NSImage *image = [flattener imageFromLayers:array lightweightPage:artboard];
-    return image;
+- (NSImage *)flattenedImageWithArtboard:(id)artboard {
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+    renderer.layer = artboard;
+    return [renderer flattenedImage];
 }
 
-- (NSImage *)imageWithExport:(id)artboard {
-    id <MSExportRequest> request = [NSClassFromString(@"MSExportRequest") requestWithRect:[artboard rect] scale:2];
-    id <MSExportRenderer> renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:[NSColorSpace genericRGBColorSpace]];
-    request.page = [artboard parentPage];
-    request.rootLayerID = [artboard originalObjectID];
-    NSImage *image = [renderer image];
-    return image;
+- (NSImage *)exportedImageWithArtboard:(id)artboard {
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+    renderer.layer = artboard;
+    return [renderer exportedImage];
 }
 
 - (NSImage *)imageForArtboard:(MSArtboardGroup *)artboard {
-    return [self imageWithExport:artboard];
+    return [self exportedImageWithArtboard:artboard];
 }
+
 
 #pragma mark -
 
@@ -94,26 +92,60 @@
 
     NSDictionary *artboardLookup = [_context artboardsLookup];
 
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lul: %@", (unsigned long)idx, obj);
-        MSArtboardGroup *artboard = artboardLookup[obj.name];
+        id <MSArtboardGroup> artboard = artboardLookup[obj.name];
         if (artboard) {
 
-            NSImage *image = [self imageForArtboard:artboard];
-            NSBezierPath *bezierPath = [(id)obj bezierPath];
-//            id <MSShapePath> path = [[NSClassFromString(@"MSShapePath") alloc] initWithBezierPath:bezierPath inRect:[obj boundsRect]];
-            image = [image imageForPath:bezierPath];
+            renderer.layer = artboard;
+            NSImage *image = renderer.exportedImage;
 
-            id fill = [obj.style.fills firstObject];
+            MSStyleFill *fill = [obj.style.fills firstObject];
             if ( ! fill) {
                 fill = [obj.style.fills addNewStylePart];
             }
             [fill setFillType:4];
             [fill setPatternFillType:1];
+            [fill setIsEnabled:true];
             [fill setPatternImage:image];
         }
     }];
+}
 
+
+- (void)mirrorPageScale:(NSUInteger)scale
+             colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
+            perspective:(BOOL)perspective {
+
+    MMLog(@"mirrorPageScale:%lu colorSpace:%u", (unsigned long)scale, colorSpaceIdentifier);
+
+    NSDictionary *artboardLookup = [_context artboardsLookup];
+
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MMLog(@"%lul: %@", (unsigned long)idx, obj);
+        id <MSArtboardGroup> artboard = artboardLookup[obj.name];
+        if (artboard) {
+
+            renderer.layer = artboard;
+            renderer.scale = scale;
+            renderer.colorSpaceIdentifier = colorSpaceIdentifier;
+            renderer.disablePerspective = ! perspective;
+            NSImage *image = renderer.exportedImage;
+
+            MSStyleFill *fill = [obj.style.fills firstObject];
+            if ( ! fill) {
+                fill = [obj.style.fills addNewStylePart];
+            }
+            [fill setFillType:4];
+            [fill setPatternFillType:1];
+            [fill setIsEnabled:true];
+            [fill setPatternImage:image];
+        }
+    }];
 }
 
 - (NSArray *)artboards {
