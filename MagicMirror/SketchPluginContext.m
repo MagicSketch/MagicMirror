@@ -9,7 +9,7 @@
 #import "SketchPluginContext.h"
 #import "COScript.h"
 #import "MSPage.h"
-#import "SketchArtboard.h"
+#import "MSArtboardGroup.h"
 
 @interface SketchPluginContext ()
 
@@ -57,7 +57,7 @@
 
 - (NSDictionary *)artboardsLookup {
     NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
-    [[self artboards] enumerateObjectsUsingBlock:^(id <SketchArtboard> artboard, NSUInteger idx, BOOL * _Nonnull stop) {
+    [[self artboards] enumerateObjectsUsingBlock:^(id <MSArtboardGroup> artboard, NSUInteger idx, BOOL * _Nonnull stop) {
         lookup[[artboard name]] = artboard;
     }];
     return [lookup copy];

@@ -10,8 +10,6 @@
 #import "MagicMirror.h"
 #import "MMWindowController.h"
 #import "SketchPluginContext.h"
-#import "SketchShapeGroup.h"
-#import "SketchArtboard.h"
 #import "MSLayerFlattener.h"
 #import "MSLayerArray.h"
 #import "MSArtboardGroup.h"
