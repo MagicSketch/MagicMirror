@@ -41,8 +41,7 @@
     NSImage *image = [flattener imageFromLayers:array lightweightPage:self.layer];
 
     if ( ! self.disablePerspective) {
-        NSBezierPath *bezierPath = [(id)self.layer bezierPath];
-        image = [image imageForPath:bezierPath];
+        image = [image imageForPath:self.bezierPath];
     }
     return image;
 }
@@ -55,8 +54,7 @@
     NSImage *image = [renderer image];
 
     if ( ! self.disablePerspective) {
-        NSBezierPath *bezierPath = [(id)self.layer bezierPath];
-        image = [image imageForPath:bezierPath];
+        image = [image imageForPath:self.bezierPath];
     }
     return image;
 }

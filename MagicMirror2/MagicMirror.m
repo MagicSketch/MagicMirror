@@ -100,6 +100,7 @@
         if (artboard) {
 
             renderer.layer = artboard;
+            renderer.bezierPath = [obj bezierPathInBounds];
             NSImage *image = renderer.exportedImage;
 
             MSStyleFill *fill = [obj.style.fills firstObject];
@@ -134,6 +135,7 @@
             renderer.scale = scale;
             renderer.colorSpaceIdentifier = colorSpaceIdentifier;
             renderer.disablePerspective = ! perspective;
+            renderer.bezierPath = [obj bezierPathInBounds];
             NSImage *image = renderer.exportedImage;
 
             MSStyleFill *fill = [obj.style.fills firstObject];

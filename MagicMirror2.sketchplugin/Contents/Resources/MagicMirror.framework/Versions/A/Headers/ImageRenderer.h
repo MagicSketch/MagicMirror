@@ -24,6 +24,7 @@ typedef enum {
 @interface ImageRenderer : NSObject
 
 @property (nonatomic, strong) id <MSLayer> layer;
+@property (nonatomic, strong) NSBezierPath *bezierPath;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) NSUInteger scale;
 @property (nonatomic) BOOL disablePerspective;
