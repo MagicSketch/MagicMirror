@@ -12,6 +12,6 @@
 
 @interface NSImage (Transform)
 
-- (NSImage *)imageForPath:(id <MSShapePath>)path;
+- (NSImage *)imageForPath:(id <MSShapePath>)path scale:(CGFloat)scale;
 
 @end

@@ -46,14 +46,15 @@
     return image;
 }
 
-- (NSImage *)imageForPath:(id <MSShapePath>)path {
+- (NSImage *)imageForPath:(id <MSShapePath>)path scale:(CGFloat)scale {
     CIImage *ciimage = [self getCIImageFromNSImage:self];
     Quad *quad = [Quad quadWithShapePath:path];
-    CGPoint topLeft = (CGPoint)quad.tl;
-    CGPoint topRight = (CGPoint)quad.tr;
-    CGPoint bottomLeft = (CGPoint)quad.bl;
-    CGPoint bottomRight = (CGPoint)quad.br;
-    NSSize size = self.size;
+    CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+    CGPoint topLeft = CGPointApplyAffineTransform(quad.tl, transform);
+    CGPoint topRight = CGPointApplyAffineTransform(quad.tr, transform);
+    CGPoint bottomLeft = CGPointApplyAffineTransform(quad.bl, transform);
+    CGPoint bottomRight = CGPointApplyAffineTransform(quad.br, transform);
+    NSSize size = NSMakeSize(self.size.width * scale, self.size.height * scale);
     CGFloat y = size.height;
     CIFilter *filter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
     [filter setValue:ciimage forKey:@"inputImage"];
