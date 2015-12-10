@@ -16,6 +16,7 @@ var MagicMirror = function(context) {
             coscript.setShouldKeepAround(false)
         }];
     }
+    var persister = MagicMirror.persister()
 
     var actioner = {
         context : ctx,
@@ -170,11 +171,21 @@ var MagicMirror = function(context) {
                 validator.promptActivation()
             }
             run(validator)
+        },
+
+        getTemplates: function(context) {
+            var run = function(ui) {
+                log("MagicMirror.getTemplates")
+
+                var license_key = persister.licensedTo ? persister.licensedTo.transaction_id : ""
+                var params = { "l" : license_key }
+                ui.open("http://magicmirror.design/templates/", params)
+            }
+            run(ui)
         }
 
     }
 
-    var persister = MagicMirror.persister()
     var validator = MagicMirror.validator(ui, persister)
     var locker = MagicMirror.locker(actioner, validator, persister, ui)
 
@@ -194,6 +205,7 @@ var MagicMirror = function(context) {
         "highlightMirrors": locker.highlightMirrors,
         "activate": actioner.activate,
         "selections": ctx.selections,
+        "getTemplates": actioner.getTemplates,
     }
 }
 
@@ -497,7 +509,7 @@ MagicMirror.validator = function(ui, persister) {
         var alternateAction = function(value) {
             log("Purchase… Tapped")
             statusValue = ""
-            ui.open("http://magicmirror.design/purchase/?utm_source=plugin&utm_medium=plugin&utm_campaign=1.2")
+            ui.open("http://magicmirror.design/purchase/")
             ui.inputAlert(title, message, value, placeholderValue, statusValue, defaultButton, alternateButton, otherButton, defaultAction, alternateAction, otherAction)
         }
 
@@ -702,7 +714,7 @@ MagicMirror.ui = function(context) {
 
             var input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
             [input setStringValue:defaultValue];
-            [input setPlaceholderString:placeholderValue]
+            [[input cell] setPlaceholderString:placeholderValue]
             var statusLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(210, 3, 100, 18)];
             [statusLabel setStringValue:statusValue];
             [statusLabel setBordered:false];
@@ -724,8 +736,14 @@ MagicMirror.ui = function(context) {
                 otherAction(inputText)
             }
         },
-        open: function(url) {
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
+        open: function(url, params) {
+            var get_params = merge(params || {}, {
+                "utm_source":"plugin",
+                "utm_medium":"plugin",
+                "utm_campaign":"1.2.3"
+            })
+            var query = join(get_params, "=", "&")
+            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url + "?" + query]];
         },
         show: function(message) {
             var doc = context.document

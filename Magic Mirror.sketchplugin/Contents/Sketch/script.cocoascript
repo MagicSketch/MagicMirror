@@ -43,3 +43,8 @@ function license(license) {
 function info() {
     log(MagicMirror.persister().licensedTo)
 }
+
+function getTemplates(context) {
+    var mirror = MagicMirror(context)
+    mirror.getTemplates();
+}

@@ -64,4 +64,20 @@ function replace(original, from, to) {
     var message = NSString.stringWithString(original)
     var result = message.stringByReplacingOccurrencesOfString_withString_(from, to);
     return result
+} 
+
+var merge = function(obj1, obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
+}
+
+var join = function(object, separator, string) {
+    var result = ""
+    for (var key in object) {
+        var value = object[key]
+        result += key + separator + value + string
+    }
+    return result
 }
