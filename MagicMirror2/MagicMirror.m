@@ -101,30 +101,7 @@
 
 - (void)mirrorPage {
     MMLog(@"mirrorPage");
-
-    NSDictionary *artboardLookup = [_context artboardsLookup];
-
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        MMLog(@"%lul: %@", (unsigned long)idx, obj);
-        id <MSArtboardGroup> artboard = artboardLookup[obj.name];
-        if (artboard) {
-
-            renderer.layer = artboard;
-            renderer.bezierPath = [obj bezierPathInBounds];
-            NSImage *image = renderer.exportedImage;
-
-            MSStyleFill *fill = [obj.style.fills firstObject];
-            if ( ! fill) {
-                fill = [obj.style.fills addNewStylePart];
-            }
-            [fill setFillType:4];
-            [fill setPatternFillType:1];
-            [fill setIsEnabled:true];
-            [fill setPatternImage:image];
-        }
-    }];
+    [self mirrorPageScale:2 colorSpace:3 perspective:YES];
 }
 
 

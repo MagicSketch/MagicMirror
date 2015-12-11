@@ -20,7 +20,7 @@
 	    {
 			"name" : "1. Magic Mirror!",
 			"identifier" : "magic mirror",
-			"shortcut" : "control shift command m",
+			"shortcut" : "control shift m",
 			"script" : "main.js",
 			"handler" : "mirrorPage",
 	    },
