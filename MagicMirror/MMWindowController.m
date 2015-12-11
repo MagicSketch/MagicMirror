@@ -7,6 +7,7 @@
 //
 
 #import "MMWindowController.h"
+#import "MMConfigureViewController.h"
 #import "MagicMirror.h"
 
 @interface MMWindowController ()
@@ -14,6 +15,12 @@
 @end
 
 @implementation MMWindowController
+@synthesize magicmirror = _magicmirror;
+
+- (void)setMagicmirror:(MagicMirror *)magicmirror {
+    _magicmirror = magicmirror;
+    [self configureMagicMirror];
+}
 
 - (void)showWindow:(nullable id)sender {
     [_magicmirror keepAround];
@@ -25,6 +32,7 @@
     MMLog(@"MMWindowController did loaded");
     self.window.delegate = self;
     [self.delegate controllerDidShow:self];
+    [self configureMagicMirror];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -35,6 +43,13 @@
 - (void)dealloc {
     MMLog(@"MMWindowController: dealloc");
     [_magicmirror goAway];
+}
+
+- (void)configureMagicMirror {
+    if ([self.contentViewController conformsToProtocol:@protocol(MMController)]) {
+        id <MMController> controller = (id <MMController>)self.contentViewController;
+        controller.magicmirror = self.magicmirror;
+    }
 }
 
 @end

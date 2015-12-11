@@ -21,8 +21,15 @@
 	      "name" : "1. Magic Mirror!",
 	      "script" : "main.js",
 	      "handler" : "mirrorPage",
-	      "shortcut" : "control shift m",
+	      "shortcut" : "control shift command m",
 	      "identifier" : "magic mirror"
+	    },
+	    {
+	      "name" : "2. Configure Selection",
+	      "script" : "main.js",
+	      "handler" : "configureSelection",
+	      "shortcut" : "control shift command s",
+	      "identifier" : "configure selection"
 	    },
 	    {
 	      "name" : "2. Jump To Artboard",
@@ -67,6 +74,7 @@
 			"run",
 			"-",
 			"magic mirror",
+			"configure selection",
 		]
 	}
 }

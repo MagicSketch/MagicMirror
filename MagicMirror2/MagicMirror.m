@@ -22,6 +22,7 @@
 #import "NSImage+Transform.h"
 #import "MSShapePath.h"
 #import "ImageRenderer.h"
+#import "MMConfigureViewController.h"
 
 @interface MagicMirror ()
 
@@ -66,6 +67,14 @@
     MMLog(@"goAway");
 }
 
+- (id)valueForKey:(NSString *)key onLayer:(id)layer {
+    return [_context.command valueForKey:key onLayer:layer];
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id)layer {
+    [_context.command setValue:value forKey:key onLayer:layer];
+}
+
 - (NSImage *)flattenedImageWithArtboard:(id)artboard {
     ImageRenderer *renderer = [[ImageRenderer alloc] init];
     renderer.layer = artboard;
@@ -84,6 +93,11 @@
 
 
 #pragma mark -
+
+- (void)configureSelection {
+    MMLog(@"configureSelection");
+    [self showWindow];
+}
 
 - (void)mirrorPage {
     MMLog(@"mirrorPage");
@@ -150,6 +164,10 @@
 
 - (NSArray *)artboards {
     return [_context artboards];
+}
+
+- (NSDictionary *)artboardsLookup {
+    return [_context artboardsLookup];
 }
 
 - (NSArray *)selectedLayers {

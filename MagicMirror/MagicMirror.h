@@ -33,14 +33,19 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)showWindow;
 - (void)keepAround;
 - (void)goAway;
+- (id)valueForKey:(NSString *)key onLayer:(id)layer;
+- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id)layer;
 
 - (void)mirrorPage;
 - (NSArray *)artboards;
+- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 - (void)licenseInfo;
 
 - (void)mirrorPageScale:(NSUInteger)scale
              colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
             perspective:(BOOL)perspective;
+
+- (void)configureSelection;
 
 @end

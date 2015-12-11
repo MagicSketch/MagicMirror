@@ -23,8 +23,6 @@
 @property(retain, nonatomic) MSColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
 @property(retain, nonatomic) MSSimpleGrid *grid; // @synthesize grid=_grid;
 @property(nonatomic) BOOL hasBackgroundColor; // @synthesize hasBackgroundColor=_hasBackgroundColor;

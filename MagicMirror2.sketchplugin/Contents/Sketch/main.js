@@ -46,6 +46,12 @@ var mirrorPage = function(context) {
 	[magicmirror mirrorPage];
 }
 
+var configureSelection = function(context) {
+	debug("configureSelection");
+	var magicmirror = init(context);
+	[magicmirror configureSelection];
+}
+
 var artboards = function(context) {
 	var magicmirror = init(context);
 	log([magicmirror artboards]);

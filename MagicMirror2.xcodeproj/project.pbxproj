@@ -11,6 +11,8 @@
 		1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* ImageRenderer.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
+		1A562CCC1C1A9C1B00FE3981 /* MMConfigureViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */; };
+		1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
 		1AB4A9441C15A5E100B7922D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9431C15A5E100B7922D /* main.m */; };
 		1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9461C15A5E100B7922D /* ViewController.m */; };
@@ -1274,6 +1276,9 @@
 		1A0FAFD51C19957300B57F42 /* ImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRenderer.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
+		1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConfigureViewController.h; sourceTree = "<group>"; };
+		1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMConfigureViewController.m; sourceTree = "<group>"; };
+		1A562CCE1C1AC2E500FE3981 /* MMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMController.h; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1AB4A9371C15A55200B7922D /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagicMirror.m; path = MagicMirror2/MagicMirror.m; sourceTree = SOURCE_ROOT; };
@@ -2594,8 +2599,11 @@
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
 				1AB4A95E1C15A7C200B7922D /* Info.plist */,
 				1AB4A96D1C15D69800B7922D /* Storyboard.storyboard */,
+				1A562CCE1C1AC2E500FE3981 /* MMController.h */,
 				1AB4A96F1C15D7B400B7922D /* MMWindowController.h */,
 				1AB4A9701C15D7B400B7922D /* MMWindowController.m */,
+				1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */,
+				1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */,
 				1AB4BC521C182FA200B7922D /* Images.xcassets */,
 				1AB4BC561C18643200B7922D /* NSImage+Transform.h */,
 				1AB4BC571C18643200B7922D /* NSImage+Transform.m */,
@@ -4265,6 +4273,7 @@
 				1AB4BAAC1C16E68400B7922D /* MSSectionProtocol.h in Headers */,
 				1AB4B9651C16E68400B7922D /* MSExportRendererWithSVGSupport.h in Headers */,
 				1AB4B9011C16E68400B7922D /* MSBitmapEditor.h in Headers */,
+				1A562CCC1C1A9C1B00FE3981 /* MMConfigureViewController.h in Headers */,
 				1AB4BB761C16E68400B7922D /* NSBitmapImageRep-Alpha.h in Headers */,
 				1AB4B7C91C16E68400B7922D /* _MSImmutableStyleBorderOptions.h in Headers */,
 				1AB4BA5C1C16E68400B7922D /* MSPasteboardManager.h in Headers */,
@@ -5160,6 +5169,7 @@
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
+				1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,
 			);

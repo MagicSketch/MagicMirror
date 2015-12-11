@@ -69,8 +69,6 @@
 - (void)drawHoverWithZoom:(double)arg1;
 - (void)drawPreviewInRect:(struct CGRect)arg1 selected:(BOOL)arg2;
 @property(nonatomic) BOOL enableAutomaticScaling; // @synthesize enableAutomaticScaling=_enableAutomaticScaling;
-- (void)enumerateLayers:(CDUnknownBlockType)arg1;
-- (BOOL)enumerateLayersWithOptions:(unsigned long long)arg1 block:(CDUnknownBlockType)arg2;
 - (BOOL)expandableInLayerList;
 - (id)firstLayer;
 - (BOOL)handleDoubleClick;
@@ -106,7 +104,6 @@
 - (id)layersSharingStyle:(id)arg1;
 @property(nonatomic) BOOL lightweightContainsSelectedItem; // @synthesize lightweightContainsSelectedItem=_lightweightContainsSelectedItem;
 - (void)markLayerDirtyOfType:(unsigned long long)arg1;
-- (void)moveInLayerTreeInBlock:(CDUnknownBlockType)arg1;
 - (id)moveLayersToParent;
 - (void)moveTransformsToChildren:(id)arg1;
 - (void)multiplyBy:(double)arg1;
