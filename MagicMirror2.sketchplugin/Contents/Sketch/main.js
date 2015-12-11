@@ -2,11 +2,21 @@ var debug = function(arg) {
 	log(arg);
 }
 
+var run = function(context) {
+	//debug("run");
+	log("run");
+
+	var url = context.plugin.url()
+	log(url);
+	//var magicmirror = init(context);
+	//[magicmirror showWindow];
+}
+
 var resourcesPath = function(context) {
 	if ( ! context.plugin) {
 		return "/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/MagicMirror2/MagicMirror2.sketchplugin/Contents/Resources";
 	}
-	return context.plugin.url() + "/Contents/Resources/";
+	return context.plugin.url().path() + "/Contents/Resources/";
 }
 
 var loadFramework = function(frameworkName, directory){
@@ -17,13 +27,14 @@ var loadFramework = function(frameworkName, directory){
 	}
 	debug("loadFramework: `" + frameworkName + "` failed!");
 	return false;
-};
+}
 
-var init = function(context) {
+var initialize = function(context) {
 	var path = resourcesPath(context);
-	// if (NSClassFromString("MagicMirror") == null) {
+	log("resource:" + path);
+	if (NSClassFromString("MagicMirror") == null) {
 		loadFramework("MagicMirror", path);
-	// }
+	}
 
 	var context = [[SketchPluginContext alloc] initWithPlugin:context.plugin
 													 document:context.document
@@ -34,36 +45,30 @@ var init = function(context) {
 	return magicmirror;
 }
 
-var run = function(context) {
-	debug("run");
-	var magicmirror = init(context);
-	[magicmirror showWindow];
-}
-
 var mirrorPage = function(context) {
 	debug("mirrorPage");
-	var magicmirror = init(context);
+	var magicmirror = initialize(context);
 	[magicmirror mirrorPage];
 }
 
 var configureSelection = function(context) {
 	debug("configureSelection");
-	var magicmirror = init(context);
+	var magicmirror = initialize(context);
 	[magicmirror configureSelection];
 }
 
 var artboards = function(context) {
-	var magicmirror = init(context);
+	var magicmirror = initialize(context);
 	log([magicmirror artboards]);
 }
 
 var licenseInfo = function(context) {
-	var magicmirror = init(context);
+	var magicmirror = initialize(context);
 	[magicmirror licenseInfo];
 }
 
 var selectedLayers = function(context) {
-	var magicmirror = init(context);
+	var magicmirror = initialize(context);
 	var layers = [magicmirror selectedLayers];
 	log(layers);
 }

@@ -5,7 +5,7 @@
     "authorEmail" : "james@magicmirror.design",
 	"homepage": "https://github.com/jamztang/MagicMirror",
 	"version": "2.0",
-    "identifier" : "design.magicmirror.2",
+    "identifier" : "design.magicmirror",
 	"compatibleVersion": 3.4,
 	"bundleVersion": 1,
 
@@ -13,62 +13,29 @@
 		{
 			"name": "Run",
 			"identifier": "run",
-			"shortcut": "ctrl shift t",
+			"shortcut": "",
 			"script": "main.js",
 			"handler": "run"
 		},
 	    {
-	      "name" : "1. Magic Mirror!",
-	      "script" : "main.js",
-	      "handler" : "mirrorPage",
-	      "shortcut" : "control shift command m",
-	      "identifier" : "magic mirror"
+			"name" : "1. Magic Mirror!",
+			"identifier" : "magic mirror",
+			"shortcut" : "control shift command m",
+			"script" : "main.js",
+			"handler" : "mirrorPage",
 	    },
 	    {
-	      "name" : "2. Configure Selection",
-	      "script" : "main.js",
-	      "handler" : "configureSelection",
-	      "shortcut" : "control shift command s",
-	      "identifier" : "configure selection"
-	    },
-	    {
-	      "name" : "2. Jump To Artboard",
-	      "script" : "script.cocoascript",
-	      "handler" : "jumpToArtboard",
-	      "shortcut" : "control shift j",
-	      "identifier" : "jump to artboard",
-	    },
-	    {
-	      "name" : "3. Rotate Content",
-	      "script" : "script.cocoascript",
-	      "handler" : "rotatePoints",
-	      "shortcut" : "control command shift r",
-	      "identifier" : "rotate content",
-	    },
-	    {
-	      "name" : "4. Flip Content (pro)",
-	      "script" : "script.cocoascript",
-	      "handler" : "flipHorizontally",
-	      "shortcut" : "control command shift f",
-	      "identifier" : "flip content",
-	    },
-	    {
-	      "name" : "5. Clear content",
-	      "script" : "script.cocoascript",
-	      "handler" : "highlightMirrors",
-	      "shortcut" : "control command shift c",
-	      "identifier" : "clear content",
-	    },
-	    {
-	      "script" : "script.cocoascript",
-	      "handler" : "activate",
-	      "shortcut" : "",
-	      "name" : "    License Info...",
-	      "identifier" : "activate",
-	    },
+			"name" : "2. Configure Selection",
+			"identifier" : "configure selection",
+			"shortcut" : "control shift command s",
+			"script" : "main.js",
+			"handler" : "configureSelection",
+	    }
 	],
 
 	"menu": {
+	    "isRoot" : false,
+	    "shortcut" : "",
 		"title": "✨ Magic Mirror 2",
 		"items": [
 			"run",
