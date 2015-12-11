@@ -100,11 +100,12 @@
     ImageRenderer *renderer = [[ImageRenderer alloc] init];
 
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        MMLog(@"%lul: %@", (unsigned long)idx, obj);
 
         MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
-        CGFloat scale = [properties.imageQuality floatValue];
+        CGFloat scale = [properties.imageQuality floatValue] ?: 2;
         NSString *name = properties.source;
+
+        MMLog(@"%lul: %@, %@, %fl", (unsigned long)idx, obj, name, scale);
 
         id <MSArtboardGroup> artboard = artboardLookup[name];
         if (artboard) {
@@ -172,8 +173,13 @@
 }
 
 - (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
-    MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:[self valueForKey:@"source" onLayer:layer]
-                                                                           source:[self valueForKey:@"imageQuality" onLayer:layer]];
+    NSString *source = [self valueForKey:@"source" onLayer:layer];
+    if ( ! source || [source length] == 0) {
+        source = [layer name];
+    }
+    NSNumber *imageQuality = [self valueForKey:@"imageQuality" onLayer:layer];
+    MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
+                                                                           source:source];
     return properties;
 }
 

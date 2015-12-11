@@ -15,6 +15,11 @@
 		1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */; };
 		1A562CD51C1AF2DA00FE3981 /* MMLayerProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */; };
 		1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */; };
+		1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */; };
+		1A562CE71C1B2C9900FE3981 /* MMValuesStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */; };
+		1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */; };
+		1A562CED1C1B2E4D00FE3981 /* MagicMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
 		1AB4A9441C15A5E100B7922D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9431C15A5E100B7922D /* main.m */; };
 		1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9461C15A5E100B7922D /* ViewController.m */; };
@@ -1240,6 +1245,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A562CE01C1B2B9200FE3981 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AB4A9221C15A4EE00B7922D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AB4A93C1C15A5E100B7922D;
+			remoteInfo = MagicMirrorExecutable;
+		};
+		1A562CEB1C1B2E4900FE3981 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AB4A9221C15A4EE00B7922D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AB4A9591C15A7C200B7922D;
+			remoteInfo = MagicMirror;
+		};
 		1AB4A95F1C15A7C200B7922D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AB4A9221C15A4EE00B7922D /* Project object */;
@@ -1283,6 +1302,12 @@
 		1A562CCE1C1AC2E500FE3981 /* MMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMController.h; sourceTree = "<group>"; };
 		1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayerProperties.h; sourceTree = "<group>"; };
 		1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayerProperties.m; sourceTree = "<group>"; };
+		1A562CDB1C1B2B9200FE3981 /* MagicMirrorExecutableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicMirrorExecutableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicMirrorExecutableTests.m; sourceTree = "<group>"; };
+		1A562CDF1C1B2B9200FE3981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMValuesStack.h; sourceTree = "<group>"; };
+		1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStack.m; sourceTree = "<group>"; };
+		1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStackTests.m; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1AB4A9371C15A55200B7922D /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagicMirror.m; path = MagicMirror2/MagicMirror.m; sourceTree = SOURCE_ROOT; };
@@ -2513,6 +2538,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A562CD81C1B2B9200FE3981 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A562CED1C1B2E4D00FE3981 /* MagicMirror.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AB4A93A1C15A5E100B7922D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2531,11 +2564,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */,
+				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
+				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
+			);
+			path = MagicMirrorExecutableTests;
+			sourceTree = "<group>";
+		};
 		1AB4A9211C15A4EE00B7922D = {
 			isa = PBXGroup;
 			children = (
 				1AB4A93E1C15A5E100B7922D /* MagicMirrorExecutable */,
 				1AB4A95B1C15A7C200B7922D /* MagicMirror */,
+				1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */,
 				1AB4A9351C15A51D00B7922D /* Frameworks */,
 				1AB4A92C1C15A4EE00B7922D /* MagicMirror2 */,
 				1AB4A92B1C15A4EE00B7922D /* Products */,
@@ -2547,6 +2591,7 @@
 			children = (
 				1AB4A93D1C15A5E100B7922D /* MagicMirrorExecutable.app */,
 				1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */,
+				1A562CDB1C1B2B9200FE3981 /* MagicMirrorExecutableTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2615,6 +2660,8 @@
 				1AB4BC5B1C18671B00B7922D /* Quad.m */,
 				1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */,
 				1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */,
+				1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */,
+				1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */,
 			);
 			path = MagicMirror;
 			sourceTree = "<group>";
@@ -3980,6 +4027,7 @@
 				1AB4BA8D1C16E68400B7922D /* MSReflectionInspectorViewController.h in Headers */,
 				1AB4B8341C16E68400B7922D /* BCCache.h in Headers */,
 				1AB4B8811C16E68400B7922D /* CDStructures.h in Headers */,
+				1A562CE71C1B2C9900FE3981 /* MMValuesStack.h in Headers */,
 				1AB4BA721C16E68400B7922D /* MSPluginScript.h in Headers */,
 				1AB4BC3C1C16E68400B7922D /* ZKCDHeader.h in Headers */,
 				1AB4B97D1C16E68400B7922D /* MSFontList.h in Headers */,
@@ -5062,6 +5110,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1A562CDA1C1B2B9200FE3981 /* MagicMirrorExecutableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A562CE21C1B2B9200FE3981 /* Build configuration list for PBXNativeTarget "MagicMirrorExecutableTests" */;
+			buildPhases = (
+				1A562CD71C1B2B9200FE3981 /* Sources */,
+				1A562CD81C1B2B9200FE3981 /* Frameworks */,
+				1A562CD91C1B2B9200FE3981 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A562CEC1C1B2E4900FE3981 /* PBXTargetDependency */,
+				1A562CE11C1B2B9200FE3981 /* PBXTargetDependency */,
+			);
+			name = MagicMirrorExecutableTests;
+			productName = MagicMirrorExecutableTests;
+			productReference = 1A562CDB1C1B2B9200FE3981 /* MagicMirrorExecutableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		1AB4A93C1C15A5E100B7922D /* MagicMirrorExecutable */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AB4A94E1C15A5E100B7922D /* Build configuration list for PBXNativeTarget "MagicMirrorExecutable" */;
@@ -5109,6 +5176,10 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "James Tang";
 				TargetAttributes = {
+					1A562CDA1C1B2B9200FE3981 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 1AB4A93C1C15A5E100B7922D;
+					};
 					1AB4A93C1C15A5E100B7922D = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -5132,11 +5203,19 @@
 			targets = (
 				1AB4A93C1C15A5E100B7922D /* MagicMirrorExecutable */,
 				1AB4A9591C15A7C200B7922D /* MagicMirror */,
+				1A562CDA1C1B2B9200FE3981 /* MagicMirrorExecutableTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A562CD91C1B2B9200FE3981 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AB4A93B1C15A5E100B7922D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5158,6 +5237,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A562CD71C1B2B9200FE3981 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */,
+				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AB4A9391C15A5E100B7922D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5179,6 +5267,7 @@
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
+				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5186,6 +5275,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A562CE11C1B2B9200FE3981 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AB4A93C1C15A5E100B7922D /* MagicMirrorExecutable */;
+			targetProxy = 1A562CE01C1B2B9200FE3981 /* PBXContainerItemProxy */;
+		};
+		1A562CEC1C1B2E4900FE3981 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AB4A9591C15A7C200B7922D /* MagicMirror */;
+			targetProxy = 1A562CEB1C1B2E4900FE3981 /* PBXContainerItemProxy */;
+		};
 		1AB4A9601C15A7C200B7922D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1AB4A9591C15A7C200B7922D /* MagicMirror */;
@@ -5205,6 +5304,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A562CE31C1B2B9200FE3981 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MagicMirrorExecutableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamztang.MagicMirrorExecutableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicMirrorExecutable.app/Contents/MacOS/MagicMirrorExecutable";
+			};
+			name = Debug;
+		};
+		1A562CE41C1B2B9200FE3981 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MagicMirrorExecutableTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamztang.MagicMirrorExecutableTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicMirrorExecutable.app/Contents/MacOS/MagicMirrorExecutable";
+			};
+			name = Release;
+		};
 		1AB4A92E1C15A4EE00B7922D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5353,6 +5478,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A562CE21C1B2B9200FE3981 /* Build configuration list for PBXNativeTarget "MagicMirrorExecutableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A562CE31C1B2B9200FE3981 /* Debug */,
+				1A562CE41C1B2B9200FE3981 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1AB4A9251C15A4EE00B7922D /* Build configuration list for PBXProject "MagicMirror2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

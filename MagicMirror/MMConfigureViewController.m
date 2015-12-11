@@ -11,6 +11,7 @@
 #import "MagicMirror.h"
 #import "MSArtboardGroup.h"
 #import "MMLayerProperties.h"
+#import "MMValuesStack.h"
 
 
 @interface MMConfigureViewController ()
@@ -36,8 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-
-    [self reloadData];
+//    [self reloadData];
 }
 
 - (void)setMagicmirror:(MagicMirror *)magicmirror {
@@ -49,72 +49,111 @@
 
 
 - (void)reloadArtboardCombobox {
-    __block NSString *selectedName = [[_magicmirror.selectedLayers firstObject] name];
     NSDictionary *lookup = [_magicmirror artboardsLookup];
+    MMValuesStack *stack = [[MMValuesStack alloc] init];
 
     [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
-        NSString *artboardName = [obj name];
-
+        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
+        NSString *artboardName = [properties source];
         id <MSArtboardGroup> artboard = lookup[artboardName];
-        if (artboard && ! [selectedName isEqualToString:artboardName]) {
-            selectedName = nil;
+        if (artboard) {
+            [stack addObject:artboardName];
         }
     }];
 
-    [self.artboardsComboBox.cell setTitle:selectedName ?: @""];
-    if ( ! selectedName) {
-        [(NSTextFieldCell *)self.artboardsComboBox.cell setPlaceholderString:@"multiple values"];
-    }
+    NSComboBox *combobox = self.artboardsComboBox;
+    NSTextFieldCell *cell = (NSTextFieldCell *)combobox.cell;
 
-    [self.artboardsComboBox reloadData];
+    switch ([stack result]) {
+        case MMValuesStackResultEmpty:
+        case MMValuesStackResultUnspecified:
+            [cell setPlaceholderString:@"Selected an artboard"];
+            break;
+        case MMValuesStackResultSingular: {
+            id object = [stack anyObject];
+            [cell setTitle:object];
+            break;
+        }
+        case MMValuesStackResultMultiple:
+            [cell setPlaceholderString:@"multiple values"];
+            break;
+    }
+    [combobox reloadData];
 }
 
 - (void)reloadImageQualityCombobox {
-//    __block NSNumber *imageQuality = nil;
-//    NSDictionary *lookup = [_magicmirror artboardsLookup];
-//
-//    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        MMLog(@"%lu: %@", idx, obj);
-//
-//        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
-//        NSNumber *quality = [properties imageQuality];
-//
-//        id <MSArtboardGroup> artboard = lookup[artboardName];
-//        if (artboard && ! [quality isEqualToNumber:imageQuality]) {
-//            imageQuality = nil;
-//        }
-//    }];
-//
-//    [self.artboardsComboBox.cell setTitle:imageQuality ?: @""];
-//    if ( ! imageQuality) {
-//        [(NSTextFieldCell *)self.artboardsComboBox.cell setPlaceholderString:@"multiple values"];
-//    }
-//
-//    [self.artboardsComboBox reloadData];
-//
+    NSDictionary *lookup = [_magicmirror artboardsLookup];
+    MMValuesStack *stack = [[MMValuesStack alloc] init];
+
+    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MMLog(@"%lu: %@", idx, obj);
+
+        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
+        NSNumber *imageQuality = [properties imageQuality];
+        NSString *artboardName = [properties source];
+
+        id <MSArtboardGroup> artboard = lookup[artboardName];
+        if (artboard) {
+            [stack addObject:imageQuality];
+        }
+    }];
+
+    NSComboBox *combobox = self.imageQualityComboBox;
+    NSTextFieldCell *cell = (NSTextFieldCell *)combobox.cell;
+
+    switch ([stack result]) {
+        case MMValuesStackResultEmpty:
+        case MMValuesStackResultUnspecified:
+            [cell setPlaceholderString:@"Default (Auto)"];
+            break;
+        case MMValuesStackResultSingular: {
+            id object = [stack anyObject];
+            NSUInteger index = [object integerValue];
+            if (index < [combobox numberOfItems]) {
+                [combobox selectItemAtIndex:index];
+            }
+            break;
+        }
+        case MMValuesStackResultMultiple:
+            [cell setPlaceholderString:@"multiple values"];
+            break;
+    }
+    [combobox reloadData];
 }
 
 - (void)reloadData {
     [self reloadArtboardCombobox];
+    [self reloadImageQualityCombobox];
 }
 
 #pragma mark IBAction
 
 - (IBAction)applyButtonDidPress:(id)sender {
-    NSString *selectedName = self.artboardsComboBox.cell.title;
-    if (selectedName) {
 
-        NSInteger index = [_imageQualityComboBox indexOfSelectedItem];
-        NSNumber *imageQuality = @(index);
 
         [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+            MMLayerProperties *original = [_magicmirror layerPropertiesForLayer:obj];
+            NSString *selectedName = self.artboardsComboBox.cell.title ?: original.source;
+
+            NSInteger index = [_imageQualityComboBox indexOfSelectedItem];
+
+            NSNumber *imageQuality = @0;
+            if (index > 0 && index < [_imageQualityComboBox numberOfItems]) {
+                imageQuality = @(index);
+            } else {
+                imageQuality = original.imageQuality;
+            }
+
+
             MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
                                                                                    source:selectedName];
             [_magicmirror layer:obj setProperties:properties];
         }];
-    }
+
+        [_magicmirror mirrorPage];
 }
 
 - (IBAction)clearButtonDidPress:(id)sender {
