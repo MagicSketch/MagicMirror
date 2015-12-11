@@ -64,12 +64,19 @@
     if ( ! selectedName) {
         [(NSTextFieldCell *)self.artboardsComboBox.cell setPlaceholderString:@"multiple values"];
     }
+
+    [self.artboardsComboBox reloadData];
 }
 
 #pragma mark IBAction
 
 - (IBAction)applyButtonDidPress:(id)sender {
-
+    NSString *selectedName = self.artboardsComboBox.cell.title;
+    if (selectedName) {
+        [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj setName:selectedName];
+        }];
+    }
 }
 
 - (IBAction)clearButtonDidPress:(id)sender {
@@ -90,6 +97,9 @@
 }
 
 
+- (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
+    return [_magicmirror.artboards indexOfObject:string];
+}
 
 
 @end
