@@ -10,6 +10,7 @@
 #import "MSShapeGroup.h"
 #import "MagicMirror.h"
 #import "MSArtboardGroup.h"
+#import "MMLayerProperties.h"
 
 @interface MMConfigureViewController ()
 
@@ -73,8 +74,14 @@
 - (IBAction)applyButtonDidPress:(id)sender {
     NSString *selectedName = self.artboardsComboBox.cell.title;
     if (selectedName) {
+
+        NSInteger index = [_imageQualityComboBox indexOfSelectedItem];
+        NSNumber *imageQuality = @(index);
+
         [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj setName:selectedName];
+            MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
+                                                                                   source:selectedName];
+            [_magicmirror layer:obj setProperties:properties];
         }];
     }
 }
@@ -100,6 +107,5 @@
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
     return [_magicmirror.artboards indexOfObject:string];
 }
-
 
 @end

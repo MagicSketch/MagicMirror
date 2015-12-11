@@ -23,6 +23,7 @@
 #import "MSShapePath.h"
 #import "ImageRenderer.h"
 #import "MMConfigureViewController.h"
+#import "MMLayerProperties.h"
 
 @interface MagicMirror ()
 
@@ -117,7 +118,12 @@
 
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lul: %@", (unsigned long)idx, obj);
-        id <MSArtboardGroup> artboard = artboardLookup[obj.name];
+
+        MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
+        CGFloat scale = [properties.imageQuality floatValue];
+        NSString *name = properties.source;
+
+        id <MSArtboardGroup> artboard = artboardLookup[name];
         if (artboard) {
 
             renderer.layer = artboard;
@@ -170,3 +176,22 @@
 
 @end
 
+
+@implementation MagicMirror (MSShapeGroup)
+
+- (void)layer:(id<MSShapeGroup>)layer setProperties:(MMLayerProperties *)properties {
+    NSString *name = properties.source;
+    [layer setName:name];
+    [self setValue:properties.source forKey:@"source" onLayer:layer];
+    if (properties.imageQuality) {
+        [self setValue:properties.imageQuality forKey:@"imageQuality" onLayer:layer];
+    }
+}
+
+- (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
+    MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:[self valueForKey:@"source" onLayer:layer]
+                                                                           source:[self valueForKey:@"imageQuality" onLayer:layer]];
+    return properties;
+}
+
+@end

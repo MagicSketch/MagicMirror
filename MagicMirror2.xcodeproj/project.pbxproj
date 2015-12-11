@@ -13,6 +13,8 @@
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A562CCC1C1A9C1B00FE3981 /* MMConfigureViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */; };
 		1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */; };
+		1A562CD51C1AF2DA00FE3981 /* MMLayerProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */; };
+		1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
 		1AB4A9441C15A5E100B7922D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9431C15A5E100B7922D /* main.m */; };
 		1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9461C15A5E100B7922D /* ViewController.m */; };
@@ -1279,6 +1281,8 @@
 		1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConfigureViewController.h; sourceTree = "<group>"; };
 		1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMConfigureViewController.m; sourceTree = "<group>"; };
 		1A562CCE1C1AC2E500FE3981 /* MMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMController.h; sourceTree = "<group>"; };
+		1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayerProperties.h; sourceTree = "<group>"; };
+		1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayerProperties.m; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1AB4A9371C15A55200B7922D /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagicMirror.m; path = MagicMirror2/MagicMirror.m; sourceTree = SOURCE_ROOT; };
@@ -2609,6 +2613,8 @@
 				1AB4BC571C18643200B7922D /* NSImage+Transform.m */,
 				1AB4BC5A1C18671B00B7922D /* Quad.h */,
 				1AB4BC5B1C18671B00B7922D /* Quad.m */,
+				1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */,
+				1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */,
 			);
 			path = MagicMirror;
 			sourceTree = "<group>";
@@ -4761,6 +4767,7 @@
 				1AB4B8071C16E68400B7922D /* _SVGLink.h in Headers */,
 				1AB4BB9E1C16E68400B7922D /* NSFont-TreeAsDictionarySupport.h in Headers */,
 				1AB4BBDC1C16E68400B7922D /* NSString-CHStringExtensions.h in Headers */,
+				1A562CD51C1AF2DA00FE3981 /* MMLayerProperties.h in Headers */,
 				1AB4BB261C16E68400B7922D /* MSToggleLayoutAction.h in Headers */,
 				1AB4B8CC1C16E68400B7922D /* MSAlignLayersTopAction.h in Headers */,
 				1AB4B7A71C16E68400B7922D /* _MSImmutableDocumentData.h in Headers */,
@@ -5165,6 +5172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,

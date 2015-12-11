@@ -18,12 +18,14 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 #define MMLog(fmt, ...) NSLog((@"MagicMirror: %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
+#import "ImageRenderer.h"
 @protocol COScript;
 @protocol MSLayer;
-
-#import "ImageRenderer.h"
-
+@protocol MSArtboardGroup;
+@protocol MSShapeGroup;
+@class MMLayerProperties;
 @class SketchPluginContext;
+
 
 @interface MagicMirror : NSObject
 
@@ -33,8 +35,6 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)showWindow;
 - (void)keepAround;
 - (void)goAway;
-- (id)valueForKey:(NSString *)key onLayer:(id)layer;
-- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id)layer;
 
 - (void)mirrorPage;
 - (NSArray *)artboards;
@@ -47,5 +47,13 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
             perspective:(BOOL)perspective;
 
 - (void)configureSelection;
+
+@end
+
+
+@interface MagicMirror (MSShapeGroup)
+
+- (void)layer:(id <MSShapeGroup>)layer setProperties:(MMLayerProperties *)properties;
+- (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
 
 @end
