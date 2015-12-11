@@ -12,6 +12,7 @@
 #import "MSArtboardGroup.h"
 #import "MMLayerProperties.h"
 
+
 @interface MMConfigureViewController ()
 
 @property (weak) IBOutlet NSComboBox *artboardsComboBox;
@@ -46,7 +47,8 @@
     }
 }
 
-- (void)reloadData {
+
+- (void)reloadArtboardCombobox {
     __block NSString *selectedName = [[_magicmirror.selectedLayers firstObject] name];
     NSDictionary *lookup = [_magicmirror artboardsLookup];
 
@@ -67,6 +69,35 @@
     }
 
     [self.artboardsComboBox reloadData];
+}
+
+- (void)reloadImageQualityCombobox {
+//    __block NSNumber *imageQuality = nil;
+//    NSDictionary *lookup = [_magicmirror artboardsLookup];
+//
+//    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        MMLog(@"%lu: %@", idx, obj);
+//
+//        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
+//        NSNumber *quality = [properties imageQuality];
+//
+//        id <MSArtboardGroup> artboard = lookup[artboardName];
+//        if (artboard && ! [quality isEqualToNumber:imageQuality]) {
+//            imageQuality = nil;
+//        }
+//    }];
+//
+//    [self.artboardsComboBox.cell setTitle:imageQuality ?: @""];
+//    if ( ! imageQuality) {
+//        [(NSTextFieldCell *)self.artboardsComboBox.cell setPlaceholderString:@"multiple values"];
+//    }
+//
+//    [self.artboardsComboBox reloadData];
+//
+}
+
+- (void)reloadData {
+    [self reloadArtboardCombobox];
 }
 
 #pragma mark IBAction
