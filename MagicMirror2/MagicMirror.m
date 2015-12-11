@@ -76,23 +76,6 @@
     [_context.command setValue:value forKey:key onLayer:layer];
 }
 
-- (NSImage *)flattenedImageWithArtboard:(id)artboard {
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-    renderer.layer = artboard;
-    return [renderer flattenedImage];
-}
-
-- (NSImage *)exportedImageWithArtboard:(id)artboard {
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-    renderer.layer = artboard;
-    return [renderer exportedImage];
-}
-
-- (NSImage *)imageForArtboard:(MSArtboardGroup *)artboard {
-    return [self exportedImageWithArtboard:artboard];
-}
-
-
 #pragma mark -
 
 - (void)configureSelection {
