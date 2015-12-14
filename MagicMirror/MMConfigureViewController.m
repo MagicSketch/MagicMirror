@@ -49,6 +49,7 @@
 
 
 - (void)reloadArtboardCombobox {
+    NSDictionary *lookup = [_magicmirror artboardsLookup];
     MMValuesStack *stack = [[MMValuesStack alloc] init];
 
     [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -56,7 +57,9 @@
 
         MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
         NSString *artboardName = [properties source];
-        [stack addObject:artboardName];
+        if (lookup[artboardName]) {
+            [stack addObject:artboardName];
+        }
     }];
 
     NSComboBox *combobox = self.artboardsComboBox;
@@ -89,7 +92,9 @@
 
         MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
         NSNumber *imageQuality = [properties imageQuality];
-        [stack addObject:imageQuality];
+        if (imageQuality) {
+            [stack addObject:imageQuality];
+        }
     }];
 
     NSComboBox *combobox = self.imageQualityComboBox;
@@ -137,7 +142,7 @@
 
             NSNumber *imageQuality = @0;
             if (index < [_imageQualityComboBox numberOfItems]) {
-                imageQuality = @(index);
+                imageQuality = @(MAX(0, index));
             } else {
                 imageQuality = original.imageQuality;
             }
