@@ -8,7 +8,6 @@
 
 #import "MSSharedObjectInstance.h"
 #import "MSStylePartDelegate.h"
-#import "NSCopying.h"
 
 @class MSStyleBorder, MSStyleFill, MSStyleShadow, NSString;
 

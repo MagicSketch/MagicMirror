@@ -1035,7 +1035,6 @@
 		1AB4BB771C16E68400B7922D /* NSBitmapImageRep-CHBitmapRepAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C41C16E68200B7922D /* NSBitmapImageRep-CHBitmapRepAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB781C16E68400B7922D /* NSBitmapImageRep-MSSmallerArchiving.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C51C16E68200B7922D /* NSBitmapImageRep-MSSmallerArchiving.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB791C16E68400B7922D /* NSCoder-ModelEncodingSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C61C16E68200B7922D /* NSCoder-ModelEncodingSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AB4BB7A1C16E68400B7922D /* NSCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C71C16E68200B7922D /* NSCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB7B1C16E68400B7922D /* NSColor-CHColorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C81C16E68200B7922D /* NSColor-CHColorExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB7C1C16E68400B7922D /* NSColor-NSColor_String.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6C91C16E68200B7922D /* NSColor-NSColor_String.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB7D1C16E68400B7922D /* NSColor-ScreenAccuracy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6CA1C16E68200B7922D /* NSColor-ScreenAccuracy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1044,7 +1043,6 @@
 		1AB4BB801C16E68400B7922D /* NSComboBoxDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6CD1C16E68200B7922D /* NSComboBoxDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB811C16E68400B7922D /* NSControl-PopoverDismissal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6CE1C16E68200B7922D /* NSControl-PopoverDismissal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB821C16E68400B7922D /* NSControlTextEditingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6CF1C16E68200B7922D /* NSControlTextEditingDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AB4BB831C16E68400B7922D /* NSCopying.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6D01C16E68200B7922D /* NSCopying.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB841C16E68400B7922D /* NSCursor-CHCursorExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6D11C16E68200B7922D /* NSCursor-CHCursorExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB851C16E68400B7922D /* NSCursor-NSCursorResizeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6D21C16E68200B7922D /* NSCursor-NSCursorResizeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BB861C16E68400B7922D /* NSData-Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B6D31C16E68200B7922D /* NSData-Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1236,7 +1234,6 @@
 		1AB4BC481C16EC4E00B7922D /* NSDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC441C16E69500B7922D /* NSDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BC491C16EC4E00B7922D /* NSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC471C16EBEA00B7922D /* NSObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4BC4A1C16EC5F00B7922D /* COScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A9731C15E1B700B7922D /* COScript.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AB4BC511C18219A00B7922D /* NSFastEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */; };
 		1AB4BC531C182FA200B7922D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4BC521C182FA200B7922D /* Images.xcassets */; };
 		1AB4BC581C18643200B7922D /* NSImage+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC561C18643200B7922D /* NSImage+Transform.h */; };
 		1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC571C18643200B7922D /* NSImage+Transform.m */; };
@@ -2329,7 +2326,6 @@
 		1AB4B6C41C16E68200B7922D /* NSBitmapImageRep-CHBitmapRepAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSBitmapImageRep-CHBitmapRepAdditions.h"; sourceTree = "<group>"; };
 		1AB4B6C51C16E68200B7922D /* NSBitmapImageRep-MSSmallerArchiving.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSBitmapImageRep-MSSmallerArchiving.h"; sourceTree = "<group>"; };
 		1AB4B6C61C16E68200B7922D /* NSCoder-ModelEncodingSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSCoder-ModelEncodingSupport.h"; sourceTree = "<group>"; };
-		1AB4B6C71C16E68200B7922D /* NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = NSCoding.h; sourceTree = "<group>"; };
 		1AB4B6C81C16E68200B7922D /* NSColor-CHColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor-CHColorExtensions.h"; sourceTree = "<group>"; };
 		1AB4B6C91C16E68200B7922D /* NSColor-NSColor_String.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor-NSColor_String.h"; sourceTree = "<group>"; };
 		1AB4B6CA1C16E68200B7922D /* NSColor-ScreenAccuracy.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor-ScreenAccuracy.h"; sourceTree = "<group>"; };
@@ -2338,7 +2334,6 @@
 		1AB4B6CD1C16E68200B7922D /* NSComboBoxDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = NSComboBoxDataSource.h; sourceTree = "<group>"; };
 		1AB4B6CE1C16E68200B7922D /* NSControl-PopoverDismissal.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl-PopoverDismissal.h"; sourceTree = "<group>"; };
 		1AB4B6CF1C16E68200B7922D /* NSControlTextEditingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = NSControlTextEditingDelegate.h; sourceTree = "<group>"; };
-		1AB4B6D01C16E68200B7922D /* NSCopying.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = NSCopying.h; sourceTree = "<group>"; };
 		1AB4B6D11C16E68200B7922D /* NSCursor-CHCursorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSCursor-CHCursorExtensions.h"; sourceTree = "<group>"; };
 		1AB4B6D21C16E68200B7922D /* NSCursor-NSCursorResizeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSCursor-NSCursorResizeExtensions.h"; sourceTree = "<group>"; };
 		1AB4B6D31C16E68200B7922D /* NSData-Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-Base64.h"; sourceTree = "<group>"; };
@@ -2529,7 +2524,6 @@
 		1AB4BC441C16E69500B7922D /* NSDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDocument.h; sourceTree = "<group>"; };
 		1AB4BC451C16E70100B7922D /* CDUnknownBlockType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDUnknownBlockType.h; sourceTree = "<group>"; };
 		1AB4BC471C16EBEA00B7922D /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
-		1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFastEnumeration.h; sourceTree = "<group>"; };
 		1AB4BC521C182FA200B7922D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1AB4BC561C18643200B7922D /* NSImage+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Transform.h"; sourceTree = "<group>"; };
 		1AB4BC571C18643200B7922D /* NSImage+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Transform.m"; sourceTree = "<group>"; };
@@ -3670,7 +3664,6 @@
 				1AB4B6C41C16E68200B7922D /* NSBitmapImageRep-CHBitmapRepAdditions.h */,
 				1AB4B6C51C16E68200B7922D /* NSBitmapImageRep-MSSmallerArchiving.h */,
 				1AB4B6C61C16E68200B7922D /* NSCoder-ModelEncodingSupport.h */,
-				1AB4B6C71C16E68200B7922D /* NSCoding.h */,
 				1AB4B6C81C16E68200B7922D /* NSColor-CHColorExtensions.h */,
 				1AB4B6C91C16E68200B7922D /* NSColor-NSColor_String.h */,
 				1AB4B6CA1C16E68200B7922D /* NSColor-ScreenAccuracy.h */,
@@ -3679,7 +3672,6 @@
 				1AB4B6CD1C16E68200B7922D /* NSComboBoxDataSource.h */,
 				1AB4B6CE1C16E68200B7922D /* NSControl-PopoverDismissal.h */,
 				1AB4B6CF1C16E68200B7922D /* NSControlTextEditingDelegate.h */,
-				1AB4B6D01C16E68200B7922D /* NSCopying.h */,
 				1AB4B6D11C16E68200B7922D /* NSCursor-CHCursorExtensions.h */,
 				1AB4B6D21C16E68200B7922D /* NSCursor-NSCursorResizeExtensions.h */,
 				1AB4B6D31C16E68200B7922D /* NSData-Base64.h */,
@@ -3700,7 +3692,6 @@
 				1AB4B6E21C16E68200B7922D /* NSEPSImageRep-Alpha.h */,
 				1AB4B6E31C16E68200B7922D /* NSEPSImageRep-MSSmallerArchiving.h */,
 				1AB4B6E41C16E68200B7922D /* NSEvent-EventShouldDrag.h */,
-				1AB4BC501C18219A00B7922D /* NSFastEnumeration.h */,
 				1AB4B6E61C16E68200B7922D /* NSFileHandle-ZKAdditions.h */,
 				1AB4B6E71C16E68200B7922D /* NSFileManager-CHFileManagerExtensions.h */,
 				1AB4B6E81C16E68200B7922D /* NSFileManager-ZKAdditions.h */,
@@ -4197,7 +4188,6 @@
 				1AB4B8841C16E68400B7922D /* CHLinedWhiteView.h in Headers */,
 				1AB4B7B41C16E68400B7922D /* _MSImmutableRect.h in Headers */,
 				1AB4B9421C16E68400B7922D /* MSDifferenceAction.h in Headers */,
-				1AB4BB831C16E68400B7922D /* NSCopying.h in Headers */,
 				1AB4B9941C16E68400B7922D /* MSHoverButtonCell.h in Headers */,
 				1AB4B8721C16E68400B7922D /* BCSplitView.h in Headers */,
 				1AB4BA951C16E68400B7922D /* MSResetBooleanAction.h in Headers */,
@@ -4487,7 +4477,6 @@
 				1AB4B7CA1C16E68400B7922D /* _MSImmutableStyleColorControls.h in Headers */,
 				1AB4B9141C16E68400B7922D /* MSCenteredPopUpButtonCell.h in Headers */,
 				1AB4BB101C16E68400B7922D /* MSTextLabelForUpDownField.h in Headers */,
-				1AB4BB7A1C16E68400B7922D /* NSCoding.h in Headers */,
 				1AB4BBA71C16E68400B7922D /* NSImageRep-Alpha.h in Headers */,
 				1AB4B97E1C16E68400B7922D /* MSFontNamesTableView.h in Headers */,
 				1AB4BBFB1C16E68400B7922D /* NSUndoManager-MasterGrouping.h in Headers */,
@@ -4824,7 +4813,6 @@
 				1AB4BA591C16E68400B7922D /* MSPasteboardInternalImageReader.h in Headers */,
 				1AB4B9FB1C16E68400B7922D /* MSIOSRefreshRenderer.h in Headers */,
 				1AB4B7F81C16E68400B7922D /* _MSTextStyle.h in Headers */,
-				1AB4BC511C18219A00B7922D /* NSFastEnumeration.h in Headers */,
 				1AB4B8B01C16E68400B7922D /* FBEdgeCrossing.h in Headers */,
 				1AB4B8081C16E68400B7922D /* _SVGMask.h in Headers */,
 				1AB4BA221C16E68400B7922D /* MSManageSymbolsSheet.h in Headers */,
@@ -5485,6 +5473,7 @@
 				1A562CE41C1B2B9200FE3981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AB4A9251C15A4EE00B7922D /* Build configuration list for PBXProject "MagicMirror2" */ = {
 			isa = XCConfigurationList;

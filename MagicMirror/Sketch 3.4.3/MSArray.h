@@ -6,8 +6,6 @@
 
 #import "MSModelBase.h"
 
-#import "NSFastEnumeration.h"
-
 @class NSArray, NSMutableArray;
 
 @interface MSArray : MSModelBase <NSFastEnumeration>

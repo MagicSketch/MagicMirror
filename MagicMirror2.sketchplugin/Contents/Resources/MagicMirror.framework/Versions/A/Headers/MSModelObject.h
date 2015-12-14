@@ -6,9 +6,6 @@
 
 #import "NSObject.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
-
 @class MSModelObjectCache;
 
 @interface MSModelObject : NSObject <NSCopying, NSCoding>

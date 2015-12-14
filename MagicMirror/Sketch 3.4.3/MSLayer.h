@@ -11,8 +11,6 @@
 #import "MSLayerManipulation.h"
 #import "MSLayerTraits.h"
 #import "MSRectDelegate.h"
-#import "NSCoding.h"
-#import "NSCopying.h"
 
 @class MSAbsoluteRect, NSAffineTransform, NSDictionary, NSMenu, NSString;
 

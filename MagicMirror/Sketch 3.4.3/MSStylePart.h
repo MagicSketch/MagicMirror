@@ -6,9 +6,6 @@
 
 #import "_MSStylePart.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
-
 @interface MSStylePart : _MSStylePart <NSCoding, NSCopying>
 {
 }

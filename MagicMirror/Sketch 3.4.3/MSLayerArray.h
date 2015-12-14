@@ -7,7 +7,6 @@
 #import "NSObject.h"
 
 #import "MSLayerContainment.h"
-#import "NSFastEnumeration.h"
 
 @class NSArray;
 
