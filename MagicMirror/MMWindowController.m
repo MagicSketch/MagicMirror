@@ -24,19 +24,22 @@
 
 - (void)showWindow:(nullable id)sender {
     [_magicmirror keepAround];
-    [super showWindow:sender];
+//    [super showWindow:sender];
+    [NSApp runModalForWindow: self.window];
 }
 
 - (void)windowDidLoad {
     [super windowDidLoad];
     MMLog(@"MMWindowController did loaded");
     self.window.delegate = self;
+    self.window.level = NSTornOffMenuWindowLevel;
     [self.delegate controllerDidShow:self];
     [self configureMagicMirror];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
     [_magicmirror goAway];
+    [NSApp stopModal];
     [self.delegate controllerDidClose:self];
 }
 
