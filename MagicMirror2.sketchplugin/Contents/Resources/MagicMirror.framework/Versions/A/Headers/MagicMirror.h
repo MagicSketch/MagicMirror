@@ -53,7 +53,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 @interface MagicMirror (MSShapeGroup)
 
-- (void)layer:(id <MSShapeGroup>)layer setProperties:(MMLayerProperties *)properties;
+- (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
 
 @end

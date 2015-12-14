@@ -145,7 +145,7 @@
 
             MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
                                                                                    source:selectedName];
-            [_magicmirror layer:obj setProperties:properties];
+            [_magicmirror setProperties:properties forLayer:obj];
         }];
 
         [_magicmirror mirrorPage];

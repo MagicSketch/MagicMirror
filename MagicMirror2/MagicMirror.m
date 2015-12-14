@@ -163,7 +163,7 @@
 
 @implementation MagicMirror (MSShapeGroup)
 
-- (void)layer:(id<MSShapeGroup>)layer setProperties:(MMLayerProperties *)properties {
+- (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer {
     NSString *name = properties.source;
     [layer setName:name];
     [self setValue:properties.source forKey:@"source" onLayer:layer];
