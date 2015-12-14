@@ -60,5 +60,13 @@
     XCTAssertEqual([_stack result], MMValuesStackResultEmpty);
 }
 
+- (void)testCount {
+    XCTAssertEqual([_stack count], 0);
+    [_stack addObject:@1];
+    XCTAssertEqual([_stack count], 1);
+    [_stack addObject:@"somthing"];
+    XCTAssertEqual([_stack count], 2);
+}
+
 
 @end

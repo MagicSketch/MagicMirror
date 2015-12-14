@@ -69,7 +69,8 @@
     switch ([stack result]) {
         case MMValuesStackResultEmpty:
         case MMValuesStackResultUnspecified:
-            [cell setPlaceholderString:@"Selected an artboard"];
+            [cell setTitle:@""];
+            [cell setPlaceholderString:@"Select an artboard"];
             break;
         case MMValuesStackResultSingular: {
             id object = [stack anyObject];
@@ -77,6 +78,7 @@
             break;
         }
         case MMValuesStackResultMultiple:
+            [cell setTitle:@""];
             [cell setPlaceholderString:@"multiple values"];
             break;
     }
@@ -93,7 +95,6 @@
         MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
         NSNumber *imageQuality = [properties imageQuality];
         NSString *artboardName = [properties source];
-
         id <MSArtboardGroup> artboard = lookup[artboardName];
         if (artboard) {
             [stack addObject:imageQuality];
@@ -103,9 +104,11 @@
     NSComboBox *combobox = self.imageQualityComboBox;
     NSTextFieldCell *cell = (NSTextFieldCell *)combobox.cell;
 
+    NSLog(@"stack count: %lu", [stack count]);
     switch ([stack result]) {
         case MMValuesStackResultEmpty:
         case MMValuesStackResultUnspecified:
+            [cell setTitle:@""];
             [cell setPlaceholderString:@"Default (Auto)"];
             break;
         case MMValuesStackResultSingular: {
@@ -117,6 +120,7 @@
             break;
         }
         case MMValuesStackResultMultiple:
+            [cell setTitle:@""];
             [cell setPlaceholderString:@"multiple values"];
             break;
     }

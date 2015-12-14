@@ -29,6 +29,10 @@
     return [_set anyObject];
 }
 
+- (NSUInteger)count {
+    return [_set count];
+}
+
 - (void)addObject:(id)object {
     [_set addObject:object];
 }

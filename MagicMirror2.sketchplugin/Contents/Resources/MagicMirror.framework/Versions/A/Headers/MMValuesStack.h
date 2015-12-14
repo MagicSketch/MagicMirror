@@ -20,6 +20,7 @@ typedef enum {
 
 - (void)addObject:(id)object;
 - (id)anyObject;
+- (NSUInteger)count;
 - (MMValuesStackResult)result;
 + (id)unspecifiedItem;
 
