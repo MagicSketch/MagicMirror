@@ -136,7 +136,7 @@
             NSInteger index = [_imageQualityComboBox indexOfSelectedItem];
 
             NSNumber *imageQuality = @0;
-            if (index > 0 && index < [_imageQualityComboBox numberOfItems]) {
+            if (index < [_imageQualityComboBox numberOfItems]) {
                 imageQuality = @(index);
             } else {
                 imageQuality = original.imageQuality;
