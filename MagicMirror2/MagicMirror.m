@@ -83,6 +83,58 @@
     [self showWindow];
 }
 
+- (NSArray *)artboards {
+    return [_context artboards];
+}
+
+- (NSDictionary *)artboardsLookup {
+    return [_context artboardsLookup];
+}
+
+- (NSArray *)selectedLayers {
+    return [_context selectedLayers];
+}
+
+- (void)licenseInfo {
+    NSLog(@"licenseInfo");
+}
+
+#pragma mark Mirror Page
+
+- (void)mirrorLayer:(id <MSShapeGroup>)obj
+              index:(NSUInteger)idx
+           renderer:(ImageRenderer *)renderer
+     artboardLookup:(NSDictionary *)artboardLookup
+         colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
+        perspective:(BOOL)perspective {
+
+    MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
+    CGFloat scale = [properties.imageQuality floatValue] ?: 2;
+    NSString *name = properties.source;
+
+    MMLog(@"%lul: %@, %@, %fl", (unsigned long)idx, obj, name, scale);
+
+    id <MSArtboardGroup> artboard = artboardLookup[name];
+    if (artboard) {
+
+        renderer.layer = artboard;
+        renderer.scale = scale;
+        renderer.colorSpaceIdentifier = colorSpaceIdentifier;
+        renderer.disablePerspective = ! perspective;
+        renderer.bezierPath = [obj bezierPathInBounds];
+        NSImage *image = renderer.exportedImage;
+
+        MSStyleFill *fill = [obj.style.fills firstObject];
+        if ( ! fill) {
+            fill = [obj.style.fills addNewStylePart];
+        }
+        [fill setFillType:4];
+        [fill setPatternFillType:1];
+        [fill setIsEnabled:true];
+        [fill setPatternImage:image];
+    }
+}
+
 - (void)mirrorPage {
     MMLog(@"mirrorPage");
     [self mirrorPageScale:2 colorSpace:3 perspective:YES];
@@ -98,50 +150,15 @@
 
     ImageRenderer *renderer = [[ImageRenderer alloc] init];
 
+    __weak __typeof (self) weakSelf = self;
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-        MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
-        CGFloat scale = [properties.imageQuality floatValue] ?: 2;
-        NSString *name = properties.source;
-
-        MMLog(@"%lul: %@, %@, %fl", (unsigned long)idx, obj, name, scale);
-
-        id <MSArtboardGroup> artboard = artboardLookup[name];
-        if (artboard) {
-
-            renderer.layer = artboard;
-            renderer.scale = scale;
-            renderer.colorSpaceIdentifier = colorSpaceIdentifier;
-            renderer.disablePerspective = ! perspective;
-            renderer.bezierPath = [obj bezierPathInBounds];
-            NSImage *image = renderer.exportedImage;
-
-            MSStyleFill *fill = [obj.style.fills firstObject];
-            if ( ! fill) {
-                fill = [obj.style.fills addNewStylePart];
-            }
-            [fill setFillType:4];
-            [fill setPatternFillType:1];
-            [fill setIsEnabled:true];
-            [fill setPatternImage:image];
-        }
+        [weakSelf mirrorLayer:obj
+                        index:idx
+                     renderer:renderer
+               artboardLookup:artboardLookup
+                   colorSpace:colorSpaceIdentifier
+                  perspective:perspective];
     }];
-}
-
-- (NSArray *)artboards {
-    return [_context artboards];
-}
-
-- (NSDictionary *)artboardsLookup {
-    return [_context artboardsLookup];
-}
-
-- (NSArray *)selectedLayers {
-    return [_context selectedLayers];
-}
-
-- (void)licenseInfo {
-    NSLog(@"licenseInfo");
 }
 
 @end
