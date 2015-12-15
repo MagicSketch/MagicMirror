@@ -88,7 +88,6 @@
     [self mirrorPageScale:2 colorSpace:3 perspective:YES];
 }
 
-
 - (void)mirrorPageScale:(NSUInteger)scale
              colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
             perspective:(BOOL)perspective {

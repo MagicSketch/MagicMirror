@@ -21,6 +21,7 @@
 @property (weak) IBOutlet NSButton *cancelButton;
 @property (weak) IBOutlet NSButton *clearButton;
 @property (weak) IBOutlet NSButton *applyButton;
+@property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
 
 @property (copy) NSString *imageQuality;
 @property (copy) NSString *artboard;
@@ -158,6 +159,25 @@
 
 - (IBAction)clearButtonDidPress:(id)sender {
 
+}
+
+- (IBAction)actionSegmentValueDidChange:(NSSegmentedControl *)sender {
+    switch (sender.selectedSegment) {
+        case 0:
+            [self flipButtonDidPress:sender];
+            break;
+        default:
+            [self rotateButtonDidPress:sender];
+            break;
+    }
+}
+
+- (IBAction)flipButtonDidPress:(id)sender {
+    MMLog(@"flipButtonDidPress");
+}
+
+- (IBAction)rotateButtonDidPress:(id)sender {
+    MMLog(@"rotateButtonDidPress");
 }
 
 @end

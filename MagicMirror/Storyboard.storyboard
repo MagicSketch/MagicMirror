@@ -28,11 +28,11 @@
             <objects>
                 <viewController id="RaX-pZ-8Z0" customClass="MMConfigureViewController" sceneMemberID="viewController">
                     <view key="view" id="5PW-b4-rNt">
-                        <rect key="frame" x="0.0" y="0.0" width="268" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="268" height="206"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwd-9f-Ki3">
-                                <rect key="frame" x="18" y="163" width="47" height="17"/>
+                                <rect key="frame" x="18" y="169" width="47" height="17"/>
                                 <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source" id="mmk-Bx-sRl">
                                     <font key="font" metaFont="system"/>
@@ -41,7 +41,7 @@
                                 </textFieldCell>
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c">
-                                <rect key="frame" x="20" y="131" width="231" height="26"/>
+                                <rect key="frame" x="20" y="137" width="197" height="26"/>
                                 <animations/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select an Artboard" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="10" id="zuB-ln-mUU">
                                     <font key="font" metaFont="system"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </comboBox>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-er-pn1">
-                                <rect key="frame" x="18" y="96" width="133" height="17"/>
+                                <rect key="frame" x="18" y="102" width="133" height="17"/>
                                 <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Image Quality (Scale)" id="qKR-r0-jo6">
                                     <font key="font" metaFont="system"/>
@@ -62,7 +62,7 @@
                                 </textFieldCell>
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-pF-xB4">
-                                <rect key="frame" x="20" y="64" width="231" height="26"/>
+                                <rect key="frame" x="20" y="70" width="231" height="26"/>
                                 <animations/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Default (Auto)" drawsBackground="YES" numberOfVisibleItems="5" id="FHY-82-Csw">
                                     <font key="font" metaFont="system"/>
@@ -76,23 +76,19 @@
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQX-ti-PcA">
-                                <rect key="frame" x="107" y="13" width="72" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-E0-RUN">
+                                <rect key="frame" x="216" y="134" width="38" height="32"/>
                                 <animations/>
-                                <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XTV-4F-axq">
+                                <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FUE-cq-M3v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-CA
-</string>
-                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="clearButtonDidPress:" target="RaX-pZ-8Z0" id="6E2-mo-iAG"/>
+                                    <action selector="clearButtonDidPress:" target="RaX-pZ-8Z0" id="DjV-A7-5HX"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ic-aA-CN8">
-                                <rect key="frame" x="179" y="13" width="75" height="32"/>
+                                <rect key="frame" x="179" y="19" width="75" height="32"/>
                                 <animations/>
                                 <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iFl-sJ-8CH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -107,7 +103,7 @@ DQ
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vq3-oC-bmi">
-                                <rect key="frame" x="14" y="13" width="82" height="32"/>
+                                <rect key="frame" x="14" y="19" width="82" height="32"/>
                                 <animations/>
                                 <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bKw-MO-SAV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -120,20 +116,39 @@ Gw
                                     <action selector="performClose:" target="Atn-QA-ad6" id="4Ka-fl-5jh"/>
                                 </connections>
                             </button>
+                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
+                                <rect key="frame" x="108" y="24" width="71" height="24"/>
+                                <animations/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="f4d-f7-dfE">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment image="flip" width="32"/>
+                                        <segment image="rotate" width="32" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                                <connections>
+                                    <action selector="actionSegmentValueDidChange:" target="RaX-pZ-8Z0" id="gwZ-fb-fyc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="actionSegmentedControl" destination="aeK-wW-8tI" id="3aN-Jp-eLp"/>
                         <outlet property="applyButton" destination="0Ic-aA-CN8" id="gLS-yz-XWJ"/>
                         <outlet property="artboardsComboBox" destination="oQr-Yh-b7c" id="l6a-nb-zY2"/>
                         <outlet property="cancelButton" destination="Vq3-oC-bmi" id="v1U-vV-iTV"/>
-                        <outlet property="clearButton" destination="mQX-ti-PcA" id="DPw-04-Xxq"/>
+                        <outlet property="clearButton" destination="hyQ-E0-RUN" id="b73-9m-aBq"/>
                         <outlet property="imageQualityComboBox" destination="7TY-pF-xB4" id="tZp-I9-qcN"/>
                     </connections>
                 </viewController>
                 <customObject id="Atn-QA-ad6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="-52"/>
+            <point key="canvasLocation" x="1163" y="-49"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flip" width="21" height="20"/>
+        <image name="rotate" width="21" height="20"/>
+    </resources>
 </document>
