@@ -24,11 +24,18 @@
 #import "ImageRenderer.h"
 #import "MMConfigureViewController.h"
 #import "MMLayerProperties.h"
+#import "MSArray.h"
+#import "MSShapePathLayer.h"
+#import "MSShapePath.h"
 
 @interface MagicMirror ()
 
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) SketchPluginContext *context;
+
+@property (nonatomic) NSUInteger imageQuality;
+@property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
+@property (nonatomic) BOOL perspective;
 
 @end
 
@@ -41,6 +48,9 @@
 - (id)initWithContext:(SketchPluginContext *)context {
     if (self = [super init]) {
         _context = context;
+        _imageQuality = 2;
+        _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
+        _perspective = YES;
         return self;
     }
     return nil;
@@ -104,9 +114,7 @@
 - (void)mirrorLayer:(id <MSShapeGroup>)obj
               index:(NSUInteger)idx
            renderer:(ImageRenderer *)renderer
-     artboardLookup:(NSDictionary *)artboardLookup
-         colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
-        perspective:(BOOL)perspective {
+     artboardLookup:(NSDictionary *)artboardLookup {
 
     MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
     CGFloat scale = [properties.imageQuality floatValue] ?: 2;
@@ -119,8 +127,8 @@
 
         renderer.layer = artboard;
         renderer.scale = scale;
-        renderer.colorSpaceIdentifier = colorSpaceIdentifier;
-        renderer.disablePerspective = ! perspective;
+        renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
+        renderer.disablePerspective = ! _perspective;
         renderer.bezierPath = [obj bezierPathInBounds];
         NSImage *image = renderer.exportedImage;
 
@@ -155,9 +163,34 @@
         [weakSelf mirrorLayer:obj
                         index:idx
                      renderer:renderer
-               artboardLookup:artboardLookup
-                   colorSpace:colorSpaceIdentifier
-                  perspective:perspective];
+               artboardLookup:artboardLookup];
+    }];
+}
+
+#pragma mark Rotate
+
+- (void)rotatePoints:(id <MSShapeGroup>)layer {
+    MSArray *array = [layer layers];
+    MSShapePathLayer *shape = [array firstObject];
+    id <MSShapePath> path = [shape path];
+    id point = [path lastPoint];
+    [path removeLastPoint];
+    [path insertPoint:point atIndex:0];
+}
+
+- (void)rotateSelection {
+    MMLog(@"rotateSelection");
+
+    NSDictionary *artboardLookup = [_context artboardsLookup];
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf rotatePoints:obj];
+        [weakSelf mirrorLayer:obj
+                        index:idx
+                     renderer:renderer
+               artboardLookup:artboardLookup];
     }];
 }
 

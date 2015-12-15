@@ -37,6 +37,8 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)goAway;
 
 - (void)mirrorPage;
+- (void)rotateSelection;
+
 - (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;

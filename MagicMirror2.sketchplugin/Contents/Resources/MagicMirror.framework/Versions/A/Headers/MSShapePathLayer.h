@@ -6,8 +6,6 @@
 
 #import "_MSShapePathLayer.h"
 
-#import "NSCoding.h"
-
 @class NSBezierPath;
 
 @interface MSShapePathLayer : _MSShapePathLayer <NSCoding>

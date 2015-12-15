@@ -14,7 +14,7 @@
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
 
 - (void)mm_setSource:(NSString *)source;
-
+- (MSArray *)layers;
 + (void)cacheDecorations;
 + (id)closedArrowDecoration;
 + (struct CGRect)groupBoundsForLayers:(id)arg1;

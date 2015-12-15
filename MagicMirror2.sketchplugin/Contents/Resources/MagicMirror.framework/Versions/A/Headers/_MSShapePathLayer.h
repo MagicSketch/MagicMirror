@@ -6,14 +6,9 @@
 
 #import "MSLayer.h"
 
-@class MSShapePath;
+@protocol MSShapePath;
 
-@interface _MSShapePathLayer : MSLayer
-{
-    BOOL _edited;
-    long long _booleanOperation;
-    MSShapePath *_path;
-}
+@interface _MSShapePathLayer <MSLayer>
 
 
 @property(nonatomic) long long booleanOperation; // @synthesize booleanOperation=_booleanOperation;
@@ -27,7 +22,7 @@
 - (id)immutableModelObject;
 - (void)initEmptyObject;
 - (BOOL)isEqualForSync:(id)arg1 asPartOfSymbol:(id)arg2;
-@property(retain, nonatomic) MSShapePath *path; // @synthesize path=_path;
+@property(retain, nonatomic) id <MSShapePath> path; // @synthesize path=_path;
 - (long long)primitiveBooleanOperation;
 - (BOOL)primitiveEdited;
 - (id)primitivePath;

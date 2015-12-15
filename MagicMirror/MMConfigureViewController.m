@@ -178,6 +178,8 @@
 
 - (IBAction)rotateButtonDidPress:(id)sender {
     MMLog(@"rotateButtonDidPress");
+
+    [_magicmirror rotateSelection];
 }
 
 @end
