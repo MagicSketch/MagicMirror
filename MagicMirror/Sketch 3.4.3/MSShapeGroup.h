@@ -13,6 +13,9 @@
 
 @property(retain, nonatomic) MSStyle *style; // @synthesize style=_style;
 
+@property(nonatomic) BOOL isFlippedHorizontal; // @synthesize isFlippedHorizontal=_isFlippedHorizontal;
+@property(nonatomic) BOOL isFlippedVertical; // @synthesize isFlippedVertical=_isFlippedVertical;
+
 - (void)mm_setSource:(NSString *)source;
 - (MSArray *)layers;
 + (void)cacheDecorations;

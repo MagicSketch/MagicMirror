@@ -174,11 +174,11 @@
 
 - (IBAction)flipButtonDidPress:(id)sender {
     MMLog(@"flipButtonDidPress");
+    [_magicmirror flipSelection];
 }
 
 - (IBAction)rotateButtonDidPress:(id)sender {
     MMLog(@"rotateButtonDidPress");
-
     [_magicmirror rotateSelection];
 }
 

@@ -27,6 +27,8 @@
 #import "MSArray.h"
 #import "MSShapePathLayer.h"
 #import "MSShapePath.h"
+#import "NSBezierPath-Clockwise.h"
+#import "NSBezierPath+Alter.h"
 
 @interface MagicMirror ()
 
@@ -187,6 +189,39 @@
     __weak __typeof (self) weakSelf = self;
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf rotatePoints:obj];
+        [weakSelf mirrorLayer:obj
+                        index:idx
+                     renderer:renderer
+               artboardLookup:artboardLookup];
+    }];
+}
+
+#pragma mark Flip Selection
+
+- (void)flipPoints:(id <MSShapeGroup>)layer {
+//    MSArray *array = [layer layers];
+//    MSShapePathLayer *shape = [array firstObject];
+//    id <MSShapePath> path = [shape path];
+
+
+    // Get BezierPath
+    NSBezierPath *bezierPath = [layer bezierPath];
+
+    //Flip path
+    NSBezierPath *flipped = [bezierPath flipShiftX];
+    [layer setBezierPath:flipped];
+//    layer.isFlippedHorizontal = ![layer isFlippedHorizontal];
+}
+
+- (void)flipSelection {
+    MMLog(@"rotateSelection");
+
+    NSDictionary *artboardLookup = [_context artboardsLookup];
+    ImageRenderer *renderer = [[ImageRenderer alloc] init];
+
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf flipPoints:obj];
         [weakSelf mirrorLayer:obj
                         index:idx
                      renderer:renderer
