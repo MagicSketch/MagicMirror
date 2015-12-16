@@ -12,6 +12,7 @@
 #import "MSArtboardGroup.h"
 #import "MSDocument.h"
 #import "MSLayerArray.h"
+#import "MSShapePathLayer.h"
 
 @interface SketchPluginContext ()
 
@@ -79,13 +80,18 @@
 }
 
 - (NSArray *)selectedLayers {
-    NSArray *layers = [_selection filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        if ([evaluatedObject isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {
-            return YES;
+    NSMutableArray *layers = [[NSMutableArray alloc] init];
+
+    [_selection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {
+            [layers addObject:obj];
+        } else if ([obj isKindOfClass:NSClassFromString(@"MSShapePathLayer")]) {
+            MSShapePathLayer *pPath = obj;
+            [layers addObject:pPath.parentForInsertingLayers];
         }
-        return NO;
-    }]];
-    return layers;
+    }];
+
+    return [layers copy];
 }
 
 #pragma mark KVO

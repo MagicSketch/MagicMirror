@@ -39,6 +39,7 @@
 @property (nonatomic) NSUInteger imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) BOOL perspective;
+@property (nonatomic, copy) NSMutableArray *layerChangeObservers;
 
 @end
 
@@ -54,6 +55,7 @@
         _imageQuality = 2;
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
         _perspective = YES;
+        _layerChangeObservers = [NSMutableArray array];
 
         __weak __typeof (self) weakSelf = self;
         [_context setSelectionChangeHandler:^(NSArray *layers) {
@@ -74,6 +76,7 @@
     _controller.magicmirror = self;
     _controller.delegate = self;
     [_controller showWindow:self];
+    [self reloadData];
 }
 
 - (void)keepAround {
@@ -96,7 +99,60 @@
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
     MMLog(@"layers %@", layers);
+    [self reloadData];
     [_controller reloadData];
+}
+
+- (void)reloadData {
+    [_controller reloadData];
+
+    [self unobserveSelection];
+    [self observeSelection];
+}
+
+- (void)dealloc {
+    [self unobserveSelection];
+}
+
+#pragma mark KVO
+
+- (void)unobserveSelection {
+    [_layerChangeObservers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeObserver:self forKeyPath:@"rect"];
+    }];
+    [_layerChangeObservers removeAllObjects];
+}
+
+- (void)observeSelection {
+    NSArray *layers = [_context selectedLayers];
+    [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [(NSObject *)obj addObserver:self
+                          forKeyPath:@"rect"
+                             options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                             context:nil];
+        [_layerChangeObservers addObject:obj];
+    }];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"rect"]) {
+
+//        NSRect oldRect = [change[NSKeyValueChangeOldKey] rectValue];
+//        NSRect newRect = [change[NSKeyValueChangeNewKey] rectValue];
+//        MMLog(@"rect did change %@", NSStringFromRect(newRect));
+//
+//        BOOL isMoveOperation = (! CGPointEqualToPoint(oldRect.origin, newRect.origin)) && CGSizeEqualToSize(oldRect.size, newRect.size);
+//
+//        if ( ! isMoveOperation) {
+            NSDictionary *artboardLookup = [_context artboardsLookup];
+            ImageRenderer *renderer = [[ImageRenderer alloc] init];
+
+            [self mirrorLayer:object
+                        index:0
+                     renderer:renderer
+               artboardLookup:artboardLookup];
+//        }
+    }
 }
 
 #pragma mark -
