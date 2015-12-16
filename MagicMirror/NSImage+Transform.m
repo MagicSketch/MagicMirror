@@ -47,15 +47,18 @@
 }
 
 - (NSImage *)imageForPath:(id <MSShapePath>)path scale:(CGFloat)scale {
+    CGFloat targetedScale = scale;
     CIImage *ciimage = [self getCIImageFromNSImage:self];
+
+
     Quad *quad = [Quad quadWithShapePath:path];
-    CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+    CGAffineTransform transform = CGAffineTransformMakeScale(targetedScale, targetedScale);
     CGPoint topLeft = CGPointApplyAffineTransform(quad.tl, transform);
     CGPoint topRight = CGPointApplyAffineTransform(quad.tr, transform);
     CGPoint bottomLeft = CGPointApplyAffineTransform(quad.bl, transform);
     CGPoint bottomRight = CGPointApplyAffineTransform(quad.br, transform);
-    NSSize size = NSMakeSize(self.size.width * scale, self.size.height * scale);
-    CGFloat y = size.height;
+    CGFloat y = MAX(topLeft.y, MAX(bottomLeft.y, MAX(bottomRight.y, topRight.y)));
+
     CIFilter *filter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
     [filter setValue:ciimage forKey:@"inputImage"];
     [filter setValue:[CIVector vectorWithX:topLeft.x Y:y - topLeft.y] forKey:@"inputTopLeft"];
@@ -63,10 +66,6 @@
     [filter setValue:[CIVector vectorWithX:bottomRight.x Y:y - bottomRight.y] forKey:@"inputBottomRight"];
     [filter setValue:[CIVector vectorWithX:bottomLeft.x Y:y - bottomLeft.y] forKey:@"inputBottomLeft"];
     CIImage *output = [filter outputImage]; // CIImage
-    // return ImageHelper.getNSImage(output)
-//    var ns = ImageHelper.getNSImage(output)
-//    var cg = ImageHelper.getCGImage(ns)
-//    return ImageHelper.getNSImageFromCGImage(cg, size)
 
     return [self getNSImage:output];
 }
