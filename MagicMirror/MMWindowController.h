@@ -21,4 +21,6 @@
 
 @property (nonatomic, weak) id <MMWindowControllerDelegate> delegate;
 
+- (void)reloadData;
+
 @end

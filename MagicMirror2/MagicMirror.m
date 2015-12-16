@@ -96,6 +96,7 @@
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
     MMLog(@"layers %@", layers);
+    [_controller reloadData];
 }
 
 #pragma mark -

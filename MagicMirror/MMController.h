@@ -15,6 +15,8 @@
 
 @property MagicMirror *magicmirror;
 
+- (void)reloadData;
+
 @end
 
 #endif /* MMController_h */

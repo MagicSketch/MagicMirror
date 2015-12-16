@@ -55,4 +55,11 @@
     }
 }
 
+- (void)reloadData {
+    if ([self.contentViewController conformsToProtocol:@protocol(MMController)]) {
+        id <MMController> controller = (id <MMController>)self.contentViewController;
+        [controller reloadData];
+    }
+}
+
 @end
