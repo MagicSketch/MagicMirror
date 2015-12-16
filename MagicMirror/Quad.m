@@ -7,16 +7,24 @@
 //
 
 #import "Quad.h"
-#import "MSShapePath.h"
+#import "NSBezierPath+Alter.h"
 
 @implementation Quad
 
-+ (instancetype)quadWithShapePath:(id <MSShapePath>)path {
++ (instancetype)quadWithShapePath:(NSBezierPath *)path {
     Quad *quad = [[self alloc] init];
-    quad.tl = (CGPoint)[path pointAtIndex:0];
-    quad.tr = (CGPoint)[path pointAtIndex:1];
-    quad.br = (CGPoint)[path pointAtIndex:2];
-    quad.bl = (CGPoint)[path pointAtIndex:3];
+
+    if ([path isClockwise]) {
+        quad.tl = NSPointFromString([path points][0]);
+        quad.tr = NSPointFromString([path points][1]);
+        quad.br = NSPointFromString([path points][2]);
+        quad.bl = NSPointFromString([path points][3]);
+    } else {
+        quad.tl = NSPointFromString([path points][0]);
+        quad.bl = NSPointFromString([path points][1]);
+        quad.br = NSPointFromString([path points][2]);
+        quad.tr = NSPointFromString([path points][3]);
+    }
     return quad;
 }
 

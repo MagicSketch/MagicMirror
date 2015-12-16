@@ -87,7 +87,7 @@
     XCTAssertEqualObjects(closedPoints[3], @"{0, 80}");
 }
 
-- (void)testIsClockwised {
+- (void)testClockwiseDetermine {
     XCTAssertEqual([_open isClockwiseOSX], NO);
     XCTAssertEqual([_open isClockwise], YES);
     XCTAssertEqual([_closed isClockwiseOSX], NO);
@@ -95,25 +95,68 @@
 }
 
 - (void)testClockwise {
-    NSBezierPath *openClockwised = [_open clockwisePoints];
+    NSBezierPath *path = [_open clockwisePoints];
 
-    NSArray *openPoints = [openClockwised points];
-    XCTAssertEqualObjects(openPoints[0], @"{100, 20}");
-    XCTAssertEqualObjects(openPoints[1], @"{80, 100}");
-    XCTAssertEqualObjects(openPoints[2], @"{0, 80}");
-    XCTAssertEqualObjects(openPoints[3], @"{0, 40}");
-    XCTAssertEqualObjects(openPoints[4], @"{20, 0}");
+    NSArray *points = [path points];
+    XCTAssertEqualObjects(points[0], @"{100, 20}");
+    XCTAssertEqualObjects(points[1], @"{80, 100}");
+    XCTAssertEqualObjects(points[2], @"{0, 80}");
+    XCTAssertEqualObjects(points[3], @"{0, 40}");
+    XCTAssertEqualObjects(points[4], @"{20, 0}");
+
+    XCTAssertEqual([path isClosed], NO);
+    XCTAssertEqual([path count], 5);
 }
 
 - (void)testAntiClockwise {
-    NSBezierPath *openClockwised = [_open antiClockwisePoints];
+    NSBezierPath *path = [_open antiClockwisePoints];
 
-    NSArray *openPoints = [openClockwised points];
+    NSArray *points = [path points];
+    XCTAssertEqualObjects(points[0], @"{0, 40}");
+    XCTAssertEqualObjects(points[1], @"{20, 0}");
+    XCTAssertEqualObjects(points[2], @"{100, 20}");
+    XCTAssertEqualObjects(points[3], @"{80, 100}");
+    XCTAssertEqualObjects(points[4], @"{0, 80}");
+
+    XCTAssertEqual([path isClosed], NO);
+    XCTAssertEqual([path count], 5);
+}
+
+- (void)testClockwiseClosed {
+    NSBezierPath *path = [_closed clockwisePoints];
+
+    NSArray *points = [path points];
+    XCTAssertEqualObjects(points[0], @"{100, 20}");
+    XCTAssertEqualObjects(points[1], @"{80, 100}");
+    XCTAssertEqualObjects(points[2], @"{0, 80}");
+    XCTAssertEqualObjects(points[3], @"{20, 0}");
+
+    XCTAssertEqual([path isClosed], YES);
+    XCTAssertEqual([path count], 4);
+}
+
+- (void)testAntiClockwiseClosed {
+    NSBezierPath *path = [_closed antiClockwisePoints];
+
+    NSArray *points = [path points];
+    XCTAssertEqualObjects(points[0], @"{0, 80}");
+    XCTAssertEqualObjects(points[1], @"{20, 0}");
+    XCTAssertEqualObjects(points[2], @"{100, 20}");
+    XCTAssertEqualObjects(points[3], @"{80, 100}");
+
+    XCTAssertEqual([path isClosed], YES);
+    XCTAssertEqual([path count], 4);
+}
+
+- (void)testReversePath {
+    NSBezierPath *reversePath = [_open reversePath];
+
+    NSArray *openPoints = [reversePath points];
+    XCTAssertEqualObjects(openPoints[4], @"{20, 0}");
+    XCTAssertEqualObjects(openPoints[3], @"{100, 20}");
+    XCTAssertEqualObjects(openPoints[2], @"{80, 100}");
+    XCTAssertEqualObjects(openPoints[1], @"{0, 80}");
     XCTAssertEqualObjects(openPoints[0], @"{0, 40}");
-    XCTAssertEqualObjects(openPoints[1], @"{20, 0}");
-    XCTAssertEqualObjects(openPoints[2], @"{100, 20}");
-    XCTAssertEqualObjects(openPoints[3], @"{80, 100}");
-    XCTAssertEqualObjects(openPoints[4], @"{0, 80}");
 }
 
 @end

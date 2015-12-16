@@ -6,9 +6,6 @@
 
 #import "_MSCurvePoint.h"
 
-#import "NSCoding.h"
-#import "NSCopying.h"
-
 @interface MSCurvePoint : _MSCurvePoint <NSCoding, NSCopying>
 {
 }

@@ -72,3 +72,13 @@ var selectedLayers = function(context) {
 	var layers = [magicmirror selectedLayers];
 	log(layers);
 }
+
+var rotateSelection = function(context) {
+	var magicmirror = initialize(context);
+	[magicmirror rotateSelection];
+}
+
+var flipSelection = function(context) {
+	var magicmirror = initialize(context);
+	[magicmirror flipSelection];
+}

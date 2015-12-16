@@ -30,7 +30,21 @@
 			"shortcut" : "control shift command s",
 			"script" : "main.js",
 			"handler" : "configureSelection",
-	    }
+	    },
+	    {
+			"name" : "3. Rotate Selection",
+			"identifier" : "rotate selection",
+			"shortcut" : "control shift command r",
+			"script" : "main.js",
+			"handler" : "rotateSelection",
+	    },
+	    {
+			"name" : "4. Flip Selection",
+			"identifier" : "flip selection",
+			"shortcut" : "control shift command f",
+			"script" : "main.js",
+			"handler" : "flipSelection",
+	    },
 	],
 
 	"menu": {
@@ -42,6 +56,8 @@
 			"-",
 			"magic mirror",
 			"configure selection",
+			"rotate selection",
+			"flip selection",
 		]
 	}
 }

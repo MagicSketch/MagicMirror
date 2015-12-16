@@ -43,7 +43,7 @@
 
 + (NSBezierPath *)bezierPathWithArray:(NSArray *)points closePath:(BOOL)closePath {
     NSUInteger count = [points count];
-    NSPoint array[10];
+    NSPoint array[count];
     for (NSUInteger i = 0; i < count; i++) {
         array[i] = NSPointFromString(points[i]);
     }
@@ -118,6 +118,19 @@
     return path;
 }
 
+- (NSBezierPath *)reversePath {
+
+
+    NSArray *points = [self points];
+    __block NSMutableArray *reversedPoints = [NSMutableArray array];
+
+    [points enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [reversedPoints addObject:obj];
+    }];
+
+    return [[self class] bezierPathWithArray:reversedPoints closePath:[self isClosed]];
+}
+
 - (NSBezierPath *)putFirstToLast {
     NSArray *points = [self points];
 
@@ -166,18 +179,30 @@
         // Since we are using a flattened path, no element will contain more than one point
         NSBezierPathElement type = [flatPath elementAtIndex:i associatedPoints:&curr];
         if(type == NSLineToBezierPathElement) {
+
             NSLog(@"Line from %@ to %@",NSStringFromPoint(prev),NSStringFromPoint(curr));
-            [points addObject:NSStringFromPoint(curr)];
+
+            if ([points count] == 0) {
+                [points addObject:NSStringFromPoint(prev)];
+            }
+            if ( ! [NSStringFromPoint(prev) isEqualToString:NSStringFromPoint(curr)]) {
+                [points addObject:NSStringFromPoint(curr)];
+            }
             prev = curr;
         } else if(type == NSClosePathBezierPathElement) {
             // Get the first point in the path as the line's end. The first element in a path is a move to operation
             [flatPath elementAtIndex:0 associatedPoints:&curr];
             NSLog(@"Close line from %@ to %@",NSStringFromPoint(prev),NSStringFromPoint(curr));
+
+            if ([NSStringFromPoint(prev) isEqualToString:NSStringFromPoint(curr)]) {
+                [points removeLastObject];
+            }
+
             break;
         } else if(type == NSMoveToBezierPathElement) {
             // Get the first point in the path as the line's end. The first element in a path is a move to operation
             [flatPath elementAtIndex:0 associatedPoints:&curr];
-            [points addObject:NSStringFromPoint(curr)];
+//            [points addObject:NSStringFromPoint(curr)];
 
             NSLog(@"Move line from %@ to %@",NSStringFromPoint(prev),NSStringFromPoint(curr));
             prev = curr;

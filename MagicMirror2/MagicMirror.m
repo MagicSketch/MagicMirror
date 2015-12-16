@@ -29,6 +29,7 @@
 #import "MSShapePath.h"
 #import "NSBezierPath-Clockwise.h"
 #import "NSBezierPath+Alter.h"
+#import "MSCurvePoint.h"
 
 @interface MagicMirror ()
 
@@ -199,22 +200,38 @@
 #pragma mark Flip Selection
 
 - (void)flipPoints:(id <MSShapeGroup>)layer {
-//    MSArray *array = [layer layers];
-//    MSShapePathLayer *shape = [array firstObject];
-//    id <MSShapePath> path = [shape path];
+    MSArray *array = [layer layers];
+    MSShapePathLayer *shape = [array firstObject];
+    NSBezierPath *bezierPath = [layer bezierPathInBounds];
+    MMLog(@"bezierPath: %lu", [bezierPath count]);
+    CGRect rect = [layer bounds];
 
+    NSBezierPath *fixedDirection;
+    NSBezierPath *flipped = [bezierPath flipPoints];
+    MMLog(@"flipped: %lu", [flipped count]);
 
-    // Get BezierPath
-    NSBezierPath *bezierPath = [layer bezierPath];
+    fixedDirection = [flipped antiClockwisePoints];
+    MMLog(@"fixedDirection: %lu", [fixedDirection count]);
 
-    //Flip path
-    NSBezierPath *flipped = [bezierPath flipShiftX];
-    [layer setBezierPath:flipped];
-//    layer.isFlippedHorizontal = ![layer isFlippedHorizontal];
+    id <MSShapePath> newPath = [NSClassFromString(@"MSShapePath") pathWithBezierPath:fixedDirection inRect:rect];
+    MMLog(@"newPath before close: %llu", [newPath numberOfPoints]);
+
+//    if ([bezierPath isClosed] && [newPath numberOfPoints] > 4) {
+//        [newPath removeLastPoint];
+//    }
+    [newPath setIsClosed:[bezierPath isClosed]];
+
+    MMLog(@"newPath before: %llu", [newPath numberOfPoints]);
+    [shape setPath:newPath];
+
+    MMLog(@"newPath after: %llu", [[shape path] numberOfPoints]);
+
+    layer.isFlippedHorizontal = ![layer isFlippedHorizontal];
+    //[shape closeLastPath:[bezierPath isClosed]];
 }
 
 - (void)flipSelection {
-    MMLog(@"rotateSelection");
+    MMLog(@"flipSelection");
 
     NSDictionary *artboardLookup = [_context artboardsLookup];
     ImageRenderer *renderer = [[ImageRenderer alloc] init];

@@ -18,6 +18,7 @@
 - (NSBezierPath *)antiClockwisePoints;
 - (NSBezierPath *)flipPoints;
 - (NSBezierPath *)flipShiftX;
+- (NSBezierPath *)reversePath;
 
 - (NSUInteger)count;
 - (BOOL)isClockwise;

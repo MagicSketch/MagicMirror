@@ -6,10 +6,11 @@
 
 #import "_MSShapePath.h"
 
+@class MSCurvePoint;
 @protocol MSShapePath <NSObject>
 
 @property(retain, nonatomic) MSArray *points; // @synthesize points=_points;
-- (NSPoint)pointAtIndex:(NSUInteger)index;
+- (MSCurvePoint *)pointAtIndex:(NSUInteger)index;
 + (id)pathWithBezierPath:(id)arg1 inRect:(struct CGRect)arg2;
 + (id)pathWithPoints:(id)arg1;
 - (void)addPoint:(id)arg1;
