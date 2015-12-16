@@ -10,6 +10,8 @@
 #import "COScript.h"
 #import "MSPage.h"
 #import "MSArtboardGroup.h"
+#import "MSDocument.h"
+#import "MSLayerArray.h"
 
 @interface SketchPluginContext ()
 
@@ -18,6 +20,7 @@
 @property (nonatomic, copy) NSArray *selection;
 @property (nonatomic, strong) MSDocument *document;
 @property (nonatomic, strong) id <COScript> coscript;
+@property (nonatomic) BOOL observerAdded;
 
 @end
 
@@ -41,6 +44,18 @@
 - (void)setShouldKeepAround:(BOOL)shouldKeepAround {
     _shouldKeepAround = shouldKeepAround;
     _coscript.shouldKeepAround = shouldKeepAround;
+
+    if (shouldKeepAround) {
+        if (_observerAdded == NO) {
+            _observerAdded = YES;
+            [_document addObserver:self forKeyPath:@"selectedLayersA" options:NSKeyValueObservingOptionNew context:nil];
+        }
+    } else {
+        if (_observerAdded) {
+            [_document removeObserver:self forKeyPath:@"selectedLayersA"];
+            _observerAdded = NO;
+        }
+    }
 }
 
 - (NSArray *)pages {
@@ -71,6 +86,18 @@
         return NO;
     }]];
     return layers;
+}
+
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"selectedLayersA"]) {
+        _selection = [(id <MSLayerArray>)[_document valueForKey:@"selectedLayersA"] layers];
+
+        if (_selectionChangeHandler) {
+            _selectionChangeHandler([self selectedLayers]);
+        }
+    }
 }
 
 @end

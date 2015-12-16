@@ -54,6 +54,11 @@
         _imageQuality = 2;
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
         _perspective = YES;
+
+        __weak __typeof (self) weakSelf = self;
+        [_context setSelectionChangeHandler:^(NSArray *layers) {
+            [weakSelf layerSelectionDidChange:layers];
+        }];
         return self;
     }
     return nil;
@@ -87,6 +92,10 @@
 
 - (void)setValue:(id)value forKey:(NSString *)key onLayer:(id)layer {
     [_context.command setValue:value forKey:key onLayer:layer];
+}
+
+- (void)layerSelectionDidChange:(NSArray *)layers {
+    MMLog(@"layers %@", layers);
 }
 
 #pragma mark -

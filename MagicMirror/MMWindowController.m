@@ -24,8 +24,8 @@
 
 - (void)showWindow:(nullable id)sender {
     [_magicmirror keepAround];
-//    [super showWindow:sender];
-    [NSApp runModalForWindow: self.window];
+    [super showWindow:sender];
+//    [NSApp runModalForWindow: self.window];
 }
 
 - (void)windowDidLoad {
@@ -39,7 +39,7 @@
 
 - (void)windowWillClose:(NSNotification *)notification {
     [_magicmirror goAway];
-    [NSApp stopModal];
+//    [NSApp stopModal];
     [self.delegate controllerDidClose:self];
 }
 

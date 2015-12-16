@@ -10,6 +10,8 @@
 #import "CDUnknownBlockType.h"
 #import "Sketch.h"
 
+typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
+
 @interface SketchPluginContext : NSObject
 
 @property (nonatomic, strong, readonly) MSPluginBundle *plugin;
@@ -17,6 +19,7 @@
 @property (nonatomic, copy, readonly) NSArray *selection;
 @property (nonatomic, strong, readonly) MSDocument *document;
 @property (nonatomic, strong, readonly) id <COScript> coscript;
+@property (nonatomic, copy) MSDocumentLayerDidChangeSelectionHandler selectionChangeHandler;
 
 @property (nonatomic) BOOL shouldKeepAround;
 
