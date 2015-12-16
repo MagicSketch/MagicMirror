@@ -10,6 +10,7 @@
 
 @interface NSBezierPath (Alter)
 
++ (NSBezierPath *)bezierPathWithArray:(NSArray *)points closePath:(BOOL)closePath;
 + (NSBezierPath *)fromPoints:(NSPointArray)points count:(NSInteger)count;
 + (NSBezierPath *)fromPoints:(NSPointArray)points count:(NSInteger)count closePath:(BOOL)closePath;
 
@@ -20,6 +21,7 @@
 
 - (NSUInteger)count;
 - (BOOL)isClockwise;
+- (BOOL)isClockwiseOSX;
 - (BOOL)isClosed;
 - (NSArray *)points;
 

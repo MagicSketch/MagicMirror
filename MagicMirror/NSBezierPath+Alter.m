@@ -11,12 +11,6 @@
 #import "NSBezierPath-NSPrivate.h"
 #import "MagicMirror.h"
 
-@interface NSBezierPath (Private)
-
-- (NSPoint)pointAtIndex:(NSUInteger)index;
-
-@end
-
 @implementation NSBezierPath (Alter)
 
 - (BOOL)isClosed {
@@ -47,6 +41,15 @@
     return isClosed;
 }
 
++ (NSBezierPath *)bezierPathWithArray:(NSArray *)points closePath:(BOOL)closePath {
+    NSUInteger count = [points count];
+    NSPoint array[10];
+    for (NSUInteger i = 0; i < count; i++) {
+        array[i] = NSPointFromString(points[i]);
+    }
+    return [self fromPoints:array count:count closePath:closePath];
+}
+
 + (NSBezierPath *)fromPoints:(NSPointArray)points count:(NSInteger)count {
     return [self fromPoints:points count:count closePath:YES];
 }
@@ -60,8 +63,43 @@
     return newPath;
 }
 
+- (BOOL)isClockwiseOSX {
+    return [self isClockwiseFlippedCoordinates:NO];
+}
+
 - (BOOL)isClockwise {
-    return ! [self direction];
+    return [self isClockwiseFlippedCoordinates:YES];
+}
+
+- (CGFloat)edgesLengthPoint1:(NSPoint)point1 point2:(NSPoint)point2 {
+    return (point2.x - point1.x) * (point2.y + point1.y);
+}
+
+- (CGFloat)sumPoints:(NSArray *)array {
+
+    CGFloat value = 0;
+    for (NSUInteger i = 0; i < [array count]; i++) {
+        NSPoint point1;
+        NSPoint point2;
+        if (i == [array count] - 1) {
+            point1 = NSPointFromString(array[i]);
+            point2 = NSPointFromString(array[0]);
+        } else {
+            point1 = NSPointFromString(array[i]);
+            point2 = NSPointFromString(array[i + 1]);
+        }
+
+        value += [self edgesLengthPoint1:point1 point2:point2];
+    }
+    return value;
+}
+
+- (BOOL)isClockwiseFlippedCoordinates:(BOOL)flippedCoordinates {
+    BOOL isClockwised = [self sumPoints:[self points]] > 0;
+    if (flippedCoordinates) {
+        return ! isClockwised;
+    }
+    return isClockwised;
 }
 
 - (NSBezierPath *)flipPoints {
@@ -80,41 +118,37 @@
     return path;
 }
 
+- (NSBezierPath *)putFirstToLast {
+    NSArray *points = [self points];
+
+    NSMutableArray *clockwisedPoints = [points mutableCopy];
+    [clockwisedPoints insertObject:clockwisedPoints[0] atIndex:[points count]];
+    [clockwisedPoints removeObjectAtIndex:0];
+    return [[self class] bezierPathWithArray:[clockwisedPoints copy]closePath:[self isClosed]];
+}
+
+- (NSBezierPath *)putLastToFirst {
+    NSArray *points = [self points];
+    NSMutableArray *mutablePoints = [points mutableCopy];
+    [mutablePoints insertObject:[mutablePoints lastObject] atIndex:0];
+    [mutablePoints removeLastObject];
+    return [[self class] bezierPathWithArray:[mutablePoints copy] closePath:[self isClosed]];
+}
+
 - (NSBezierPath *)clockwisePoints {
-    NSPoint point0 = [self pointAtIndex:0];
-    NSPoint point1 = [self pointAtIndex:1];
-    NSPoint point2 = [self pointAtIndex:2];
-    NSPoint point3 = [self pointAtIndex:3];
-    NSPoint array[4];
-
-    array[0] = point3;
-    array[1] = point0;
-    array[2] = point1;
-    array[3] = point2;
-
-    NSBezierPath *newPath = [NSBezierPath fromPoints:array
-                                               count:4
-                                           closePath:[self isClosed]];
-    return newPath;
+    if (self.isClockwise) {
+        return [self putFirstToLast];
+    } else {
+        return [self putLastToFirst];
+    }
 }
 
 - (NSBezierPath *)antiClockwisePoints {
-
-    NSPoint point0 = [self pointAtIndex:0];
-    NSPoint point1 = [self pointAtIndex:1];
-    NSPoint point2 = [self pointAtIndex:2];
-    NSPoint point3 = [self pointAtIndex:3];
-    NSPoint array[4];
-
-    array[0] = point1;
-    array[1] = point2;
-    array[2] = point3;
-    array[3] = point0;
-
-    NSBezierPath *newPath = [NSBezierPath fromPoints:array
-                                               count:4
-                                           closePath:[self isClosed]];
-    return newPath;
+    if (self.isClockwise) {
+        return [self putLastToFirst];
+    } else {
+        return [self putFirstToLast];
+    }
 }
 
 - (NSUInteger)count {
