@@ -30,6 +30,7 @@
 #import "NSBezierPath-Clockwise.h"
 #import "NSBezierPath+Alter.h"
 #import "MSCurvePoint.h"
+#import "Math.h"
 
 @interface MagicMirror ()
 
@@ -187,14 +188,18 @@
 
     MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
     CGFloat scale = [properties.imageQuality floatValue] ?: 2;
+
     NSString *name = properties.source;
 
     MMLog(@"%lul: %@, %@, %fl", (unsigned long)idx, obj, name, scale);
 
     id <MSArtboardGroup> artboard = artboardLookup[name];
     if (artboard) {
-
         renderer.layer = artboard;
+
+        if (scale == 3) {
+            scale = CGSizeAspectFillRatio(artboard.rect.size, obj.rect.size) * 3;
+        }
         renderer.scale = scale;
         renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
         renderer.disablePerspective = ! _perspective;

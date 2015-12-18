@@ -169,8 +169,6 @@
 }
 
 - (IBAction)applyButtonDidPress:(id)sender {
-
-
     [self apply];
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A263e" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uwE-1d-YCq">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A279b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uwE-1d-YCq">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
@@ -71,8 +71,8 @@
                                     <objectValues>
                                         <string>Default (Auto)</string>
                                         <string>1 - Normal</string>
-                                        <string>2 - Retina (Pro)</string>
-                                        <string>3 - Max (Pro)</string>
+                                        <string>2 - Retina @2x (Pro)</string>
+                                        <string>3 - Adaptive + @3x (Pro)</string>
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
