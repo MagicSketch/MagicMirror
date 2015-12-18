@@ -37,6 +37,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    __weak __typeof (self) weakSelf = self;
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSComboBoxSelectionDidChangeNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+
+                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                               [weakSelf apply];
+                                                           });
+                                                       }];
     // Do view setup here.
 //    [self reloadData];
 }
@@ -131,30 +142,36 @@
 
 #pragma mark IBAction
 
+- (void)apply {
+
+    __weak typeof (self) weakSelf = self;
+    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        MMLayerProperties *original = [weakSelf.magicmirror layerPropertiesForLayer:obj];
+        NSString *selectedName = weakSelf.artboardsComboBox.cell.title ?: original.source;
+        
+        NSInteger index = [weakSelf.imageQualityComboBox indexOfSelectedItem];
+        
+        NSNumber *imageQuality = @0;
+        if (index < [weakSelf.imageQualityComboBox numberOfItems]) {
+            imageQuality = @(MAX(0, index));
+        } else {
+            imageQuality = original.imageQuality;
+        }
+        
+        
+        MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
+                                                                               source:selectedName];
+        [weakSelf.magicmirror setProperties:properties forLayer:obj];
+    }];
+    
+    [_magicmirror mirrorPage];
+}
+
 - (IBAction)applyButtonDidPress:(id)sender {
 
 
-        [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-            MMLayerProperties *original = [_magicmirror layerPropertiesForLayer:obj];
-            NSString *selectedName = self.artboardsComboBox.cell.title ?: original.source;
-
-            NSInteger index = [_imageQualityComboBox indexOfSelectedItem];
-
-            NSNumber *imageQuality = @0;
-            if (index < [_imageQualityComboBox numberOfItems]) {
-                imageQuality = @(MAX(0, index));
-            } else {
-                imageQuality = original.imageQuality;
-            }
-
-
-            MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
-                                                                                   source:selectedName];
-            [_magicmirror setProperties:properties forLayer:obj];
-        }];
-
-        [_magicmirror mirrorPage];
+    [self apply];
 }
 
 - (IBAction)clearButtonDidPress:(id)sender {
