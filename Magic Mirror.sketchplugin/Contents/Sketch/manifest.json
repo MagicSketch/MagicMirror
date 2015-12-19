@@ -65,7 +65,7 @@
     "title" : "Magic Mirror"
   },
   "identifier" : "design.magicmirror",
-  "version" : "1.2.3",
+  "version" : "1.2.4",
   "description" : "Mirror contents in an Artboard and apply to a Shape with perspective transform. It's like 'Smart Objects' for Sketch.",
   "authorEmail" : "james@magicmirror.design",
   "compatibleVersion": "3.4",
