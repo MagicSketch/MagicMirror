@@ -53,7 +53,12 @@ var MagicMirror = function(context) {
                 var retinaEnabled = locker.isLicensed()
                 ui.show("Magic Mirror: " + artboardsCount + " artboard(s) in " + pagesCount + " page(s) are mirrored to " + matchingLayersCount + " layer(s). Retina: (" + retinaEnabled + ")")
             }
-            run(context.artboards(), context.layers(), util, createFlattener())
+			var selectedLayers = context.selections();
+			if(selectedLayers.length == 0){
+				run(context.artboards(), context.layers(), util, createFlattener())
+			} else {
+				run(context.artboards(), selectedLayers, util, createFlattener())
+			}
         },
 
 
@@ -209,7 +214,7 @@ MagicMirror.context = function(context) {
         var selections = map(pri.selections, function(item) {
             return MagicMirror.layer(item)
         })
-        return selections 
+        return selections
     }
     var layers = function() {
         return map([page children], function(layer) {
@@ -304,7 +309,7 @@ MagicMirror.flattener = function(locker) {
             if (locker.isLicensed() && (!contains(tokens, ".1x") || contains(tokens, ".2x"))) {
                 scale = 2
                 quad = quad.scale(2, 2)
-            } 
+            }
             var transformed = ImageHelper.perspectiveTransform(image, quad.tl, quad.tr, quad.bl, quad.br, quad.size)
             LayerHelper.fillBottom(layer, transformed)
             log("perspectiveTransforming: from " + from.name + ", to: " + to.name + ", scale: " + scale + ", size:" + transformed.size())
@@ -391,14 +396,14 @@ MagicMirror.validator = function(ui, persister) {
 
     function get(urlString) {
         var theUrl = [NSURL URLWithString:urlString]
-        
+
         // define the request
         var theRequest = NSMutableURLRequest.requestWithURL_cachePolicy_timeoutInterval(theUrl, NSURLRequestReloadIgnoringLocalCacheData, 60);
         theRequest.setHTTPMethod_("GET");
-        
+
         // get response data
         var theResponse = null, error = null, theResponseData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:theResponse error:error];
-        
+
         return {
             "url":theUrl,
             "response": theResponse,
@@ -424,7 +429,7 @@ MagicMirror.validator = function(ui, persister) {
 
         var modal = ui.alert("Magic Mirror - Licensed", desc, "OK", "Cancel", "Deregister...")
         if (modal == NSAlertDefaultReturn ) {
-            
+
         } else if (modal == NSAlertAlternateReturn) {
         } else {
             persister.setLicensedTo(null)
@@ -435,7 +440,7 @@ MagicMirror.validator = function(ui, persister) {
 
         var defaultValue = ""
         var placeholderValue = "e.g. 59J79294TW1881135"
-        var title = "Magic Mirror - Free" 
+        var title = "Magic Mirror - Free"
         var message = "\"Magic Mirror - Free\" is free for personal use, advanced features and a more permissive commercial license can be obtained through purchasing.\n\nEnter your Paypal Transaction ID to activate your license, please click the \"Purchase…\" button to visit the website for more info."
         var defaultButton = "Enter"
         var alternateButton = "Purchase…"
@@ -500,7 +505,7 @@ MagicMirror.validator = function(ui, persister) {
         persister.setLastValidation(date)
     }
 
-    function sinceLastValidation() {    
+    function sinceLastValidation() {
         var past = lastValidation() || NSDate.distantPast()
         var seconds = now().timeIntervalSinceDate(past)
         return seconds
@@ -601,7 +606,7 @@ MagicMirror.locker = function(actioner, validator, persister, ui) {
 }
 
 MagicMirror.resource = function(context) {
-    
+
     var plugin = context.plugin
     var imageFromURL = function(url) {
         var image = [[NSImage alloc] initWithContentsOfURL:url];
