@@ -1243,6 +1243,10 @@
 		1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC5B1C18671B00B7922D /* Quad.m */; };
 		1ACD528B1C28559700020EC2 /* MMContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52891C28559700020EC2 /* MMContainerViewController.h */; };
 		1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD528A1C28559700020EC2 /* MMContainerViewController.m */; };
+		1ACD52901C2857F400020EC2 /* MMNoSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD528D1C2857F400020EC2 /* MMNoSelectionViewController.h */; };
+		1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */; };
+		1ACD52961C28581800020EC2 /* MMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52931C28581800020EC2 /* MMViewController.h */; };
+		1ACD52971C28581800020EC2 /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD52941C28581800020EC2 /* MMViewController.m */; };
 		1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DB41C201CAD00198A87 /* MathTests.m */; };
 		1ADA7DBB1C202F5000198A87 /* NSBezierPath+Alter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */; };
 		1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */; };
@@ -2541,6 +2545,10 @@
 		1AB4BC5B1C18671B00B7922D /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
 		1ACD52891C28559700020EC2 /* MMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContainerViewController.h; sourceTree = "<group>"; };
 		1ACD528A1C28559700020EC2 /* MMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContainerViewController.m; sourceTree = "<group>"; };
+		1ACD528D1C2857F400020EC2 /* MMNoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNoSelectionViewController.h; sourceTree = "<group>"; };
+		1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNoSelectionViewController.m; sourceTree = "<group>"; };
+		1ACD52931C28581800020EC2 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
+		1ACD52941C28581800020EC2 /* MMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMViewController.m; sourceTree = "<group>"; };
 		1ADA7DB41C201CAD00198A87 /* MathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathTests.m; sourceTree = "<group>"; };
 		1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+Alter.h"; sourceTree = "<group>"; };
 		1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+Alter.m"; sourceTree = "<group>"; };
@@ -2667,6 +2675,10 @@
 				1ACD528A1C28559700020EC2 /* MMContainerViewController.m */,
 				1A562CCA1C1A9C1B00FE3981 /* MMConfigureViewController.h */,
 				1A562CCB1C1A9C1B00FE3981 /* MMConfigureViewController.m */,
+				1ACD528D1C2857F400020EC2 /* MMNoSelectionViewController.h */,
+				1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */,
+				1ACD52931C28581800020EC2 /* MMViewController.h */,
+				1ACD52941C28581800020EC2 /* MMViewController.m */,
 				1AB4BC521C182FA200B7922D /* Images.xcassets */,
 				1AB4BC561C18643200B7922D /* NSImage+Transform.h */,
 				1AB4BC571C18643200B7922D /* NSImage+Transform.m */,
@@ -4776,6 +4788,7 @@
 				1AB4BB2A1C16E68400B7922D /* MSToolbar.h in Headers */,
 				1AB4B9611C16E68400B7922D /* MSExportInspectorViewController.h in Headers */,
 				1AB4BB291C16E68400B7922D /* MSToggleRulersAction.h in Headers */,
+				1ACD52961C28581800020EC2 /* MMViewController.h in Headers */,
 				1AB4BB2E1C16E68400B7922D /* MSTransformAction.h in Headers */,
 				1AB4B98A1C16E68400B7922D /* MSGradientView.h in Headers */,
 				1AB4BB531C16E68400B7922D /* MSZoomAction.h in Headers */,
@@ -5053,6 +5066,7 @@
 				1AB4B79A1C16E68400B7922D /* _MSExportOptions.h in Headers */,
 				1AB4BA501C16E68400B7922D /* MSOverlayTile.h in Headers */,
 				1AB4BA001C16E68400B7922D /* MSLayer.h in Headers */,
+				1ACD52901C2857F400020EC2 /* MMNoSelectionViewController.h in Headers */,
 				1AB4B99B1C16E68400B7922D /* MSImageTransformEventHandler.h in Headers */,
 				1AB4B9441C16E68400B7922D /* MSDisplayMessageTextFieldCell.h in Headers */,
 				1AB4B81D1C16E68400B7922D /* AFPropertyListResponseSerializer.h in Headers */,
@@ -5278,6 +5292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
+				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
+				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,

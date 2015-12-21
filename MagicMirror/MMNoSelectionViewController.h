@@ -1,5 +1,5 @@
 //
-//  MMContainerViewController.h
+//  MMNoSelectionViewController.h
 //  MagicMirror2
 //
 //  Created by James Tang on 21/12/2015.
@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "MMViewController.h"
 
-@interface MMContainerViewController : MMViewController
+@interface MMNoSelectionViewController : MMViewController
 
 @end

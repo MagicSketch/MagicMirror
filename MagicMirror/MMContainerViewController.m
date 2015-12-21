@@ -7,13 +7,24 @@
 //
 
 #import "MMContainerViewController.h"
+#import "MMConfigureViewController.h"
+#import "MMNoSelectionViewController.h"
 
 @interface MMContainerViewController ()
-
+@property (nonatomic, strong) MMConfigureViewController *configureVC;
+@property (nonatomic, strong) MMNoSelectionViewController *noSelectionVC;
 @end
 
 @implementation MMContainerViewController
 @synthesize magicmirror = _magicmirror;
+
+- (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"SI_ConfigureVC"]) {
+        self.configureVC = segue.destinationController;
+    } else if ([segue.identifier isEqualToString:@"SI_NoSelectionVC"]) {
+        self.noSelectionVC = segue.destinationController;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,12 +32,13 @@
 }
 
 - (void)reloadData {
-    [[self childViewControllers] enumerateObjectsUsingBlock:^(__kindof NSViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj conformsToProtocol:@protocol(MMController)]) {
-            id <MMController> controller = (id <MMController>)obj;
-            controller.magicmirror = self.magicmirror;
-        }
-    }];
+    [super reloadData];
+
+    BOOL showConfigureVC = ! [[self.magicmirror selectedLayers] count] > 0;
+    BOOL showNoSelectionVC = ! [[self.magicmirror selectedLayers] count] == 0;
+
+    self.configureVC.view.hidden = showConfigureVC;
+    self.noSelectionVC.view.hidden = showNoSelectionVC;
 }
 
 @end

@@ -33,7 +33,6 @@
 @end
 
 @implementation MMConfigureViewController
-@synthesize magicmirror = _magicmirror;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,22 +51,14 @@
 //    [self reloadData];
 }
 
-- (void)setMagicmirror:(MagicMirror *)magicmirror {
-    if (_magicmirror != magicmirror) {
-        _magicmirror = magicmirror;
-        [self reloadData];
-    }
-}
-
-
 - (void)reloadArtboardCombobox {
-    NSDictionary *lookup = [_magicmirror artboardsLookup];
+    NSDictionary *lookup = [self.magicmirror artboardsLookup];
     MMValuesStack *stack = [[MMValuesStack alloc] init];
 
-    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
-        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
+        MMLayerProperties *properties = [self.magicmirror layerPropertiesForLayer:obj];
         NSString *artboardName = [properties source];
         if (lookup[artboardName]) {
             [stack addObject:artboardName];
@@ -99,10 +90,10 @@
 - (void)reloadImageQualityCombobox {
     MMValuesStack *stack = [[MMValuesStack alloc] init];
 
-    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
-        MMLayerProperties *properties = [_magicmirror layerPropertiesForLayer:obj];
+        MMLayerProperties *properties = [self.magicmirror layerPropertiesForLayer:obj];
         NSNumber *imageQuality = [properties imageQuality];
         if (imageQuality) {
             [stack addObject:imageQuality];
@@ -145,7 +136,7 @@
 - (void)apply {
     self.artboard = self.artboardsComboBox.cell.title;
     self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
-    [_magicmirror applySource:self.artboard imageQuality:self.imageQuality];
+    [self.magicmirror applySource:self.artboard imageQuality:self.imageQuality];
 }
 
 - (IBAction)applyButtonDidPress:(id)sender {
@@ -154,7 +145,7 @@
 
 - (IBAction)clearButtonDidPress:(id)sender {
     __weak typeof (self) weakSelf = self;
-    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf.magicmirror clearPropertiesForLayer:obj];
     }];
     [self reloadData];
@@ -173,12 +164,12 @@
 
 - (IBAction)flipButtonDidPress:(id)sender {
     MMLog(@"flipButtonDidPress");
-    [_magicmirror flipSelection];
+    [self.magicmirror flipSelection];
 }
 
 - (IBAction)rotateButtonDidPress:(id)sender {
     MMLog(@"rotateButtonDidPress");
-    [_magicmirror rotateSelection];
+    [self.magicmirror rotateSelection];
 }
 
 @end
@@ -187,16 +178,16 @@
 @implementation MMConfigureViewController (NSComboBoxDataSource)
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
-    return [_magicmirror.artboards count];
+    return [self.magicmirror.artboards count];
 }
 
 - (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index {
-    return [_magicmirror.artboards[index] name];
+    return [self.magicmirror.artboards[index] name];
 }
 
 
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
-    return [_magicmirror.artboards indexOfObject:string];
+    return [self.magicmirror.artboards indexOfObject:string];
 }
 
 @end

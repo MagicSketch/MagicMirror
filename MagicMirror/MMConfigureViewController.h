@@ -7,8 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MMController.h"
+#import "MMViewController.h"
 
-@interface MMConfigureViewController : NSViewController <MMController>
+@interface MMConfigureViewController : MMViewController
 
 @end

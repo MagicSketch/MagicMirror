@@ -158,7 +158,14 @@ Gw
                                 <rect key="frame" x="0.0" y="0.0" width="268" height="205"/>
                                 <animations/>
                                 <connections>
-                                    <segue destination="RaX-pZ-8Z0" kind="embed" id="Xr9-o7-CXn"/>
+                                    <segue destination="RaX-pZ-8Z0" kind="embed" identifier="SI_ConfigureVC" id="Xr9-o7-CXn"/>
+                                </connections>
+                            </containerView>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="205"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="Fih-lY-VSH" kind="embed" identifier="SI_NoSelectionVC" id="WXJ-Qm-2tW"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -168,6 +175,31 @@ Gw
                 <customObject id="N50-ZY-gpG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="807" y="-50.5"/>
+        </scene>
+        <!--Magic Mirror-->
+        <scene sceneID="GGa-8z-g3a">
+            <objects>
+                <customObject id="MzG-Cd-7Zl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Magic Mirror" id="Fih-lY-VSH" customClass="MMNoSelectionViewController" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="Ny1-SR-VnY">
+                        <rect key="frame" x="0.0" y="0.0" width="268" height="206"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">
+                                <rect key="frame" x="35" y="78" width="199" height="51"/>
+                                <animations/>
+                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="Please select one or more layers to get started with Magic Mirror" id="Fsv-27-Tsd">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1196" y="296"/>
         </scene>
     </scenes>
     <resources>
