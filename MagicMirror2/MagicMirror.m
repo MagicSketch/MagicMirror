@@ -30,7 +30,7 @@
 #import "NSBezierPath-Clockwise.h"
 #import "NSBezierPath+Alter.h"
 #import "MSCurvePoint.h"
-#import "Math.h"
+#import "MMMath.h"
 
 @interface MagicMirror ()
 

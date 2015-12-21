@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MagicMirror.h"
-#import "Math.h"
+#import "MMMath.h"
 
 @interface MathTests : XCTestCase
 

@@ -6,9 +6,9 @@
 //  Copyright © 2015 James Tang. All rights reserved.
 //
 
-#import "Math.h"
+#import "MMMath.h"
 
-@implementation Math
+@implementation MMMath
 
 CGFloat CGSizeAspectFillRatio(CGSize from, CGSize to) {
     return MAX(to.width / from.width, to.height / from.height);

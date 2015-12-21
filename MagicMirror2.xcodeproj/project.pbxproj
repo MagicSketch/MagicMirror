@@ -20,8 +20,8 @@
 		1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */; };
 		1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */; };
 		1A562CED1C1B2E4D00FE3981 /* MagicMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
-		1A753A161C24081B00DE2EC1 /* Math.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* Math.h */; };
-		1A753A171C24081B00DE2EC1 /* Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A753A151C24081B00DE2EC1 /* Math.m */; };
+		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
+		1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A753A151C24081B00DE2EC1 /* MMMath.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
 		1AB4A9441C15A5E100B7922D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9431C15A5E100B7922D /* main.m */; };
 		1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9461C15A5E100B7922D /* ViewController.m */; };
@@ -1311,8 +1311,8 @@
 		1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMValuesStack.h; sourceTree = "<group>"; };
 		1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStack.m; sourceTree = "<group>"; };
 		1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStackTests.m; sourceTree = "<group>"; };
-		1A753A141C24081B00DE2EC1 /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
-		1A753A151C24081B00DE2EC1 /* Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Math.m; sourceTree = "<group>"; };
+		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
+		1A753A151C24081B00DE2EC1 /* MMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMath.m; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1AB4A9371C15A55200B7922D /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagicMirror.m; path = MagicMirror2/MagicMirror.m; sourceTree = SOURCE_ROOT; };
@@ -2672,8 +2672,8 @@
 				1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */,
 				1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */,
 				1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */,
-				1A753A141C24081B00DE2EC1 /* Math.h */,
-				1A753A151C24081B00DE2EC1 /* Math.m */,
+				1A753A141C24081B00DE2EC1 /* MMMath.h */,
+				1A753A151C24081B00DE2EC1 /* MMMath.m */,
 			);
 			path = MagicMirror;
 			sourceTree = "<group>";
@@ -4002,7 +4002,7 @@
 				1AB4BB091C16E68400B7922D /* MSSwitchModeButtonCell.h in Headers */,
 				1AB4B9F51C16E68400B7922D /* MSIOSConnectAction.h in Headers */,
 				1AB4BADC1C16E68400B7922D /* MSSnapperData.h in Headers */,
-				1A753A161C24081B00DE2EC1 /* Math.h in Headers */,
+				1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */,
 				1AB4B8001C16E68400B7922D /* _SVGFill.h in Headers */,
 				1AB4B99A1C16E68400B7922D /* MSImageProxy.h in Headers */,
 				1AB4BAFA1C16E68400B7922D /* MSStyleFillRenderer.h in Headers */,
@@ -5275,7 +5275,7 @@
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
-				1A753A171C24081B00DE2EC1 /* Math.m in Sources */,
+				1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */,
 				1A562CCD1C1A9C1B00FE3981 /* MMConfigureViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */,
@@ -5448,6 +5448,7 @@
 		1AB4A9651C15A7C200B7922D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -5461,6 +5462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamztang.MagicMirror;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -5469,6 +5471,7 @@
 		1AB4A9661C15A7C200B7922D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

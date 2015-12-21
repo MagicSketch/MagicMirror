@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import CoreGraphics;
 
-@interface Math : NSObject
+@interface MMMath : NSObject
 
 CGFloat CGSizeAspectFillRatio(CGSize from, CGSize to);
 

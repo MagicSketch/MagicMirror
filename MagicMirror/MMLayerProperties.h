@@ -12,8 +12,11 @@
 
 @property (nonatomic, copy, readonly) NSNumber *imageQuality;
 @property (nonatomic, copy, readonly) NSString *source;
+//@property (nonatomic, copy, readonly) NSString *version;
 
 + (instancetype)propertiesWithImageQuality:(NSNumber *)imageQuality
                                     source:(NSString *)source;
+
+- (void)clear;
 
 @end

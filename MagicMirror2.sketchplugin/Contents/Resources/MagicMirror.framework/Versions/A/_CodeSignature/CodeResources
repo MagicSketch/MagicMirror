@@ -10,19 +10,19 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		7pm56CyiJb/oWeDxYv+QD/5BRqc=
+		ttndq6Gm0QtbnxbYOs7Xml1j8FE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		HXrL7YsV/JJVRpkhzyV27yl9ThY=
+		ZQ30ezZevSKzwky++ZlLBlwhXOI=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		SWpx6HjIwd6YNgFJCptFZQd/B2M=
+		pQeSUmeAOQ2+3EGAlfeByahIveU=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		KXZt5l1pgFTIzWRDXRrqMyBQK90=
+		wlyRAguZv54T6DH5Ogfqk32Wlxs=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -3403,6 +3403,10 @@
 		<data>
 		vJpzALBBcaXC+p1N99KvUrVKQ20=
 		</data>
+		<key>Headers/MagicMirror-Swift.h</key>
+		<data>
+		WD8wJy8UMVJzEhtFzo28USwikYw=
+		</data>
 		<key>Headers/MagicMirror.h</key>
 		<data>
 		lFQj3G+bxRi1BAiaO84e3daf8HA=
@@ -4847,9 +4851,17 @@
 		<data>
 		N95J2mTF0cyWgoEtGXthO5mJLCg=
 		</data>
+		<key>Modules/MagicMirror.swiftmodule/x86_64.swiftdoc</key>
+		<data>
+		gDhOGyCwUd+GssbE/j1Eo74Y08Q=
+		</data>
+		<key>Modules/MagicMirror.swiftmodule/x86_64.swiftmodule</key>
+		<data>
+		5V1kf4GKKtnxTwd7AJnrhyGnTvA=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		tE3bx2gvf2D7hBrsJ9s0fl4dtWU=
+		k/ChK4CJbpoSWqrQwJCIwb/pdGA=
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
@@ -4857,19 +4869,19 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		7pm56CyiJb/oWeDxYv+QD/5BRqc=
+		ttndq6Gm0QtbnxbYOs7Xml1j8FE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		HXrL7YsV/JJVRpkhzyV27yl9ThY=
+		ZQ30ezZevSKzwky++ZlLBlwhXOI=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		SWpx6HjIwd6YNgFJCptFZQd/B2M=
+		pQeSUmeAOQ2+3EGAlfeByahIveU=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		KXZt5l1pgFTIzWRDXRrqMyBQK90=
+		wlyRAguZv54T6DH5Ogfqk32Wlxs=
 		</data>
 	</dict>
 	<key>rules</key>
