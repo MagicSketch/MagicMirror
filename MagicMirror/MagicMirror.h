@@ -36,6 +36,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)keepAround;
 - (void)goAway;
 
+- (void)applySource:(NSString *)source imageQuality:(NSNumber *)imageQuality;
 - (void)mirrorPage;
 - (void)rotateSelection;
 - (void)flipSelection;
@@ -58,5 +59,6 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
+- (void)clearPropertiesForLayer:(id <MSShapeGroup>)layer;
 
 @end

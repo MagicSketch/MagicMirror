@@ -13,17 +13,24 @@
 
 @property (nonatomic, copy) NSNumber *imageQuality;
 @property (nonatomic, copy) NSString *source;
+@property (nonatomic, copy) NSString *version;
 
 @end
 
 @implementation MMLayerProperties
 
-+ (instancetype)propertiesWithImageQuality:(NSNumber *)imageQuality
-                                    source:(NSString *)source {
++ (instancetype)propertiesWithImageQuality:(NSNumber *)imageQuality source:(NSString *)source version:(NSString *)version {
     MMLayerProperties *properties = [[self alloc] init];
     properties.imageQuality = imageQuality;
     properties.source = source;
+    properties.version = version;
     return properties;
+}
+
+- (void)clear {
+    MMLayerProperties *properties = self;
+    properties.imageQuality = nil;
+    properties.source = nil;
 }
 
 @end

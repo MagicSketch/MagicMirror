@@ -36,6 +36,7 @@
 
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) SketchPluginContext *context;
+@property (nonatomic, copy) NSString *version;
 
 @property (nonatomic) NSUInteger imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
@@ -57,6 +58,7 @@
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
         _perspective = YES;
         _layerChangeObservers = [NSMutableArray array];
+        _version = @"2.0";
 
         __weak __typeof (self) weakSelf = self;
         [_context setSelectionChangeHandler:^(NSArray *layers) {
@@ -179,6 +181,35 @@
     NSLog(@"licenseInfo");
 }
 
+#pragma mark Apply
+
+- (void)applySource:(NSString *)source imageQuality:(NSNumber *)imageQuality {
+
+    __weak typeof (self) weakSelf = self;
+    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+
+        MMLayerProperties *original = [weakSelf layerPropertiesForLayer:obj];
+        NSString *selectedName = source ?: original.source;
+
+        NSInteger index = [imageQuality integerValue];
+
+        NSNumber *imageQuality = @0;
+        if (index <= 3) {
+            imageQuality = @(MAX(0, index));
+        } else {
+            imageQuality = original.imageQuality;
+        }
+
+        MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
+                                                                               source:selectedName
+                                                                              version:_version
+                                         ];
+        [weakSelf setProperties:properties forLayer:obj];
+    }];
+
+    [self mirrorPage];
+}
+
 #pragma mark Mirror Page
 
 - (void)mirrorLayer:(id <MSShapeGroup>)obj
@@ -206,15 +237,24 @@
         renderer.bezierPath = [obj bezierPathInBounds];
         NSImage *image = renderer.exportedImage;
 
-        MSStyleFill *fill = [obj.style.fills firstObject];
-        if ( ! fill) {
-            fill = [obj.style.fills addNewStylePart];
-        }
-        [fill setFillType:4];
-        [fill setPatternFillType:1];
-        [fill setIsEnabled:true];
-        [fill setPatternImage:image];
+        [self fillLayer:obj withImage:image];
     }
+}
+
+- (void)fillLayer:(id <MSShapeGroup>)layer withImage:(NSImage *)image {
+    MSStyleFill *fill = [layer.style.fills firstObject];
+    if ( ! fill) {
+        fill = [layer.style.fills addNewStylePart];
+    }
+    [fill setFillType:4];
+    [fill setPatternFillType:1];
+    [fill setIsEnabled:true];
+    [fill setPatternImage:image];
+}
+
+- (void)disableFillLayer:(id <MSShapeGroup>)layer {
+    MSStyleFill *fill = [layer.style.fills firstObject];
+    [fill setIsEnabled:NO];
 }
 
 - (void)mirrorPage {
@@ -335,6 +375,22 @@
 
 @implementation MagicMirror (MSShapeGroup)
 
+- (void)clearPropertiesForLayer:(id <MSShapeGroup>)layer {
+
+    MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
+    if (properties.source) {
+        NSDictionary *artboardLookup = [_context artboardsLookup];
+        if (artboardLookup[properties.source]) {
+            [layer setName:[[layer name] stringByAppendingString:@"_detached"]];
+            [self disableFillLayer:layer];
+        }
+    }
+
+    [self setValue:nil forKey:@"source" onLayer:layer];
+    [self setValue:nil forKey:@"imageQuality" onLayer:layer];
+    [self setValue:nil forKey:@"version" onLayer:layer];
+}
+
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer {
     NSString *name = properties.source;
     [layer setName:name];
@@ -346,12 +402,15 @@
 
 - (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
     NSString *source = [self valueForKey:@"source" onLayer:layer];
-    if ( ! source || [source length] == 0) {
+    NSString *version = [self valueForKey:@"version" onLayer:layer];
+    if ([version hasPrefix:@"2"] && ( ! source || [source length] == 0)) {
         source = [layer name];
     }
     NSNumber *imageQuality = [self valueForKey:@"imageQuality" onLayer:layer];
     MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
-                                                                           source:source];
+                                                                           source:source
+                                                                          version:version
+                                     ];
     return properties;
 }
 

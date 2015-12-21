@@ -23,7 +23,7 @@
 @property (weak) IBOutlet NSButton *applyButton;
 @property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
 
-@property (copy) NSString *imageQuality;
+@property (copy) NSNumber *imageQuality;
 @property (copy) NSString *artboard;
 
 @end
@@ -143,29 +143,9 @@
 #pragma mark IBAction
 
 - (void)apply {
-
-    __weak typeof (self) weakSelf = self;
-    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        MMLayerProperties *original = [weakSelf.magicmirror layerPropertiesForLayer:obj];
-        NSString *selectedName = weakSelf.artboardsComboBox.cell.title ?: original.source;
-        
-        NSInteger index = [weakSelf.imageQualityComboBox indexOfSelectedItem];
-        
-        NSNumber *imageQuality = @0;
-        if (index < [weakSelf.imageQualityComboBox numberOfItems]) {
-            imageQuality = @(MAX(0, index));
-        } else {
-            imageQuality = original.imageQuality;
-        }
-        
-        
-        MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
-                                                                               source:selectedName];
-        [weakSelf.magicmirror setProperties:properties forLayer:obj];
-    }];
-    
-    [_magicmirror mirrorPage];
+    self.artboard = self.artboardsComboBox.cell.title;
+    self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
+    [_magicmirror applySource:self.artboard imageQuality:self.imageQuality];
 }
 
 - (IBAction)applyButtonDidPress:(id)sender {
@@ -173,7 +153,11 @@
 }
 
 - (IBAction)clearButtonDidPress:(id)sender {
-
+    __weak typeof (self) weakSelf = self;
+    [_magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf.magicmirror clearPropertiesForLayer:obj];
+    }];
+    [self reloadData];
 }
 
 - (IBAction)actionSegmentValueDidChange:(NSSegmentedControl *)sender {
