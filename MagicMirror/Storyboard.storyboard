@@ -16,12 +16,12 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
                     </window>
                     <connections>
-                        <segue destination="RaX-pZ-8Z0" kind="relationship" relationship="window.shadowedContentViewController" id="rip-XP-xRT"/>
+                        <segue destination="WOo-pE-LaA" kind="relationship" relationship="window.shadowedContentViewController" id="Qy6-PD-68a"/>
                     </connections>
                 </windowController>
                 <customObject id="EOu-we-haB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="-52"/>
+            <point key="canvasLocation" x="465" y="-36"/>
         </scene>
         <!--Configure View Controller-->
         <scene sceneID="nPM-rP-61C">
@@ -144,7 +144,30 @@ Gw
                 </viewController>
                 <customObject id="Atn-QA-ad6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="-49"/>
+            <point key="canvasLocation" x="1196" y="-51"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="VD2-Gt-Sd8">
+            <objects>
+                <viewController id="WOo-pE-LaA" customClass="MMContainerViewController" sceneMemberID="viewController">
+                    <view key="view" id="Hby-ZY-LiR">
+                        <rect key="frame" x="0.0" y="0.0" width="268" height="205"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="205"/>
+                                <animations/>
+                                <connections>
+                                    <segue destination="RaX-pZ-8Z0" kind="embed" id="Xr9-o7-CXn"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                    </view>
+                </viewController>
+                <customObject id="N50-ZY-gpG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="-50.5"/>
         </scene>
     </scenes>
     <resources>
