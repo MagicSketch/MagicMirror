@@ -41,7 +41,7 @@
                                 </textFieldCell>
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c">
-                                <rect key="frame" x="20" y="137" width="197" height="26"/>
+                                <rect key="frame" x="20" y="137" width="166" height="26"/>
                                 <animations/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select an Artboard" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="10" id="zuB-ln-mUU">
                                     <font key="font" metaFont="system"/>
@@ -79,7 +79,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-E0-RUN">
                                 <rect key="frame" x="216" y="134" width="38" height="32"/>
                                 <animations/>
-                                <buttonCell key="cell" type="push" title="x" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FUE-cq-M3v">
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="detach" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FUE-cq-M3v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -130,6 +130,17 @@ Gw
                                     <action selector="actionSegmentValueDidChange:" target="RaX-pZ-8Z0" id="gwZ-fb-fyc"/>
                                 </connections>
                             </segmentedControl>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN6-lX-eDR">
+                                <rect key="frame" x="185" y="134" width="38" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" image="jump" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3uJ-OU-CwM">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="jumpButtonDidPress:" target="RaX-pZ-8Z0" id="8zN-UB-PdO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                     </view>
@@ -140,6 +151,7 @@ Gw
                         <outlet property="cancelButton" destination="Vq3-oC-bmi" id="v1U-vV-iTV"/>
                         <outlet property="clearButton" destination="hyQ-E0-RUN" id="b73-9m-aBq"/>
                         <outlet property="imageQualityComboBox" destination="7TY-pF-xB4" id="tZp-I9-qcN"/>
+                        <outlet property="jumpButton" destination="TN6-lX-eDR" id="yfr-zV-U2m"/>
                     </connections>
                 </viewController>
                 <customObject id="Atn-QA-ad6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -203,7 +215,9 @@ Gw
         </scene>
     </scenes>
     <resources>
+        <image name="detach" width="21" height="20"/>
         <image name="flip" width="21" height="20"/>
+        <image name="jump" width="21" height="20"/>
         <image name="rotate" width="21" height="20"/>
     </resources>
 </document>

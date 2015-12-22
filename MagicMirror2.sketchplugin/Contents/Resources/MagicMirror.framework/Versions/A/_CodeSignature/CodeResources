@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		k1Ijt5wkoCXMU1AiUKcTT3obl0s=
+		ZgjI84acjcaNAAP/GS22G68+ug8=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
@@ -18,27 +18,27 @@
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		Y9ElgJtHBt4/rdAOYdDbHTu/RiQ=
+		BIhrxgvfqradOMvxaf4t1McxGrA=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
 		<data>
-		q/7mbWp9mFl7zDsMfabeMxinZWc=
+		M8Vz6ZplGMZ6qi5eg3zuPM40Bz8=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
 		<data>
-		xrCfM7n1nKhKLwpKGE/DoAUVgmY=
+		UEpsox/LiZzC5sPsG0/pBcWrIyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		XckX7h7obqLOj4Tnr5xDr8nuOSw=
+		lamdVdjCec6NCdZZJi5BjVyEhJ0=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		gEgTvur5SBv1vdfKYtFoTCFR83A=
+		WtH0QkSvLuLDwQIklFr0YEMagrY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
 		<data>
-		QgnuOyLij6l3xu2FOd4lHLmjG9I=
+		SdFXe3UCFtUg6zhQ29vGQvyVoQ0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -885,7 +885,7 @@
 		</data>
 		<key>Headers/MSArtboardGroup.h</key>
 		<data>
-		8pjMETurCWq2sevcOkPJFPeS7FQ=
+		JrCBVrhiiOZZL00Rzl4XIhqW46Y=
 		</data>
 		<key>Headers/MSArtboardGroupRenderer.h</key>
 		<data>
@@ -1001,7 +1001,7 @@
 		</data>
 		<key>Headers/MSBaseView.h</key>
 		<data>
-		VwTEC0A8VN9KUR4GQnSmQR3v5gY=
+		LQ5zDtjinEi58KHTeMY1kKwExOs=
 		</data>
 		<key>Headers/MSBaseViewDelegate.h</key>
 		<data>
@@ -3421,7 +3421,7 @@
 		</data>
 		<key>Headers/MagicMirror.h</key>
 		<data>
-		OUzcA/SPLTDu5xTy2ZNlmPaoFr4=
+		KatAd8ajPbottoRaB1Bvp97GG5o=
 		</data>
 		<key>Headers/NSAffineTransform-CHAffineTransform_Additions.h</key>
 		<data>
@@ -4869,7 +4869,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		k1Ijt5wkoCXMU1AiUKcTT3obl0s=
+		ZgjI84acjcaNAAP/GS22G68+ug8=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
@@ -4881,27 +4881,27 @@
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		Y9ElgJtHBt4/rdAOYdDbHTu/RiQ=
+		BIhrxgvfqradOMvxaf4t1McxGrA=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
 		<data>
-		q/7mbWp9mFl7zDsMfabeMxinZWc=
+		M8Vz6ZplGMZ6qi5eg3zuPM40Bz8=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
 		<data>
-		xrCfM7n1nKhKLwpKGE/DoAUVgmY=
+		UEpsox/LiZzC5sPsG0/pBcWrIyc=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		XckX7h7obqLOj4Tnr5xDr8nuOSw=
+		lamdVdjCec6NCdZZJi5BjVyEhJ0=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		gEgTvur5SBv1vdfKYtFoTCFR83A=
+		WtH0QkSvLuLDwQIklFr0YEMagrY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
 		<data>
-		QgnuOyLij6l3xu2FOd4lHLmjG9I=
+		SdFXe3UCFtUg6zhQ29vGQvyVoQ0=
 		</data>
 	</dict>
 	<key>rules</key>

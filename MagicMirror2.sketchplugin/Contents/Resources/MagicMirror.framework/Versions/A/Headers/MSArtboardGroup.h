@@ -50,6 +50,7 @@
 - (id)parentForInsertingLayers;
 - (id)parentRoot;
 - (id)parentRootForAbsoluteRect;
+- (id)parentPage;
 - (id)previewImages;
 - (void)removeFromParent;
 - (Class)rendererClass;

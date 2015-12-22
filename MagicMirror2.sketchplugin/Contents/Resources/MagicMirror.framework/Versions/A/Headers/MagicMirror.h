@@ -40,6 +40,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)mirrorPage;
 - (void)rotateSelection;
 - (void)flipSelection;
+- (void)jumpToArtboard:(NSString *)artboardName;
 
 - (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;
@@ -56,6 +57,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 
 @interface MagicMirror (MSShapeGroup)
+- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
 
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;

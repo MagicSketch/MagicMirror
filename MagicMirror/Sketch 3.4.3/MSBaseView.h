@@ -4,19 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSView.h"
-
 @class MSEventHandlerManager;
 
 @interface MSBaseView : NSView
-{
-    id <MSBaseViewDelegate> _delegate;
-    MSEventHandlerManager *_eventHandlerManager;
-}
 
 
 - (void)dealloc;
-@property(nonatomic) __weak id <MSBaseViewDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)didUndoNotification:(id)arg1;
 @property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 - (id)initWithCoder:(id)arg1;

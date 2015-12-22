@@ -31,6 +31,7 @@
 #import "NSBezierPath+Alter.h"
 #import "MSCurvePoint.h"
 #import "MMMath.h"
+#import "MSContentDrawView.h"
 
 @interface MagicMirror ()
 
@@ -357,6 +358,17 @@
     }];
 }
 
+#pragma mark Jump
+
+- (void)jumpToArtboard:(NSString *)artboardName {
+    id <MSArtboardGroup> artboard = _context.artboardsLookup[artboardName];
+
+    if ( artboard) {
+        [_context.document setCurrentPage:artboard.parentPage];
+        [[(MSContentDrawView *)_context.document currentView] zoomToFitRect:NSInsetRect(artboard.rect, -50, -50)];
+    }
+}
+
 @end
 
 
@@ -374,6 +386,11 @@
 
 
 @implementation MagicMirror (MSShapeGroup)
+
+- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer {
+    MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
+    return properties.source;
+}
 
 - (void)clearPropertiesForLayer:(id <MSShapeGroup>)layer {
 

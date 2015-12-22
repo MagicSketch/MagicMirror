@@ -18,6 +18,7 @@
 
 @property (weak) IBOutlet NSComboBox *artboardsComboBox;
 @property (weak) IBOutlet NSComboBox *imageQualityComboBox;
+@property (weak) IBOutlet NSButton *jumpButton;
 @property (weak) IBOutlet NSButton *cancelButton;
 @property (weak) IBOutlet NSButton *clearButton;
 @property (weak) IBOutlet NSButton *applyButton;
@@ -149,6 +150,13 @@
         [weakSelf.magicmirror clearPropertiesForLayer:obj];
     }];
     [self reloadData];
+}
+
+- (IBAction)jumpButtonDidPress:(id)sender {
+    id <MSShapeGroup> layer = [self.magicmirror.selectedLayers firstObject];
+
+    NSString *source = [self.magicmirror sourceForLayer:layer];
+    [self.magicmirror jumpToArtboard:source];
 }
 
 - (IBAction)actionSegmentValueDidChange:(NSSegmentedControl *)sender {
