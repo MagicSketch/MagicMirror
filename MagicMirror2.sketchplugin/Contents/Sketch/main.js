@@ -82,3 +82,8 @@ var flipSelection = function(context) {
 	var magicmirror = initialize(context);
 	[magicmirror flipSelection];
 }
+
+var jumpSelection = function(context) {
+	var magicmirror = initialize(context);
+	[magicmirror jumpSelection];
+}

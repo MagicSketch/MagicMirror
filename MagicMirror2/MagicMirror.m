@@ -148,7 +148,8 @@
 //        BOOL isMoveOperation = (! CGPointEqualToPoint(oldRect.origin, newRect.origin)) && CGSizeEqualToSize(oldRect.size, newRect.size);
 //
 //        if ( ! isMoveOperation) {
-            NSDictionary *artboardLookup = [_context artboardsLookup];
+
+        NSDictionary *artboardLookup = [_context artboardsLookup];
             ImageRenderer *renderer = [[ImageRenderer alloc] init];
 
             [self mirrorLayer:object
@@ -360,14 +361,21 @@
 
 #pragma mark Jump
 
+- (void)jumpSelection {
+    id <MSShapeGroup> layer = [[_context selectedLayers] firstObject];
+    NSString *source = [self sourceForLayer:layer];
+    [self jumpToArtboard:source];
+}
+
 - (void)jumpToArtboard:(NSString *)artboardName {
     id <MSArtboardGroup> artboard = _context.artboardsLookup[artboardName];
 
-    if ( artboard) {
+    if (artboard) {
         [_context.document setCurrentPage:artboard.parentPage];
         [[(MSContentDrawView *)_context.document currentView] zoomToFitRect:NSInsetRect(artboard.rect, -50, -50)];
     }
 }
+
 
 @end
 

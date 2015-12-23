@@ -26,7 +26,6 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @class MMLayerProperties;
 @class SketchPluginContext;
 
-
 @interface MagicMirror : NSObject
 
 - (id)initWithContext:(SketchPluginContext *)context;
@@ -40,6 +39,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)mirrorPage;
 - (void)rotateSelection;
 - (void)flipSelection;
+- (void)jumpSelection;
 - (void)jumpToArtboard:(NSString *)artboardName;
 
 - (NSArray *)artboards;

@@ -45,6 +45,13 @@
 			"script" : "main.js",
 			"handler" : "flipSelection",
 	    },
+	    {
+			"name" : "5. Jump to Artboard",
+			"identifier" : "jump selection",
+			"shortcut" : "control shift command j",
+			"script" : "main.js",
+			"handler" : "jumpSelection",
+	    },
 	],
 
 	"menu": {
@@ -58,6 +65,7 @@
 			"configure selection",
 			"rotate selection",
 			"flip selection",
+			"jump selection",
 		]
 	}
 }
