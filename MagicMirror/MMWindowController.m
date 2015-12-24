@@ -32,7 +32,8 @@
     [super windowDidLoad];
     MMLog(@"MMWindowController did loaded");
     self.window.delegate = self;
-    self.window.level = NSTornOffMenuWindowLevel;
+    self.window.level = NSMainMenuWindowLevel;
+    self.window.hidesOnDeactivate = YES;
     [self.delegate controllerDidShow:self];
     [self configureMagicMirror];
     self.window.movableByWindowBackground = YES;
