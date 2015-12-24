@@ -413,7 +413,7 @@
 
     [self setValue:nil forKey:@"source" onLayer:layer];
     [self setValue:nil forKey:@"imageQuality" onLayer:layer];
-    [self setValue:nil forKey:@"version" onLayer:layer];
+    [self setValue:_version forKey:@"version" onLayer:layer];
 }
 
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer {

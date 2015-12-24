@@ -31,6 +31,7 @@
         if ([obj conformsToProtocol:@protocol(MMController)]) {
             id <MMController> controller = (id <MMController>)obj;
             controller.magicmirror = self.magicmirror;
+            [controller reloadData];
         }
     }];
 }
