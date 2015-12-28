@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "MMViewController.h"
 
-@interface MMConfigureViewController : MMViewController
+@interface MMToolbarViewController : MMViewController
 
 @end

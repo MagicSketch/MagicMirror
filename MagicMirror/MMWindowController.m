@@ -7,7 +7,7 @@
 //
 
 #import "MMWindowController.h"
-#import "MMConfigureViewController.h"
+#import "MMToolbarViewController.h"
 #import "MagicMirror.h"
 
 @interface MMWindowController ()

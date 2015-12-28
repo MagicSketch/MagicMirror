@@ -12,8 +12,14 @@
 
 @interface MMViewController : NSViewController <MMController>
 
+
 @property (readwrite) MagicMirror *magicmirror;
 
 - (void)reloadData; // subclass should call super
+
+
+
+@property (nonatomic) BOOL shouldObserveCombobox;
+- (void)comboBoxValueDidChange:(NSComboBox *)sender;    // Override this when shouldObserveCombobox is set to YES
 
 @end

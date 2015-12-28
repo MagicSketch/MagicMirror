@@ -22,7 +22,7 @@
 #import "NSImage+Transform.h"
 #import "MSShapePath.h"
 #import "ImageRenderer.h"
-#import "MMConfigureViewController.h"
+#import "MMToolbarViewController.h"
 #import "MMLayerProperties.h"
 #import "MSArray.h"
 #import "MSShapePathLayer.h"

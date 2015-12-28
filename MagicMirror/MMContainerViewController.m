@@ -7,11 +7,11 @@
 //
 
 #import "MMContainerViewController.h"
-#import "MMConfigureViewController.h"
+#import "MMToolbarViewController.h"
 #import "MMNoSelectionViewController.h"
 
 @interface MMContainerViewController ()
-@property (nonatomic, strong) MMConfigureViewController *configureVC;
+@property (nonatomic, strong) MMToolbarViewController *configureVC;
 @property (nonatomic, strong) MMNoSelectionViewController *noSelectionVC;
 @end
 

@@ -6,7 +6,7 @@
 //  Copyright © 2015 James Tang. All rights reserved.
 //
 
-#import "MMConfigureViewController.h"
+#import "MMToolbarViewController.h"
 #import "MSShapeGroup.h"
 #import "MagicMirror.h"
 #import "MSArtboardGroup.h"
@@ -14,7 +14,7 @@
 #import "MMValuesStack.h"
 
 
-@interface MMConfigureViewController ()
+@interface MMToolbarViewController ()
 
 @property (weak) IBOutlet NSComboBox *artboardsComboBox;
 @property (weak) IBOutlet NSComboBox *imageQualityComboBox;
@@ -29,27 +29,15 @@
 
 @end
 
-@interface MMConfigureViewController (DataSource) <NSComboBoxDataSource>
+@interface MMToolbarViewController (DataSource) <NSComboBoxDataSource>
 
 @end
 
-@implementation MMConfigureViewController
+@implementation MMToolbarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    __weak __typeof (self) weakSelf = self;
-
-    [[NSNotificationCenter defaultCenter] addObserverForName:NSComboBoxSelectionDidChangeNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-
-                                                           dispatch_async(dispatch_get_main_queue(), ^{
-                                                               [weakSelf apply];
-                                                           });
-                                                       }];
-    // Do view setup here.
-//    [self reloadData];
+    self.shouldObserveCombobox = YES;
 }
 
 - (void)reloadArtboardCombobox {
@@ -132,12 +120,16 @@
     [self reloadImageQualityCombobox];
 }
 
-#pragma mark IBAction
-
 - (void)apply {
     self.artboard = self.artboardsComboBox.cell.title;
     self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
     [self.magicmirror applySource:self.artboard imageQuality:self.imageQuality];
+}
+
+#pragma mark IBAction
+
+- (void)comboBoxValueDidChange:(NSComboBox *)sender {
+    [self apply];
 }
 
 - (IBAction)applyButtonDidPress:(id)sender {
@@ -183,7 +175,7 @@
 @end
 
 
-@implementation MMConfigureViewController (NSComboBoxDataSource)
+@implementation MMToolbarViewController (NSComboBoxDataSource)
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
     return [self.magicmirror.artboards count];

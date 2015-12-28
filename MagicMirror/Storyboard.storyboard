@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="261" y="-85"/>
         </scene>
-        <!--Configure View Controller-->
+        <!--Toolbar View Controller-->
         <scene sceneID="nPM-rP-61C">
             <objects>
-                <viewController id="RaX-pZ-8Z0" customClass="MMConfigureViewController" sceneMemberID="viewController">
+                <viewController id="RaX-pZ-8Z0" customClass="MMToolbarViewController" sceneMemberID="viewController">
                     <view key="view" id="5PW-b4-rNt">
                         <rect key="frame" x="0.0" y="0.0" width="425" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
