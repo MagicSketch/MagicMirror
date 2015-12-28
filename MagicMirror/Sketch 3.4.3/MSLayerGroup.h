@@ -146,7 +146,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) NSString *sharedObjectID;
 @property(readonly) Class superclass;
 

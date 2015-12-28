@@ -9,13 +9,6 @@
 @class MSDocumentData;
 
 @interface MSModelBase : MSModelObject
-{
-    id _cachedImmutableModelObject;
-    BOOL _isLightweightCopy;
-    MSModelBase *_parentObject;
-    MSModelObject *_lightweightCopy;
-    MSDocumentData *_documentData;
-}
 
 
 - (void)breakConnectionWith:(id)arg1;

@@ -38,11 +38,13 @@
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
+@property (nonatomic, strong) ImageRenderer *imageRenderer;
 
-@property (nonatomic) NSUInteger imageQuality;
+//@property (nonatomic, copy) NSNumber *imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) BOOL perspective;
 @property (nonatomic, copy) NSMutableArray *layerChangeObservers;
+@property (nonatomic, copy) NSDictionary *artboardsLookup;
 
 @end
 
@@ -55,7 +57,6 @@
 - (id)initWithContext:(SketchPluginContext *)context {
     if (self = [super init]) {
         _context = context;
-        _imageQuality = 2;
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
         _perspective = YES;
         _layerChangeObservers = [NSMutableArray array];
@@ -65,13 +66,11 @@
         [_context setSelectionChangeHandler:^(NSArray *layers) {
             [weakSelf layerSelectionDidChange:layers];
         }];
+
+        _imageRenderer = [[ImageRenderer alloc] init];
         return self;
     }
     return nil;
-}
-
-- (void)log {
-    MMLog(@"logged something");
 }
 
 - (void)showWindow {
@@ -140,107 +139,15 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"rect"]) {
-
-//        NSRect oldRect = [change[NSKeyValueChangeOldKey] rectValue];
-//        NSRect newRect = [change[NSKeyValueChangeNewKey] rectValue];
-//        MMLog(@"rect did change %@", NSStringFromRect(newRect));
-//
-//        BOOL isMoveOperation = (! CGPointEqualToPoint(oldRect.origin, newRect.origin)) && CGSizeEqualToSize(oldRect.size, newRect.size);
-//
-//        if ( ! isMoveOperation) {
-
-        NSDictionary *artboardLookup = [_context artboardsLookup];
-            ImageRenderer *renderer = [[ImageRenderer alloc] init];
-
-            [self mirrorLayer:object
-                        index:0
-                     renderer:renderer
-               artboardLookup:artboardLookup];
-//        }
+        [self refreshLayer:object];
     }
 }
 
-#pragma mark -
+#pragma - Fill
 
-- (void)configureSelection {
-    MMLog(@"configureSelection");
-    [self showWindow];
-}
-
-- (NSArray *)artboards {
-    return [_context artboards];
-}
-
-- (NSDictionary *)artboardsLookup {
-    return [_context artboardsLookup];
-}
-
-- (NSArray *)selectedLayers {
-    return [_context selectedLayers];
-}
-
-- (void)licenseInfo {
-    NSLog(@"licenseInfo");
-}
-
-#pragma mark Apply
-
-- (void)applySource:(NSString *)source imageQuality:(NSNumber *)imageQuality {
-
-    __weak typeof (self) weakSelf = self;
-    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-
-        MMLayerProperties *original = [weakSelf layerPropertiesForLayer:obj];
-        NSString *selectedName = source ?: original.source;
-
-        NSInteger index = [imageQuality integerValue];
-
-        NSNumber *imageQuality = @0;
-        if (index <= 3) {
-            imageQuality = @(MAX(0, index));
-        } else {
-            imageQuality = original.imageQuality;
-        }
-
-        MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
-                                                                               source:selectedName
-                                                                              version:_version
-                                         ];
-        [weakSelf setProperties:properties forLayer:obj];
-    }];
-
-    [self mirrorPage];
-}
-
-#pragma mark Mirror Page
-
-- (void)mirrorLayer:(id <MSShapeGroup>)obj
-              index:(NSUInteger)idx
-           renderer:(ImageRenderer *)renderer
-     artboardLookup:(NSDictionary *)artboardLookup {
-
-    MMLayerProperties *properties = [self layerPropertiesForLayer:obj];
-    CGFloat scale = [properties.imageQuality floatValue] ?: 2;
-
-    NSString *name = properties.source;
-
-    MMLog(@"%lul: %@, %@, %fl", (unsigned long)idx, obj, name, scale);
-
-    id <MSArtboardGroup> artboard = artboardLookup[name];
-    if (artboard) {
-        renderer.layer = artboard;
-
-        if (scale == 3) {
-            scale = CGSizeAspectFillRatio(artboard.rect.size, obj.rect.size) * 3;
-        }
-        renderer.scale = scale;
-        renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
-        renderer.disablePerspective = ! _perspective;
-        renderer.bezierPath = [obj bezierPathInBounds];
-        NSImage *image = renderer.exportedImage;
-
-        [self fillLayer:obj withImage:image];
-    }
+- (void)disableFillLayer:(id <MSShapeGroup>)layer {
+    MSStyleFill *fill = [layer.style.fills firstObject];
+    [fill setIsEnabled:NO];
 }
 
 - (void)fillLayer:(id <MSShapeGroup>)layer withImage:(NSImage *)image {
@@ -254,65 +161,24 @@
     [fill setPatternImage:image];
 }
 
-- (void)disableFillLayer:(id <MSShapeGroup>)layer {
-    MSStyleFill *fill = [layer.style.fills firstObject];
-    [fill setIsEnabled:NO];
+#pragma - Per Layer
+
+- (void)clearLayer:(id <MSShapeGroup>)layer {
+    MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
+    if (properties.source) {
+        NSDictionary *artboardLookup = [_context artboardsLookup];
+        if (artboardLookup[properties.source]) {
+            [layer setName:[[layer name] stringByAppendingString:@"_detached"]];
+            [self disableFillLayer:layer];
+        }
+    }
+
+    [self setValue:nil forKey:@"source" onLayer:layer];
+    [self setValue:nil forKey:@"imageQuality" onLayer:layer];
+    [self setValue:_version forKey:@"version" onLayer:layer];
 }
 
-- (void)mirrorPage {
-    MMLog(@"mirrorPage");
-    [self mirrorPageScale:2 colorSpace:3 perspective:YES];
-}
-
-- (void)mirrorPageScale:(NSUInteger)scale
-             colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
-            perspective:(BOOL)perspective {
-
-    MMLog(@"mirrorPageScale:%lu colorSpace:%u", (unsigned long)scale, colorSpaceIdentifier);
-
-    NSDictionary *artboardLookup = [_context artboardsLookup];
-
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-
-    __weak __typeof (self) weakSelf = self;
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf mirrorLayer:obj
-                        index:idx
-                     renderer:renderer
-               artboardLookup:artboardLookup];
-    }];
-}
-
-#pragma mark Rotate
-
-- (void)rotatePoints:(id <MSShapeGroup>)layer {
-    MSArray *array = [layer layers];
-    MSShapePathLayer *shape = [array firstObject];
-    id <MSShapePath> path = [shape path];
-    id point = [path lastPoint];
-    [path removeLastPoint];
-    [path insertPoint:point atIndex:0];
-}
-
-- (void)rotateSelection {
-    MMLog(@"rotateSelection");
-
-    NSDictionary *artboardLookup = [_context artboardsLookup];
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-
-    __weak __typeof (self) weakSelf = self;
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf rotatePoints:obj];
-        [weakSelf mirrorLayer:obj
-                        index:idx
-                     renderer:renderer
-               artboardLookup:artboardLookup];
-    }];
-}
-
-#pragma mark Flip Selection
-
-- (void)flipPoints:(id <MSShapeGroup>)layer {
+- (void)flipLayer:(id <MSShapeGroup>)layer {
     MSArray *array = [layer layers];
     MSShapePathLayer *shape = [array firstObject];
     NSBezierPath *bezierPath = [layer bezierPathInBounds];
@@ -329,9 +195,9 @@
     id <MSShapePath> newPath = [NSClassFromString(@"MSShapePath") pathWithBezierPath:fixedDirection inRect:rect];
     MMLog(@"newPath before close: %llu", [newPath numberOfPoints]);
 
-//    if ([bezierPath isClosed] && [newPath numberOfPoints] > 4) {
-//        [newPath removeLastPoint];
-//    }
+    //    if ([bezierPath isClosed] && [newPath numberOfPoints] > 4) {
+    //        [newPath removeLastPoint];
+    //    }
     [newPath setIsClosed:[bezierPath isClosed]];
 
     MMLog(@"newPath before: %llu", [newPath numberOfPoints]);
@@ -343,29 +209,62 @@
     //[shape closeLastPath:[bezierPath isClosed]];
 }
 
-- (void)flipSelection {
-    MMLog(@"flipSelection");
-
-    NSDictionary *artboardLookup = [_context artboardsLookup];
-    ImageRenderer *renderer = [[ImageRenderer alloc] init];
-
-    __weak __typeof (self) weakSelf = self;
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf flipPoints:obj];
-        [weakSelf mirrorLayer:obj
-                        index:idx
-                     renderer:renderer
-               artboardLookup:artboardLookup];
-    }];
+- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard scale:(CGFloat)scale {
+    ImageRenderer *renderer = _imageRenderer;
+    if (artboard) {
+        renderer.layer = artboard;
+        renderer.scale = scale;
+        renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
+        renderer.disablePerspective = ! _perspective;
+        renderer.bezierPath = [layer bezierPathInBounds];
+        NSImage *image = renderer.exportedImage;
+        [self fillLayer:layer withImage:image];
+    }
 }
 
-#pragma mark Jump
-
-- (void)jumpSelection {
-    id <MSShapeGroup> layer = [[_context selectedLayers] firstObject];
-    NSString *source = [self sourceForLayer:layer];
-    [self jumpToArtboard:source];
+- (void)refreshLayer:(id<MSShapeGroup>)layer {
+    MMLayerProperties *original = [self layerPropertiesForLayer:layer];
+    NSString *selectedName = original.source;
+    id <MSArtboardGroup> artboard = [self artboardsLookup][selectedName];
+    if ( ! selectedName) {
+        [self clearLayer:layer];
+    } else {
+        NSInteger index = [original.imageQuality integerValue];
+        CGFloat scale = 1;
+        if (index < 3) {
+            scale = MAX(1, index);
+        } else {
+            scale = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size) * 3;
+        }
+        [self mirrorLayer:layer fromArtboard:artboard scale:scale];
+    }
+    [self setVersion:_version];
 }
+
+- (void)rotateLayer:(id <MSShapeGroup>)layer {
+    MSArray *array = [layer layers];
+    MSShapePathLayer *shape = [array firstObject];
+    id <MSShapePath> path = [shape path];
+    id point = [path lastPoint];
+    [path removeLastPoint];
+    [path insertPoint:point atIndex:0];
+}
+
+- (void)setArtboard:(id<MSArtboardGroup>)artboard forLayer:(id<MSShapeGroup>)layer {
+    if (artboard != nil) {
+        [self setValue:[artboard name] forKey:@"source" onLayer:layer];
+    }
+    [self refreshLayer:layer];
+}
+
+- (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer {
+    if (imageQuality != nil) {
+        [self setValue:imageQuality forKey:@"imageQuality" onLayer:layer];
+    }
+    [self refreshLayer:layer];
+}
+
+#pragma - Other
 
 - (void)jumpToArtboard:(NSString *)artboardName {
     id <MSArtboardGroup> artboard = _context.artboardsLookup[artboardName];
@@ -376,6 +275,97 @@
     }
 }
 
+#pragma mark -
+
+- (void)configureSelection {
+    MMLog(@"configureSelection");
+    [self showWindow];
+}
+
+- (NSArray *)artboards {
+    return [_context artboards];
+}
+
+- (NSDictionary *)artboardsLookup {
+    if ( ! _artboardsLookup) {
+        _artboardsLookup = [_context artboardsLookup];
+    }
+    return _artboardsLookup;
+}
+
+- (NSArray *)selectedLayers {
+    return [_context selectedLayers];
+}
+
+- (void)licenseInfo {
+    NSLog(@"licenseInfo");
+}
+
+#pragma mark Apply
+
+- (void)setArtboard:(id<MSArtboardGroup>)artboard {
+    __weak typeof (self) weakSelf = self;
+    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf setArtboard:artboard forLayer:obj];
+        [obj setName:[artboard name]];
+    }];
+}
+
+- (void)setImageQuality:(NSNumber *)imageQuality {
+    __weak typeof (self) weakSelf = self;
+    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf setImageQuality:imageQuality forLayer:obj];
+    }];
+}
+
+- (void)setClear {
+    __weak typeof (self) weakSelf = self;
+    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MMLayerProperties *properties = [weakSelf layerPropertiesForLayer:obj];
+        if (properties.source) {
+            [weakSelf clearLayer:obj];
+        }
+    }];
+}
+
+// Entry Points
+
+- (void)mirrorPage {
+    MMLog(@"mirrorPage");
+    _artboardsLookup = nil;
+
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf refreshLayer:obj];
+    }];
+}
+
+- (void)rotateSelection {
+    MMLog(@"rotateSelection");
+    _artboardsLookup = nil;
+
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf rotateLayer:obj];
+        [weakSelf refreshLayer:obj];
+    }];
+}
+
+- (void)flipSelection {
+    MMLog(@"flipSelection");
+
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf flipLayer:obj];
+        [weakSelf refreshLayer:obj];
+    }];
+}
+
+- (void)jumpSelection {
+    id <MSShapeGroup> layer = [[_context selectedLayers] firstObject];
+    NSString *source = [self sourceForLayer:layer];
+    [self jumpToArtboard:source];
+}
 
 @end
 
@@ -398,22 +388,6 @@
 - (NSString *)sourceForLayer:(id <MSShapeGroup>)layer {
     MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
     return properties.source;
-}
-
-- (void)clearPropertiesForLayer:(id <MSShapeGroup>)layer {
-
-    MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
-    if (properties.source) {
-        NSDictionary *artboardLookup = [_context artboardsLookup];
-        if (artboardLookup[properties.source]) {
-            [layer setName:[[layer name] stringByAppendingString:@"_detached"]];
-            [self disableFillLayer:layer];
-        }
-    }
-
-    [self setValue:nil forKey:@"source" onLayer:layer];
-    [self setValue:nil forKey:@"imageQuality" onLayer:layer];
-    [self setValue:_version forKey:@"version" onLayer:layer];
 }
 
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer {

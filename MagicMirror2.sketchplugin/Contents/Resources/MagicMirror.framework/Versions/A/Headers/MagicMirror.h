@@ -30,37 +30,45 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 - (id)initWithContext:(SketchPluginContext *)context;
 
-- (void)log;
 - (void)showWindow;
 - (void)keepAround;
 - (void)goAway;
 
-- (void)applySource:(NSString *)source imageQuality:(NSNumber *)imageQuality;
+// Per Layer
+//- (void)refreshLayer:(id <MSShapeGroup>)layer;
+//- (void)clearLayer:(id <MSShapeGroup>)layer;
+//- (void)setArtboard:(id <MSArtboardGroup>)artboard forLayer:(id <MSShapeGroup>)layer;
+//- (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer;
+//- (void)flipLayer:(id <MSShapeGroup>)layer;
+//- (void)rotateLayer:(id <MSShapeGroup>)layer;
+
+// Others
+//- (void)jumpToArtboard:(NSString *)artboardName;
+
+// All Selection
+- (void)setArtboard:(id <MSArtboardGroup>)artboard;
+- (void)setImageQuality:(NSNumber *)imageQuality;
+- (void)setClear;
+
+// Entry Points
+- (void)licenseInfo;
 - (void)mirrorPage;
 - (void)rotateSelection;
 - (void)flipSelection;
 - (void)jumpSelection;
-- (void)jumpToArtboard:(NSString *)artboardName;
+- (void)configureSelection;
 
-- (NSArray *)artboards;
+//- (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
-- (void)licenseInfo;
-
-- (void)mirrorPageScale:(NSUInteger)scale
-             colorSpace:(ImageRendererColorSpaceIdentifier)colorSpaceIdentifier
-            perspective:(BOOL)perspective;
-
-- (void)configureSelection;
 
 @end
 
 
 @interface MagicMirror (MSShapeGroup)
-- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
 
+- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
-- (void)clearPropertiesForLayer:(id <MSShapeGroup>)layer;
 
 @end

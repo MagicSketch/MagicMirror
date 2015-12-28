@@ -70,7 +70,6 @@
 @property(readonly, copy) NSString *description;
 @property(copy, nonatomic) MSSimpleGrid *grid;
 @property(nonatomic) BOOL hasBackgroundColor;
-@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) MSRulerData *horizontalRulerData;
 @property(copy, nonatomic) MSLayoutGrid *layout;
 @property(readonly) Class superclass;

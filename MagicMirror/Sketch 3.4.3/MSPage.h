@@ -110,12 +110,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(copy, nonatomic) MSSimpleGrid *grid;
-@property(readonly) unsigned long long hash;
-@property(copy, nonatomic) MSRulerData *horizontalRulerData;
-@property(copy, nonatomic) MSLayoutGrid *layout;
-@property(readonly) Class superclass;
-@property(copy, nonatomic) MSRulerData *verticalRulerData;
 
 @end
 

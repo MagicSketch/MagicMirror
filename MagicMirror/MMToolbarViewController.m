@@ -12,7 +12,7 @@
 #import "MSArtboardGroup.h"
 #import "MMLayerProperties.h"
 #import "MMValuesStack.h"
-
+#import "MMArtboardComboboxItem.h"
 
 @interface MMToolbarViewController ()
 
@@ -25,7 +25,8 @@
 @property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
 
 @property (copy) NSNumber *imageQuality;
-@property (copy) NSString *artboard;
+@property (copy) id <MSArtboardGroup> artboard;
+@property (copy) NSArray <MMArtboardComboboxItem *> *artboardItems;
 
 @end
 
@@ -44,6 +45,13 @@
     NSDictionary *lookup = [self.magicmirror artboardsLookup];
     MMValuesStack *stack = [[MMValuesStack alloc] init];
 
+    NSMutableArray *artboardItems = [NSMutableArray array];
+    [artboardItems addObject:[MMArtboardComboboxItem nullItem]];
+
+    [lookup enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        [artboardItems addObject:[MMArtboardComboboxItem itemWithArtboard:obj]];
+    }];
+
     [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
@@ -52,6 +60,7 @@
         if (lookup[artboardName]) {
             [stack addObject:artboardName];
         }
+
     }];
 
     NSComboBox *combobox = self.artboardsComboBox;
@@ -73,6 +82,8 @@
             [cell setPlaceholderString:@"multiple values"];
             break;
     }
+
+    self.artboardItems = [artboardItems copy];
     [combobox reloadData];
 }
 
@@ -120,35 +131,38 @@
     [self reloadImageQualityCombobox];
 }
 
-- (void)apply {
-    self.artboard = self.artboardsComboBox.cell.title;
-    self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
-    [self.magicmirror applySource:self.artboard imageQuality:self.imageQuality];
-}
 
 #pragma mark IBAction
 
 - (void)comboBoxValueDidChange:(NSComboBox *)sender {
-    [self apply];
-}
-
-- (IBAction)applyButtonDidPress:(id)sender {
-    [self apply];
+    if (sender == self.artboardsComboBox) {
+        NSInteger index = [self.artboardsComboBox indexOfSelectedItem];
+        if (index >= 0 && index < [self.artboardItems count]) {
+            MMArtboardComboboxItem *item = self.artboardItems[index];
+            self.artboard = item.artboard;
+        } else {
+            self.artboard = nil;
+        }
+        if (self.artboard) {
+            [self.magicmirror setArtboard:self.artboard];
+        } else {
+            [self.magicmirror setClear];
+        }
+        [self reloadData];
+    } else if (sender == self.imageQualityComboBox) {
+        self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
+        [self.magicmirror setImageQuality:self.imageQuality];
+    }
 }
 
 - (IBAction)clearButtonDidPress:(id)sender {
-    __weak typeof (self) weakSelf = self;
-    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf.magicmirror clearPropertiesForLayer:obj];
-    }];
+    [self.magicmirror setClear];
     [self reloadData];
 }
 
 - (IBAction)jumpButtonDidPress:(id)sender {
-    id <MSShapeGroup> layer = [self.magicmirror.selectedLayers firstObject];
-
-    NSString *source = [self.magicmirror sourceForLayer:layer];
-    [self.magicmirror jumpToArtboard:source];
+    [self.magicmirror jumpSelection];
+    [self reloadData];
 }
 
 - (IBAction)actionSegmentValueDidChange:(NSSegmentedControl *)sender {
@@ -178,16 +192,16 @@
 @implementation MMToolbarViewController (NSComboBoxDataSource)
 
 - (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox {
-    return [self.magicmirror.artboards count];
+    return [self.artboardItems count];
 }
 
 - (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index {
-    return [self.magicmirror.artboards[index] name];
+    return [self.artboardItems[index] title];
 }
 
 
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
-    return [self.magicmirror.artboards indexOfObject:string];
+    return [[self.artboardItems valueForKey:@"title"] indexOfObject:string];
 }
 
 @end
