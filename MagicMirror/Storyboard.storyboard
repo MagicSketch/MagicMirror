@@ -77,7 +77,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="clearButtonDidPress:" target="RaX-pZ-8Z0" id="DjV-A7-5HX"/>
+                                    <action selector="closeButtonDidPress:" target="RaX-pZ-8Z0" id="YnJ-zs-szz"/>
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
@@ -100,7 +100,7 @@
                     <connections>
                         <outlet property="actionSegmentedControl" destination="aeK-wW-8tI" id="3aN-Jp-eLp"/>
                         <outlet property="artboardsComboBox" destination="oQr-Yh-b7c" id="l6a-nb-zY2"/>
-                        <outlet property="clearButton" destination="hyQ-E0-RUN" id="b73-9m-aBq"/>
+                        <outlet property="closeButton" destination="hyQ-E0-RUN" id="6KY-sQ-ANr"/>
                         <outlet property="imageQualityComboBox" destination="7TY-pF-xB4" id="tZp-I9-qcN"/>
                         <outlet property="jumpButton" destination="TN6-lX-eDR" id="yfr-zV-U2m"/>
                     </connections>
@@ -156,7 +156,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="clearButtonDidPress:" target="RaX-pZ-8Z0" id="xvC-8F-LOG"/>
+                                    <action selector="closeButtonDidPress:" target="Fih-lY-VSH" id="cs6-ZN-b76"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">
@@ -171,6 +171,9 @@
                         </subviews>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="518-Fp-r8A" id="W5g-wp-hVg"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1347.5" y="-1"/>

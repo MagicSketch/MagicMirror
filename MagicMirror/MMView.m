@@ -24,4 +24,8 @@
     self.acceptsTouchEvents = YES;
 }
 
+
+- (IBAction)closeButtonDidPress:(id)sender {
+    //    [self close];
+}
 @end

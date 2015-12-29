@@ -72,4 +72,8 @@
     }
 }
 
+- (void)close {
+    [super close];
+}
+
 @end

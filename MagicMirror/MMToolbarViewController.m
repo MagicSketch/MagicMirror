@@ -19,8 +19,7 @@
 @property (weak) IBOutlet NSComboBox *artboardsComboBox;
 @property (weak) IBOutlet NSComboBox *imageQualityComboBox;
 @property (weak) IBOutlet NSButton *jumpButton;
-@property (weak) IBOutlet NSButton *cancelButton;
-@property (weak) IBOutlet NSButton *clearButton;
+@property (weak) IBOutlet NSButton *closeButton;
 @property (weak) IBOutlet NSButton *applyButton;
 @property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
 
@@ -131,6 +130,9 @@
     [self reloadImageQualityCombobox];
 }
 
+- (NSResponder *)nextResponder {
+    return self.parentViewController;
+}
 
 #pragma mark IBAction
 
@@ -158,6 +160,10 @@
 - (IBAction)clearButtonDidPress:(id)sender {
     [self.magicmirror setClear];
     [self reloadData];
+}
+
+- (IBAction)closeButtonDidPress:(id)sender {
+    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
 }
 
 - (IBAction)jumpButtonDidPress:(id)sender {
@@ -198,7 +204,6 @@
 - (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index {
     return [self.artboardItems[index] title];
 }
-
 
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
     return [[self.artboardItems valueForKey:@"title"] indexOfObject:string];

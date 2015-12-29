@@ -9,6 +9,7 @@
 #import "MMNoSelectionViewController.h"
 
 @interface MMNoSelectionViewController ()
+@property (weak) IBOutlet NSButton *closeButton;
 
 @end
 
@@ -17,6 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    [self becomeFirstResponder];
+}
+
+- (IBAction)closeButtonDidPress:(id)sender {
+    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
+}
+
+- (NSResponder *)nextResponder {
+    return self.parentViewController;
 }
 
 @end
