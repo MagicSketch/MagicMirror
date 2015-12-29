@@ -47,7 +47,7 @@
 
 - (void)dealloc {
     MMLog(@"MMWindowController: dealloc");
-    [_magicmirror goAway];
+//    [_magicmirror goAway];
 }
 
 - (void)configureMagicMirror {
