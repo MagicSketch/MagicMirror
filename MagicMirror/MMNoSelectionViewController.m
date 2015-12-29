@@ -21,12 +21,4 @@
     [self becomeFirstResponder];
 }
 
-- (IBAction)closeButtonDidPress:(id)sender {
-    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
-}
-
-- (NSResponder *)nextResponder {
-    return self.parentViewController;
-}
-
 @end

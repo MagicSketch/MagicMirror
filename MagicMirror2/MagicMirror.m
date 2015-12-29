@@ -85,8 +85,11 @@
 - (void)showLicenseInfo {
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateControllerWithIdentifier:@"LicenseWindow"];
-    _controller.magicmirror = self;
-    _controller.delegate = self;
+
+    if ([_controller conformsToProtocol:@protocol(MMController)]) {
+        _controller.magicmirror = self;
+        _controller.delegate = self;
+    }
     [_controller showWindow:self];
     [self reloadData];
 }
@@ -116,7 +119,11 @@
 }
 
 - (void)reloadData {
-    [_controller reloadData];
+
+    if ([_controller conformsToProtocol:@protocol(MMController)]) {
+ 
+       [ _controller reloadData];
+    }
 
     [self unobserveSelection];
     [self observeSelection];

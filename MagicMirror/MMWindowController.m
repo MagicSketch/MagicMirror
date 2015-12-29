@@ -25,7 +25,6 @@
 - (void)showWindow:(nullable id)sender {
     [_magicmirror keepAround];
     [super showWindow:sender];
-//    [NSApp runModalForWindow: self.window];
 }
 
 - (void)windowDidLoad {
@@ -46,7 +45,6 @@
 
 - (void)dealloc {
     MMLog(@"MMWindowController: dealloc");
-//    [_magicmirror goAway];
 }
 
 - (void)configureMagicMirror {
@@ -69,10 +67,6 @@
         id <MMController> controller = (id <MMController>)self.contentViewController;
         [controller reloadData];
     }
-}
-
-- (void)close {
-    [super close];
 }
 
 @end

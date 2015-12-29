@@ -46,6 +46,21 @@
     }];
 }
 
+#pragma - Close
+
+- (IBAction)closeButtonDidPress:(id)sender {
+    [self close];
+}
+
+- (void)close {
+//    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
+    [self.view.window.windowController close];
+}
+
+//- (NSResponder *)nextResponder {
+//    return self.parentViewController;
+//}
+
 #pragma - ComboBox
 
 - (void)setShouldObserveCombobox:(BOOL)shouldObserveCombobox {

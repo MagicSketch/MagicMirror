@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="383" y="396"/>
         </scene>
-        <!--View Controller-->
+        <!--License View Controller-->
         <scene sceneID="0DI-tb-yFQ">
             <objects>
-                <viewController id="oCf-fs-HOp" sceneMemberID="viewController">
+                <viewController id="oCf-fs-HOp" customClass="MMLicenseViewController" sceneMemberID="viewController">
                     <view key="view" id="1Z2-Il-6sc">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="235"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -169,6 +169,9 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="oCf-fs-HOp" id="0b4-T8-zcH"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Pc-Iz-Kim">
                                 <rect key="frame" x="98" y="13" width="129" height="32"/>
@@ -177,6 +180,9 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="purchaseButtonDidPress:" target="oCf-fs-HOp" id="Awx-2w-Zlk"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og1-z6-Ies">
                                 <rect key="frame" x="340" y="13" width="88" height="32"/>
@@ -185,6 +191,9 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="enterButtonDidPress:" target="oCf-fs-HOp" id="6Z6-GE-mE1"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Is7-PK-K0a">
                                 <rect key="frame" x="252" y="13" width="88" height="32"/>
@@ -193,10 +202,19 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="laterButtonDidPress:" target="oCf-fs-HOp" id="EW6-jE-3VX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="enterButton" destination="og1-z6-Ies" id="u40-Yp-wFj"/>
+                        <outlet property="laterButton" destination="Is7-PK-K0a" id="tt4-xb-M02"/>
+                        <outlet property="licenseTextField" destination="whf-qR-P7b" id="u3C-Mu-yiJ"/>
+                        <outlet property="purchaseButton" destination="7Pc-Iz-Kim" id="hcd-SC-avh"/>
+                    </connections>
                 </viewController>
                 <customObject id="4Ut-0X-qW8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

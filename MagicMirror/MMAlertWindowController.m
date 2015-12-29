@@ -12,12 +12,17 @@
 @implementation MMAlertWindowController
 
 - (void)showWindow:(nullable id)sender {
-    [self.magicmirror keepAround];
+    [super showWindow:sender];
     [NSApp runModalForWindow: self.window];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
     [super windowWillClose:notification];
+    [NSApp stopModal];
+}
+
+- (void)close {
+    [super close];
     [NSApp stopModal];
 }
 

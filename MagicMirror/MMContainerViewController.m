@@ -41,10 +41,6 @@
     self.noSelectionVC.view.hidden = showNoSelectionVC;
 }
 
-- (void)close {
-    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
-}
-
 - (NSResponder *)nextResponder {
     return self.view.window.windowController;
 }

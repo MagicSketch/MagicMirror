@@ -162,10 +162,6 @@
     [self reloadData];
 }
 
-- (IBAction)closeButtonDidPress:(id)sender {
-    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.nextResponder from:self];
-}
-
 - (IBAction)jumpButtonDidPress:(id)sender {
     [self.magicmirror jumpSelection];
     [self reloadData];

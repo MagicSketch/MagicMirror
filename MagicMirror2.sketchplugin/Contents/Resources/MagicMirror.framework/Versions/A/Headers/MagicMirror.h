@@ -63,6 +63,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 
+
 @end
 
 
@@ -71,5 +72,15 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
+
+@end
+
+#pragma mark -
+
+typedef void(^MMLicenseUnlockHandler)(NSDictionary *result, NSError *error);
+
+@interface MagicMirror (API)
+
+- (void)unlockLicense:(MMLicenseUnlockHandler)completion;
 
 @end

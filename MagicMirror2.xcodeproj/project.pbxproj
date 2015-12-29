@@ -11,6 +11,8 @@
 		1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */; };
 		1A0CBDD01C32925B0078B384 /* MMAlertWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */; };
 		1A0CBDD11C32925B0078B384 /* MMAlertWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDCF1C32925B0078B384 /* MMAlertWindowController.m */; };
+		1A0CBDD41C32949F0078B384 /* MMLicenseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0CBDD21C32949F0078B384 /* MMLicenseViewController.h */; };
+		1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */; };
 		1A0FAFD61C19957300B57F42 /* ImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0FAFD41C19957300B57F42 /* ImageRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* ImageRenderer.m */; };
 		1A21D9D81C2AC60D005A2733 /* MMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9D61C2AC60D005A2733 /* MMWindow.h */; };
@@ -1314,6 +1316,8 @@
 		1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMArtboardComboboxItem.m; sourceTree = "<group>"; };
 		1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAlertWindowController.h; sourceTree = "<group>"; };
 		1A0CBDCF1C32925B0078B384 /* MMAlertWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAlertWindowController.m; sourceTree = "<group>"; };
+		1A0CBDD21C32949F0078B384 /* MMLicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLicenseViewController.h; sourceTree = "<group>"; };
+		1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLicenseViewController.m; sourceTree = "<group>"; };
 		1A0FAFD41C19957300B57F42 /* ImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRenderer.h; sourceTree = "<group>"; };
 		1A0FAFD51C19957300B57F42 /* ImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRenderer.m; sourceTree = "<group>"; };
 		1A21D9D61C2AC60D005A2733 /* MMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindow.h; sourceTree = "<group>"; };
@@ -2643,6 +2647,8 @@
 				1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */,
 				1ACD52931C28581800020EC2 /* MMViewController.h */,
 				1ACD52941C28581800020EC2 /* MMViewController.m */,
+				1A0CBDD21C32949F0078B384 /* MMLicenseViewController.h */,
+				1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -4333,6 +4339,7 @@
 				1AB4B8A01C16E68400B7922D /* ECLogHandlerStdout.h in Headers */,
 				1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */,
 				1AB4BA851C16E68400B7922D /* MSRadialGradientEventHandler.h in Headers */,
+				1A0CBDD41C32949F0078B384 /* MMLicenseViewController.h in Headers */,
 				1AB4B9761C16E68400B7922D /* MSFlattenSelectionAction.h in Headers */,
 				1AB4BC141C16E68400B7922D /* PDFOperatorInfo.h in Headers */,
 				1AB4BC331C16E68400B7922D /* SVGRectangleShape.h in Headers */,
@@ -5359,6 +5366,7 @@
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
+				1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */,
 				1A0CBDD11C32925B0078B384 /* MMAlertWindowController.m in Sources */,
