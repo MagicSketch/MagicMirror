@@ -37,16 +37,4 @@
 
 }
 
-- (void)close {
-//    [super close];
-    MMLog(@"self.view.window.windowController %@", self.view.window.windowController);
-    MMLog(@"self.view.window %@", self.view.window);
-    MMLog(@"self.view %@", self.view);
-
-//    [[NSApplication sharedApplication] sendAction:@selector(close) to:self.view.window.windowController from:self];
-
-    [self.view.window.windowController close];
-
-}
-
 @end
