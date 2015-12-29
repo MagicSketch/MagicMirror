@@ -14,6 +14,7 @@
 @property (weak) IBOutlet NSButton *purchaseButton;
 @property (weak) IBOutlet NSButton *laterButton;
 @property (weak) IBOutlet NSButton *enterButton;
+@property (weak) IBOutlet NSProgressIndicator *loadingIndicator;
 
 @end
 
@@ -34,7 +35,24 @@
 }
 
 - (IBAction)enterButtonDidPress:(id)sender {
+    [self startLoading];
 
+    __weak __typeof (self) weakSelf = self;
+    [self.magicmirror unlockLicense:^(NSDictionary *result, NSError *error) {
+        [weakSelf stopLoading];
+    }];
+}
+
+- (void)startLoading {
+    self.licenseTextField.enabled = NO;
+    self.enterButton.enabled = NO;
+    [self.loadingIndicator startAnimation:nil];
+}
+
+- (void)stopLoading {
+    self.licenseTextField.enabled = YES;
+    self.enterButton.enabled = YES;
+    [self.loadingIndicator stopAnimation:nil];
 }
 
 @end

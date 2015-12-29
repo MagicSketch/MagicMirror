@@ -195,6 +195,10 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                     <action selector="enterButtonDidPress:" target="oCf-fs-HOp" id="6Z6-GE-mE1"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WgR-nj-eou">
+                                <rect key="frame" x="323" y="61" width="16" height="16"/>
+                                <animations/>
+                            </progressIndicator>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Is7-PK-K0a">
                                 <rect key="frame" x="252" y="13" width="88" height="32"/>
                                 <animations/>
@@ -213,6 +217,7 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                         <outlet property="enterButton" destination="og1-z6-Ies" id="u40-Yp-wFj"/>
                         <outlet property="laterButton" destination="Is7-PK-K0a" id="tt4-xb-M02"/>
                         <outlet property="licenseTextField" destination="whf-qR-P7b" id="u3C-Mu-yiJ"/>
+                        <outlet property="loadingIndicator" destination="WgR-nj-eou" id="dmR-CI-d4w"/>
                         <outlet property="purchaseButton" destination="7Pc-Iz-Kim" id="hcd-SC-avh"/>
                     </connections>
                 </viewController>
