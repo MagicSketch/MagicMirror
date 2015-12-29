@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A0CBDC81C3153B10078B384 /* MMArtboardComboboxItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */; };
 		1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */; };
+		1A0CBDD01C32925B0078B384 /* MMAlertWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */; };
+		1A0CBDD11C32925B0078B384 /* MMAlertWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDCF1C32925B0078B384 /* MMAlertWindowController.m */; };
 		1A0FAFD61C19957300B57F42 /* ImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0FAFD41C19957300B57F42 /* ImageRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* ImageRenderer.m */; };
 		1A21D9D81C2AC60D005A2733 /* MMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9D61C2AC60D005A2733 /* MMWindow.h */; };
@@ -1310,6 +1312,8 @@
 /* Begin PBXFileReference section */
 		1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMArtboardComboboxItem.h; sourceTree = "<group>"; };
 		1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMArtboardComboboxItem.m; sourceTree = "<group>"; };
+		1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAlertWindowController.h; sourceTree = "<group>"; };
+		1A0CBDCF1C32925B0078B384 /* MMAlertWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAlertWindowController.m; sourceTree = "<group>"; };
 		1A0FAFD41C19957300B57F42 /* ImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRenderer.h; sourceTree = "<group>"; };
 		1A0FAFD51C19957300B57F42 /* ImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageRenderer.m; sourceTree = "<group>"; };
 		1A21D9D61C2AC60D005A2733 /* MMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindow.h; sourceTree = "<group>"; };
@@ -2629,6 +2633,8 @@
 			children = (
 				1AB4A96F1C15D7B400B7922D /* MMWindowController.h */,
 				1AB4A9701C15D7B400B7922D /* MMWindowController.m */,
+				1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */,
+				1A0CBDCF1C32925B0078B384 /* MMAlertWindowController.m */,
 				1ACD52891C28559700020EC2 /* MMContainerViewController.h */,
 				1ACD528A1C28559700020EC2 /* MMContainerViewController.m */,
 				1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */,
@@ -4429,6 +4435,7 @@
 				1AB4B95D1C16E68400B7922D /* MSEventHandlerManager.h in Headers */,
 				1AB4BBE11C16E68400B7922D /* NSString-NSIntegerString.h in Headers */,
 				1AB4B9351C16E68400B7922D /* MSCurvePointAsymmetricBehaviour.h in Headers */,
+				1A0CBDD01C32925B0078B384 /* MMAlertWindowController.h in Headers */,
 				1AB4BC411C16E68400B7922D /* ZKFileArchive.h in Headers */,
 				1AB4B8D41C16E68400B7922D /* MSAlternatingView.h in Headers */,
 				1AB4B9801C16E68400B7922D /* MSFramerExporter.h in Headers */,
@@ -5354,6 +5361,7 @@
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */,
+				1A0CBDD11C32925B0078B384 /* MMAlertWindowController.m in Sources */,
 				1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */,
 				1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,

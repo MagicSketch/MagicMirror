@@ -82,6 +82,15 @@
     [self reloadData];
 }
 
+- (void)showLicenseInfo {
+    NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
+    _controller = [storyboard instantiateControllerWithIdentifier:@"LicenseWindow"];
+    _controller.magicmirror = self;
+    _controller.delegate = self;
+    [_controller showWindow:self];
+    [self reloadData];
+}
+
 - (void)keepAround {
     _context.shouldKeepAround = YES;
     MMLog(@"keepAround");

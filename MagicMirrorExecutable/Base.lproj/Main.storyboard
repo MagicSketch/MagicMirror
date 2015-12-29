@@ -674,14 +674,25 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G84-pQ-mHe">
-                                <rect key="frame" x="200" y="129" width="81" height="32"/>
+                                <rect key="frame" x="32" y="185" width="86" height="32"/>
                                 <animations/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIT-ll-N3U">
+                                <buttonCell key="cell" type="push" title="Toolbar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIT-ll-N3U">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="buttonDidClick:" target="XfG-lQ-9wD" id="l0T-1Y-LPv"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-TY-PqS">
+                                <rect key="frame" x="32" y="145" width="114" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="License Info" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K3a-Wa-8IW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="licenseButtonDidPress:" target="XfG-lQ-9wD" id="EgH-XI-FMt"/>
                                 </connections>
                             </button>
                         </subviews>

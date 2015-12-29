@@ -41,7 +41,6 @@
 
 - (void)windowWillClose:(NSNotification *)notification {
     [_magicmirror goAway];
-//    [NSApp stopModal];
     [self.delegate controllerDidClose:self];
 }
 

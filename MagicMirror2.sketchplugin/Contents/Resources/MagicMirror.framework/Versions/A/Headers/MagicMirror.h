@@ -31,6 +31,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (id)initWithContext:(SketchPluginContext *)context;
 
 - (void)showWindow;
+- (void)showLicenseInfo;
 - (void)keepAround;
 - (void)goAway;
 

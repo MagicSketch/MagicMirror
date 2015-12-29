@@ -33,4 +33,9 @@
     [self.magicmirror showWindow];
 }
 
+- (IBAction)licenseButtonDidPress:(id)sender {
+    self.magicmirror = [[MagicMirror alloc] init];
+    [self.magicmirror showLicenseInfo];
+}
+
 @end
