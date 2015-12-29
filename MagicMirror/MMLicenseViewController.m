@@ -26,7 +26,7 @@
 }
 
 - (IBAction)purchaseButtonDidPress:(id)sender {
-
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://magicmirror.design/purchase"]];
 }
 
 - (IBAction)laterButtonDidPress:(id)sender {
