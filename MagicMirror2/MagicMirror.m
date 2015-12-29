@@ -315,6 +315,7 @@
 
 - (void)licenseInfo {
     NSLog(@"licenseInfo");
+    [self showLicenseInfo];
 }
 
 #pragma mark Apply
