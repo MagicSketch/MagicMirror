@@ -1251,6 +1251,12 @@
 		1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC571C18643200B7922D /* NSImage+Transform.m */; };
 		1AB4BC5C1C18671B00B7922D /* Quad.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4BC5A1C18671B00B7922D /* Quad.h */; };
 		1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4BC5B1C18671B00B7922D /* Quad.m */; };
+		1ABA82571C33CFD70051DD67 /* NSView+Animate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABA82551C33CFD70051DD67 /* NSView+Animate.h */; };
+		1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA82561C33CFD70051DD67 /* NSView+Animate.m */; };
+		1ABA825B1C33D3A00051DD67 /* QCMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABA82591C33D3A00051DD67 /* QCMethod.h */; };
+		1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA825A1C33D3A00051DD67 /* QCMethod.m */; };
+		1ABB63481C33C7FC00FFF7F7 /* MMLicenseInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */; };
+		1ABB63491C33C7FC00FFF7F7 /* MMLicenseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */; };
 		1ACD528B1C28559700020EC2 /* MMContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52891C28559700020EC2 /* MMContainerViewController.h */; };
 		1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD528A1C28559700020EC2 /* MMContainerViewController.m */; };
 		1ACD52901C2857F400020EC2 /* MMNoSelectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD528D1C2857F400020EC2 /* MMNoSelectionViewController.h */; };
@@ -2563,6 +2569,12 @@
 		1AB4BC571C18643200B7922D /* NSImage+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Transform.m"; sourceTree = "<group>"; };
 		1AB4BC5A1C18671B00B7922D /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		1AB4BC5B1C18671B00B7922D /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
+		1ABA82551C33CFD70051DD67 /* NSView+Animate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Animate.h"; sourceTree = "<group>"; };
+		1ABA82561C33CFD70051DD67 /* NSView+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Animate.m"; sourceTree = "<group>"; };
+		1ABA82591C33D3A00051DD67 /* QCMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCMethod.h; sourceTree = "<group>"; };
+		1ABA825A1C33D3A00051DD67 /* QCMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMethod.m; sourceTree = "<group>"; };
+		1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLicenseInfo.h; sourceTree = "<group>"; };
+		1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLicenseInfo.m; sourceTree = "<group>"; };
 		1ACD52891C28559700020EC2 /* MMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContainerViewController.h; sourceTree = "<group>"; };
 		1ACD528A1C28559700020EC2 /* MMContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMContainerViewController.m; sourceTree = "<group>"; };
 		1ACD528D1C2857F400020EC2 /* MMNoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNoSelectionViewController.h; sourceTree = "<group>"; };
@@ -2628,6 +2640,8 @@
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
 				1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */,
 				1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */,
+				1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */,
+				1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -2663,6 +2677,10 @@
 				1AB4BC571C18643200B7922D /* NSImage+Transform.m */,
 				1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */,
 				1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */,
+				1ABA82551C33CFD70051DD67 /* NSView+Animate.h */,
+				1ABA82561C33CFD70051DD67 /* NSView+Animate.m */,
+				1ABA82591C33D3A00051DD67 /* QCMethod.h */,
+				1ABA825A1C33D3A00051DD67 /* QCMethod.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -4289,6 +4307,7 @@
 				1AB4B9421C16E68400B7922D /* MSDifferenceAction.h in Headers */,
 				1AB4B9941C16E68400B7922D /* MSHoverButtonCell.h in Headers */,
 				1AB4B8721C16E68400B7922D /* BCSplitView.h in Headers */,
+				1ABA825B1C33D3A00051DD67 /* QCMethod.h in Headers */,
 				1AB4BA951C16E68400B7922D /* MSResetBooleanAction.h in Headers */,
 				1AB4BBFF1C16E68400B7922D /* NSURLConnectionDelegate.h in Headers */,
 				1AB4B8B71C16E68400B7922D /* FMResultSet.h in Headers */,
@@ -4714,6 +4733,7 @@
 				1AB4BBD31C16E68400B7922D /* NSSecureCoding.h in Headers */,
 				1AB4BB991C16E68400B7922D /* NSFileHandle-ZKAdditions.h in Headers */,
 				1AB4B8791C16E68400B7922D /* BCTrialChecker.h in Headers */,
+				1ABB63481C33C7FC00FFF7F7 /* MMLicenseInfo.h in Headers */,
 				1AB4BA051C16E68400B7922D /* MSLayerFlattener.h in Headers */,
 				1AB4BA791C16E68400B7922D /* MSPopToolbarItemActionObject.h in Headers */,
 				1AB4BB011C16E68400B7922D /* MSStylePartInspectorViewController.h in Headers */,
@@ -4783,6 +4803,7 @@
 				1AB4BA5B1C16E68400B7922D /* MSPasteboardLayersReaderWriter.h in Headers */,
 				1AB4BB5C1C16E68400B7922D /* NSArray-NSArray_Blocks.h in Headers */,
 				1AB4B9CA1C16E68400B7922D /* MSImmutableStyleBorder.h in Headers */,
+				1ABA82571C33CFD70051DD67 /* NSView+Animate.h in Headers */,
 				1AB4BA1E1C16E68400B7922D /* MSMakeGridAction.h in Headers */,
 				1AB4B9DE1C16E68400B7922D /* MSInsertImageAction.h in Headers */,
 				1AB4BBE31C16E68400B7922D /* NSString-NSString_Splitting.h in Headers */,
@@ -5367,13 +5388,16 @@
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */,
+				1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */,
+				1ABB63491C33C7FC00FFF7F7 /* MMLicenseInfo.m in Sources */,
 				1A0CBDD11C32925B0078B384 /* MMAlertWindowController.m in Sources */,
 				1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */,
 				1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */,
+				1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */,
 				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
 				1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,

@@ -25,6 +25,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @protocol MSShapeGroup;
 @class MMLayerProperties;
 @class SketchPluginContext;
+@class MMLicenseInfo;
 
 @interface MagicMirror : NSObject
 
@@ -77,10 +78,10 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 #pragma mark -
 
-typedef void(^MMLicenseUnlockHandler)(NSDictionary *result, NSError *error);
+typedef void(^MMLicenseUnlockHandler)(MMLicenseInfo *info, NSError *error);
 
 @interface MagicMirror (API)
 
-- (void)unlockLicense:(MMLicenseUnlockHandler)completion;
+- (void)unlockLicense:(NSString *)license completion:(MMLicenseUnlockHandler)completion;
 
 @end

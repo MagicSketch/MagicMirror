@@ -32,6 +32,7 @@
 #import "MSCurvePoint.h"
 #import "MMMath.h"
 #import "MSContentDrawView.h"
+#import "MMLicenseInfo.h"
 
 @interface MagicMirror ()
 
@@ -45,6 +46,7 @@
 @property (nonatomic) BOOL perspective;
 @property (nonatomic, copy) NSMutableArray *layerChangeObservers;
 @property (nonatomic, copy) NSDictionary *artboardsLookup;
+@property (nonatomic, strong) NSURLSessionDataTask *task;
 
 @end
 
@@ -434,11 +436,35 @@
 
 @implementation MagicMirror (API)
 
-- (void)unlockLicense:(MMLicenseUnlockHandler)completion {
+- (void)unlockLicense:(NSString *)license completion:(MMLicenseUnlockHandler)completion {
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        completion(nil, nil);
-    });
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:5000/verify/%@.json", license]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                                     NSError *parseError;
+
+                                                                     id json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                               options:0
+                                                                                                                 error:&parseError];
+
+
+                                                                     NSError *mapError;
+
+                                                                     MMLicenseInfo *info = nil;
+
+                                                                     if (json) {
+                                                                         info = [MMLicenseInfo licenseInfoWithDictionary:json error:&mapError];
+                                                                     }
+
+                                                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                                                         completion(info, error ?: parseError ?: mapError);
+                                                                     });
+                                                                 }];
+
+    [task resume];
+    self.task = task;
 }
 
 @end

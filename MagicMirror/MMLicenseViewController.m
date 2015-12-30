@@ -7,10 +7,12 @@
 //
 
 #import "MMLicenseViewController.h"
+#import "NSView+Animate.h"
 
 @interface MMLicenseViewController ()
 
 @property (weak) IBOutlet NSTextField *licenseTextField;
+@property (weak) IBOutlet NSTextField *errorTextField;
 @property (weak) IBOutlet NSButton *purchaseButton;
 @property (weak) IBOutlet NSButton *laterButton;
 @property (weak) IBOutlet NSButton *enterButton;
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    self.errorTextField.stringValue = @"";
 }
 
 - (IBAction)purchaseButtonDidPress:(id)sender {
@@ -35,24 +38,52 @@
 }
 
 - (IBAction)enterButtonDidPress:(id)sender {
-    [self startLoading];
+    NSString *string = self.licenseTextField.stringValue;
 
+    if ( ! [string length]) {
+        [self displayIncorrectLicenseWithMessage:@"Enter Your Key"];
+        return;
+    }
+
+    [self startLoading];
     __weak __typeof (self) weakSelf = self;
-    [self.magicmirror unlockLicense:^(NSDictionary *result, NSError *error) {
-        [weakSelf stopLoading];
-    }];
+    
+    [self.magicmirror unlockLicense:string
+                         completion:^(MMLicenseInfo *info, NSError *error) {
+                             MMLog(@"response: %@ %@", info, error);
+                             if (error) {
+                                 [weakSelf displayIncorrectLicenseWithMessage:error.localizedDescription];
+                             } else {
+                                 [weakSelf displayCorrectLicenseInfo:info];
+                             }
+                             [weakSelf stopLoading];
+                         }];
 }
 
 - (void)startLoading {
-    self.licenseTextField.enabled = NO;
+    self.errorTextField.stringValue = @"";
+    self.licenseTextField.editable = NO;
     self.enterButton.enabled = NO;
     [self.loadingIndicator startAnimation:nil];
 }
 
 - (void)stopLoading {
-    self.licenseTextField.enabled = YES;
+    self.licenseTextField.editable = YES;
     self.enterButton.enabled = YES;
     [self.loadingIndicator stopAnimation:nil];
+}
+
+- (void)shakeLicenseBox {
+    [self.licenseTextField shake];
+}
+
+- (void)displayIncorrectLicenseWithMessage:(NSString *)message {
+    [self shakeLicenseBox];
+    [self.errorTextField setStringValue:message];
+}
+
+- (void)displayCorrectLicenseInfo:(MMLicenseInfo *)licenseInfo {
+
 }
 
 @end
