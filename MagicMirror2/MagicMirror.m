@@ -50,6 +50,14 @@
 
 @end
 
+@interface MagicMirror (Persist)
+
+- (void)persistDictionary:(id)object withIdentifier:(NSString *)identifier;
+- (NSDictionary *)persistedDictionaryForIdentifier:(NSString *)identifier;
+- (void)removePersistedDictionaryForIdentifier:(NSString *)identifier;
+
+@end
+
 @interface MagicMirror (MMWindowControllerDelegate) <MMWindowControllerDelegate>
 
 @end
@@ -86,7 +94,7 @@
 
 - (void)showLicenseInfo {
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
-    _controller = [storyboard instantiateControllerWithIdentifier:@"LicenseWindow"];
+    _controller = [storyboard instantiateControllerWithIdentifier:[self isRegistered] ? @"RegisteredWindow" : @"LicenseWindow"];
 
     if ([_controller conformsToProtocol:@protocol(MMController)]) {
         _controller.magicmirror = self;
@@ -459,12 +467,51 @@
                                                                      }
 
                                                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                                                         completion(info, error ?: parseError ?: mapError);
+                                                                         NSError *anyError = error ?: parseError ?: mapError;
+                                                                         if (info && ! anyError) {
+                                                                             [self persistDictionary:[info toDictionary] withIdentifier:@"design.magicmirror.licensedto"];
+                                                                         }
+                                                                         completion(info, anyError);
                                                                      });
                                                                  }];
 
     [task resume];
     self.task = task;
+}
+
+- (MMLicenseInfo *)licensedTo {
+    NSDictionary *dict = [self persistedDictionaryForIdentifier:@"design.magicmirror.licensedto"];
+    return [MMLicenseInfo licenseInfoWithDictionary:dict error:nil];
+}
+
+- (void)deregister {
+    [self removePersistedDictionaryForIdentifier:@"design.magicmirror.licensedto"];
+}
+
+- (BOOL)isRegistered {
+    return [self licensedTo] != nil;
+}
+
+@end
+
+
+@implementation MagicMirror (Persist)
+
+
+- (void)removePersistedDictionaryForIdentifier:(NSString *)identifier {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:identifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+- (NSDictionary *)persistedDictionaryForIdentifier:(NSString *)identifier {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
+}
+
+- (void)persistDictionary:(NSDictionary *)dictionary withIdentifier:(NSString *)identifier {
+    [[NSUserDefaults standardUserDefaults] setObject:dictionary
+                                              forKey:identifier];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

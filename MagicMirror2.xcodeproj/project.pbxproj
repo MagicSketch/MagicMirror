@@ -1255,6 +1255,8 @@
 		1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA82561C33CFD70051DD67 /* NSView+Animate.m */; };
 		1ABA825B1C33D3A00051DD67 /* QCMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABA82591C33D3A00051DD67 /* QCMethod.h */; };
 		1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA825A1C33D3A00051DD67 /* QCMethod.m */; };
+		1ABA825F1C3526FF0051DD67 /* MMRegisteredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABA825D1C3526FF0051DD67 /* MMRegisteredViewController.h */; };
+		1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA825E1C3526FF0051DD67 /* MMRegisteredViewController.m */; };
 		1ABB63481C33C7FC00FFF7F7 /* MMLicenseInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */; };
 		1ABB63491C33C7FC00FFF7F7 /* MMLicenseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */; };
 		1ACD528B1C28559700020EC2 /* MMContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52891C28559700020EC2 /* MMContainerViewController.h */; };
@@ -2573,6 +2575,8 @@
 		1ABA82561C33CFD70051DD67 /* NSView+Animate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Animate.m"; sourceTree = "<group>"; };
 		1ABA82591C33D3A00051DD67 /* QCMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCMethod.h; sourceTree = "<group>"; };
 		1ABA825A1C33D3A00051DD67 /* QCMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCMethod.m; sourceTree = "<group>"; };
+		1ABA825D1C3526FF0051DD67 /* MMRegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRegisteredViewController.h; sourceTree = "<group>"; };
+		1ABA825E1C3526FF0051DD67 /* MMRegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRegisteredViewController.m; sourceTree = "<group>"; };
 		1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLicenseInfo.h; sourceTree = "<group>"; };
 		1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLicenseInfo.m; sourceTree = "<group>"; };
 		1ACD52891C28559700020EC2 /* MMContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMContainerViewController.h; sourceTree = "<group>"; };
@@ -2663,6 +2667,8 @@
 				1ACD52941C28581800020EC2 /* MMViewController.m */,
 				1A0CBDD21C32949F0078B384 /* MMLicenseViewController.h */,
 				1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */,
+				1ABA825D1C3526FF0051DD67 /* MMRegisteredViewController.h */,
+				1ABA825E1C3526FF0051DD67 /* MMRegisteredViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -4831,6 +4837,7 @@
 				1AB4BBC31C16E68400B7922D /* NSObject-NSObject_SmallBlocks.h in Headers */,
 				1AB4B8171C16E68400B7922D /* AFJSONRequestSerializer.h in Headers */,
 				1AB4B83D1C16E68400B7922D /* BCFeedbackWindowController.h in Headers */,
+				1ABA825F1C3526FF0051DD67 /* MMRegisteredViewController.h in Headers */,
 				1AB4B7FA1C16E68400B7922D /* _SVGBasicShape.h in Headers */,
 				1AB4B7FB1C16E68400B7922D /* _SVGCircleShape.h in Headers */,
 				1AB4B8851C16E68400B7922D /* CHPlainWhiteView.h in Headers */,
@@ -5380,6 +5387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
+				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,

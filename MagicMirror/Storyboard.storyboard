@@ -127,10 +127,28 @@
             </objects>
             <point key="canvasLocation" x="383" y="396"/>
         </scene>
-        <!--License View Controller-->
+        <!--Window Controller-->
+        <scene sceneID="WKf-eg-MNq">
+            <objects>
+                <windowController storyboardIdentifier="RegisteredWindow" id="pNI-ij-rqx" customClass="MMWindowController" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="lpl-jT-lpC">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="604" y="461" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1417"/>
+                    </window>
+                    <connections>
+                        <segue destination="Bhw-xv-sFQ" kind="relationship" relationship="window.shadowedContentViewController" id="jUH-7s-JBW"/>
+                    </connections>
+                </windowController>
+                <customObject id="euI-4D-O0l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="371" y="787"/>
+        </scene>
+        <!--Magic Mirror-->
         <scene sceneID="0DI-tb-yFQ">
             <objects>
-                <viewController id="oCf-fs-HOp" customClass="MMLicenseViewController" sceneMemberID="viewController">
+                <viewController title="Magic Mirror" id="oCf-fs-HOp" customClass="MMLicenseViewController" sceneMemberID="viewController">
                     <view key="view" id="1Z2-Il-6sc">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="235"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -229,11 +247,88 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                         <outlet property="licenseTextField" destination="whf-qR-P7b" id="u3C-Mu-yiJ"/>
                         <outlet property="loadingIndicator" destination="WgR-nj-eou" id="dmR-CI-d4w"/>
                         <outlet property="purchaseButton" destination="7Pc-Iz-Kim" id="hcd-SC-avh"/>
+                        <segue destination="Bhw-xv-sFQ" kind="show" identifier="RegisteredView" id="PjZ-s9-aM3"/>
                     </connections>
                 </viewController>
                 <customObject id="4Ut-0X-qW8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="404.5"/>
+        </scene>
+        <!--Magic Mirror-->
+        <scene sceneID="Kk4-G3-0du">
+            <objects>
+                <viewController title="Magic Mirror" id="Bhw-xv-sFQ" customClass="MMRegisteredViewController" sceneMemberID="viewController">
+                    <view key="view" id="bwL-H5-sMo">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="205"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hja-sz-Y4a">
+                                <rect key="frame" x="20" y="121" width="70" height="74"/>
+                                <animations/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="RgF-uh-Ntv"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JF0-rH-JqL">
+                                <rect key="frame" x="102" y="178" width="122" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Magic Mirror - Pro" id="TaA-fc-N7g">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-fv-IES">
+                                <rect key="frame" x="102" y="55" width="322" height="112"/>
+                                <animations/>
+                                <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="fy1-vl-ROb">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <string key="title">"Magic Mirror - Licensed" is now available for commercial use with pro features unlocked.
+
+Registered to: %@ %@
+Email: %@
+License: %@
+
+Thanks for purchasing Magic Mirror! :)</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4e-pt-cBj">
+                                <rect key="frame" x="340" y="13" width="88" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9u0-XJ-CWh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="okButtonDidPress:" target="Bhw-xv-sFQ" id="a6w-8B-mfQ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbD-lp-Rzm">
+                                <rect key="frame" x="226" y="13" width="114" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Deregister..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="18g-Kh-YJp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deregisterButtonDidPress:" target="Bhw-xv-sFQ" id="TT6-XY-duA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                    </view>
+                    <connections>
+                        <outlet property="OKButton" destination="Q4e-pt-cBj" id="YNa-wq-PUb"/>
+                        <outlet property="contentTextField" destination="R1a-fv-IES" id="YgN-IN-TW4"/>
+                        <outlet property="deregisterButton" destination="hbD-lp-Rzm" id="NTU-Wu-mdM"/>
+                    </connections>
+                </viewController>
+                <customObject id="wP3-Hh-n8V" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="775.5"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="VD2-Gt-Sd8">
@@ -312,4 +407,7 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
         <image name="logo" width="286" height="272"/>
         <image name="rotate" width="21" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jUH-7s-JBW"/>
+    </inferredMetricsTieBreakers>
 </document>

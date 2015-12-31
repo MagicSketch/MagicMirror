@@ -83,5 +83,8 @@ typedef void(^MMLicenseUnlockHandler)(MMLicenseInfo *info, NSError *error);
 @interface MagicMirror (API)
 
 - (void)unlockLicense:(NSString *)license completion:(MMLicenseUnlockHandler)completion;
+- (MMLicenseInfo *)licensedTo;
+- (void)deregister;
+- (BOOL)isRegistered;
 
 @end

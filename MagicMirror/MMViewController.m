@@ -17,6 +17,14 @@
 @implementation MMViewController
 @synthesize magicmirror = _magicmirror;
 
+- (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
+    MMViewController *controller = segue.destinationController;
+    if ([controller conformsToProtocol:@protocol(MMController)]) {
+        controller.magicmirror = self.magicmirror;
+        [controller reloadData];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

@@ -25,4 +25,6 @@
                               method:(NSString *)method
                              license:(NSString *)license;
 
+- (NSDictionary *)toDictionary;
+
 @end

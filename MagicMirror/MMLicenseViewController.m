@@ -83,7 +83,8 @@
 }
 
 - (void)displayCorrectLicenseInfo:(MMLicenseInfo *)licenseInfo {
-
+    [self performSegueWithIdentifier:@"RegisteredView" sender:self];
+    [self close];
 }
 
 @end

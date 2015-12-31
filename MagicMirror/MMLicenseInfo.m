@@ -11,6 +11,11 @@
 @implementation MMLicenseInfo
 
 + (instancetype)licenseInfoWithDictionary:(NSDictionary *)dictionary error:(NSError **)error {
+    if ( ! dictionary) {
+        return nil;
+    }
+
+
     NSString *email = dictionary[@"email"];
     NSString *firstName = dictionary[@"first_name"];
     NSString *lastName = dictionary[@"last_name"];
@@ -21,6 +26,7 @@
         *error = [NSError errorWithDomain:@"design.magicmirror.license" code:0 userInfo:@{
                                                                                          NSLocalizedDescriptionKey: @"Incorrect License",
                                                                                          }];
+        return nil;
     }
 
     return [self licenseInfoWithEmail:email
@@ -53,6 +59,16 @@
                                                @"method",
                                                @"license"
                                                ]] description];
+}
+
+- (NSDictionary *)toDictionary {
+    return @{
+             @"email": self.email,
+             @"first_name": self.firstName,
+             @"last_name":  self.lastName,
+             @"method": self.method,
+             @"transaction_id": self.license,
+             };
 }
 
 @end
