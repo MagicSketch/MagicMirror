@@ -114,7 +114,7 @@
             <objects>
                 <windowController storyboardIdentifier="LicenseWindow" id="W0Y-tX-ggw" customClass="MMAlertWindowController" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="iTi-bI-tIw">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="604" y="461" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1417"/>
@@ -408,6 +408,6 @@ DQ
         <image name="rotate" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jUH-7s-JBW"/>
+        <segue reference="PjZ-s9-aM3"/>
     </inferredMetricsTieBreakers>
 </document>
