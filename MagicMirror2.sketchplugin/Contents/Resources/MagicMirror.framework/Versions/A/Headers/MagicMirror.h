@@ -29,8 +29,6 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 @interface MagicMirror : NSObject
 
-- (id)initWithContext:(SketchPluginContext *)context;
-
 - (void)showWindow;
 - (void)showLicenseInfo;
 - (void)keepAround;

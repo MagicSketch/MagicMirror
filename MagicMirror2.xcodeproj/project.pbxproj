@@ -21,6 +21,8 @@
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
+		1A4DB9121C3A6F2700AB5F0B /* NSObject+SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* NSObject+SketchEventsController.h */; };
+		1A4DB9131C3A6F2700AB5F0B /* NSObject+SketchEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DB9111C3A6F2700AB5F0B /* NSObject+SketchEventsController.m */; };
 		1A562CCC1C1A9C1B00FE3981 /* MMToolbarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */; };
 		1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CCB1C1A9C1B00FE3981 /* MMToolbarViewController.m */; };
 		1A562CD51C1AF2DA00FE3981 /* MMLayerProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */; };
@@ -1334,6 +1336,8 @@
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
+		1A4DB9101C3A6F2700AB5F0B /* NSObject+SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SketchEventsController.h"; sourceTree = "<group>"; };
+		1A4DB9111C3A6F2700AB5F0B /* NSObject+SketchEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SketchEventsController.m"; sourceTree = "<group>"; };
 		1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMToolbarViewController.h; sourceTree = "<group>"; };
 		1A562CCB1C1A9C1B00FE3981 /* MMToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMToolbarViewController.m; sourceTree = "<group>"; };
 		1A562CCE1C1AC2E500FE3981 /* MMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMController.h; sourceTree = "<group>"; };
@@ -2642,6 +2646,8 @@
 				1A753A151C24081B00DE2EC1 /* MMMath.m */,
 				1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */,
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
+				1A4DB9101C3A6F2700AB5F0B /* NSObject+SketchEventsController.h */,
+				1A4DB9111C3A6F2700AB5F0B /* NSObject+SketchEventsController.m */,
 				1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */,
 				1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */,
 				1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */,
@@ -2689,6 +2695,15 @@
 				1ABA825A1C33D3A00051DD67 /* QCMethod.m */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		1A4DB90F1C36E02900AB5F0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
+				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */ = {
@@ -2769,12 +2784,11 @@
 			children = (
 				1AB4B2DD1C16E67E00B7922D /* Sketch 3.4.3 */,
 				1AB4BC4B1C16EDEA00B7922D /* Bridges */,
-				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
-				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
 				1A21D9E31C2BE984005A2733 /* Modal */,
 				1AB4A95E1C15A7C200B7922D /* Info.plist */,
 				1AB4A96D1C15D69800B7922D /* Storyboard.storyboard */,
 				1A21D9E21C2BE95D005A2733 /* View */,
+				1A4DB90F1C36E02900AB5F0B /* Controller */,
 				1A21D9E41C2BE995005A2733 /* View Controller */,
 				1A21D9E51C2BE9CB005A2733 /* Helper */,
 				1AB4BC521C182FA200B7922D /* Images.xcassets */,
@@ -5040,6 +5054,7 @@
 				1AB4BB631C16E68400B7922D /* NSBezierPath-Clockwise.h in Headers */,
 				1AB4BA991C16E68400B7922D /* MSRootLayer.h in Headers */,
 				1AB4B84B1C16E68400B7922D /* BCLicenseManager.h in Headers */,
+				1A4DB9121C3A6F2700AB5F0B /* NSObject+SketchEventsController.h in Headers */,
 				1AB4B88E1C16E68400B7922D /* CIImage-CHCIImageAdditions.h in Headers */,
 				1AB4BB801C16E68400B7922D /* NSComboBoxDataSource.h in Headers */,
 				1AB4B8101C16E68400B7922D /* AFHTTPBodyPart.h in Headers */,
@@ -5392,6 +5407,7 @@
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
+				1A4DB9131C3A6F2700AB5F0B /* NSObject+SketchEventsController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,

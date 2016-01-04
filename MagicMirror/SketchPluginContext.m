@@ -13,6 +13,7 @@
 #import "MSDocument.h"
 #import "MSLayerArray.h"
 #import "MSShapePathLayer.h"
+#import "NSObject+SketchEventsController.h"
 
 @interface SketchPluginContext ()
 
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) MSDocument *document;
 @property (nonatomic, strong) id <COScript> coscript;
 @property (nonatomic) BOOL observerAdded;
+@property (nonatomic, copy) NSMutableArray *layerChangeObservers;
+
 
 @end
 
@@ -94,16 +97,62 @@
     return [layers copy];
 }
 
+#pragma mark - Notifications
+
+- (void)layerSelectionDidChange:(NSArray *)layers {
+    [self unobserveSelection];
+    [self observeSelection];
+    [[NSNotificationCenter defaultCenter] postNotificationName:SketchLayerSelectionDidChangeNotification
+                                                        object:self
+                                                      userInfo:@
+     {
+         @"selector":NSStringFromSelector(@selector(layerSelectionDidChange:)),
+         @"block":^void(NSObject *object) {
+             [object layerSelectionDidChange:layers];
+         }
+     }];}
+
+- (void)layerDidUpdate:(id<MSShapeGroup>)layer {
+    [[NSNotificationCenter defaultCenter] postNotificationName:SketchLayerDidUpdateNotification
+                                                        object:self
+                                                      userInfo:@
+     {
+         @"selector":NSStringFromSelector(@selector(layerDidUpdate:)),
+         @"block":^void(NSObject *object) {
+             [object layerDidUpdate:layer];
+         }
+     }];
+}
+
+- (void)unobserveSelection {
+    [_layerChangeObservers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeObserver:self forKeyPath:@"rect"];
+    }];
+    [_layerChangeObservers removeAllObjects];
+}
+
+- (void)observeSelection {
+    NSArray *layers = [self selectedLayers];
+    [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [(NSObject *)obj addObserver:self
+                          forKeyPath:@"rect"
+                             options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                             context:nil];
+        [_layerChangeObservers addObject:obj];
+    }];
+}
+
 #pragma mark KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"selectedLayersA"]) {
         _selection = [(id <MSLayerArray>)[_document valueForKey:@"selectedLayersA"] layers];
-
-        if (_selectionChangeHandler) {
-            _selectionChangeHandler([self selectedLayers]);
-        }
+        [self layerSelectionDidChange:[self selectedLayers]];
+    } else if ([keyPath isEqualToString:@"rect"]) {
+        [self layerDidUpdate:object];
     }
 }
 
 @end
+
+

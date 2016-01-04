@@ -13,6 +13,7 @@
 #import "MMLayerProperties.h"
 #import "MMValuesStack.h"
 #import "MMArtboardComboboxItem.h"
+#import "NSObject+SketchEventsController.h"
 
 @interface MMToolbarViewController ()
 
@@ -203,6 +204,14 @@
 
 - (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string {
     return [[self.artboardItems valueForKey:@"title"] indexOfObject:string];
+}
+
+@end
+
+@implementation MMToolbarViewController (Sketch)
+
+- (void)layerSelectionDidChange:(NSArray *)layers {
+    [self reloadData];
 }
 
 @end

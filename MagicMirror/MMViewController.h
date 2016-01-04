@@ -9,9 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "MMController.h"
 #import "MagicMirror.h"
+#import "NSObject+SketchEventsController.h"
 
-@interface MMViewController : NSViewController <MMController>
-
+@interface MMViewController : NSViewController <MMController, SketchEventsController>
 
 @property (readwrite) MagicMirror *magicmirror;
 

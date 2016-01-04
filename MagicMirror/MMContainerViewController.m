@@ -45,4 +45,8 @@
     return self.view.window.windowController;
 }
 
+- (void)layerSelectionDidChange:(NSArray *)layers {
+    [self reloadData];
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MMViewController.h"
+#import "NSObject+SketchEventsController.h"
 
 @interface MMViewController ()
 
@@ -27,6 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self observeSketch:@selector(layerSelectionDidChange:)];
+    [self observeSketch:@selector(layerDidUpdate:)];
+}
+
+- (void)dealloc {
+    [self unobserveSketch:@selector(layerDidUpdate:)];
+    [self unobserveSketch:@selector(layerSelectionDidChange:)];
+    self.shouldObserveCombobox = NO;
 }
 
 - (MagicMirror *)magicmirror {
@@ -38,10 +48,6 @@
         _magicmirror = magicmirror;
         [self reloadData];
     }
-}
-
-- (void)dealloc {
-    self.shouldObserveCombobox = NO;
 }
 
 - (void)reloadData {

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CDUnknownBlockType.h"
 #import "Sketch.h"
+@protocol MSShapeGroup;
 
 typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
 
@@ -19,7 +20,6 @@ typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
 @property (nonatomic, copy, readonly) NSArray *selection;
 @property (nonatomic, strong, readonly) MSDocument *document;
 @property (nonatomic, strong, readonly) id <COScript> coscript;
-@property (nonatomic, copy) MSDocumentLayerDidChangeSelectionHandler selectionChangeHandler;
 
 @property (nonatomic) BOOL shouldKeepAround;
 
@@ -34,3 +34,5 @@ typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
 - (NSArray *)selectedLayers;
 
 @end
+
+

@@ -44,7 +44,6 @@
 //@property (nonatomic, copy) NSNumber *imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) BOOL perspective;
-@property (nonatomic, copy) NSMutableArray *layerChangeObservers;
 @property (nonatomic, copy) NSDictionary *artboardsLookup;
 @property (nonatomic, strong) NSURLSessionDataTask *task;
 
@@ -68,16 +67,12 @@
     if (self = [super init]) {
         _context = context;
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
+        _imageRenderer = [[ImageRenderer alloc] init];
         _perspective = YES;
-        _layerChangeObservers = [NSMutableArray array];
         _version = @"2.0";
 
-        __weak __typeof (self) weakSelf = self;
-        [_context setSelectionChangeHandler:^(NSArray *layers) {
-            [weakSelf layerSelectionDidChange:layers];
-        }];
-
         _imageRenderer = [[ImageRenderer alloc] init];
+
         return self;
     }
     return nil;
@@ -122,51 +117,21 @@
     [_context.command setValue:value forKey:key onLayer:layer];
 }
 
+- (void)reloadData {
+    if ([_controller conformsToProtocol:@protocol(MMController)]) {
+        [_controller reloadData];
+    }
+}
+
+#pragma mark Subclass
+
 - (void)layerSelectionDidChange:(NSArray *)layers {
-    MMLog(@"layers %@", layers);
     [self reloadData];
     [_controller reloadData];
 }
 
-- (void)reloadData {
-
-    if ([_controller conformsToProtocol:@protocol(MMController)]) {
- 
-       [ _controller reloadData];
-    }
-
-    [self unobserveSelection];
-    [self observeSelection];
-}
-
-- (void)dealloc {
-    [self unobserveSelection];
-}
-
-#pragma mark KVO
-
-- (void)unobserveSelection {
-    [_layerChangeObservers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj removeObserver:self forKeyPath:@"rect"];
-    }];
-    [_layerChangeObservers removeAllObjects];
-}
-
-- (void)observeSelection {
-    NSArray *layers = [_context selectedLayers];
-    [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [(NSObject *)obj addObserver:self
-                          forKeyPath:@"rect"
-                             options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
-                             context:nil];
-        [_layerChangeObservers addObject:obj];
-    }];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"rect"]) {
-        [self refreshLayer:object];
-    }
+- (void)layerDidUpdate:(id<MSShapeGroup>)layer {
+    [self refreshLayer:layer];
 }
 
 #pragma - Fill
@@ -497,12 +462,10 @@
 
 @implementation MagicMirror (Persist)
 
-
 - (void)removePersistedDictionaryForIdentifier:(NSString *)identifier {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:identifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
 
 - (NSDictionary *)persistedDictionaryForIdentifier:(NSString *)identifier {
     return [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
