@@ -48,25 +48,7 @@
 }
 
 - (void)configureMagicMirror {
-    if ([self.contentViewController conformsToProtocol:@protocol(MMController)]) {
-        id <MMController> controller = (id <MMController>)self.contentViewController;
-        controller.magicmirror = self.magicmirror;
-    } else if ([self.contentViewController isKindOfClass:[NSTabViewController class]]) {
-        NSTabViewController *tvc = (NSTabViewController *)self.contentViewController;
-        [[tvc childViewControllers] enumerateObjectsUsingBlock:^(__kindof NSViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj conformsToProtocol:@protocol(MMController)]) {
-                id <MMController> controller = (id <MMController>)obj;
-                controller.magicmirror = self.magicmirror;
-            }
-        }];
-    }
-}
-
-- (void)reloadData {
-    if ([self.contentViewController conformsToProtocol:@protocol(MMController)]) {
-        id <MMController> controller = (id <MMController>)self.contentViewController;
-        [controller reloadData];
-    }
+    [MagicMirror setSharedInstance:self.magicmirror];
 }
 
 @end

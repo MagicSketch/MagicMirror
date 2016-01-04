@@ -28,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.magicmirror = [MagicMirror addObserver:self];
+    
     [self observeSketch:@selector(layerSelectionDidChange:)];
     [self observeSketch:@selector(layerDidUpdate:)];
 }
@@ -51,13 +52,6 @@
 }
 
 - (void)reloadData {
-    [[self childViewControllers] enumerateObjectsUsingBlock:^(__kindof NSViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj conformsToProtocol:@protocol(MMController)]) {
-            id <MMController> controller = (id <MMController>)obj;
-            controller.magicmirror = self.magicmirror;
-            [controller reloadData];
-        }
-    }];
 }
 
 #pragma - Close

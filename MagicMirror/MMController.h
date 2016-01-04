@@ -13,9 +13,7 @@
 
 @protocol MMController <NSObject>
 
-@property MagicMirror *magicmirror;
-
-- (void)reloadData;
+@property (readwrite) MagicMirror  *magicmirror;
 
 @end
 

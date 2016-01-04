@@ -23,11 +23,16 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @protocol MSLayer;
 @protocol MSArtboardGroup;
 @protocol MSShapeGroup;
+@protocol MMController;
 @class MMLayerProperties;
 @class SketchPluginContext;
 @class MMLicenseInfo;
 
 @interface MagicMirror : NSObject
+
++ (instancetype)sharedInstance;
++ (void)setSharedInstance:(MagicMirror *)sharedInstance;
++ (instancetype)addObserver:(id <MMController>)observer;
 
 - (void)showWindow;
 - (void)showLicenseInfo;

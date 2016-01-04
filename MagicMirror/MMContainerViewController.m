@@ -16,7 +16,6 @@
 @end
 
 @implementation MMContainerViewController
-@synthesize magicmirror = _magicmirror;
 
 - (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"SI_ConfigureVC"]) {

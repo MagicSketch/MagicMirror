@@ -33,6 +33,10 @@
 #import "MMMath.h"
 #import "MSContentDrawView.h"
 #import "MMLicenseInfo.h"
+#import "Weak.h"
+
+
+NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
 @interface MagicMirror ()
 
@@ -62,6 +66,36 @@
 @end
 
 @implementation MagicMirror
+
+static NSMutableArray <Weak *>*_observers = nil;
+static MagicMirror *_sharedInstance = nil;
+
++ (id)sharedInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[self alloc] init];
+    });
+    return _sharedInstance;
+}
+
++ (void)setSharedInstance:(MagicMirror *)sharedInstance {
+    _sharedInstance = sharedInstance;
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <MMController> controller = [obj object];
+        [controller setMagicmirror:_sharedInstance];
+    }];
+}
+
++ (void)load {
+    if ( ! _observers) {
+        _observers = [NSMutableArray array];
+    }
+}
+
++ (instancetype)addObserver:(id<MMController>)observer {
+    [_observers addObject:[Weak weakWithObject:observer]];
+    return [self sharedInstance];
+}
 
 - (id)initWithContext:(SketchPluginContext *)context {
     if (self = [super init]) {

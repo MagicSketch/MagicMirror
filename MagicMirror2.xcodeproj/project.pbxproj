@@ -23,6 +23,8 @@
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A4DB9121C3A6F2700AB5F0B /* NSObject+SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* NSObject+SketchEventsController.h */; };
 		1A4DB9131C3A6F2700AB5F0B /* NSObject+SketchEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DB9111C3A6F2700AB5F0B /* NSObject+SketchEventsController.m */; };
+		1A4DB9181C3A96A700AB5F0B /* Weak.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9161C3A96A700AB5F0B /* Weak.h */; };
+		1A4DB9191C3A96A700AB5F0B /* Weak.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DB9171C3A96A700AB5F0B /* Weak.m */; };
 		1A562CCC1C1A9C1B00FE3981 /* MMToolbarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */; };
 		1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CCB1C1A9C1B00FE3981 /* MMToolbarViewController.m */; };
 		1A562CD51C1AF2DA00FE3981 /* MMLayerProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */; };
@@ -1338,6 +1340,8 @@
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1A4DB9101C3A6F2700AB5F0B /* NSObject+SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SketchEventsController.h"; sourceTree = "<group>"; };
 		1A4DB9111C3A6F2700AB5F0B /* NSObject+SketchEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SketchEventsController.m"; sourceTree = "<group>"; };
+		1A4DB9161C3A96A700AB5F0B /* Weak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weak.h; sourceTree = "<group>"; };
+		1A4DB9171C3A96A700AB5F0B /* Weak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weak.m; sourceTree = "<group>"; };
 		1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMToolbarViewController.h; sourceTree = "<group>"; };
 		1A562CCB1C1A9C1B00FE3981 /* MMToolbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMToolbarViewController.m; sourceTree = "<group>"; };
 		1A562CCE1C1AC2E500FE3981 /* MMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMController.h; sourceTree = "<group>"; };
@@ -2652,6 +2656,8 @@
 				1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */,
 				1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */,
 				1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */,
+				1A4DB9161C3A96A700AB5F0B /* Weak.h */,
+				1A4DB9171C3A96A700AB5F0B /* Weak.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -5070,6 +5076,7 @@
 				1AB4B8C11C16E68400B7922D /* MSAddBorderAction.h in Headers */,
 				1AB4BA9D1C16E68400B7922D /* MSRoundedRectangleShapeAction.h in Headers */,
 				1AB4BC251C16E68400B7922D /* SVGFill.h in Headers */,
+				1A4DB9181C3A96A700AB5F0B /* Weak.h in Headers */,
 				1AB4B99C1C16E68400B7922D /* MSImmutableArray.h in Headers */,
 				1AB4B98D1C16E68400B7922D /* MSGridSheet.h in Headers */,
 				1AB4BC201C16E68400B7922D /* SVGDescription.h in Headers */,
@@ -5413,6 +5420,7 @@
 				1A0FAFD71C19957300B57F42 /* ImageRenderer.m in Sources */,
 				1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */,
 				1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */,
+				1A4DB9191C3A96A700AB5F0B /* Weak.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */,
 				1ABB63491C33C7FC00FFF7F7 /* MMLicenseInfo.m in Sources */,
