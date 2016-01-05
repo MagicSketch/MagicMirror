@@ -34,7 +34,7 @@
 #import "MSContentDrawView.h"
 #import "MMLicenseInfo.h"
 #import "Weak.h"
-
+#import "SketchEventsController.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -466,6 +466,8 @@ static MagicMirror *_sharedInstance = nil;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:5000/verify/%@.json", license]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
+    __weak __typeof (self) weakSelf = self;
+
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                                      NSError *parseError;
@@ -486,7 +488,8 @@ static MagicMirror *_sharedInstance = nil;
                                                                      dispatch_async(dispatch_get_main_queue(), ^{
                                                                          NSError *anyError = error ?: parseError ?: mapError;
                                                                          if (info && ! anyError) {
-                                                                             [self persistDictionary:[info toDictionary] withIdentifier:@"design.magicmirror.licensedto"];
+                                                                             [weakSelf persistDictionary:[info toDictionary] withIdentifier:@"design.magicmirror.licensedto"];
+                                                                             [weakSelf notifyLicenseUnlocked];
                                                                          }
                                                                          completion(info, anyError);
                                                                      });
@@ -507,6 +510,24 @@ static MagicMirror *_sharedInstance = nil;
 
 - (BOOL)isRegistered {
     return [self licensedTo] != nil;
+}
+
+- (void)notifyLicenseUnlocked {
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <MMController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(magicmirrorLicenseUnlocked:)]) {
+            [controller magicmirrorLicenseUnlocked:self];
+        }
+    }];
+}
+
+- (void)notifyLicenseDetached {
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <MMController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(magicmirrorLicenseDetached:)]) {
+            [controller magicmirrorLicenseDetached:self];
+        }
+    }];
 }
 
 @end

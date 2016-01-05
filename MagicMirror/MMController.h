@@ -16,6 +16,11 @@
 
 @property MagicMirror *magicmirror;
 
+@optional
+
+- (void)magicmirrorLicenseUnlocked:(MagicMirror *)magicmirror;
+- (void)magicmirrorLicenseDetached:(MagicMirror *)magicmirror;
+
 @end
 
 #endif /* MMController_h */
