@@ -153,7 +153,7 @@ static NSMutableArray <Weak *> *_observers = nil;
     [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [(NSObject *)obj addObserver:self
                           forKeyPath:@"rect"
-                             options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                             options:NSKeyValueObservingOptionNew
                              context:nil];
         [_layerChangeObservers addObject:obj];
     }];
@@ -168,7 +168,11 @@ static NSMutableArray <Weak *> *_observers = nil;
     } else if ([keyPath isEqualToString:@"rect"]) {
         id <MSShapeGroup> shape = object;
         MMLog(@"%@ object.rect: %@", object, NSStringFromRect([shape rect]));
-        [self layerDidUpdate:object];
+        if ([shape isEditingChild]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self layerDidUpdate:object];
+            });
+        }
     }
 }
 
