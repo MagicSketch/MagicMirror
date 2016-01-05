@@ -32,6 +32,8 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 @interface MagicMirror : NSObject
 
+@property (nonatomic, readonly) NSUInteger lifeCount;
+
 + (instancetype)sharedInstance;
 + (void)setSharedInstance:(MagicMirror *)sharedInstance;
 + (void)addObserver:(id <MMController>)observer;

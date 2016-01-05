@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "MagicMirror.h"
+
 @interface MagicMirrorExecutableTests : XCTestCase
 
 @end
@@ -52,6 +54,19 @@
     [set addObject:@1];
 
     XCTAssertEqual([set count], 1);
+}
+
+- (void)testKeepAround {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+    XCTAssertEqual([mirror lifeCount], 0);
+    [mirror keepAround];
+    XCTAssertEqual([mirror lifeCount], 1);
+    [mirror keepAround];
+    XCTAssertEqual([mirror lifeCount], 2);
+    [mirror goAway];
+    XCTAssertEqual([mirror lifeCount], 1);
+    [mirror goAway];
+    XCTAssertEqual([mirror lifeCount], 0);
 }
 
 @end

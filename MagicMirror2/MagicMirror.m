@@ -40,6 +40,8 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 
 @interface MagicMirror ()
 
+@property (nonatomic) NSUInteger lifeCount;
+
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
@@ -149,13 +151,17 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)keepAround {
+    _lifeCount++;
     _context.shouldKeepAround = YES;
     MMLog(@"keepAround");
 }
 
 - (void)goAway {
-    _context.shouldKeepAround = NO;
-    _sharedInstance = nil;
+    _lifeCount = MAX(0, _lifeCount - 1);
+    if (_lifeCount == 0) {
+        _context.shouldKeepAround = NO;
+        _sharedInstance = nil;
+    }
     MMLog(@"goAway");
 }
 
