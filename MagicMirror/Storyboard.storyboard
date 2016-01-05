@@ -138,7 +138,7 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="3440" height="1417"/>
                     </window>
                     <connections>
-                        <segue destination="Bhw-xv-sFQ" kind="relationship" relationship="window.shadowedContentViewController" id="jUH-7s-JBW"/>
+                        <segue destination="Bhw-xv-sFQ" kind="relationship" relationship="window.shadowedContentViewController" id="HXa-hD-Zic"/>
                     </connections>
                 </windowController>
                 <customObject id="euI-4D-O0l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -408,6 +408,6 @@ DQ
         <image name="rotate" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PjZ-s9-aM3"/>
+        <segue reference="HXa-hD-Zic"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,16 +22,15 @@
 @implementation MMRegisteredViewController
 
 - (void)viewDidLoad {
+    self.content = self.contentTextField.stringValue;
     [super viewDidLoad];
     // Do view setup here.
 
-    self.content = self.contentTextField.stringValue;
-    [self reloadData];
 }
 
 - (void)reloadData {
     [super reloadData];
-    if ( ! self.isViewLoaded) {
+    if ( ! self.isViewLoaded || ! self.magicmirror || ! self.content) {
         return;
     }
 
