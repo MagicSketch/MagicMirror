@@ -53,9 +53,15 @@ static NSMutableArray <Weak *> *_observers = nil;
         _selection = [selection copy];
         _document = document;
         _coscript = (id <COScript>)command.session;
+        _layerChangeObservers = [NSMutableArray array];
         return self;
     }
     return nil;
+}
+
+- (void)dealloc {
+    MMLog(@"SketchPluginContext dealloc")
+    [self unobserveSelection];
 }
 
 - (void)setShouldKeepAround:(BOOL)shouldKeepAround {
@@ -133,6 +139,7 @@ static NSMutableArray <Weak *> *_observers = nil;
 }
 
 - (void)unobserveSelection {
+    MMLog(@"Unobserving %lu", (unsigned long)[_layerChangeObservers count]);
     [_layerChangeObservers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeObserver:self forKeyPath:@"rect"];
     }];
@@ -141,6 +148,8 @@ static NSMutableArray <Weak *> *_observers = nil;
 
 - (void)observeSelection {
     NSArray *layers = [self selectedLayers];
+    MMLog(@"observing %lu", (unsigned long)[layers count]);
+
     [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [(NSObject *)obj addObserver:self
                           forKeyPath:@"rect"
@@ -158,7 +167,7 @@ static NSMutableArray <Weak *> *_observers = nil;
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
         id <MSShapeGroup> shape = object;
-        MMLog(@"object.rect: %@", NSStringFromRect([shape rect]));
+        MMLog(@"%@ object.rect: %@", object, NSStringFromRect([shape rect]));
         [self layerDidUpdate:object];
     }
 }

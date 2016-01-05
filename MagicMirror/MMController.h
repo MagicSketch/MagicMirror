@@ -9,8 +9,8 @@
 #ifndef MMController_h
 #define MMController_h
 
+#import "SketchEventsController.h"
 @class MagicMirror;
-@protocol SketchEventsController;
 
 @protocol MMController <NSObject, SketchEventsController>
 

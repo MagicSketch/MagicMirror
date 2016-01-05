@@ -133,6 +133,11 @@ static MagicMirror *_sharedInstance = nil;
     [self reloadData];
 }
 
+- (void)closeToolbar {
+    MMLog(@"MMWindowController close");
+    [_controller close];
+}
+
 - (void)showLicenseInfo {
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateControllerWithIdentifier:[self isRegistered] ? @"RegisteredWindow" : @"LicenseWindow"];
@@ -299,6 +304,12 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)configureSelection {
     MMLog(@"configureSelection");
+
+    if (_controller) {
+        [self closeToolbar];
+        return;
+    }
+
     [self showWindow];
 }
 
