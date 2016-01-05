@@ -139,6 +139,8 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)showLicenseInfo {
+    [SketchPluginContext addObserver:self];
+    [MagicMirror setSharedInstance:self];
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateControllerWithIdentifier:[self isRegistered] ? @"RegisteredWindow" : @"LicenseWindow"];
     _controller.delegate = self;
