@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CDUnknownBlockType.h"
 #import "Sketch.h"
+#import "SketchEventsController.h"
 @protocol MSShapeGroup;
-
-typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
 
 @interface SketchPluginContext : NSObject
 
@@ -32,6 +31,8 @@ typedef void(^MSDocumentLayerDidChangeSelectionHandler)(NSArray *array);
 - (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
+
++ (void)addObserver:(id <SketchEventsController>)observer;
 
 @end
 

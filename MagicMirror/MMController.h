@@ -10,10 +10,11 @@
 #define MMController_h
 
 @class MagicMirror;
+@protocol SketchEventsController;
 
-@protocol MMController <NSObject>
+@protocol MMController <NSObject, SketchEventsController>
 
-@property (readwrite) MagicMirror  *magicmirror;
+@property MagicMirror *magicmirror;
 
 @end
 

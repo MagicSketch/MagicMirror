@@ -7,7 +7,7 @@
 //
 
 #import "MMViewController.h"
-#import "NSObject+SketchEventsController.h"
+#import "SketchEventsController.h"
 
 @interface MMViewController ()
 
@@ -17,6 +17,19 @@
 
 @implementation MMViewController
 @synthesize magicmirror = _magicmirror;
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    [MagicMirror addObserver:self];
+}
 
 - (void)prepareForSegue:(NSStoryboardSegue *)segue sender:(id)sender {
     MMViewController *controller = segue.destinationController;
@@ -28,15 +41,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.magicmirror = [MagicMirror addObserver:self];
-    
-    [self observeSketch:@selector(layerSelectionDidChange:)];
-    [self observeSketch:@selector(layerDidUpdate:)];
+    [self reloadData];
 }
 
 - (void)dealloc {
-    [self unobserveSketch:@selector(layerDidUpdate:)];
-    [self unobserveSketch:@selector(layerSelectionDidChange:)];
     self.shouldObserveCombobox = NO;
 }
 

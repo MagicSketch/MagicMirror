@@ -13,7 +13,7 @@
 #import "MMLayerProperties.h"
 #import "MMValuesStack.h"
 #import "MMArtboardComboboxItem.h"
-#import "NSObject+SketchEventsController.h"
+#import "SketchEventsController.h"
 
 @interface MMToolbarViewController ()
 

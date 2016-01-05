@@ -24,6 +24,8 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @protocol MSArtboardGroup;
 @protocol MSShapeGroup;
 @protocol MMController;
+@protocol SketchEventsController;
+
 @class MMLayerProperties;
 @class SketchPluginContext;
 @class MMLicenseInfo;
@@ -32,7 +34,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 + (instancetype)sharedInstance;
 + (void)setSharedInstance:(MagicMirror *)sharedInstance;
-+ (instancetype)addObserver:(id <MMController>)observer;
++ (void)addObserver:(id <MMController>)observer;
 
 - (void)showWindow;
 - (void)showLicenseInfo;

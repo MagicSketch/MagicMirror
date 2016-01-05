@@ -13,7 +13,10 @@
 #import "MSDocument.h"
 #import "MSLayerArray.h"
 #import "MSShapePathLayer.h"
-#import "NSObject+SketchEventsController.h"
+#import "SketchEventsController.h"
+#import "Weak.h"
+#import "MSShapeGroup.h"
+#import "MagicMirror.h"
 
 @interface SketchPluginContext ()
 
@@ -29,6 +32,16 @@
 @end
 
 @implementation SketchPluginContext
+
+static NSMutableArray <Weak *> *_observers = nil;
+
++ (void)load {
+    _observers = [NSMutableArray array];
+}
+
++ (void)addObserver:(id<SketchEventsController>)observer {
+    [_observers addObject:[Weak weakWithObject:observer]];
+}
 
 - (id)initWithPlugin:(MSPluginBundle *)plugin
             document:(MSDocument *)document
@@ -102,26 +115,21 @@
 - (void)layerSelectionDidChange:(NSArray *)layers {
     [self unobserveSelection];
     [self observeSelection];
-    [[NSNotificationCenter defaultCenter] postNotificationName:SketchLayerSelectionDidChangeNotification
-                                                        object:self
-                                                      userInfo:@
-     {
-         @"selector":NSStringFromSelector(@selector(layerSelectionDidChange:)),
-         @"block":^void(NSObject *object) {
-             [object layerSelectionDidChange:layers];
-         }
-     }];}
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <SketchEventsController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(layerSelectionDidChange:)]) {
+            [controller layerSelectionDidChange:layers];
+        }
+    }];
+}
 
 - (void)layerDidUpdate:(id<MSShapeGroup>)layer {
-    [[NSNotificationCenter defaultCenter] postNotificationName:SketchLayerDidUpdateNotification
-                                                        object:self
-                                                      userInfo:@
-     {
-         @"selector":NSStringFromSelector(@selector(layerDidUpdate:)),
-         @"block":^void(NSObject *object) {
-             [object layerDidUpdate:layer];
-         }
-     }];
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <SketchEventsController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(layerDidUpdate:)]) {
+            [controller layerDidUpdate:layer];
+        }
+    }];
 }
 
 - (void)unobserveSelection {
@@ -149,6 +157,8 @@
         _selection = [(id <MSLayerArray>)[_document valueForKey:@"selectedLayersA"] layers];
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
+        id <MSShapeGroup> shape = object;
+        MMLog(@"object.rect: %@", NSStringFromRect([shape rect]));
         [self layerDidUpdate:object];
     }
 }

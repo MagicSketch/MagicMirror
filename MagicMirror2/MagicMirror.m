@@ -53,6 +53,10 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 
 @end
 
+@interface MagicMirror (SketchEventsController) <SketchEventsController>
+
+@end
+
 @interface MagicMirror (Persist)
 
 - (void)persistDictionary:(id)object withIdentifier:(NSString *)identifier;
@@ -71,10 +75,10 @@ static NSMutableArray <Weak *>*_observers = nil;
 static MagicMirror *_sharedInstance = nil;
 
 + (id)sharedInstance {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+//    static dispatch_once_t onceToken;
+    if ( ! _sharedInstance) {
         _sharedInstance = [[self alloc] init];
-    });
+    }
     return _sharedInstance;
 }
 
@@ -82,7 +86,9 @@ static MagicMirror *_sharedInstance = nil;
     _sharedInstance = sharedInstance;
     [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         id <MMController> controller = [obj object];
-        [controller setMagicmirror:_sharedInstance];
+        if (controller.magicmirror != _sharedInstance) {
+            [controller setMagicmirror:_sharedInstance];
+        }
     }];
 }
 
@@ -92,9 +98,10 @@ static MagicMirror *_sharedInstance = nil;
     }
 }
 
-+ (instancetype)addObserver:(id<MMController>)observer {
++ (void)addObserver:(id <MMController>)observer {
     [_observers addObject:[Weak weakWithObject:observer]];
-    return [self sharedInstance];
+    [SketchPluginContext addObserver:observer];
+    [observer setMagicmirror:[self sharedInstance]];
 }
 
 - (id)initWithContext:(SketchPluginContext *)context {
@@ -112,10 +119,15 @@ static MagicMirror *_sharedInstance = nil;
     return nil;
 }
 
+- (void)dealloc {
+    MMLog(@"MagicMirror dealloc");
+}
+
 - (void)showWindow {
+    [SketchPluginContext addObserver:self];
+    [MagicMirror setSharedInstance:self];
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateInitialController];
-    _controller.magicmirror = self;
     _controller.delegate = self;
     [_controller showWindow:self];
     [self reloadData];
@@ -124,11 +136,7 @@ static MagicMirror *_sharedInstance = nil;
 - (void)showLicenseInfo {
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
     _controller = [storyboard instantiateControllerWithIdentifier:[self isRegistered] ? @"RegisteredWindow" : @"LicenseWindow"];
-
-    if ([_controller conformsToProtocol:@protocol(MMController)]) {
-        _controller.magicmirror = self;
-        _controller.delegate = self;
-    }
+    _controller.delegate = self;
     [_controller showWindow:self];
     [self reloadData];
 }
@@ -140,6 +148,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)goAway {
     _context.shouldKeepAround = NO;
+    _sharedInstance = nil;
     MMLog(@"goAway");
 }
 
@@ -152,20 +161,6 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)reloadData {
-    if ([_controller conformsToProtocol:@protocol(MMController)]) {
-        [_controller reloadData];
-    }
-}
-
-#pragma mark Subclass
-
-- (void)layerSelectionDidChange:(NSArray *)layers {
-    [self reloadData];
-    [_controller reloadData];
-}
-
-- (void)layerDidUpdate:(id<MSShapeGroup>)layer {
-    [self refreshLayer:layer];
 }
 
 #pragma - Fill
@@ -404,6 +399,18 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)controllerDidClose:(MMWindowController *)controller {
     _controller = nil;
+}
+
+@end
+
+@implementation MagicMirror (SketchEventsController)
+
+- (void)layerSelectionDidChange:(NSArray *)layers {
+    [self reloadData];
+}
+
+- (void)layerDidUpdate:(id<MSShapeGroup>)layer {
+    [self refreshLayer:layer];
 }
 
 @end

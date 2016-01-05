@@ -9,11 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "MMController.h"
 #import "MagicMirror.h"
-#import "NSObject+SketchEventsController.h"
+#import "SketchEventsController.h"
 
 @interface MMViewController : NSViewController <MMController, SketchEventsController>
 
-@property (readwrite) MagicMirror *magicmirror;
+@property (strong) MagicMirror *magicmirror;
 
 - (void)reloadData; // subclass should call super
 - (void)close; // This will find the proper window controller to close

@@ -17,13 +17,21 @@
 @implementation MMWindowController
 @synthesize magicmirror = _magicmirror;
 
-- (void)setMagicmirror:(MagicMirror *)magicmirror {
-    _magicmirror = magicmirror;
-    [self configureMagicMirror];
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    [MagicMirror addObserver:self];
+    [self.magicmirror keepAround];
 }
 
 - (void)showWindow:(nullable id)sender {
-    [_magicmirror keepAround];
     [super showWindow:sender];
 }
 
@@ -34,21 +42,16 @@
     self.window.level = NSMainMenuWindowLevel;
     self.window.hidesOnDeactivate = YES;
     [self.delegate controllerDidShow:self];
-    [self configureMagicMirror];
     self.window.movableByWindowBackground = YES;
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
-    [_magicmirror goAway];
     [self.delegate controllerDidClose:self];
 }
 
 - (void)dealloc {
+    [_magicmirror goAway];
     MMLog(@"MMWindowController: dealloc");
-}
-
-- (void)configureMagicMirror {
-    [MagicMirror setSharedInstance:self.magicmirror];
 }
 
 @end
