@@ -21,7 +21,7 @@
 #import "MSExportRenderer.h"
 #import "NSImage+Transform.h"
 #import "MSShapePath.h"
-#import "ImageRenderer.h"
+#import "MMImageRenderer.h"
 #import "MMToolbarViewController.h"
 #import "MMLayerProperties.h"
 #import "MSArray.h"
@@ -46,7 +46,7 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
-@property (nonatomic, strong) ImageRenderer *imageRenderer;
+@property (nonatomic, strong) MMImageRenderer *imageRenderer;
 
 //@property (nonatomic, copy) NSNumber *imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
@@ -111,11 +111,11 @@ static MagicMirror *_sharedInstance = nil;
     if (self = [super init]) {
         _context = context;
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
-        _imageRenderer = [[ImageRenderer alloc] init];
+        _imageRenderer = [[MMImageRenderer alloc] init];
         _perspective = YES;
         _version = @"2.0";
 
-        _imageRenderer = [[ImageRenderer alloc] init];
+        _imageRenderer = [[MMImageRenderer alloc] init];
 
         return self;
     }
@@ -251,7 +251,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard scale:(CGFloat)scale {
-    ImageRenderer *renderer = _imageRenderer;
+    MMImageRenderer *renderer = _imageRenderer;
     if (artboard) {
         renderer.layer = artboard;
         renderer.scale = scale;

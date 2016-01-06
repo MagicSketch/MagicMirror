@@ -18,7 +18,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 
 #define MMLog(fmt, ...) NSLog((@"MagicMirror: %s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
-#import "ImageRenderer.h"
+#import "MMImageRenderer.h"
 @protocol COScript;
 @protocol MSLayer;
 @protocol MSArtboardGroup;

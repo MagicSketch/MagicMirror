@@ -21,7 +21,7 @@ typedef enum {
     ImageRendererColorSpaceAdobeRGB1998 = 8,
 } ImageRendererColorSpaceIdentifier;
 
-@interface ImageRenderer : NSObject
+@interface MMImageRenderer : NSObject
 
 @property (nonatomic, strong) id <MSLayer> layer;
 @property (nonatomic, strong) NSBezierPath *bezierPath;

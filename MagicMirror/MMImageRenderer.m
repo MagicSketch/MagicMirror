@@ -6,7 +6,7 @@
 //  Copyright © 2015 James Tang. All rights reserved.
 //
 
-#import "ImageRenderer.h"
+#import "MMImageRenderer.h"
 #import "NSImage+Transform.h"
 #import "MSLayer.h"
 #import "MSLayerFlattener.h"
@@ -15,14 +15,14 @@
 #import "MSExportRenderer.h"
 #import "MSShapePath.h"
 
-@interface ImageRenderer ()
+@interface MMImageRenderer ()
 
 @property (nonatomic, strong) id <MSLayerFlattener> flattener;
 @property (nonatomic) BOOL addWatermarks;
 
 @end
 
-@implementation ImageRenderer
+@implementation MMImageRenderer
 
 - (id)init {
     if (self = [super init]) {
