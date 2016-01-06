@@ -124,11 +124,11 @@ static NSMutableArray <Weak *> *_observers = nil;
     NSMutableArray *layers = [[NSMutableArray alloc] init];
 
     [_selection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:NSClassFromString(@"MSLayer")]) {
-            [layers addObject:obj];
-        } else if ([obj isKindOfClass:NSClassFromString(@"MSShapePathLayer")]) {
+        if ([obj isKindOfClass:NSClassFromString(@"MSShapePathLayer")]) {
             MSShapePathLayer *pPath = obj;
             [layers addObject:pPath.parentForInsertingLayers];
+        } else if ([obj isKindOfClass:NSClassFromString(@"MSLayer")]) {
+            [layers addObject:obj];
         }
     }];
 
@@ -156,6 +156,7 @@ static NSMutableArray <Weak *> *_observers = nil;
 #pragma mark - Notifications
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
+    MMLog(@"layerSelectionDidChange: %@", layers);
     [self unobserveSelection];
     [self observeSelection];
     [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -167,6 +168,7 @@ static NSMutableArray <Weak *> *_observers = nil;
 }
 
 - (void)layerDidUpdate:(id<MSShapeGroup>)layer {
+    MMLog(@"layerDidUpdate: %@", layer);
     [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         id <SketchEventsController> controller = [obj object];
         if ([controller respondsToSelector:@selector(layerDidUpdate:)]) {
@@ -214,7 +216,7 @@ static NSMutableArray <Weak *> *_observers = nil;
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
         id <MSLayer> layer = object;
-        if ([layer isKindOfClass:NSClassFromString(@"MSShapeGroup")] && [(id <MSShapeGroup>)layer isEditingChild]) {
+        if ([layer respondsToSelector:@selector(isEditingChild)] && [(id <MSShapeGroup>)layer isEditingChild]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self layerDidUpdate:object];
             });
