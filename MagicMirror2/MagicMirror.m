@@ -35,6 +35,7 @@
 #import "MMLicenseInfo.h"
 #import "Weak.h"
 #import "SketchEventsController.h"
+#import "MSPage.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -329,6 +330,19 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)refreshSelection {
+    MMLog(@"refresh selection");
+    __weak __typeof (self) weakSelf = self;
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf refreshLayer:obj];
+    }];
+}
+
+- (void)refreshPage {
+    MMLog(@"refresh page");
+    __weak __typeof (self) weakSelf = self;
+    [_context.allLayersInPage enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf refreshLayer:obj];
+    }];
 }
 
 - (NSArray *)artboards {

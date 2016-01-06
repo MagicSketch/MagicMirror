@@ -38,7 +38,7 @@
 - (BOOL)canSnapSizeToLayer:(id)arg1;
 - (id)candidatesForMasking;
 - (void)changeLayerExpandedTypeToAutomaticIfCollapsed;
-- (id)children;
+- (NSArray *)children;
 - (id)closestSymbolInstance;
 - (id)containedLayers;
 - (unsigned long long)containedLayersCount;

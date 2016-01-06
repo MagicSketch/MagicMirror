@@ -10,6 +10,7 @@
 
 @interface MMNoSelectionViewController ()
 @property (weak) IBOutlet NSButton *closeButton;
+@property (weak) IBOutlet NSButton *refreshPageButton;
 
 @end
 
@@ -17,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (IBAction)refreshPageButtonDidPress:(id)sender {
+    [self.magicmirror refreshPage];
 }
 
 @end

@@ -34,6 +34,7 @@
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 - (NSArray *)selectedLayersAndAll;
+- (NSArray *)allLayersInPage;
 - (NSArray <id <MSShapeGroup>> *)layersAffectedByArtboard:(id <MSArtboardGroup>)artboard;
 
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSLayer>)layer;

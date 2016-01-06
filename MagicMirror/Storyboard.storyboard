@@ -347,24 +347,34 @@ DQ
             <objects>
                 <viewController id="WOo-pE-LaA" customClass="MMContainerViewController" sceneMemberID="viewController">
                     <view key="view" id="Hby-ZY-LiR" customClass="MMView">
-                        <rect key="frame" x="0.0" y="0.0" width="504" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
-                                <rect key="frame" x="0.0" y="0.0" width="504" height="44"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
+                                <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="RaX-pZ-8Z0" kind="embed" identifier="SI_ConfigureVC" id="Xr9-o7-CXn"/>
                                 </connections>
                             </containerView>
-                            <containerView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
-                                <rect key="frame" x="0.0" y="0.0" width="504" height="44"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
+                                <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="Fih-lY-VSH" kind="embed" identifier="SI_NoSelectionVC" id="WXJ-Qm-2tW"/>
                                 </connections>
                             </containerView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="wtU-sh-qpq" firstAttribute="leading" secondItem="Hby-ZY-LiR" secondAttribute="leading" id="1cw-da-ur9"/>
+                            <constraint firstItem="6tB-gv-01z" firstAttribute="leading" secondItem="Hby-ZY-LiR" secondAttribute="leading" id="6QO-0J-6bL"/>
+                            <constraint firstAttribute="bottom" secondItem="6tB-gv-01z" secondAttribute="bottom" id="92c-xX-X4X"/>
+                            <constraint firstAttribute="trailing" secondItem="wtU-sh-qpq" secondAttribute="trailing" id="PDG-9s-SN4"/>
+                            <constraint firstItem="wtU-sh-qpq" firstAttribute="top" secondItem="Hby-ZY-LiR" secondAttribute="top" id="QdZ-DY-4x8"/>
+                            <constraint firstAttribute="trailing" secondItem="6tB-gv-01z" secondAttribute="trailing" id="aMI-Mh-RFX"/>
+                            <constraint firstAttribute="bottom" secondItem="wtU-sh-qpq" secondAttribute="bottom" id="hNG-0L-dz5"/>
+                            <constraint firstItem="6tB-gv-01z" firstAttribute="top" secondItem="Hby-ZY-LiR" secondAttribute="top" id="uON-K2-uYM"/>
+                        </constraints>
                         <animations/>
                     </view>
                 </viewController>
@@ -381,8 +391,11 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="425" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="518-Fp-r8A">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="518-Fp-r8A">
                                 <rect key="frame" x="4" y="4" width="38" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="o7R-DU-2cM"/>
+                                </constraints>
                                 <animations/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="detach" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KoA-vn-pne">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -392,20 +405,41 @@ DQ
                                     <action selector="closeButtonDidPress:" target="Fih-lY-VSH" id="cs6-ZN-b76"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">
-                                <rect key="frame" x="42" y="9" width="373" height="22"/>
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">
+                                <rect key="frame" x="42" y="14" width="258" height="17"/>
                                 <animations/>
-                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="Please select one or more layers to get started." id="Fsv-27-Tsd">
+                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="No Layers Selected" id="Fsv-27-Tsd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qPx-ya-fnJ">
+                                <rect key="frame" x="300" y="5" width="121" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Refresh Page" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fY2-4n-DdP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="refreshPageButtonDidPress:" target="Fih-lY-VSH" id="pbL-rQ-KCu"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="KGD-NB-lGP" firstAttribute="leading" secondItem="518-Fp-r8A" secondAttribute="trailing" constant="8" id="5Mp-Wb-zxG"/>
+                            <constraint firstAttribute="trailing" secondItem="qPx-ya-fnJ" secondAttribute="trailing" constant="10" id="6g0-ZU-cpg"/>
+                            <constraint firstItem="qPx-ya-fnJ" firstAttribute="centerY" secondItem="Ny1-SR-VnY" secondAttribute="centerY" id="OeJ-lP-Y56"/>
+                            <constraint firstItem="KGD-NB-lGP" firstAttribute="centerY" secondItem="Ny1-SR-VnY" secondAttribute="centerY" id="PxM-Uf-7FG"/>
+                            <constraint firstItem="518-Fp-r8A" firstAttribute="leading" secondItem="Ny1-SR-VnY" secondAttribute="leading" constant="10" id="XeF-Cr-JAa"/>
+                            <constraint firstItem="518-Fp-r8A" firstAttribute="centerY" secondItem="Ny1-SR-VnY" secondAttribute="centerY" id="hWO-Ag-Nnm"/>
+                            <constraint firstItem="qPx-ya-fnJ" firstAttribute="leading" secondItem="KGD-NB-lGP" secondAttribute="trailing" constant="8" id="oaM-nL-mhk"/>
+                        </constraints>
                         <animations/>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="518-Fp-r8A" id="W5g-wp-hVg"/>
+                        <outlet property="refreshPageButton" destination="qPx-ya-fnJ" id="Wo8-Dp-SqE"/>
                     </connections>
                 </viewController>
             </objects>

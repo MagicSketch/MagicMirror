@@ -135,6 +135,17 @@ static NSMutableArray <Weak *> *_observers = nil;
     return [layers copy];
 }
 
+- (NSArray *)allLayersInPage {
+    NSMutableArray *layers = [[NSMutableArray alloc] init];
+    [[self.document.currentPage children] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {
+            [layers addObject:obj];
+        }
+    }];
+
+    return [layers copy];
+}
+
 - (NSArray <id <MSShapeGroup>> *)layersAffectedByArtboard:(id <MSArtboardGroup>)artboard {
     NSArray <id <MSLayer>> *array = [[_document currentPage] children];
 
