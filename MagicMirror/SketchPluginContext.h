@@ -11,6 +11,8 @@
 #import "Sketch.h"
 #import "SketchEventsController.h"
 @protocol MSShapeGroup;
+@protocol MSLayer;
+@class MMLayerProperties;
 
 @interface SketchPluginContext : NSObject
 
@@ -31,6 +33,9 @@
 - (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
+- (NSArray <id <MSShapeGroup>> *)layersAffectedByArtboard:(id <MSArtboardGroup>)artboard;
+
+- (MMLayerProperties *)layerPropertiesForLayer:(id <MSLayer>)layer;
 
 + (void)addObserver:(id <SketchEventsController>)observer;
 

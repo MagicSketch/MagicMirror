@@ -86,7 +86,7 @@
 - (void)currentHandlerChanged;
 - (id)currentHandlerKey;
 - (id)currentHorizontalRulerData;
-- (id)currentPage;
+- (MSPage *)currentPage;
 - (BOOL)currentPopoverHandlesColorMagnifier;
 - (id)currentVerticalRulerData;
 - (id)currentView;

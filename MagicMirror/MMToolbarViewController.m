@@ -22,6 +22,7 @@
 @property (weak) IBOutlet NSButton *jumpButton;
 @property (weak) IBOutlet NSButton *closeButton;
 @property (weak) IBOutlet NSButton *applyButton;
+@property (weak) IBOutlet NSButtonCell *refreshButton;
 @property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
 
 @property (copy) NSNumber *imageQuality;
@@ -187,6 +188,10 @@
 - (IBAction)rotateButtonDidPress:(id)sender {
     MMLog(@"rotateButtonDidPress");
     [self.magicmirror rotateSelection];
+}
+
+- (IBAction)refreshButtonDidPress:(id)sender {
+    [self.magicmirror refreshSelection];
 }
 
 @end

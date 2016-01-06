@@ -44,6 +44,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)goAway;
 
 // Per Layer
+- (void)refreshArtboard:(id <MSArtboardGroup>)artboard;
 //- (void)refreshLayer:(id <MSShapeGroup>)layer;
 //- (void)clearLayer:(id <MSShapeGroup>)layer;
 //- (void)setArtboard:(id <MSArtboardGroup>)artboard forLayer:(id <MSShapeGroup>)layer;
@@ -66,6 +67,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (void)flipSelection;
 - (void)jumpSelection;
 - (void)configureSelection;
+- (void)refreshSelection;
 
 //- (NSArray *)artboards;
 - (NSDictionary *)artboardsLookup;

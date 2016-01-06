@@ -194,6 +194,13 @@ static MagicMirror *_sharedInstance = nil;
     [fill setPatternImage:image];
 }
 
+#pragma - Artboard 
+
+- (void)refreshArtboard:(id <MSArtboardGroup>)artboard {
+    NSArray *layers = [_context layersAffectedByArtboard:artboard];
+    MMLog(@"layers: %@", layers);
+}
+
 #pragma - Per Layer
 
 - (void)clearLayer:(id <MSShapeGroup>)layer {
@@ -319,6 +326,10 @@ static MagicMirror *_sharedInstance = nil;
     }
 
     [self showWindow];
+}
+
+- (void)refreshSelection {
+    
 }
 
 - (NSArray *)artboards {
@@ -452,17 +463,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
-    NSString *source = [self valueForKey:@"source" onLayer:layer];
-    NSString *version = [self valueForKey:@"version" onLayer:layer];
-    if ([version hasPrefix:@"2"] && ( ! source || [source length] == 0)) {
-        source = [layer name];
-    }
-    NSNumber *imageQuality = [self valueForKey:@"imageQuality" onLayer:layer];
-    MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
-                                                                           source:source
-                                                                          version:version
-                                     ];
-    return properties;
+    return [_context layerPropertiesForLayer:layer];
 }
 
 @end

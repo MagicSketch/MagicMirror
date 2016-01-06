@@ -17,6 +17,9 @@
 #import "Weak.h"
 #import "MSShapeGroup.h"
 #import "MagicMirror.h"
+#import "MSArray.h"
+#import "MSLayer.h"
+#import "MMLayerProperties.h"
 
 @interface SketchPluginContext ()
 
@@ -116,6 +119,24 @@ static NSMutableArray <Weak *> *_observers = nil;
     return [layers copy];
 }
 
+- (NSArray <id <MSShapeGroup>> *)layersAffectedByArtboard:(id <MSArtboardGroup>)artboard {
+    NSArray <id <MSLayer>> *array = [[_document currentPage] children];
+
+    __block NSMutableArray <id <MSShapeGroup>> *shapesAffected = [NSMutableArray array];
+    __weak __typeof (self) weakSelf = self;
+
+    [array enumerateObjectsUsingBlock:^(id <MSLayer> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {
+            MMLayerProperties *properties = [weakSelf layerPropertiesForLayer:obj];
+            if ([[artboard name] isEqualToString:properties.source]) {
+                [shapesAffected addObject:(id <MSShapeGroup>)obj];
+            }
+        }
+    }];
+
+    return [shapesAffected copy];
+}
+
 #pragma mark - Notifications
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
@@ -159,6 +180,16 @@ static NSMutableArray <Weak *> *_observers = nil;
     }];
 }
 
+- (void)artboardDidUpdate:(id <MSArtboardGroup>)artboard {
+    MMLog(@"artboardDidUpdate: %@", artboard);
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <SketchEventsController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(artboardDidUpdate:)]) {
+            [controller artboardDidUpdate:artboard];
+        }
+    }];
+}
+
 #pragma mark KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
@@ -167,13 +198,36 @@ static NSMutableArray <Weak *> *_observers = nil;
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
         id <MSShapeGroup> shape = object;
-        MMLog(@"%@ object.rect: %@", object, NSStringFromRect([shape rect]));
         if ([shape isEditingChild]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self layerDidUpdate:object];
             });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                id <MSArtboardGroup> artboard = [object parentArtboard];
+                if (artboard) {
+                    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(artboardDidUpdate:) object:artboard];
+                    [self performSelector:@selector(artboardDidUpdate:) withObject:artboard afterDelay:1.0];
+                }
+            });
         }
     }
+}
+
+#pragma mark - Helper
+
+- (MMLayerProperties *)layerPropertiesForLayer:(id<MSLayer>)layer {
+    NSString *source = [self.command valueForKey:@"source" onLayer:layer];
+    NSString *version = [self.command valueForKey:@"version" onLayer:layer];
+    if ([version hasPrefix:@"2"] && ( ! source || [source length] == 0)) {
+        source = [layer name];
+    }
+    NSNumber *imageQuality = [self.command valueForKey:@"imageQuality" onLayer:layer];
+    MMLayerProperties *properties = [MMLayerProperties propertiesWithImageQuality:imageQuality
+                                                                           source:source
+                                                                          version:version
+                                     ];
+    return properties;
 }
 
 @end

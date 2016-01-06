@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @protocol MSShapeGroup;
-
+@protocol MSArtboardGroup;
 
 @protocol SketchEventsController <NSObject>
 
 @optional
 - (void)layerSelectionDidChange:(NSArray *)layers;
 - (void)layerDidUpdate:(id <MSShapeGroup>)layer;
+- (void)artboardDidUpdate:(id <MSArtboardGroup>)artboard;
 
 @end
