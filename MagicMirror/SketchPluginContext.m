@@ -20,6 +20,7 @@
 #import "MSArray.h"
 #import "MSLayer.h"
 #import "MMLayerProperties.h"
+#import "MSLayerGroup.h"
 
 @interface SketchPluginContext ()
 
@@ -119,6 +120,21 @@ static NSMutableArray <Weak *> *_observers = nil;
     return [layers copy];
 }
 
+- (NSArray *)selectedLayersAndAll {
+    NSMutableArray *layers = [[NSMutableArray alloc] init];
+
+    [_selection enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:NSClassFromString(@"MSLayer")]) {
+            [layers addObject:obj];
+        } else if ([obj isKindOfClass:NSClassFromString(@"MSShapePathLayer")]) {
+            MSShapePathLayer *pPath = obj;
+            [layers addObject:pPath.parentForInsertingLayers];
+        }
+    }];
+
+    return [layers copy];
+}
+
 - (NSArray <id <MSShapeGroup>> *)layersAffectedByArtboard:(id <MSArtboardGroup>)artboard {
     NSArray <id <MSLayer>> *array = [[_document currentPage] children];
 
@@ -168,10 +184,10 @@ static NSMutableArray <Weak *> *_observers = nil;
 }
 
 - (void)observeSelection {
-    NSArray *layers = [self selectedLayers];
+    NSArray *layers = [self selectedLayersAndAll];
     MMLog(@"observing %lu", (unsigned long)[layers count]);
 
-    [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [layers enumerateObjectsUsingBlock:^(id <MSLayer> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [(NSObject *)obj addObserver:self
                           forKeyPath:@"rect"
                              options:NSKeyValueObservingOptionNew
@@ -197,17 +213,19 @@ static NSMutableArray <Weak *> *_observers = nil;
         _selection = [(id <MSLayerArray>)[_document valueForKey:@"selectedLayersA"] layers];
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
-        id <MSShapeGroup> shape = object;
-        if ([shape isEditingChild]) {
+        id <MSLayer> layer = object;
+        if ([layer isKindOfClass:NSClassFromString(@"MSShapeGroup")] && [(id <MSShapeGroup>)layer isEditingChild]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self layerDidUpdate:object];
             });
-        } else {
+        }
+
+        if ([layer isKindOfClass:NSClassFromString(@"MSLayer")] && [layer respondsToSelector:@selector(parentArtboard)]) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 id <MSArtboardGroup> artboard = [object parentArtboard];
                 if (artboard) {
                     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(artboardDidUpdate:) object:artboard];
-                    [self performSelector:@selector(artboardDidUpdate:) withObject:artboard afterDelay:1.0];
+                    [self performSelector:@selector(artboardDidUpdate:) withObject:artboard afterDelay:0.5];
                 }
             });
         }

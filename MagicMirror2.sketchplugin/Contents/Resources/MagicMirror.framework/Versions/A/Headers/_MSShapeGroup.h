@@ -6,7 +6,7 @@
 
 #import "MSLayerGroup.h"
 
-@interface _MSShapeGroup : MSLayerGroup
+@interface _MSShapeGroup : _MSLayerGroup <MSLayerGroup>
 {
     BOOL _hasClippingMask;
     long long _clippingMaskMode;

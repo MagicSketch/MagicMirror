@@ -8,7 +8,7 @@
 
 @class MSColor, MSLayoutGrid, MSRulerData, MSSimpleGrid;
 
-@interface _MSArtboardGroup : MSLayerGroup
+@interface _MSArtboardGroup : _MSLayerGroup <MSLayerGroup>
 {
     BOOL _hasBackgroundColor;
     BOOL _includeBackgroundColorInExport;

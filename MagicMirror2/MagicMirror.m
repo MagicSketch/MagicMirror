@@ -329,7 +329,6 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)refreshSelection {
-    
 }
 
 - (NSArray *)artboards {
@@ -441,6 +440,14 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)layerDidUpdate:(id<MSShapeGroup>)layer {
     [self refreshLayer:layer];
+}
+
+- (void)artboardDidUpdate:(id<MSArtboardGroup>)artboard {
+    __weak __typeof (self) weakSelf = self;
+    MMLog(@"artboardDidUpdate:");
+    [[_context layersAffectedByArtboard:artboard] enumerateObjectsUsingBlock:^(id<MSShapeGroup>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf refreshLayer:obj];
+    }];
 }
 
 @end

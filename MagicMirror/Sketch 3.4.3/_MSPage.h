@@ -8,7 +8,7 @@
 
 @class MSLayoutGrid, MSRulerData, MSSimpleGrid;
 
-@interface _MSPage : MSLayerGroup
+@interface _MSPage : _MSLayerGroup <MSLayerGroup>
 {
     double _zoomValue;
     MSSimpleGrid *_grid;

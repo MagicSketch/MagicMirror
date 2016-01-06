@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @protocol MSShapeGroup;
+@protocol MSLayerGroup;
 @protocol MSArtboardGroup;
 
 @protocol SketchEventsController <NSObject>

@@ -11,18 +11,7 @@
 
 @class NSMutableArray, NSString;
 
-@interface MSLayerGroup : _MSLayerGroup <MSArrayDelegate, MSSharedObjectInstance>
-{
-    long long ignoreChildrenRefreshCalls;
-    BOOL _enableAutomaticScaling;
-    BOOL _isOpen;
-    BOOL _ignoreNextClickThrough;
-    BOOL _ignoreNextSymbolSyncChange;
-    BOOL _lightweightContainsSelectedItem;
-    long long _hasLayerWithMaskMode;
-    long long _preCalculatedHasSelectedLayer;
-    NSMutableArray *_relativeChildFrames;
-}
+@protocol MSLayerGroup <MSArrayDelegate, MSSharedObjectInstance>
 
 + (struct CGRect)groupBoundsForLayers:(id)arg1;
 + (BOOL)groupBoundsShouldBeIntegral;
