@@ -28,7 +28,7 @@
             <objects>
                 <viewController id="RaX-pZ-8Z0" customClass="MMToolbarViewController" sceneMemberID="viewController">
                     <view key="view" id="5PW-b4-rNt">
-                        <rect key="frame" x="0.0" y="0.0" width="504" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c">
@@ -44,17 +44,17 @@
                                 </connections>
                             </comboBox>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-pF-xB4">
-                                <rect key="frame" x="227" y="7" width="114" height="26"/>
+                                <rect key="frame" x="227" y="7" width="121" height="26"/>
                                 <animations/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Default (Auto)" drawsBackground="YES" numberOfVisibleItems="5" id="FHY-82-Csw">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Image Quality" drawsBackground="YES" numberOfVisibleItems="5" id="FHY-82-Csw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <objectValues>
-                                        <string>Default (Auto)</string>
-                                        <string>1 - Normal</string>
-                                        <string>2 - Retina @2x (Pro)</string>
-                                        <string>3 - Adaptive + @3x (Pro)</string>
+                                        <string>Auto</string>
+                                        <string>@1x</string>
+                                        <string>@2x</string>
+                                        <string>Max</string>
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
-                                <rect key="frame" x="344" y="9" width="71" height="24"/>
+                                <rect key="frame" x="351" y="8" width="71" height="24"/>
                                 <animations/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="f4d-f7-dfE">
                                     <font key="font" metaFont="system"/>
@@ -95,7 +95,7 @@
                                 </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-J9-Z2B">
-                                <rect key="frame" x="415" y="4" width="87" height="32"/>
+                                <rect key="frame" x="422" y="3" width="88" height="32"/>
                                 <animations/>
                                 <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xHS-yR-1zw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -119,7 +119,7 @@
                 </viewController>
                 <customObject id="Atn-QA-ad6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="-1"/>
+            <point key="canvasLocation" x="798.5" y="-1"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="LVo-kw-TZt">
@@ -347,18 +347,18 @@ DQ
             <objects>
                 <viewController id="WOo-pE-LaA" customClass="MMContainerViewController" sceneMemberID="viewController">
                     <view key="view" id="Hby-ZY-LiR" customClass="MMView">
-                        <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
-                                <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="RaX-pZ-8Z0" kind="embed" identifier="SI_ConfigureVC" id="Xr9-o7-CXn"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
-                                <rect key="frame" x="0.0" y="0.0" width="506" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
                                 <animations/>
                                 <connections>
                                     <segue destination="Fih-lY-VSH" kind="embed" identifier="SI_NoSelectionVC" id="WXJ-Qm-2tW"/>

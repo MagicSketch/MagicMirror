@@ -91,6 +91,15 @@
 - (void)reloadImageQualityCombobox {
     MMValuesStack *stack = [[MMValuesStack alloc] init];
 
+    [self.imageQualityComboBox removeItemAtIndex:0];
+    if ([self.magicmirror isRegistered]) {
+        [self.imageQualityComboBox insertItemWithObjectValue:@"Auto (@2x)"
+                                                     atIndex:0];
+    } else {
+        [self.imageQualityComboBox insertItemWithObjectValue:@"Auto (@1x)"
+                                                     atIndex:0];
+    }
+
     [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
@@ -109,7 +118,7 @@
         case MMValuesStackResultEmpty:
         case MMValuesStackResultUnspecified:
             [cell setTitle:@""];
-            [cell setPlaceholderString:@"Default (Auto)"];
+            [cell setPlaceholderString:@"Quality (Auto)"];
             break;
         case MMValuesStackResultSingular: {
             id object = [stack anyObject];
@@ -217,6 +226,14 @@
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
     [self reloadData];
+}
+
+- (void)magicmirrorLicenseUnlocked:(MagicMirror *)magicmirror {
+    [self reloadImageQualityCombobox];
+}
+
+- (void)magicmirrorLicenseDetached:(MagicMirror *)magicmirror {
+    [self reloadImageQualityCombobox];
 }
 
 @end
