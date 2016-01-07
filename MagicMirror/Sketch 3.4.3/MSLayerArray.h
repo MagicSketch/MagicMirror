@@ -45,3 +45,8 @@
 
 @end
 
+
+@interface MSLayerArray : NSObject <MSLayerArray>
+
+@end
+

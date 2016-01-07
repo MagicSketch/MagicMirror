@@ -21,6 +21,7 @@
 #import "MSLayer.h"
 #import "MMLayerProperties.h"
 #import "MSLayerGroup.h"
+#import "MSLayerArray.h"
 
 @interface SketchPluginContext ()
 
@@ -58,9 +59,33 @@ static NSMutableArray <Weak *> *_observers = nil;
         _document = document;
         _coscript = (id <COScript>)command.session;
         _layerChangeObservers = [NSMutableArray array];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(windowDidBecomeMain:)
+                                                     name:NSWindowDidBecomeMainNotification
+                                                   object:nil];
+
         return self;
     }
     return nil;
+}
+
+
+- (void)windowDidBecomeMain:(NSNotification *)notification {
+    MMLog(@"windowDidBecomeMain");
+    [self unobserveSelection];
+
+    self.document = [NSClassFromString(@"MSDocument") currentDocument];
+    self.selection = [[self.document selectedLayersA] layers];
+
+    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        id <SketchEventsController> controller = [obj object];
+        if ([controller respondsToSelector:@selector(documentDidChange:)]) {
+            [controller documentDidChange:[NSClassFromString(@"MSDocument") currentDocument]];
+        }
+    }];
+
+    [self layerSelectionDidChange:nil];
 }
 
 - (void)dealloc {
@@ -68,6 +93,7 @@ static NSMutableArray <Weak *> *_observers = nil;
 
     self.shouldKeepAround = NO;
     [self unobserveSelection];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setShouldKeepAround:(BOOL)shouldKeepAround {
@@ -84,6 +110,19 @@ static NSMutableArray <Weak *> *_observers = nil;
             [_document removeObserver:self forKeyPath:@"selectedLayersA"];
             _observerAdded = NO;
         }
+    }
+}
+- (void)setDocument:(MSDocument *)document {
+    if (_observerAdded == YES) {
+        [_document removeObserver:self forKeyPath:@"selectedLayersA"];
+        _observerAdded = NO;
+    }
+
+    _document = document;
+
+    if (_shouldKeepAround) {
+        [_document addObserver:self forKeyPath:@"selectedLayersA" options:NSKeyValueObservingOptionNew context:nil];
+        _observerAdded = YES;
     }
 }
 

@@ -36,6 +36,7 @@
 #import "Weak.h"
 #import "SketchEventsController.h"
 #import "MSPage.h"
+#import "MSDocument.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -484,6 +485,11 @@ static MagicMirror *_sharedInstance = nil;
     [[_context layersAffectedByArtboard:artboard] enumerateObjectsUsingBlock:^(id<MSShapeGroup>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf refreshLayer:obj];
     }];
+}
+
+- (void)documentDidChange:(id<MSDocument>)document {
+
+    _artboardsLookup = nil;
 }
 
 @end

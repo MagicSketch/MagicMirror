@@ -10,6 +10,7 @@
 @protocol MSShapeGroup;
 @protocol MSLayerGroup;
 @protocol MSArtboardGroup;
+@protocol MSDocument;
 
 @protocol SketchEventsController <NSObject>
 
@@ -17,5 +18,6 @@
 - (void)layerSelectionDidChange:(NSArray *)layers;
 - (void)layerDidUpdate:(id <MSShapeGroup>)layer;
 - (void)artboardDidUpdate:(id <MSArtboardGroup>)artboard;
+- (void)documentDidChange:(id <MSDocument>)document;
 
 @end

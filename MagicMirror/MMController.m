@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         [MagicMirror addObserver:self];
+
     }
     return self;
 }

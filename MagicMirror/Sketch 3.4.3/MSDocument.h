@@ -13,33 +13,7 @@
 
 @class BCSideBarViewController, MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSharedObjectInstanceCollection, MSSplitViewDelegate, MSToolbarConstructor, NSMutableSet, NSSplitView, NSString, NSTimer, NSView, NSWindow;
 
-@interface MSDocument : NSDocument <MSSidebarControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
-{
-    BOOL _hasOpenedImageFile;
-    BOOL _nextReadFromURLIsReload;
-    BOOL _isSyncingSharedObjects;
-    BOOL _temporarilyDisableSelectionHiding;
-    NSSplitView *_splitView;
-    NSWindow *_documentWindow;
-    NSView *_messageView;
-    MSSplitViewDelegate *_splitViewController;
-    NSView *_inspectorPlaceholderView;
-    NSView *_canvasPlaceholderView;
-    MSToolbarConstructor *_toolbarConstructor;
-    MSActionsController *_actionsController;
-    MSDocumentData *_documentData;
-    MSEventHandlerManager *_eventHandlerManager;
-    MSInspectorController *_inspectorController;
-    MSIOSRefreshCollector *_refreshCollector;
-    MSFontList *_fontList;
-    MSLayerArray *_selectedLayersA;
-    MSSharedObjectInstanceCollection *_collectedSharedObjects;
-    NSTimer *_collectedSharedObjectsTimer;
-    MSContentDrawViewController *_currentContentViewController;
-    BCSideBarViewController *_sidebarController;
-    NSMutableSet *_layersWithHiddenSelectionHandles;
-    NSTimer *_resetHiddenSelectionHandlesTimer;
-}
+@protocol MSDocument <MSSidebarControllerDelegate, NSMenuDelegate, NSToolbarDelegate, NSWindowDelegate, MSBasicDelegate, MSDocumentDataDelegate, MSPageDelegate>
 
 + (BOOL)autosavesInPlace;
 + (id)currentDocument;
@@ -276,3 +250,6 @@
 
 @end
 
+@interface MSDocument : NSDocument <MSDocument>
+
+@end
