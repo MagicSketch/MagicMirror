@@ -137,7 +137,7 @@ static NSMutableArray <Weak *> *_observers = nil;
     return [layers copy];
 }
 
-- (NSArray *)allLayersInPage {
+- (NSArray *)allMagicLayersInPage {
     NSMutableArray *layers = [[NSMutableArray alloc] init];
     [[self.document.currentPage children] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:NSClassFromString(@"MSShapeGroup")]) {

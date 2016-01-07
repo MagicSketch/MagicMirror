@@ -353,7 +353,7 @@ static MagicMirror *_sharedInstance = nil;
 - (void)refreshPage {
     MMLog(@"refresh page");
     __weak __typeof (self) weakSelf = self;
-    [_context.allLayersInPage enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_context.allMagicLayersInPage enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf refreshLayer:obj];
     }];
 }
