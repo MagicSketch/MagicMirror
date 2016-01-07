@@ -35,6 +35,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @property (nonatomic, readonly) NSUInteger lifeCount;
 
 + (instancetype)sharedInstance;
++ (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;
 + (void)setSharedInstance:(MagicMirror *)sharedInstance;
 + (void)addObserver:(id <MMController>)observer;
 
@@ -83,6 +84,7 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 - (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
+- (void)setVersionForLayer:(id <MSShapeGroup>)layer;
 
 @end
 

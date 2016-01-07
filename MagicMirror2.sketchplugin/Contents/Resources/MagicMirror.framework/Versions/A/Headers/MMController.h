@@ -14,7 +14,7 @@
 
 @interface MMController : NSObject <MMController>
 
-@property (strong) MagicMirror *magicmirror;
+@property (weak) MagicMirror *magicmirror;
 
 @end
 

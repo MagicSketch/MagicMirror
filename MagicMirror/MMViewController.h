@@ -13,7 +13,7 @@
 
 @interface MMViewController : NSViewController <MMController, SketchEventsController>
 
-@property (strong) MagicMirror *magicmirror;
+@property (weak) MagicMirror *magicmirror;
 
 - (void)reloadData; // subclass should call super
 - (void)close; // This will find the proper window controller to close

@@ -33,4 +33,12 @@
     properties.source = nil;
 }
 
+- (NSString *)description {
+    return [[self dictionaryWithValuesForKeys:@[
+                                                @"imageQuality",
+                                                @"source",
+                                                @"version",
+                                               ]] description];
+}
+
 @end

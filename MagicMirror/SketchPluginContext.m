@@ -65,6 +65,8 @@ static NSMutableArray <Weak *> *_observers = nil;
 
 - (void)dealloc {
     MMLog(@"SketchPluginContext dealloc")
+
+    self.shouldKeepAround = NO;
     [self unobserveSelection];
 }
 

@@ -41,7 +41,7 @@ var initialize = function(context) {
 												    selection:context.selection
 													  command:context.command];
 
-	var magicmirror = [[MagicMirror alloc] initWithContext:context];
+	var magicmirror = [MagicMirror sharedInstanceWithContext:context];
 	return magicmirror;
 }
 

@@ -44,11 +44,10 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 @property (nonatomic) NSUInteger lifeCount;
 
 @property (nonatomic, strong) MMWindowController *controller;
+@property (nonatomic, strong) MMWindowController *toolbarWindow;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
 @property (nonatomic, strong) MMImageRenderer *imageRenderer;
-
-//@property (nonatomic, copy) NSNumber *imageQuality;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) BOOL perspective;
 @property (nonatomic, copy) NSDictionary *artboardsLookup;
@@ -78,10 +77,24 @@ static NSMutableArray <Weak *>*_observers = nil;
 static MagicMirror *_sharedInstance = nil;
 
 + (id)sharedInstance {
-//    static dispatch_once_t onceToken;
     if ( ! _sharedInstance) {
         _sharedInstance = [[self alloc] init];
+        [_sharedInstance commonInit];
     }
+    return _sharedInstance;
+}
+
++ (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context {
+    if ( ! _sharedInstance) {
+        _sharedInstance = [[self alloc] init];
+        [_sharedInstance commonInit];
+    }
+    if (_sharedInstance.context != context) {
+        _sharedInstance.context = context;
+        _sharedInstance.artboardsLookup = nil;
+    }
+
+    MMLog(@"sharedInstance: %@", _sharedInstance);
     return _sharedInstance;
 }
 
@@ -107,38 +120,38 @@ static MagicMirror *_sharedInstance = nil;
     [observer setMagicmirror:[self sharedInstance]];
 }
 
-- (id)initWithContext:(SketchPluginContext *)context {
-    if (self = [super init]) {
-        _context = context;
-        _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
-        _imageRenderer = [[MMImageRenderer alloc] init];
-        _perspective = YES;
-        _version = @"2.0";
-
-        _imageRenderer = [[MMImageRenderer alloc] init];
-
-        return self;
-    }
-    return nil;
+- (void)commonInit {
+    _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
+    _imageRenderer = [[MMImageRenderer alloc] init];
+    _perspective = YES;
+    _version = @"2.0";
 }
 
 - (void)dealloc {
     MMLog(@"MagicMirror dealloc");
+    _toolbarWindow.delegate = nil;
+    _controller.delegate = nil;
 }
 
 - (void)showWindow {
+    if (_toolbarWindow) {
+        [_toolbarWindow close];
+        _toolbarWindow = nil;
+        return;
+    }
+
     [SketchPluginContext addObserver:self];
     [MagicMirror setSharedInstance:self];
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
-    _controller = [storyboard instantiateInitialController];
-    _controller.delegate = self;
-    [_controller showWindow:self];
+    _toolbarWindow = [storyboard instantiateInitialController];
+    _toolbarWindow.delegate = self;
+    [_toolbarWindow showWindow:self];
     [self reloadData];
 }
 
 - (void)closeToolbar {
     MMLog(@"MMWindowController close");
-    [_controller close];
+    [_toolbarWindow close];
 }
 
 - (void)showLicenseInfo {
@@ -279,7 +292,7 @@ static MagicMirror *_sharedInstance = nil;
         }
         [self mirrorLayer:layer fromArtboard:artboard scale:scale];
     }
-    [self setVersion:_version];
+    [self setVersionForLayer:layer];
 }
 
 - (void)rotateLayer:(id <MSShapeGroup>)layer {
@@ -441,7 +454,11 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)controllerDidClose:(MMWindowController *)controller {
-    _controller = nil;
+    if (controller == _controller) {
+        _controller = nil;
+    } else if (controller == _toolbarWindow) {
+        _toolbarWindow = nil;
+    }
 }
 
 @end
@@ -450,6 +467,11 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
     [self reloadData];
+    if ([layers count] == 1) {
+        MMLayerProperties *properties = [self layerPropertiesForLayer:layers[0]];
+        MMLog(@"layer: %@", layers[0]);
+        MMLog(@"%@", properties);
+    }
 }
 
 - (void)layerDidUpdate:(id<MSShapeGroup>)layer {
@@ -485,6 +507,10 @@ static MagicMirror *_sharedInstance = nil;
 
 - (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
     return [_context layerPropertiesForLayer:layer];
+}
+
+- (void)setVersionForLayer:(id <MSShapeGroup>)layer {
+    [self setValue:_version forKey:@"version" onLayer:layer];
 }
 
 @end
