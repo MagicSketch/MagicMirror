@@ -15,13 +15,15 @@
 		1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */; };
 		1A0FAFD61C19957300B57F42 /* MMImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */; };
+		1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F3D5A1C3D7175004171C8 /* MMController.m */; };
+		1A1F3D5C1C3D723C004171C8 /* MMController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCE1C1AC2E500FE3981 /* MMController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A21D9D81C2AC60D005A2733 /* MMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9D61C2AC60D005A2733 /* MMWindow.h */; };
 		1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9D71C2AC60D005A2733 /* MMWindow.m */; };
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
-		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; };
+		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A4DB9181C3A96A700AB5F0B /* Weak.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9161C3A96A700AB5F0B /* Weak.h */; };
 		1A4DB9191C3A96A700AB5F0B /* Weak.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4DB9171C3A96A700AB5F0B /* Weak.m */; };
 		1A562CCC1C1A9C1B00FE3981 /* MMToolbarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCA1C1A9C1B00FE3981 /* MMToolbarViewController.h */; };
@@ -1331,6 +1333,7 @@
 		1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLicenseViewController.m; sourceTree = "<group>"; };
 		1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageRenderer.h; sourceTree = "<group>"; };
 		1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageRenderer.m; sourceTree = "<group>"; };
+		1A1F3D5A1C3D7175004171C8 /* MMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMController.m; sourceTree = "<group>"; };
 		1A21D9D61C2AC60D005A2733 /* MMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindow.h; sourceTree = "<group>"; };
 		1A21D9D71C2AC60D005A2733 /* MMWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWindow.m; sourceTree = "<group>"; };
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
@@ -2686,6 +2689,7 @@
 			children = (
 				1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */,
 				1A562CCE1C1AC2E500FE3981 /* MMController.h */,
+				1A1F3D5A1C3D7175004171C8 /* MMController.m */,
 				1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */,
 				1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */,
 				1AB4BC561C18643200B7922D /* NSImage+Transform.h */,
@@ -4271,6 +4275,7 @@
 				1AB4B9381C16E68400B7922D /* MSCurvePointMirroredBehaviour.h in Headers */,
 				1AB4B9261C16E68400B7922D /* MSColorInspectorSeparatorView.h in Headers */,
 				1AB4B9791C16E68400B7922D /* MSFlippedView.h in Headers */,
+				1A1F3D5C1C3D723C004171C8 /* MMController.h in Headers */,
 				1AB4B7F51C16E68400B7922D /* _MSStyleReflection.h in Headers */,
 				1AB4B84C1C16E68400B7922D /* BCLineObject.h in Headers */,
 				1AB4BACE1C16E68400B7922D /* MSSliceLayerSection.h in Headers */,
@@ -5411,6 +5416,7 @@
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
+				1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */,

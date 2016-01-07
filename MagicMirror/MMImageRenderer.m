@@ -19,6 +19,11 @@
 
 @property (nonatomic, strong) id <MSLayerFlattener> flattener;
 @property (nonatomic) BOOL addWatermarks;
+@property (nonatomic) CGFloat defaultScale;
+
+@end
+
+@interface MMImageRenderer (MMController) <MMController>
 
 @end
 
@@ -27,7 +32,7 @@
 - (id)init {
     if (self = [super init]) {
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
-        _addWatermarks = YES;
+        [self setRegistered:[self.magicmirror isRegistered]];
     }
     return self;
 }
@@ -43,7 +48,7 @@
     NSImage *image = [flattener imageFromLayers:array lightweightPage:self.layer];
 
     if ( ! self.disablePerspective) {
-        image = [image imageForPath:self.bezierPath scale:self.scale];
+        image = [image imageForPath:self.bezierPath scale:[self currentScale]];
     }
 
     [self addWatermarkOnImageIfNeeded:image];
@@ -52,14 +57,14 @@
 }
 
 - (NSImage *)exportedImage {
-    id <MSExportRequest> request = [NSClassFromString(@"MSExportRequest") requestWithRect:[self.layer rect] scale:self.scale];
+    id <MSExportRequest> request = [NSClassFromString(@"MSExportRequest") requestWithRect:[self.layer rect] scale:[self currentScale]];
     id <MSExportRenderer> renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:self.colorSpace];
     request.page = [self.layer parentPage];
     request.rootLayerID = [self.layer objectID];
     NSImage *image = [renderer image];
 
     if ( ! self.disablePerspective) {
-        image = [image imageForPath:self.bezierPath scale:self.scale];
+        image = [image imageForPath:self.bezierPath scale:[self currentScale]];
     }
 
     [self addWatermarkOnImageIfNeeded:image];
@@ -82,12 +87,16 @@
 }
 
 - (void)addWatermarkOnImageIfNeeded:(NSImage *)image {
-    if (self.addWatermarks && self.scale >= 2) {
+    if (self.addWatermarks && [self currentScale] >= 2) {
         [image lockFocus];
         CGFloat padding = 10;
         [self drawWatermarksWithFrame:CGRectMake(padding, padding, image.size.width - padding * 2, image.size.height - padding * 2)];
         [image unlockFocus];
     }
+}
+
+- (CGFloat)currentScale {
+    return self.scale == 0 ? self.defaultScale : self.scale;
 }
 
 - (void)drawWatermarksWithFrame: (NSRect)frame
@@ -96,13 +105,15 @@
     //// Text Drawing
     NSRect textRect = frame;
     {
-        NSString* textContent = self.scale == 2 ? @"Retina @2x image quality avaliable in Magic Mirror Pro Version" : @"Adaptive + @3x image quality avaliable in Magic Mirror Pro Version" ;
+
+        CGFloat scale = [self currentScale];
+        NSString* textContent = scale == 2 ? @"Retina @2x image quality avaliable in Magic Mirror Pro Version" : @"Adaptive + @3x image quality avaliable in Magic Mirror Pro Version" ;
         NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
         textStyle.alignment = NSCenterTextAlignment;
 
-        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize: NSFont.systemFontSize * (CGFloat)self.scale], NSForegroundColorAttributeName: NSColor.greenColor, NSParagraphStyleAttributeName: textStyle};
+        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize: NSFont.systemFontSize * scale], NSForegroundColorAttributeName: NSColor.greenColor, NSParagraphStyleAttributeName: textStyle};
 
-        NSRect textInset = NSInsetRect(textRect, 10  * (CGFloat)self.scale, 10 * (CGFloat)self.scale);
+        NSRect textInset = NSInsetRect(textRect, 10  * scale, 10 * scale);
         CGFloat textTextHeight = NSHeight([textContent boundingRectWithSize: textInset.size options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes]);
         NSRect textTextRect = NSMakeRect(NSMinX(textInset), NSMinY(textInset) + (NSHeight(textInset) - textTextHeight) / 2, NSWidth(textInset), textTextHeight);
         [NSGraphicsContext saveGraphicsState];
@@ -112,4 +123,24 @@
     }
 }
 
+- (void)setRegistered:(BOOL)isRegistered {
+    if (isRegistered) {
+        self.addWatermarks = NO;
+        self.defaultScale = 2;
+    } else {
+        self.addWatermarks = YES;
+        self.defaultScale = 1;
+    }
+}
+
+
+- (void)magicmirrorLicenseUnlocked:(MagicMirror *)magicmirror {
+    [self setRegistered:YES];
+}
+
+- (void)magicmirrorLicenseDetached:(MagicMirror *)magicmirror {
+    [self setRegistered:NO];
+}
+
 @end
+

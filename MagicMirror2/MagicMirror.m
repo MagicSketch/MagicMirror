@@ -273,7 +273,7 @@ static MagicMirror *_sharedInstance = nil;
         NSInteger index = [original.imageQuality integerValue];
         CGFloat scale = 1;
         if (index < 3) {
-            scale = MAX(1, index);
+            scale = MAX(0, index);
         } else {
             scale = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size) * 3;
         }
@@ -501,18 +501,19 @@ static MagicMirror *_sharedInstance = nil;
     NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request
                                                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                                                      NSError *parseError;
-
-                                                                     id json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                               options:0
-                                                                                                                 error:&parseError];
-
-
                                                                      NSError *mapError;
-
                                                                      MMLicenseInfo *info = nil;
 
-                                                                     if (json) {
-                                                                         info = [MMLicenseInfo licenseInfoWithDictionary:json error:&mapError];
+                                                                     if (data) {
+                                                                         id json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                   options:0
+                                                                                                                     error:&parseError];
+
+
+
+                                                                         if (json) {
+                                                                             info = [MMLicenseInfo licenseInfoWithDictionary:json error:&mapError];
+                                                                         }
                                                                      }
 
                                                                      dispatch_async(dispatch_get_main_queue(), ^{
@@ -549,6 +550,8 @@ static MagicMirror *_sharedInstance = nil;
             [controller magicmirrorLicenseUnlocked:self];
         }
     }];
+
+    [self refreshPage];
 }
 
 - (void)notifyLicenseDetached {
