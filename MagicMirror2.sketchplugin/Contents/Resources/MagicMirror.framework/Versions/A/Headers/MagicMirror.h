@@ -30,9 +30,18 @@ FOUNDATION_EXPORT const unsigned char MagicMirrorVersionString[];
 @class SketchPluginContext;
 @class MMLicenseInfo;
 
+typedef enum : NSUInteger {
+    MMEnvDevelopment,
+    MMEnvProduction,
+} MMEnv;
+
 @interface MagicMirror : NSObject
 
 @property (nonatomic, readonly) NSUInteger lifeCount;
+@property (nonatomic, copy, readonly) NSString *version;
+@property (nonatomic, copy, readonly) NSString *build;
+@property (nonatomic, readonly) MMEnv env;
+@property (nonatomic, copy, readonly) NSString *baseURLString;
 
 + (instancetype)sharedInstance;
 + (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;

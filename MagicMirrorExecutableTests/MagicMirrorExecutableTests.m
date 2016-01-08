@@ -69,4 +69,32 @@
     XCTAssertEqual([mirror lifeCount], 0);
 }
 
+- (void)testVersion {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+    XCTAssertEqualObjects(mirror.version, @"2.0");
+}
+
+- (void)testBuild {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+    XCTAssertEqualObjects(mirror.build, @"20");
+}
+
+- (void)testEnv {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+#if DEBUG
+    XCTAssertEqual(mirror.env, MMEnvDevelopment);
+#else
+    XCTAssertEqual(mirror.env, MMEnvProduction);
+#endif
+}
+
+- (void)testBaseURL {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+#if DEBUG
+    XCTAssertEqualObjects(mirror.baseURLString, @"http://localhost:5000");
+#else
+    XCTAssertEqualObjects(mirror.baseURLString, @"http://api.magicmirror.design");
+#endif
+}
+
 @end

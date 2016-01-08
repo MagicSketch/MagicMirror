@@ -48,6 +48,9 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 @property (nonatomic, strong) MMWindowController *toolbarWindow;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
+@property (nonatomic, copy) NSString *build;
+@property (nonatomic, copy) NSString *baseURLString;
+@property (nonatomic) MMEnv env;
 @property (nonatomic, strong) MMImageRenderer *imageRenderer;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) BOOL perspective;
@@ -125,7 +128,15 @@ static MagicMirror *_sharedInstance = nil;
     _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
     _imageRenderer = [[MMImageRenderer alloc] init];
     _perspective = YES;
-    _version = @"2.0";
+    _version = [[NSBundle bundleForClass:[MagicMirror class]] infoDictionary][@"CFBundleShortVersionString"];
+    _build = [[NSBundle bundleForClass:[MagicMirror class]] infoDictionary][@"CFBundleVersion"];
+#if DEBUG
+    _baseURLString = @"http://localhost:5000";
+    _env = MMEnvDevelopment;
+#else
+    _baseURLString = @"http://api.magicmirror.design";
+    _env = MMEnvProduction;
+#endif
 }
 
 - (void)dealloc {
@@ -525,7 +536,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)unlockLicense:(NSString *)license completion:(MMLicenseUnlockHandler)completion {
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:5000/verify/%@.json", license]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/verify/%@.json", _baseURLString, license]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
     __weak __typeof (self) weakSelf = self;
