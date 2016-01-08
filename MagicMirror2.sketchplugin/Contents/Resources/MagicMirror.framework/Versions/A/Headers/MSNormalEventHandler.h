@@ -8,28 +8,7 @@
 
 @class MSLayer, MSLayerPositionDrawing, MSNormalEventContextualMenuBuilder, MSNormalEventData, NSArray, NSMapTable, NSMutableDictionary;
 
-@interface MSNormalEventHandler : MSNormalBaseEventHandler
-{
-    BOOL _ignoreNextKeyDownEventUntilModifiersChange;
-    BOOL _nextModifierKeyChangeShouldRefreshView;
-    BOOL _didDuplicate;
-    BOOL _firstMouseDraggedMoveLayers;
-    BOOL _didDuplicateWhenMovingLayers;
-    MSLayerPositionDrawing *_positionDrawing;
-    MSLayer *_hoveringLayer;
-    MSNormalEventContextualMenuBuilder *_menuBuilder;
-    MSNormalEventData *_eventData;
-    id _duplicatedObjectID;
-    NSMutableDictionary *_originalDraggedLocations;
-    NSArray *_duplicatedLayers;
-    NSMapTable *_originalSelectedOriginsInAbsoluteCoordinates;
-    double _shiftAlignLongestDistance;
-    unsigned long long _shiftAlignLongestAxis;
-    struct CGSize _duplicateOffset;
-    struct CGPoint _duplicateOrigin;
-    struct CGPoint _lastMouseMoved;
-}
-
+@protocol MSNormalEventHandler
 
 - (BOOL)absoluteMouseDown:(struct CGPoint)arg1 clickCount:(unsigned long long)arg2 flags:(unsigned long long)arg3;
 - (BOOL)absoluteMouseDragged:(struct CGPoint)arg1 flags:(unsigned long long)arg2;
@@ -131,3 +110,6 @@
 
 @end
 
+@interface MSNormalEventHandler : MSNormalBaseEventHandler <MSNormalEventHandler>
+
+@end

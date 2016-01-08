@@ -17,6 +17,8 @@
 		1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */; };
 		1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F3D5A1C3D7175004171C8 /* MMController.m */; };
 		1A1F3D5C1C3D723C004171C8 /* MMController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCE1C1AC2E500FE3981 /* MMController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A1F3D5F1C3F70A9004171C8 /* MMProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */; };
+		1A1F3D601C3F70A9004171C8 /* MMProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */; };
 		1A21D9D81C2AC60D005A2733 /* MMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9D61C2AC60D005A2733 /* MMWindow.h */; };
 		1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9D71C2AC60D005A2733 /* MMWindow.m */; };
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
@@ -1334,6 +1336,8 @@
 		1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageRenderer.h; sourceTree = "<group>"; };
 		1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageRenderer.m; sourceTree = "<group>"; };
 		1A1F3D5A1C3D7175004171C8 /* MMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMController.m; sourceTree = "<group>"; };
+		1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMProxy.h; sourceTree = "<group>"; };
+		1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProxy.m; sourceTree = "<group>"; };
 		1A21D9D61C2AC60D005A2733 /* MMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindow.h; sourceTree = "<group>"; };
 		1A21D9D71C2AC60D005A2733 /* MMWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWindow.m; sourceTree = "<group>"; };
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
@@ -2709,6 +2713,8 @@
 			children = (
 				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
 				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
+				1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */,
+				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -5161,6 +5167,7 @@
 				1AB4BB3D1C16E68400B7922D /* MSVectorizeTextAction.h in Headers */,
 				1AB4BB971C16E68400B7922D /* NSEvent-EventShouldDrag.h in Headers */,
 				1AB4BAA81C16E68400B7922D /* MSScissorsEventHandler.h in Headers */,
+				1A1F3D5F1C3F70A9004171C8 /* MMProxy.h in Headers */,
 				1AB4BBE61C16E68400B7922D /* NSString-TreeAsDictionarySupport.h in Headers */,
 				1AB4B7DE1C16E68400B7922D /* _MSShapePath.h in Headers */,
 				1AB4B7F01C16E68400B7922D /* _MSStyleColorControls.h in Headers */,
@@ -5411,6 +5418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
+				1A1F3D601C3F70A9004171C8 /* MMProxy.m in Sources */,
 				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,

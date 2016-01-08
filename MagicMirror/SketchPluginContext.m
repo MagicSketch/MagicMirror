@@ -59,7 +59,7 @@ static NSMutableArray <Weak *> *_observers = nil;
         _document = document;
         _coscript = (id <COScript>)command.session;
         _layerChangeObservers = [NSMutableArray array];
-
+        [self observeSelection];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(windowDidBecomeMain:)
                                                      name:NSWindowDidBecomeMainNotification
@@ -244,7 +244,7 @@ static NSMutableArray <Weak *> *_observers = nil;
     [layers enumerateObjectsUsingBlock:^(id <MSLayer> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [(NSObject *)obj addObserver:self
                           forKeyPath:@"rect"
-                             options:NSKeyValueObservingOptionNew
+                             options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                              context:nil];
         [_layerChangeObservers addObject:obj];
     }];
@@ -268,9 +268,13 @@ static NSMutableArray <Weak *> *_observers = nil;
         [self layerSelectionDidChange:[self selectedLayers]];
     } else if ([keyPath isEqualToString:@"rect"]) {
         id <MSLayer> layer = object;
-        if ([layer respondsToSelector:@selector(isEditingChild)] && [(id <MSShapeGroup>)layer isEditingChild]) {
+        NSRect oldRect = [change[NSKeyValueChangeOldKey] rectValue];
+        NSRect newRect = [change[NSKeyValueChangeNewKey] rectValue];
+        BOOL sizeChanged = ! CGSizeEqualToSize(oldRect.size, newRect.size);
+        if (sizeChanged || ([layer respondsToSelector:@selector(isEditingChild)] && [(id <MSShapeGroup>)layer isEditingChild])) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self layerDidUpdate:object];
+                [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(layerDidUpdate:) object:object];
+                [self performSelector:@selector(layerDidUpdate:) withObject:object afterDelay:0.1];
             });
         }
 

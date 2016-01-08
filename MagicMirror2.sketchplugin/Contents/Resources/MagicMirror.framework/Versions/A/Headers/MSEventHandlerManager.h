@@ -8,16 +8,9 @@
 
 @class BCUndoManager, MSEventHandler, MSNormalEventHandler;
 
-@interface MSEventHandlerManager : NSObject
-{
-    id _delegate;
-    BCUndoManager *_undoManager;
-    long long _lastMouseDownClickCount;
-    unsigned long long _lastEventType;
-    MSNormalEventHandler *_normalHandler;
-    MSEventHandler *_secondHandler;
-}
+@protocol MSEventHandlerManager
 
+@optional
 
 - (id)currentHandler;
 - (id)currentHandlerKey;
@@ -36,11 +29,13 @@
 - (void)sendMouseMovedEvent:(id)arg1;
 - (void)sendMouseUpEvent:(id)arg1;
 - (id)setCurrentHandler:(id)arg1;
-- (id)setCurrentHandler:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (id)setCurrentHandlerKey:(id)arg1;
-- (id)setCurrentHandlerKey:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 @property(retain, nonatomic) BCUndoManager *undoManager; // @synthesize undoManager=_undoManager;
 - (id)toggleHandlerKey:(id)arg1;
+
+@end
+
+@interface MSEventHandlerManager : NSObject <MSEventHandlerManager>
 
 @end
 

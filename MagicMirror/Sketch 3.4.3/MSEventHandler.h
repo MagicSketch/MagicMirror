@@ -12,15 +12,6 @@
 @class MSDuplicateOffsetTracker, MSEventHandlerManager, NSString;
 
 @interface MSEventHandler : CHViewController <NSDraggingDestination, MSInspectorChildController>
-{
-    BOOL didDrag;
-    struct CGPoint mouseAtTimeOfMenu;
-    MSEventHandlerManager *_manager;
-    id <MSBasicDelegate> _delegate;
-    MSDuplicateOffsetTracker *_offsetTracker;
-    NSString *_pressedKeys;
-    struct CGPoint _viewCoordinateMouse;
-}
 
 + (id)eventHandlerWithManager:(id)arg1;
 
@@ -50,7 +41,6 @@
 - (void)cut:(id)arg1;
 - (void)dealloc;
 - (id)defaultCursor;
-@property(nonatomic) __weak id <MSBasicDelegate> delegate; // @synthesize delegate=_delegate;
 - (void)delete:(id)arg1;
 - (BOOL)deleteKeyIsPressed:(unsigned short)arg1;
 - (void)didUndoNotification:(id)arg1;
@@ -68,7 +58,6 @@
 - (id)duplicateSelectedLayers:(BOOL)arg1;
 - (id)duplicateSelectedLayersInGroup:(id)arg1 fromDrag:(BOOL)arg2;
 - (void)editLayer:(id)arg1;
-- (void)editLayer:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)enableUndoNameRegistration;
 - (void)endUndo;
 - (BOOL)enterKeyIsPressed:(unsigned short)arg1;
@@ -119,7 +108,6 @@
 - (BOOL)performDragOperation:(id)arg1;
 - (void)prepareForDisplay;
 - (BOOL)prepareForDragOperation:(id)arg1;
-- (void)prepareGraphicsStateForGroup:(id)arg1 drawingBlock:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSString *pressedKeys; // @synthesize pressedKeys=_pressedKeys;
 - (void)readFromPasteboard:(id)arg1;
 - (void)redo;
@@ -128,7 +116,6 @@
 - (void)refreshViewsWithMask:(unsigned long long)arg1;
 - (void)returnToDefaultHandler;
 - (void)returnToDefaultHandlerByClickingOutside;
-- (void)returnToDefaultHandlerWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)rightMouseDown:(id)arg1;
 - (struct CGRect)rulerGuidesRectAroundMouse:(struct CGPoint)arg1;
 - (BOOL)scrollEventShouldExitHandler:(id)arg1;

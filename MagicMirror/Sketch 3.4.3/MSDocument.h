@@ -10,6 +10,7 @@
 #import "MSDocumentDataDelegate.h"
 #import "MSPageDelegate.h"
 #import "MSSidebarControllerDelegate.h"
+#import "MSEventHandlerManager.h"
 
 @class BCSideBarViewController, MSActionsController, MSContentDrawViewController, MSDocumentData, MSEventHandlerManager, MSFontList, MSIOSRefreshCollector, MSInspectorController, MSLayerArray, MSSharedObjectInstanceCollection, MSSplitViewDelegate, MSToolbarConstructor, NSMutableSet, NSSplitView, NSString, NSTimer, NSView, NSWindow;
 
@@ -86,7 +87,7 @@
 - (void)documentData:(id)arg1 syncSharedObject:(id)arg2;
 - (void)documentData:(id)arg1 temporarilyHideSelectionForLayer:(id)arg2;
 @property(retain, nonatomic) NSWindow *documentWindow; // @synthesize documentWindow=_documentWindow;
-@property(retain, nonatomic) MSEventHandlerManager *eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
+@property(retain, nonatomic) id <MSEventHandlerManager> eventHandlerManager; // @synthesize eventHandlerManager=_eventHandlerManager;
 - (void)export:(id)arg1;
 - (id)exportFramer;
 - (void)exportPDFBook:(id)arg1;
@@ -186,7 +187,6 @@
 - (void)showMessage:(id)arg1;
 - (id)sidebarController:(id)arg1 exportLayers:(id)arg2;
 - (void)sidebarController:(id)arg1 hoveredLayerDidChangeTo:(id)arg2;
-- (void)sidebarController:(id)arg1 validateRemovalOfPage:(id)arg2 withRemovalBlock:(CDUnknownBlockType)arg3;
 - (id)sidebarControllerContextMenuItemsForCurrentSelection:(id)arg1;
 - (void)sidebarControllerDidUpdate:(id)arg1;
 - (void)sidebarControllerSelectionDidChange:(id)arg1;
@@ -197,7 +197,6 @@
 - (void)startBackgroundCaching;
 - (void)stopAccessingFolderToken:(id)arg1;
 - (void)syncSharedObjects:(id)arg1;
-- (void)temporarilyDisableSelectionHidingDuringBlock:(CDUnknownBlockType)arg1;
 - (void)toggleAlignmentGuides:(id)arg1;
 - (void)toggleArtboardShadow:(id)arg1;
 - (void)toggleClickThrough:(id)arg1;

@@ -6,7 +6,6 @@
 
 #import "MSEventHandler.h"
 
-#import "NSMenuDelegate.h"
 #import "NSTextDelegate.h"
 
 @class MSLayerGroup, MSSelectionPath, MSSelectionPathCollection, MSShapePathLayer, NSArray, NSButton, NSPopUpButton, NSSlider, NSString, NSTextField, NSView;
