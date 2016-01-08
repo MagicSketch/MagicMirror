@@ -1,0 +1,63 @@
+{
+	"name": "✨ Magic Mirror 2",
+ 	"description" : "Mirror contents in an Artboard and apply to a Shape with perspective transform. It's like 'Smart Objects' for Sketch.",
+	"author": "James Tang",
+    "authorEmail" : "james@magicmirror.design",
+	"homepage": "https://github.com/jamztang/MagicMirror",
+	"version": "2.0",
+    "identifier" : "design.magicmirror",
+	"compatibleVersion": 3.4,
+	"bundleVersion": 1,
+
+	"commands": [
+	    {
+			"name" : "Enable/Disable Magic Mirror",
+			"identifier" : "magic mirror",
+			"shortcut" : "control shift m",
+			"script" : "main.js",
+			"handler" : "configureSelection",
+	    },
+	    {
+			"name" : "Rotate Selection",
+			"identifier" : "rotate selection",
+			"shortcut" : "control shift command r",
+			"script" : "main.js",
+			"handler" : "rotateSelection",
+	    },
+	    {
+			"name" : "Flip Selection",
+			"identifier" : "flip selection",
+			"shortcut" : "control shift command f",
+			"script" : "main.js",
+			"handler" : "flipSelection",
+	    },
+	    {
+			"name" : "Jump to Artboard",
+			"identifier" : "jump selection",
+			"shortcut" : "control shift command j",
+			"script" : "main.js",
+			"handler" : "jumpSelection",
+	    },
+	    {
+			"name" : "About Pro Version...",
+			"identifier" : "pro version",
+			"shortcut" : "",
+			"script" : "main.js",
+			"handler" : "licenseInfo",
+	    },
+	],
+
+	"menu": {
+	    "isRoot" : false,
+	    "shortcut" : "",
+		"title": "✨ Magic Mirror 2",
+		"items": [
+			"magic mirror",
+			"rotate selection",
+			"flip selection",
+			"jump selection",
+			"-",
+			"pro version",
+		]
+	}
+}

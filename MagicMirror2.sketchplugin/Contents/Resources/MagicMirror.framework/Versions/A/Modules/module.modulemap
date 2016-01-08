@@ -1,0 +1,6 @@
+framework module MagicMirror {
+  umbrella header "MagicMirror.h"
+
+  export *
+  module * { export * }
+}
