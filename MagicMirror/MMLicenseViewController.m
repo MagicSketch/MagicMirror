@@ -17,6 +17,7 @@
 @property (weak) IBOutlet NSButton *laterButton;
 @property (weak) IBOutlet NSButton *enterButton;
 @property (weak) IBOutlet NSProgressIndicator *loadingIndicator;
+@property (weak) IBOutlet NSView *developmentIndicator;
 
 @end
 
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     // Do view setup here.
     self.errorTextField.stringValue = @"";
+    self.developmentIndicator.hidden = self.magicmirror.env == MMEnvProduction;
 }
 
 - (IBAction)purchaseButtonDidPress:(id)sender {

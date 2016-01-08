@@ -179,6 +179,15 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0f-Gd-foY">
+                                <rect key="frame" x="233" y="208" width="100" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Development)" id="AaG-Ni-G96">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-qA-fIp">
                                 <rect key="frame" x="102" y="93" width="322" height="104"/>
                                 <animations/>
@@ -253,6 +262,7 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="developmentIndicator" destination="X0f-Gd-foY" id="Urz-8e-V1r"/>
                         <outlet property="enterButton" destination="og1-z6-Ies" id="u40-Yp-wFj"/>
                         <outlet property="errorTextField" destination="cyE-oi-fhH" id="inU-8U-6lg"/>
                         <outlet property="laterButton" destination="Is7-PK-K0a" id="tt4-xb-M02"/>
@@ -329,6 +339,15 @@ DQ
                                     <action selector="deregisterButtonDidPress:" target="Bhw-xv-sFQ" id="TT6-XY-duA"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-BJ-vMk">
+                                <rect key="frame" x="228" y="178" width="100" height="17"/>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Development)" id="2YT-rr-IEI">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <animations/>
                     </view>
@@ -336,6 +355,7 @@ DQ
                         <outlet property="OKButton" destination="Q4e-pt-cBj" id="YNa-wq-PUb"/>
                         <outlet property="contentTextField" destination="R1a-fv-IES" id="YgN-IN-TW4"/>
                         <outlet property="deregisterButton" destination="hbD-lp-Rzm" id="NTU-Wu-mdM"/>
+                        <outlet property="developmentIndicator" destination="Daw-BJ-vMk" id="mMj-YE-gN6"/>
                     </connections>
                 </viewController>
                 <customObject id="wP3-Hh-n8V" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -454,6 +474,6 @@ DQ
         <image name="rotate" width="21" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HXa-hD-Zic"/>
+        <segue reference="PjZ-s9-aM3"/>
     </inferredMetricsTieBreakers>
 </document>

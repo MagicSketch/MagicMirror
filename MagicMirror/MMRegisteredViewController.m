@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSButton *OKButton;
 @property (copy) NSString *content;
 @property (strong) MMLicenseInfo *licenseInfo;
+@property (weak) IBOutlet NSView *developmentIndicator;
 
 @end
 
@@ -25,7 +26,7 @@
     self.content = self.contentTextField.stringValue;
     [super viewDidLoad];
     // Do view setup here.
-
+    self.developmentIndicator.hidden = self.magicmirror.env == MMEnvProduction;
 }
 
 - (void)reloadData {
