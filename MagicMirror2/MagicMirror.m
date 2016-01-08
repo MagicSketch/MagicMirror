@@ -580,6 +580,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)deregister {
     [self removePersistedDictionaryForIdentifier:@"design.magicmirror.licensedto"];
+    [self notifyLicenseDetached];
 }
 
 - (BOOL)isRegistered {
@@ -593,8 +594,6 @@ static MagicMirror *_sharedInstance = nil;
             [controller magicmirrorLicenseUnlocked:self];
         }
     }];
-
-    [self refreshPage];
 }
 
 - (void)notifyLicenseDetached {

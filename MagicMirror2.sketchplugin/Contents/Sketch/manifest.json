@@ -10,47 +10,40 @@
 	"bundleVersion": 1,
 
 	"commands": [
-		{
-			"name": "Run",
-			"identifier": "run",
-			"shortcut": "",
-			"script": "main.js",
-			"handler": "run"
-		},
 	    {
-			"name" : "1. Magic Mirror!",
+			"name" : "Enable/Disable Magic Mirror",
 			"identifier" : "magic mirror",
 			"shortcut" : "control shift m",
-			"script" : "main.js",
-			"handler" : "mirrorPage",
-	    },
-	    {
-			"name" : "2. Configure Selection",
-			"identifier" : "configure selection",
-			"shortcut" : "control shift command s",
 			"script" : "main.js",
 			"handler" : "configureSelection",
 	    },
 	    {
-			"name" : "3. Rotate Selection",
+			"name" : "Rotate Selection",
 			"identifier" : "rotate selection",
 			"shortcut" : "control shift command r",
 			"script" : "main.js",
 			"handler" : "rotateSelection",
 	    },
 	    {
-			"name" : "4. Flip Selection",
+			"name" : "Flip Selection",
 			"identifier" : "flip selection",
 			"shortcut" : "control shift command f",
 			"script" : "main.js",
 			"handler" : "flipSelection",
 	    },
 	    {
-			"name" : "5. Jump to Artboard",
+			"name" : "Jump to Artboard",
 			"identifier" : "jump selection",
 			"shortcut" : "control shift command j",
 			"script" : "main.js",
 			"handler" : "jumpSelection",
+	    },
+	    {
+			"name" : "About Pro Version...",
+			"identifier" : "pro version",
+			"shortcut" : "",
+			"script" : "main.js",
+			"handler" : "licenseInfo",
 	    },
 	],
 
@@ -59,13 +52,12 @@
 	    "shortcut" : "",
 		"title": "✨ Magic Mirror 2",
 		"items": [
-			"run",
-			"-",
 			"magic mirror",
-			"configure selection",
 			"rotate selection",
 			"flip selection",
 			"jump selection",
+			"-",
+			"pro version",
 		]
 	}
 }
