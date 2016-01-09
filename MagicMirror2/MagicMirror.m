@@ -14,9 +14,6 @@
 #import "MSLayerArray.h"
 #import "MSArtboardGroup.h"
 #import "MSShapeGroup.h"
-#import "MSStyle.h"
-#import "MSStyleFill.h"
-#import "MSFillStyleCollection.h"
 #import "MSExportRequest.h"
 #import "MSExportRenderer.h"
 #import "NSImage+Transform.h"
@@ -26,17 +23,15 @@
 #import "MMLayerProperties.h"
 #import "MSArray.h"
 #import "MSShapePathLayer.h"
-#import "MSShapePath.h"
 #import "NSBezierPath-Clockwise.h"
-#import "NSBezierPath+Alter.h"
 #import "MSCurvePoint.h"
-#import "MMMath.h"
 #import "MSContentDrawView.h"
 #import "MMLicenseInfo.h"
 #import "Weak.h"
 #import "SketchEventsController.h"
 #import "MSPage.h"
 #import "MSDocument.h"
+#import "MMLayer.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -205,19 +200,13 @@ static MagicMirror *_sharedInstance = nil;
 #pragma - Fill
 
 - (void)disableFillLayer:(id <MSShapeGroup>)layer {
-    MSStyleFill *fill = [layer.style.fills firstObject];
-    [fill setIsEnabled:NO];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l disableFill];
 }
 
 - (void)fillLayer:(id <MSShapeGroup>)layer withImage:(NSImage *)image {
-    MSStyleFill *fill = [layer.style.fills firstObject];
-    if ( ! fill) {
-        fill = [layer.style.fills addNewStylePart];
-    }
-    [fill setFillType:4];
-    [fill setPatternFillType:1];
-    [fill setIsEnabled:true];
-    [fill setPatternImage:image];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l fillWithImage:image];
 }
 
 #pragma - Artboard 
@@ -230,49 +219,14 @@ static MagicMirror *_sharedInstance = nil;
 #pragma - Per Layer
 
 - (void)clearLayer:(id <MSShapeGroup>)layer {
-    MMLayerProperties *properties = [self layerPropertiesForLayer:layer];
-    if (properties.source) {
-        NSDictionary *artboardLookup = [_context artboardsLookup];
-        if (artboardLookup[properties.source]) {
-            [layer setName:[[layer name] stringByAppendingString:@"_detached"]];
-            [self disableFillLayer:layer];
-        }
-    }
-
-    [self setValue:nil forKey:@"source" onLayer:layer];
-    [self setValue:nil forKey:@"imageQuality" onLayer:layer];
-    [self setValue:_version forKey:@"version" onLayer:layer];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l clear];
 }
 
 - (void)flipLayer:(id <MSShapeGroup>)layer {
-    MSArray *array = [layer layers];
-    MSShapePathLayer *shape = [array firstObject];
-    NSBezierPath *bezierPath = [layer bezierPathInBounds];
-    MMLog(@"bezierPath: %lu", [bezierPath count]);
-    CGRect rect = [layer bounds];
 
-    NSBezierPath *fixedDirection;
-    NSBezierPath *flipped = [bezierPath flipPoints];
-    MMLog(@"flipped: %lu", [flipped count]);
-
-    fixedDirection = [flipped antiClockwisePoints];
-    MMLog(@"fixedDirection: %lu", [fixedDirection count]);
-
-    id <MSShapePath> newPath = [NSClassFromString(@"MSShapePath") pathWithBezierPath:fixedDirection inRect:rect];
-    MMLog(@"newPath before close: %llu", [newPath numberOfPoints]);
-
-    //    if ([bezierPath isClosed] && [newPath numberOfPoints] > 4) {
-    //        [newPath removeLastPoint];
-    //    }
-    [newPath setIsClosed:[bezierPath isClosed]];
-
-    MMLog(@"newPath before: %llu", [newPath numberOfPoints]);
-    [shape setPath:newPath];
-
-    MMLog(@"newPath after: %llu", [[shape path] numberOfPoints]);
-
-    layer.isFlippedHorizontal = ![layer isFlippedHorizontal];
-    //[shape closeLastPath:[bezierPath isClosed]];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l flip];
 }
 
 - (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard scale:(CGFloat)scale {
@@ -289,6 +243,12 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)refreshLayer:(id<MSShapeGroup>)layer {
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l refresh];
+}
+
+- (void)refreshSelectionWithScale:(CGFloat)scale {
+    id layer = [_context selectedLayers][0];
     MMLayerProperties *original = [self layerPropertiesForLayer:layer];
     NSString *selectedName = original.source;
     id <MSArtboardGroup> artboard = [self artboardsLookup][selectedName];
@@ -308,12 +268,8 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)rotateLayer:(id <MSShapeGroup>)layer {
-    MSArray *array = [layer layers];
-    MSShapePathLayer *shape = [array firstObject];
-    id <MSShapePath> path = [shape path];
-    id point = [path lastPoint];
-    [path removeLastPoint];
-    [path insertPoint:point atIndex:0];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l rotate];
 }
 
 - (void)setArtboard:(id<MSArtboardGroup>)artboard forLayer:(id<MSShapeGroup>)layer {

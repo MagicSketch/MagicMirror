@@ -38,6 +38,8 @@
 		1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */; };
 		1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */; };
 		1A562CED1C1B2E4D00FE3981 /* MagicMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
+		1A74648E1C40EEBD00FEBF8B /* MMLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A74648C1C40EEBD00FEBF8B /* MMLayer.h */; };
+		1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74648D1C40EEBD00FEBF8B /* MMLayer.m */; };
 		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
 		1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A753A151C24081B00DE2EC1 /* MMMath.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
@@ -1360,6 +1362,8 @@
 		1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMValuesStack.h; sourceTree = "<group>"; };
 		1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStack.m; sourceTree = "<group>"; };
 		1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStackTests.m; sourceTree = "<group>"; };
+		1A74648C1C40EEBD00FEBF8B /* MMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayer.h; sourceTree = "<group>"; };
+		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
 		1A753A151C24081B00DE2EC1 /* MMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMath.m; sourceTree = "<group>"; };
 		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2717,6 +2721,8 @@
 				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
 				1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */,
 				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
+				1A74648C1C40EEBD00FEBF8B /* MMLayer.h */,
+				1A74648D1C40EEBD00FEBF8B /* MMLayer.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -4626,6 +4632,7 @@
 				1AB4BA471C16E68400B7922D /* MSNormalEventHandler.h in Headers */,
 				1AB4B8FD1C16E68400B7922D /* MSBezierInterpreter.h in Headers */,
 				1AB4B93E1C16E68400B7922D /* MSDefaultGrid.h in Headers */,
+				1A74648E1C40EEBD00FEBF8B /* MMLayer.h in Headers */,
 				1AB4BA031C16E68400B7922D /* MSLayerCachedImage.h in Headers */,
 				1AB4BA0E1C16E68400B7922D /* MSLayerPaster.h in Headers */,
 				1AB4B8A31C16E68400B7922D /* ECLogManagerMacUISupport.h in Headers */,
@@ -5423,6 +5430,7 @@
 			files = (
 				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
 				1A1F3D601C3F70A9004171C8 /* MMProxy.m in Sources */,
+				1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */,
 				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
