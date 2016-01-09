@@ -17,6 +17,11 @@
 @property (nonatomic) CGPoint br;
 @property (nonatomic) CGPoint bl;
 
++ (instancetype)quadWithTopLeft:(CGPoint)topLeft
+                       topRight:(CGPoint)topRight
+                     bottomLeft:(CGPoint)bottomLeft
+                    bottomRight:(CGPoint)bottomRight;
 + (instancetype)quadWithShapePath:(id <MSShapePath>)path;
+- (instancetype)scaledQuad:(CGFloat)scale;
 
 @end

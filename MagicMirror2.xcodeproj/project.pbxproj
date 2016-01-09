@@ -23,6 +23,7 @@
 		1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9D71C2AC60D005A2733 /* MMWindow.m */; };
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
+		1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A299ED91C40FC3100DC4098 /* QuadTests.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1342,6 +1343,7 @@
 		1A21D9D71C2AC60D005A2733 /* MMWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWindow.m; sourceTree = "<group>"; };
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
+		1A299ED91C40FC3100DC4098 /* QuadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTests.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchEventsController.h; sourceTree = "<group>"; };
@@ -2727,6 +2729,7 @@
 				1ADA7DB41C201CAD00198A87 /* MathTests.m */,
 				1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
+				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
 			);
 			path = MagicMirrorExecutableTests;
 			sourceTree = "<group>";
@@ -5396,6 +5399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */,
 				1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */,
 				1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,

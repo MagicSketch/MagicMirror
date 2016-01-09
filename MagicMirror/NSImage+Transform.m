@@ -11,6 +11,7 @@
 @import CoreImage;
 #import "Quad.h"
 #import "MSShapePath.h"
+#import "MagicMirror.h"
 
 @implementation NSImage (Transform)
 
@@ -52,11 +53,11 @@
 
 
     Quad *quad = [Quad quadWithShapePath:path];
-    CGAffineTransform transform = CGAffineTransformMakeScale(targetedScale, targetedScale);
-    CGPoint topLeft = CGPointApplyAffineTransform(quad.tl, transform);
-    CGPoint topRight = CGPointApplyAffineTransform(quad.tr, transform);
-    CGPoint bottomLeft = CGPointApplyAffineTransform(quad.bl, transform);
-    CGPoint bottomRight = CGPointApplyAffineTransform(quad.br, transform);
+    Quad *newQuad = [quad scaledQuad:targetedScale];
+    CGPoint topLeft = newQuad.tl;
+    CGPoint topRight = newQuad.tr;
+    CGPoint bottomLeft = newQuad.bl;
+    CGPoint bottomRight = newQuad.br;
     CGFloat y = MAX(topLeft.y, MAX(bottomLeft.y, MAX(bottomRight.y, topRight.y)));
 
     CIFilter *filter = [CIFilter filterWithName:@"CIPerspectiveTransform"];
@@ -67,7 +68,10 @@
     [filter setValue:[CIVector vectorWithX:bottomLeft.x Y:y - bottomLeft.y] forKey:@"inputBottomLeft"];
     CIImage *output = [filter outputImage]; // CIImage
 
-    return [self getNSImage:output];
+    NSImage *nsimage = [self getNSImage:output];
+    NSSize size = nsimage.size;
+    MMLog(@"size %@", NSStringFromSize(size));
+    return nsimage;
 }
 
 @end

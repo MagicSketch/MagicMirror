@@ -28,5 +28,31 @@
     return quad;
 }
 
+- (instancetype)scaledQuad:(CGFloat)scale {
+    Quad *newQuad = [[Quad alloc] init];
+
+    CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+    CGPoint topLeft = CGPointApplyAffineTransform(self.tl, transform);
+    CGPoint topRight = CGPointApplyAffineTransform(self.tr, transform);
+    CGPoint bottomLeft = CGPointApplyAffineTransform(self.bl, transform);
+    CGPoint bottomRight = CGPointApplyAffineTransform(self.br, transform);
+
+    newQuad.tl = topLeft;
+    newQuad.tr = topRight;
+    newQuad.bl = bottomLeft;
+    newQuad.br = bottomRight;
+
+    return newQuad;
+}
+
++ (instancetype)quadWithTopLeft:(CGPoint)topLeft topRight:(CGPoint)topRight bottomLeft:(CGPoint)bottomLeft bottomRight:(CGPoint)bottomRight {
+    Quad *newQuad = [[Quad alloc] init];
+    newQuad.tl = topLeft;
+    newQuad.tr = topRight;
+    newQuad.bl = bottomLeft;
+    newQuad.br = bottomRight;
+    return newQuad;
+}
+
 @end
 
