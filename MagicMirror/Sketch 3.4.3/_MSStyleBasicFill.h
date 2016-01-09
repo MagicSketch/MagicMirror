@@ -21,8 +21,6 @@
 @property(retain, nonatomic) MSGraphicsContextSettings *contextSettings; // @synthesize contextSettings=_contextSettings;
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
 @property(nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
 @property(retain, nonatomic) MSGradient *gradient; // @synthesize gradient=_gradient;

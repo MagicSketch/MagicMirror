@@ -26,13 +26,8 @@
 @property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)description;
 - (id)detachAllObjects;
-- (void)enumerate:(CDUnknownBlockType)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
-- (id)filteredArrayUsingBlock:(CDUnknownBlockType)arg1;
 - (id)firstObject;
-- (id)firstObjectSatisfyingTest:(CDUnknownBlockType)arg1;
 - (BOOL)hasDefaultValues;
 - (id)immutableModelObject;
 - (unsigned long long)indexOfObject:(id)arg1;
@@ -46,7 +41,6 @@
 - (BOOL)isValidIndex:(unsigned long long)arg1;
 - (id)lastObject;
 - (unsigned long long)length;
-- (id)map:(CDUnknownBlockType)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (id)objectAtIndexOrNil:(unsigned long long)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;

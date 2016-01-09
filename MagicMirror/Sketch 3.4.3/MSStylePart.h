@@ -14,7 +14,6 @@
 - (void)multiplyBy:(double)arg1;
 - (id)parentLayer;
 - (id)parentStyle;
-- (void)refreshOfType:(unsigned long long)arg1 inBlock:(CDUnknownBlockType)arg2;
 - (void)setValue:(id)arg1 forUndefinedKey:(id)arg2;
 - (id)topViewForColorInspector:(id)arg1;
 - (id)valueForUndefinedKey:(id)arg1;

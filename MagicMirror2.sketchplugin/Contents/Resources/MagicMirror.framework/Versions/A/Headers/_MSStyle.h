@@ -35,8 +35,6 @@
 - (void)copyPropertiesToObjectCopy:(id)arg1;
 - (void)decodePropertiesWithCoder:(id)arg1;
 @property(nonatomic) unsigned long long endDecorationType; // @synthesize endDecorationType=_endDecorationType;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 - (void)fillInEmptyObjects;
 @property(retain, nonatomic) MSFillStyleCollection *fills; // @synthesize fills=_fills;
 - (BOOL)hasDefaultValues;
