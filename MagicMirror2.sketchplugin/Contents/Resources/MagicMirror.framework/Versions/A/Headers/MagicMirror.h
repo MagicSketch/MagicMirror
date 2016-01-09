@@ -42,6 +42,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy, readonly) NSString *build;
 @property (nonatomic, readonly) MMEnv env;
 @property (nonatomic, copy, readonly) NSString *baseURLString;
+@property (nonatomic, readonly) SketchPluginContext *context;
 
 + (instancetype)sharedInstance;
 + (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;
@@ -61,6 +62,7 @@ typedef enum : NSUInteger {
 //- (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer;
 //- (void)flipLayer:(id <MSShapeGroup>)layer;
 //- (void)rotateLayer:(id <MSShapeGroup>)layer;
+- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality;
 
 // Others
 //- (void)jumpToArtboard:(NSString *)artboardName;
@@ -94,6 +96,8 @@ typedef enum : NSUInteger {
 - (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
 - (void)setVersionForLayer:(id <MSShapeGroup>)layer;
+- (id)valueForKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
+- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
 
 @end
 

@@ -8,22 +8,9 @@
 
 @class COScript, ECASLClient, MSPluginBundle, MSPluginCommandSpecifier, MSPluginScript, NSMutableString, NSString, NSTimer;
 
-@interface MSPluginCommand : NSObject
-{
-    MSPluginCommandSpecifier *_commandSpecifier;
-    BOOL _skipNextLog;
-    NSString *_identifier;
-    MSPluginScript *_script;
-    NSString *_name;
-    NSString *_handler;
-    NSString *_shortcut;
-    MSPluginBundle *_pluginBundle;
-    ECASLClient *_logger;
-    NSMutableString *_log;
-    COScript *_session;
-    NSTimer *_sessionTimer;
-    double _lastTimerInterval;
-}
+
+
+@protocol MSPluginCommand <NSObject>
 
 + (id)commandWithJSON:(id)arg1 scripts:(id)arg2 scriptsURL:(id)arg3;
 + (id)legacyCommandFromScriptAtURL:(id)arg1;
@@ -60,3 +47,7 @@
 
 @end
 
+
+@interface MSPluginCommand : NSObject <MSPluginCommand>
+
+@end
