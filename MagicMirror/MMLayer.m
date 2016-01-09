@@ -17,6 +17,7 @@
 #import "MSShapePath.h"
 #import "MMMath.h"
 #import "MSArtboardGroup.h"
+#import "MagicMirror.h"
 
 
 @interface MMLayer ()
@@ -112,24 +113,10 @@
     if ( ! selectedName) {
         [self clear];
     } else {
-        NSInteger index = [original.imageQuality integerValue];
-        CGFloat scale = 1;
         CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size);
-
-        if (index < 3) {
-            scale = MAX(0, index);
-        } else {
-            CGFloat scaledRatio = CGSizeAspectFillRatio(artboard.rect.size, CGSizeApplyAffineTransform(layer.rect.size, CGAffineTransformMakeScale(index, index)));
-            scale = scaledRatio;
-            //            if (ratio < 1) {
-            //                scale = 2 / ratio;
-            //            } else {
-            //                scale = MAX(3, ratio * 3);
-            //            }
-            //            scale = MAX(3, ratio * 3);
-        }
-        MMLog(@"ratio: %@, scale: %@", @(ratio), @(scale));
-        [self.magicmirror mirrorLayer:layer fromArtboard:artboard scale:scale];
+        MMImageRenderQuality quality = (MMImageRenderQuality)[original.imageQuality integerValue];
+        MMLog(@"ratio: %@, quality: %@", @(ratio), @(quality));
+        [self.magicmirror mirrorLayer:layer fromArtboard:artboard imageQuality:quality];
     }
     [self.magicmirror setVersionForLayer:layer];
 }

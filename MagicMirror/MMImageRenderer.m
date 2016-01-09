@@ -14,12 +14,15 @@
 #import "MSExportRequest.h"
 #import "MSExportRenderer.h"
 #import "MSShapePath.h"
+#import "MMMath.h"
+#import "MagicMirror.h"
 
 @interface MMImageRenderer ()
 
 @property (nonatomic, strong) id <MSLayerFlattener> flattener;
 @property (nonatomic) BOOL addWatermarks;
 @property (nonatomic) CGFloat defaultScale;
+
 
 @end
 
@@ -48,7 +51,7 @@
     NSImage *image = [flattener imageFromLayers:array lightweightPage:self.layer];
 
     if ( ! self.disablePerspective) {
-        image = [image imageForPath:self.bezierPath scale:[self currentScale]];
+        image = [image imageForPath:self.bezierPath scale:self.imageQuality ?: self.defaultScale];
     }
 
     [self addWatermarkOnImageIfNeeded:image];
@@ -62,14 +65,17 @@
     request.page = [self.layer parentPage];
     request.rootLayerID = [self.layer objectID];
     NSImage *image = [renderer image];
+    NSImage *newImage = nil;
 
     if ( ! self.disablePerspective) {
-        image = [image imageForPath:self.bezierPath scale:[self currentScale]];
+        newImage = [image imageForPath:self.bezierPath scale:self.imageQuality ?: self.defaultScale];
     }
+    MMLog(@"image %@", NSStringFromSize(image.size));
+    MMLog(@"newImage %@", NSStringFromSize(newImage.size));
 
-    [self addWatermarkOnImageIfNeeded:image];
+    [self addWatermarkOnImageIfNeeded:newImage];
 
-    return image;
+    return newImage;
 }
 
 - (NSColorSpace *)colorSpace {
@@ -87,7 +93,7 @@
 }
 
 - (void)addWatermarkOnImageIfNeeded:(NSImage *)image {
-    if (self.addWatermarks && [self currentScale] >= 2) {
+    if (self.addWatermarks && self.imageQuality >= MMImageRenderQuality2x) {
         [image lockFocus];
         CGFloat padding = 10;
         [self drawWatermarksWithFrame:CGRectMake(padding, padding, image.size.width - padding * 2, image.size.height - padding * 2)];
@@ -96,7 +102,24 @@
 }
 
 - (CGFloat)currentScale {
-    return self.scale == 0 ? self.defaultScale : self.scale;
+
+    CGFloat scale = 0;
+//    scale = CGSizeAspectFillRatio(_layer.rect.size, CGSizeApplyAffineTransform(_layer.rect.size, CGAffineTransformMakeScale(self.imageQuality, self.imageQuality)));
+    switch (self.imageQuality) {
+        case MMImageRenderQualityAuto:
+            scale = self.defaultScale;
+            break;
+        case MMImageRenderQuality2x:
+            scale = 2;
+            break;
+        case MMImageRenderQualityMax:
+            scale = CGSizeAspectFillRatio(_layer.rect.size, CGSizeApplyAffineTransform(_bezierPath.bounds.size, CGAffineTransformMakeScale(self.imageQuality, self.imageQuality)));
+            break;
+        default:
+            scale = 1;
+            break;
+    }
+    return scale;
 }
 
 - (void)drawWatermarksWithFrame: (NSRect)frame
@@ -107,7 +130,20 @@
     {
 
         CGFloat scale = [self currentScale];
-        NSString* textContent = scale == 2 ? @"Retina @2x image quality avaliable in Magic Mirror Pro Version" : @"Adaptive + @3x image quality avaliable in Magic Mirror Pro Version" ;
+        NSString* textContent = nil;
+
+        switch (self.imageQuality) {
+            case MMImageRenderQuality2x:
+                textContent = @"Retina @2x image quality avaliable in Magic Mirror Pro Version";
+                break;
+            case MMImageRenderQualityMax:
+                textContent = @"Max image quality avaliable in Magic Mirror Pro Version";
+                break;
+            case MMImageRenderQualityAuto:
+            default:
+                break;
+        }
+
         NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
         textStyle.alignment = NSCenterTextAlignment;
 

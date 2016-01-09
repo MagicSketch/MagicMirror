@@ -62,7 +62,7 @@ typedef enum : NSUInteger {
 //- (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer;
 //- (void)flipLayer:(id <MSShapeGroup>)layer;
 //- (void)rotateLayer:(id <MSShapeGroup>)layer;
-- (NSImage *)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard scale:(CGFloat)scale;
+- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality;
 
 // Others
 //- (void)jumpToArtboard:(NSString *)artboardName;

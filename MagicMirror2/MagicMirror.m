@@ -229,16 +229,20 @@ static MagicMirror *_sharedInstance = nil;
     [l flip];
 }
 
-- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard scale:(CGFloat)scale {
+- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality {
     MMImageRenderer *renderer = _imageRenderer;
     if (artboard) {
         renderer.layer = artboard;
-        renderer.scale = scale;
+        renderer.imageQuality = imageQuality;
         renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
         renderer.disablePerspective = ! _perspective;
         renderer.bezierPath = [layer bezierPathInBounds];
+        NSTimeInterval timeElasped = CACurrentMediaTime();
         NSImage *image = renderer.exportedImage;
         [self fillLayer:layer withImage:image];
+        [self setValue:@(imageQuality) forKey:@"scale" onLayer:layer];
+        [self setValue:NSStringFromSize(image.size) forKey:@"imageSize" onLayer:layer];
+        [self setValue:@(CACurrentMediaTime() - timeElasped) forKey:@"timeElapsed" onLayer:layer];
     }
 }
 
@@ -247,25 +251,6 @@ static MagicMirror *_sharedInstance = nil;
     [l refresh];
 }
 
-- (void)refreshSelectionWithScale:(CGFloat)scale {
-    id layer = [_context selectedLayers][0];
-    MMLayerProperties *original = [self layerPropertiesForLayer:layer];
-    NSString *selectedName = original.source;
-    id <MSArtboardGroup> artboard = [self artboardsLookup][selectedName];
-    if ( ! selectedName) {
-        [self clearLayer:layer];
-    } else {
-        NSInteger index = [original.imageQuality integerValue];
-        CGFloat scale = 1;
-        if (index < 3) {
-            scale = MAX(0, index);
-        } else {
-            scale = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size) * 3;
-        }
-        [self mirrorLayer:layer fromArtboard:artboard scale:scale];
-    }
-    [self setVersionForLayer:layer];
-}
 
 - (void)rotateLayer:(id <MSShapeGroup>)layer {
     MMLayer *l = [MMLayer layerWithLayer:layer];

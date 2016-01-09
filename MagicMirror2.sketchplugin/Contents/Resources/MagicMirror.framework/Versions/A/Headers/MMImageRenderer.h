@@ -9,8 +9,14 @@
 @import AppKit;
 
 #import "MMController.h"
-#import "MagicMirror.h"
 @protocol MSLayer;
+
+typedef enum {
+    MMImageRenderQualityAuto = 0,
+    MMImageRenderQuality1x = 1,
+    MMImageRenderQuality2x = 2,
+    MMImageRenderQualityMax = 3,
+} MMImageRenderQuality;
 
 typedef enum {
     ImageRendererColorSpaceGenericRGB = 0,
@@ -29,10 +35,11 @@ typedef enum {
 @property (nonatomic, strong) id <MSLayer> layer;
 @property (nonatomic, strong) NSBezierPath *bezierPath;
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
-@property (nonatomic) NSUInteger scale;      // 0 is auto
+@property (nonatomic) MMImageRenderQuality imageQuality;      // 0 is auto
 @property (nonatomic) BOOL disablePerspective;
 
 - (NSImage *)flattenedImage;
 - (NSImage *)exportedImage;
+
 
 @end
