@@ -24,6 +24,7 @@
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A299ED91C40FC3100DC4098 /* QuadTests.m */; };
+		1A38F6081C42AB2200AEAA8C /* MagicMirror.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A38F6071C42AB2200AEAA8C /* MagicMirror.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,7 +51,6 @@
 		1AB4A95D1C15A7C200B7922D /* MagicMirror.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A95C1C15A7C200B7922D /* MagicMirror.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4A9611C15A7C200B7922D /* MagicMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
 		1AB4A9631C15A7C200B7922D /* MagicMirror.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9371C15A55200B7922D /* MagicMirror.m */; };
 		1AB4A96C1C15D52B00B7922D /* MagicMirror.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
 		1AB4A96E1C15D69800B7922D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4A96D1C15D69800B7922D /* Storyboard.storyboard */; };
 		1AB4A9711C15D7B400B7922D /* MMWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A96F1C15D7B400B7922D /* MMWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1346,6 +1346,7 @@
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
 		1A299ED91C40FC3100DC4098 /* QuadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTests.m; sourceTree = "<group>"; };
+		1A38F6071C42AB2200AEAA8C /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicMirror.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchEventsController.h; sourceTree = "<group>"; };
@@ -1366,9 +1367,7 @@
 		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
 		1A753A151C24081B00DE2EC1 /* MMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMath.m; sourceTree = "<group>"; };
-		1AB4A92D1C15A4EE00B7922D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		1AB4A9371C15A55200B7922D /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MagicMirror.m; path = MagicMirror2/MagicMirror.m; sourceTree = SOURCE_ROOT; };
 		1AB4A93D1C15A5E100B7922D /* MagicMirrorExecutable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicMirrorExecutable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB4A93F1C15A5E100B7922D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1AB4A9401C15A5E100B7922D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -2718,7 +2717,7 @@
 			isa = PBXGroup;
 			children = (
 				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
-				1AB4A9371C15A55200B7922D /* MagicMirror.m */,
+				1A38F6071C42AB2200AEAA8C /* MagicMirror.m */,
 				1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */,
 				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
 				1A74648C1C40EEBD00FEBF8B /* MMLayer.h */,
@@ -2747,7 +2746,6 @@
 				1AB4A95B1C15A7C200B7922D /* MagicMirror */,
 				1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */,
 				1AB4A9351C15A51D00B7922D /* Frameworks */,
-				1AB4A92C1C15A4EE00B7922D /* MagicMirror2 */,
 				1AB4A92B1C15A4EE00B7922D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -2760,14 +2758,6 @@
 				1A562CDB1C1B2B9200FE3981 /* MagicMirrorExecutableTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1AB4A92C1C15A4EE00B7922D /* MagicMirror2 */ = {
-			isa = PBXGroup;
-			children = (
-				1AB4A92D1C15A4EE00B7922D /* Info.plist */,
-			);
-			path = MagicMirror2;
 			sourceTree = "<group>";
 		};
 		1AB4A9351C15A51D00B7922D /* Frameworks */ = {
@@ -5438,11 +5428,11 @@
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
 				1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
-				1AB4A9671C15A7D800B7922D /* MagicMirror.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */,
 				1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */,
 				1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */,
 				1A4DB9191C3A96A700AB5F0B /* Weak.m in Sources */,
+				1A38F6081C42AB2200AEAA8C /* MagicMirror.m in Sources */,
 				1AB4BC591C18643200B7922D /* NSImage+Transform.m in Sources */,
 				1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */,
 				1ABB63491C33C7FC00FFF7F7 /* MMLicenseInfo.m in Sources */,
