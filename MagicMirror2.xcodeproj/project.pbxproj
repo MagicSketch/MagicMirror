@@ -39,10 +39,19 @@
 		1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */; };
 		1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */; };
 		1A562CED1C1B2E4D00FE3981 /* MagicMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4A95A1C15A7C200B7922D /* MagicMirror.framework */; };
+		1A5D4D5A1C42E9BC007EAB79 /* MockShapeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */; };
+		1A5D4D5D1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A5D4D5B1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h */; };
+		1A5D4D5E1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */; };
+		1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */; };
 		1A74648E1C40EEBD00FEBF8B /* MMLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A74648C1C40EEBD00FEBF8B /* MMLayer.h */; };
 		1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74648D1C40EEBD00FEBF8B /* MMLayer.m */; };
 		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
 		1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A753A151C24081B00DE2EC1 /* MMMath.m */; };
+		1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677D71C42D10E000924FE /* MMLayerTests.m */; };
+		1AA677DE1C42D96E000924FE /* MagicMirror+MMPropertyController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */; };
+		1AA677DF1C42D96E000924FE /* MagicMirror+MMPropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */; };
+		1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677E11C42DAEF000924FE /* MockPropertySetter.m */; };
+		1AA677E51C42DFA0000924FE /* MockArtboardGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677E41C42DFA0000924FE /* MockArtboardGroup.m */; };
 		1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9401C15A5E100B7922D /* AppDelegate.m */; };
 		1AB4A9441C15A5E100B7922D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9431C15A5E100B7922D /* main.m */; };
 		1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9461C15A5E100B7922D /* ViewController.m */; };
@@ -1363,10 +1372,23 @@
 		1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMValuesStack.h; sourceTree = "<group>"; };
 		1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStack.m; sourceTree = "<group>"; };
 		1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMValuesStackTests.m; sourceTree = "<group>"; };
+		1A5D4D581C42E9BC007EAB79 /* MockShapeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockShapeGroup.h; sourceTree = "<group>"; };
+		1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockShapeGroup.m; sourceTree = "<group>"; };
+		1A5D4D5B1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMLayerArtboardFinder.h"; sourceTree = "<group>"; };
+		1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMLayerArtboardFinder.m"; sourceTree = "<group>"; };
+		1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockArtboardFinder.h; sourceTree = "<group>"; };
+		1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockArtboardFinder.m; sourceTree = "<group>"; };
 		1A74648C1C40EEBD00FEBF8B /* MMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayer.h; sourceTree = "<group>"; };
 		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
 		1A753A151C24081B00DE2EC1 /* MMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMath.m; sourceTree = "<group>"; };
+		1AA677D71C42D10E000924FE /* MMLayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayerTests.m; sourceTree = "<group>"; };
+		1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMPropertyController.h"; sourceTree = "<group>"; };
+		1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMPropertyController.m"; sourceTree = "<group>"; };
+		1AA677E01C42DAEF000924FE /* MockPropertySetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPropertySetter.h; sourceTree = "<group>"; };
+		1AA677E11C42DAEF000924FE /* MockPropertySetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockPropertySetter.m; sourceTree = "<group>"; };
+		1AA677E31C42DFA0000924FE /* MockArtboardGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockArtboardGroup.h; sourceTree = "<group>"; };
+		1AA677E41C42DFA0000924FE /* MockArtboardGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockArtboardGroup.m; sourceTree = "<group>"; };
 		1AB4A9331C15A51800B7922D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1AB4A93D1C15A5E100B7922D /* MagicMirrorExecutable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicMirrorExecutable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB4A93F1C15A5E100B7922D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2718,6 +2740,10 @@
 				1A1F3D5A1C3D7175004171C8 /* MMController.m */,
 				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
 				1A38F6071C42AB2200AEAA8C /* MagicMirror.m */,
+				1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */,
+				1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */,
+				1A5D4D5B1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h */,
+				1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */,
 				1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */,
 				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
 				1A74648C1C40EEBD00FEBF8B /* MMLayer.h */,
@@ -2735,6 +2761,15 @@
 				1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
 				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
+				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
+				1AA677E01C42DAEF000924FE /* MockPropertySetter.h */,
+				1AA677E11C42DAEF000924FE /* MockPropertySetter.m */,
+				1AA677E31C42DFA0000924FE /* MockArtboardGroup.h */,
+				1AA677E41C42DFA0000924FE /* MockArtboardGroup.m */,
+				1A5D4D581C42E9BC007EAB79 /* MockShapeGroup.h */,
+				1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */,
+				1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */,
+				1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */,
 			);
 			path = MagicMirrorExecutableTests;
 			sourceTree = "<group>";
@@ -4277,6 +4312,7 @@
 				1AB4B9AF1C16E68400B7922D /* MSImmutableLayerGroup.h in Headers */,
 				1AB4B9321C16E68400B7922D /* MSCreateSharedLayerStyleAction.h in Headers */,
 				1AB4B9F31C16E68400B7922D /* MSInterfaceColorFactory.h in Headers */,
+				1A5D4D5D1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h in Headers */,
 				1AB4B9381C16E68400B7922D /* MSCurvePointMirroredBehaviour.h in Headers */,
 				1AB4B9261C16E68400B7922D /* MSColorInspectorSeparatorView.h in Headers */,
 				1AB4B9791C16E68400B7922D /* MSFlippedView.h in Headers */,
@@ -4392,6 +4428,7 @@
 				1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */,
 				1AB4BA851C16E68400B7922D /* MSRadialGradientEventHandler.h in Headers */,
 				1A0CBDD41C32949F0078B384 /* MMLicenseViewController.h in Headers */,
+				1AA677DE1C42D96E000924FE /* MagicMirror+MMPropertyController.h in Headers */,
 				1AB4B9761C16E68400B7922D /* MSFlattenSelectionAction.h in Headers */,
 				1AB4BC141C16E68400B7922D /* PDFOperatorInfo.h in Headers */,
 				1AB4BC331C16E68400B7922D /* SVGRectangleShape.h in Headers */,
@@ -5399,6 +5436,11 @@
 				1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */,
 				1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */,
 				1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */,
+				1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */,
+				1A5D4D5A1C42E9BC007EAB79 /* MockShapeGroup.m in Sources */,
+				1AA677E51C42DFA0000924FE /* MockArtboardGroup.m in Sources */,
+				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
+				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
 				1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */,
 			);
@@ -5422,6 +5464,7 @@
 				1A1F3D601C3F70A9004171C8 /* MMProxy.m in Sources */,
 				1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */,
 				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
+				1A5D4D5E1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
@@ -5445,6 +5488,7 @@
 				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
 				1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,
+				1AA677DF1C42D96E000924FE /* MagicMirror+MMPropertyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

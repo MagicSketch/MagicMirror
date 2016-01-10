@@ -93,11 +93,7 @@ typedef enum : NSUInteger {
 @interface MagicMirror (MSShapeGroup)
 
 - (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
-- (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
 - (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
-- (void)setVersionForLayer:(id <MSShapeGroup>)layer;
-- (id)valueForKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
-- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
 
 @end
 

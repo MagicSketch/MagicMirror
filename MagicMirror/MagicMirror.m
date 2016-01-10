@@ -186,14 +186,6 @@ static MagicMirror *_sharedInstance = nil;
     MMLog(@"goAway");
 }
 
-- (id)valueForKey:(NSString *)key onLayer:(id)layer {
-    return [_context.command valueForKey:key onLayer:layer];
-}
-
-- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id)layer {
-    [_context.command setValue:value forKey:key onLayer:layer];
-}
-
 - (void)reloadData {
 }
 
@@ -230,20 +222,11 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality {
-    MMImageRenderer *renderer = _imageRenderer;
-    if (artboard) {
-        renderer.layer = artboard;
-        renderer.imageQuality = imageQuality;
-        renderer.colorSpaceIdentifier = _colorSpaceIdentifier;
-        renderer.disablePerspective = ! _perspective;
-        renderer.bezierPath = [layer bezierPathInBounds];
-        NSTimeInterval timeElasped = CACurrentMediaTime();
-        NSImage *image = renderer.exportedImage;
-        [self fillLayer:layer withImage:image];
-        [self setValue:@(imageQuality) forKey:@"scale" onLayer:layer];
-        [self setValue:NSStringFromSize(image.size) forKey:@"imageSize" onLayer:layer];
-        [self setValue:@(CACurrentMediaTime() - timeElasped) forKey:@"timeElapsed" onLayer:layer];
-    }
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l mirrorWithArtboard:artboard
+             imageQuality:imageQuality
+     colorSpaceIdentifier:_colorSpaceIdentifier
+              perspective:_perspective];
 }
 
 - (void)refreshLayer:(id<MSShapeGroup>)layer {
@@ -258,17 +241,13 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)setArtboard:(id<MSArtboardGroup>)artboard forLayer:(id<MSShapeGroup>)layer {
-    if (artboard != nil) {
-        [self setValue:[artboard name] forKey:@"source" onLayer:layer];
-    }
-    [self refreshLayer:layer];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l setArtboard:artboard];
 }
 
 - (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer {
-    if (imageQuality != nil) {
-        [self setValue:imageQuality forKey:@"imageQuality" onLayer:layer];
-    }
-    [self refreshLayer:layer];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    [l setImageQuality:imageQuality];
 }
 
 #pragma - Other
@@ -454,22 +433,10 @@ static MagicMirror *_sharedInstance = nil;
     return properties.source;
 }
 
-- (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer {
-    NSString *name = properties.source;
-    [layer setName:name];
-    [self setValue:properties.source forKey:@"source" onLayer:layer];
-    if (properties.imageQuality) {
-        [self setValue:properties.imageQuality forKey:@"imageQuality" onLayer:layer];
-    }
-}
-
 - (MMLayerProperties *)layerPropertiesForLayer:(id<MSShapeGroup>)layer {
     return [_context layerPropertiesForLayer:layer];
 }
 
-- (void)setVersionForLayer:(id <MSShapeGroup>)layer {
-    [self setValue:_version forKey:@"version" onLayer:layer];
-}
 
 @end
 
