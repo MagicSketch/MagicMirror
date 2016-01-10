@@ -137,8 +137,10 @@
 }
 
 - (void)reloadData {
+    [self unobserveCombobox];
     [self reloadArtboardCombobox];
     [self reloadImageQualityCombobox];
+    [self observeComboBox];
 }
 
 - (NSResponder *)nextResponder {

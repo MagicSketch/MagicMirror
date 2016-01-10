@@ -20,5 +20,7 @@
 
 @property (nonatomic) BOOL shouldObserveCombobox;
 - (void)comboBoxValueDidChange:(NSComboBox *)sender;    // Override this when shouldObserveCombobox is set to YES
+- (void)unobserveCombobox;
+- (void)observeComboBox;
 
 @end
