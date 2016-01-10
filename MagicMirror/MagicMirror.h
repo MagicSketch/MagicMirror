@@ -43,6 +43,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) MMEnv env;
 @property (nonatomic, copy, readonly) NSString *baseURLString;
 @property (nonatomic, readonly) SketchPluginContext *context;
+@property (nonatomic, readonly, strong) MMImageRenderer *imageRenderer;
 
 + (instancetype)sharedInstance;
 + (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;
@@ -90,12 +91,6 @@ typedef enum : NSUInteger {
 @end
 
 
-@interface MagicMirror (MSShapeGroup)
-
-- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
-- (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
-
-@end
 
 #pragma mark -
 

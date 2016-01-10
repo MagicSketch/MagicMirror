@@ -330,8 +330,8 @@ static MagicMirror *_sharedInstance = nil;
 - (void)setClear {
     __weak typeof (self) weakSelf = self;
     [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        MMLayerProperties *properties = [weakSelf layerPropertiesForLayer:obj];
-        if (properties.source) {
+        MMLayer *l = [MMLayer layerWithLayer:obj];
+        if (l.source) {
             [weakSelf clearLayer:obj];
         }
     }];
@@ -372,7 +372,8 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)jumpSelection {
     id <MSShapeGroup> layer = [[_context selectedLayers] firstObject];
-    NSString *source = [self sourceForLayer:layer];
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    NSString *source = l.source;
     [self jumpToArtboard:source];
 }
 
@@ -399,11 +400,6 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)layerSelectionDidChange:(NSArray *)layers {
     [self reloadData];
-    if ([layers count] == 1) {
-        MMLayerProperties *properties = [self layerPropertiesForLayer:layers[0]];
-        MMLog(@"layer: %@", layers[0]);
-        MMLog(@"%@", properties);
-    }
 }
 
 - (void)layerDidUpdate:(id<MSShapeGroup>)layer {

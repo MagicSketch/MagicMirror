@@ -39,6 +39,7 @@
     MMLayer *l = [[MMLayer alloc] init];
     l.layer = layer;
     l.magicmirror = [MagicMirror sharedInstance];
+    l.renderer = [MagicMirror sharedInstance].imageRenderer;
     l.setter = [MagicMirror sharedInstance];
     l.finder = [MagicMirror sharedInstance];
     return l;
@@ -61,10 +62,9 @@
 }
 
 -(void)clear {
-    MMLayerProperties *properties = [self.magicmirror layerPropertiesForLayer:_layer];
-    if (properties.source) {
-        NSDictionary *artboardLookup = [self.context artboardsLookup];
-        if (artboardLookup[properties.source]) {
+    if (self.source) {
+        NSDictionary *artboardLookup = [self.finder artboardsLookup];
+        if (artboardLookup[self.source]) {
             [_layer setName:[[_layer name] stringByAppendingString:@"_detached"]];
             [self disableFill];
         }
@@ -151,14 +151,14 @@
 
 - (void)refresh {
     id <MSShapeGroup> layer = _layer;
-    MMLayerProperties *original = [self.magicmirror layerPropertiesForLayer:layer];
-    NSString *selectedName = original.source;
+    MMLayer *l = [MMLayer layerWithLayer:layer];
+    NSString *selectedName = l.source;
     id <MSArtboardGroup> artboard = [self.magicmirror artboardsLookup][selectedName];
     if ( ! selectedName) {
         [self clear];
     } else {
         CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size);
-        MMImageRenderQuality quality = (MMImageRenderQuality)[original.imageQuality integerValue];
+        MMImageRenderQuality quality = (MMImageRenderQuality)[l.imageQuality integerValue];
         MMLog(@"ratio: %@, quality: %@", @(ratio), @(quality));
         [self.magicmirror mirrorLayer:layer fromArtboard:artboard imageQuality:quality];
     }
@@ -193,7 +193,11 @@
 }
 
 -(void)setImageQuality:(NSNumber *)imageQuality {
+    if ([self.imageQuality isEqual:imageQuality]) {
+        return;
+    }
     [self.setter setValue:imageQuality forKey:@"imageQuality" onLayer:self];
+    [self refresh];
 }
 - (NSNumber *)imageQuality {
     return [self.setter valueForKey:@"imageQuality" onLayer:self];

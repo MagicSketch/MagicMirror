@@ -14,6 +14,7 @@
 #import "MMValuesStack.h"
 #import "MMArtboardComboboxItem.h"
 #import "SketchEventsController.h"
+#import "MMLayer.h"
 
 @interface MMToolbarViewController ()
 
@@ -56,8 +57,8 @@
     [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
-        MMLayerProperties *properties = [self.magicmirror layerPropertiesForLayer:obj];
-        NSString *artboardName = [properties source];
+        MMLayer *l = [MMLayer layerWithLayer:obj];
+        NSString *artboardName = l.source;
         if (lookup[artboardName]) {
             [stack addObject:artboardName];
         }
@@ -103,8 +104,8 @@
     [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLog(@"%lu: %@", idx, obj);
 
-        MMLayerProperties *properties = [self.magicmirror layerPropertiesForLayer:obj];
-        NSNumber *imageQuality = [properties imageQuality];
+        MMLayer *l = [MMLayer layerWithLayer:obj];
+        NSNumber *imageQuality = l.imageQuality;
         if (imageQuality) {
             [stack addObject:imageQuality];
         }
