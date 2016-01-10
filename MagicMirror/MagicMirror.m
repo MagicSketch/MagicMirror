@@ -440,7 +440,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)documentDidChange:(id<MSDocument>)document {
-
+    MMLog(@"document %@", document);
     _artboardsLookup = nil;
 }
 

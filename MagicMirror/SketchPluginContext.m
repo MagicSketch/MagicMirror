@@ -73,19 +73,7 @@ static NSMutableArray <Weak *> *_observers = nil;
 
 - (void)windowDidBecomeMain:(NSNotification *)notification {
     MMLog(@"windowDidBecomeMain");
-    [self unobserveSelection];
-
-    self.document = [NSClassFromString(@"MSDocument") currentDocument];
-    self.selection = [[self.document selectedLayersA] layers];
-
-    [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id <SketchEventsController> controller = [obj object];
-        if ([controller respondsToSelector:@selector(documentDidChange:)]) {
-            [controller documentDidChange:[NSClassFromString(@"MSDocument") currentDocument]];
-        }
-    }];
-
-    [self layerSelectionDidChange:nil];
+    [self notifyDocumentDidChange];
 }
 
 - (void)dealloc {
@@ -248,6 +236,25 @@ static NSMutableArray <Weak *> *_observers = nil;
                              context:nil];
         [_layerChangeObservers addObject:obj];
     }];
+}
+
+- (void)notifyDocumentDidChange {
+    [self unobserveSelection];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        self.document = [NSClassFromString(@"MSDocument") currentDocument];
+        self.selection = [[self.document selectedLayersA] layers];
+
+        [_observers enumerateObjectsUsingBlock:^(Weak * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            id <SketchEventsController> controller = [obj object];
+            if ([controller respondsToSelector:@selector(documentDidChange:)]) {
+                [controller documentDidChange:[NSClassFromString(@"MSDocument") currentDocument]];
+            }
+        }];
+
+        [self layerSelectionDidChange:nil];
+    });
 }
 
 - (void)artboardDidUpdate:(id <MSArtboardGroup>)artboard {
