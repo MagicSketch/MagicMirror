@@ -9,6 +9,7 @@
 #import "MMTracker.h"
 #import "MagicMirror.h"
 #import "Mixpanel.h"
+#import "MMLicenseInfo.h"
 
 @interface MMTracker ()
 
@@ -24,6 +25,7 @@
     if (self) {
         self.mixpanel = [Mixpanel sharedInstanceWithToken:@"5efc9a36b4256b59de860982791e2db5"];
         [self register];
+        [self registerUser];
     }
     return self;
 }
@@ -34,10 +36,30 @@
 
 - (void)register {
     [self.mixpanel registerSuperProperties:@{
-                                             @"Plugin Version":[self.magicmirror version],
-                                             @"Plugin Build":[self.magicmirror build],
-                                             @"Plugin Environment":NSStringFromMMEnv([self.magicmirror env]),
+                                             @"MMVersion":[self.magicmirror version],
+                                             @"MMBuild":[self.magicmirror build],
+                                             @"MMEnvironment":NSStringFromMMEnv([self.magicmirror env]),
                                              }];
+}
+
+- (void)registerUser {
+    MMLicenseInfo *info = [self.magicmirror licensedTo];
+    if (info) {
+        [self.mixpanel identify:[info license]];
+        [[self.mixpanel people] set:@{
+                                      @"$first_name":[info firstName],
+                                      @"$last_name":[info lastName],
+                                      @"$email":[info email],
+                                      @"MMLicense":[info license],
+                                      }];
+    }
+}
+
+- (void)magicmirrorLicenseDetached:(MagicMirror *)magicmirror {
+}
+
+- (void)magicmirrorLicenseUnlocked:(MagicMirror *)magicmirror {
+    [self registerUser];
 }
 
 @end
