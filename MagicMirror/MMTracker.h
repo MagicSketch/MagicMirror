@@ -12,6 +12,8 @@
 @protocol MMTracker <NSObject>
 
 - (void)track:(NSString *)event;
+- (void)track:(NSString *)event properties:(NSDictionary *)properties;
+- (void)registerProperties:(NSDictionary *)properties;
 
 @end
 

@@ -159,7 +159,7 @@
         [self clear];
     } else {
         CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size);
-        MMImageRenderQuality quality = (MMImageRenderQuality)[l.imageQuality integerValue];
+        MMImageRenderQuality quality = (MMImageRenderQuality)[l.imageQuality unsignedIntegerValue];
         MMLog(@"ratio: %@, quality: %@", @(ratio), @(quality));
         [self.magicmirror mirrorLayer:layer fromArtboard:artboard imageQuality:quality];
     }
@@ -197,8 +197,10 @@
     if ([self.imageQuality isEqual:imageQuality]) {
         return;
     }
-    [self.setter setValue:imageQuality forKey:@"imageQuality" onLayer:self];
-    [self refresh];
+    if (imageQuality && [imageQuality integerValue] >= 0) {
+        [self.setter setValue:imageQuality forKey:@"imageQuality" onLayer:self];
+        [self refresh];
+    }
 }
 - (NSNumber *)imageQuality {
     return [self.setter valueForKey:@"imageQuality" onLayer:self];

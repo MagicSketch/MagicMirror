@@ -34,6 +34,10 @@
     [self.mixpanel track:event];
 }
 
+- (void)track:(NSString *)event properties:(NSDictionary *)properties {
+    [self.mixpanel track:event properties:properties];
+}
+
 - (void)register {
     [self.mixpanel registerSuperProperties:@{
                                              @"MMVersion":[self.magicmirror version],
@@ -54,6 +58,12 @@
                                       }];
     }
 }
+
+- (void)registerProperties:(NSDictionary *)properties {
+    [self.mixpanel registerSuperProperties:properties];
+}
+
+#pragma mark - MMController
 
 - (void)magicmirrorLicenseDetached:(MagicMirror *)magicmirror {
 }

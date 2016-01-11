@@ -33,6 +33,7 @@
 #import "MSDocument.h"
 #import "MMLayer.h"
 #import "MMTracker.h"
+#import "MagicMirror+MMTracker.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -45,6 +46,20 @@ NSString *NSStringFromMMEnv(MMEnv env) {
         case MMEnvDevelopment:
             return @"Development";
             break;
+    }
+}
+
+
+NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality) {
+    switch (quality) {
+        case MMImageRenderQuality1x:
+            return @"1x";
+        case MMImageRenderQuality2x:
+            return @"2x";
+        case MMImageRenderQualityMax:
+            return @"Max";
+        default:
+            return @"Auto";
     }
 }
 
@@ -204,6 +219,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)reloadData {
+
 }
 
 #pragma - Fill
@@ -264,7 +280,9 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer {
     MMLayer *l = [MMLayer layerWithLayer:layer];
-    [l setImageQuality:imageQuality];
+    if (imageQuality && [imageQuality integerValue] >= 0) {
+        [l setImageQuality:imageQuality];
+    }
 }
 
 #pragma - Other
@@ -291,16 +309,9 @@ static MagicMirror *_sharedInstance = nil;
     [self showWindow];
 }
 
-- (void)refreshSelection {
-    MMLog(@"refresh selection");
-    __weak __typeof (self) weakSelf = self;
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf refreshLayer:obj];
-    }];
-}
-
 - (void)refreshPage {
     MMLog(@"refresh page");
+    [self.tracker track:@"Refresh Page"];
     __weak __typeof (self) weakSelf = self;
     [_context.allMagicLayersInPage enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf refreshLayer:obj];
@@ -317,6 +328,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)licenseInfo {
     NSLog(@"licenseInfo");
+    [self.tracker track:@"Show License Info"];
     [self showLicenseInfo];
 }
 
@@ -324,6 +336,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)setArtboard:(id<MSArtboardGroup>)artboard {
     __weak typeof (self) weakSelf = self;
+    [self trackSelectionEvent:@"Set Artboard"];
     [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf setArtboard:artboard forLayer:obj];
         [obj setName:[artboard name]];
@@ -332,6 +345,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)setImageQuality:(NSNumber *)imageQuality {
     __weak typeof (self) weakSelf = self;
+    [self trackSelectionEvent:@"Set Image Quality"];
     [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf setImageQuality:imageQuality forLayer:obj];
     }];
@@ -339,6 +353,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)setClear {
     __weak typeof (self) weakSelf = self;
+    [self trackSelectionEvent:@"Clear Selection"];
     [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLayer *l = [MMLayer layerWithLayer:obj];
         if (l.source) {
@@ -349,12 +364,11 @@ static MagicMirror *_sharedInstance = nil;
 
 // Entry Points
 
-- (void)mirrorPage {
-    MMLog(@"mirrorPage");
-    _artboardsLookup = nil;
-
+- (void)refreshSelection {
+    MMLog(@"refresh selection");
+    [self trackSelectionEvent:@"Refresh Selection"];
     __weak __typeof (self) weakSelf = self;
-    [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_context.selectedLayers enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf refreshLayer:obj];
     }];
 }
@@ -362,7 +376,7 @@ static MagicMirror *_sharedInstance = nil;
 - (void)rotateSelection {
     MMLog(@"rotateSelection");
     _artboardsLookup = nil;
-
+    [self trackSelectionEvent:@"Rotate Selection"];
     __weak __typeof (self) weakSelf = self;
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf rotateLayer:obj];
@@ -372,7 +386,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)flipSelection {
     MMLog(@"flipSelection");
-
+    [self trackSelectionEvent:@"Flip Selection"];
     __weak __typeof (self) weakSelf = self;
     [_context.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf flipLayer:obj];
@@ -381,11 +395,13 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)jumpSelection {
+    [self trackSelectionEvent:@"Jump To Artboard"];
     id <MSShapeGroup> layer = [[_context selectedLayers] firstObject];
     MMLayer *l = [MMLayer layerWithLayer:layer];
     NSString *source = l.source;
     [self jumpToArtboard:source];
 }
+
 
 @end
 

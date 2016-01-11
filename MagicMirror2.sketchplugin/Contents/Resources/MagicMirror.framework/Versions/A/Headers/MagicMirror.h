@@ -36,6 +36,7 @@ typedef enum : NSUInteger {
 } MMEnv;
 
 extern NSString *NSStringFromMMEnv(MMEnv env);
+extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 
 @interface MagicMirror : NSObject
 
@@ -74,14 +75,13 @@ extern NSString *NSStringFromMMEnv(MMEnv env);
 - (void)setClear;
 
 // Entry Points
+- (void)configureSelection;
 - (void)licenseInfo;
-- (void)mirrorPage;
-- (void)rotateSelection;
 - (void)flipSelection;
 - (void)jumpSelection;
-- (void)configureSelection;
 - (void)refreshSelection;
 - (void)refreshPage;
+- (void)rotateSelection;
 
 //- (NSArray *)artboards;
 //- (NSDictionary *)artboardsLookup;
