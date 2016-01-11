@@ -15,6 +15,8 @@
 		1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */; };
 		1A0FAFD61C19957300B57F42 /* MMImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */; };
+		1A1DB9D01C437BF100017255 /* MMTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1DB9CE1C437BF100017255 /* MMTracker.h */; };
+		1A1DB9D11C437BF100017255 /* MMTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1DB9CF1C437BF100017255 /* MMTracker.m */; };
 		1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A1F3D5A1C3D7175004171C8 /* MMController.m */; };
 		1A1F3D5C1C3D723C004171C8 /* MMController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A562CCE1C1AC2E500FE3981 /* MMController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A1F3D5F1C3F70A9004171C8 /* MMProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */; };
@@ -43,6 +45,8 @@
 		1A5D4D5D1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A5D4D5B1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h */; };
 		1A5D4D5E1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */; };
 		1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */; };
+		1A6E63AA1C43802700672D51 /* MagicMirror+MMTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A6E63A81C43802700672D51 /* MagicMirror+MMTracker.h */; };
+		1A6E63AB1C43802700672D51 /* MagicMirror+MMTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6E63A91C43802700672D51 /* MagicMirror+MMTracker.m */; };
 		1A74648E1C40EEBD00FEBF8B /* MMLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A74648C1C40EEBD00FEBF8B /* MMLayer.h */; };
 		1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74648D1C40EEBD00FEBF8B /* MMLayer.m */; };
 		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
@@ -1288,6 +1292,7 @@
 		1ADA7DBB1C202F5000198A87 /* NSBezierPath+Alter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */; };
 		1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */; };
 		1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */; };
+		91DE9CCA1E195E1CA6ECC499 /* libPods-MagicMirror.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */; };
 		C4B36F7FA66D497C8C604038 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F32649A8C4CC753031EC5573 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -1348,6 +1353,8 @@
 		1A0CBDD31C32949F0078B384 /* MMLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLicenseViewController.m; sourceTree = "<group>"; };
 		1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageRenderer.h; sourceTree = "<group>"; };
 		1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageRenderer.m; sourceTree = "<group>"; };
+		1A1DB9CE1C437BF100017255 /* MMTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTracker.h; sourceTree = "<group>"; };
+		1A1DB9CF1C437BF100017255 /* MMTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTracker.m; sourceTree = "<group>"; };
 		1A1F3D5A1C3D7175004171C8 /* MMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMController.m; sourceTree = "<group>"; };
 		1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMProxy.h; sourceTree = "<group>"; };
 		1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProxy.m; sourceTree = "<group>"; };
@@ -1379,6 +1386,9 @@
 		1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMLayerArtboardFinder.m"; sourceTree = "<group>"; };
 		1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockArtboardFinder.h; sourceTree = "<group>"; };
 		1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockArtboardFinder.m; sourceTree = "<group>"; };
+		1A6E63A81C43802700672D51 /* MagicMirror+MMTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMTracker.h"; sourceTree = "<group>"; };
+		1A6E63A91C43802700672D51 /* MagicMirror+MMTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMTracker.m"; sourceTree = "<group>"; };
+		1A6E63AC1C4380A600672D51 /* MagicMirror-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MagicMirror-Private.h"; sourceTree = "<group>"; };
 		1A74648C1C40EEBD00FEBF8B /* MMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayer.h; sourceTree = "<group>"; };
 		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
@@ -2631,7 +2641,10 @@
 		1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+Alter.m"; sourceTree = "<group>"; };
 		1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathTests.m; sourceTree = "<group>"; };
 		1C0A6D0482414F9EC3918E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3CC89431BCD0F932CC504BCA /* Pods-MagicMirror.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicMirror.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicMirror/Pods-MagicMirror.debug.xcconfig"; sourceTree = "<group>"; };
 		434336AF6DDA104824C9A8D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		48FEFEB5ED4FCEB86A79C0E5 /* Pods-MagicMirror.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicMirror.release.xcconfig"; path = "Pods/Target Support Files/Pods-MagicMirror/Pods-MagicMirror.release.xcconfig"; sourceTree = "<group>"; };
+		D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MagicMirror.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F32649A8C4CC753031EC5573 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2657,6 +2670,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91DE9CCA1E195E1CA6ECC499 /* libPods-MagicMirror.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2695,6 +2709,8 @@
 				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
 				1A4DB9161C3A96A700AB5F0B /* Weak.h */,
 				1A4DB9171C3A96A700AB5F0B /* Weak.m */,
+				1A1DB9CE1C437BF100017255 /* MMTracker.h */,
+				1A1DB9CF1C437BF100017255 /* MMTracker.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -2745,10 +2761,13 @@
 				1A1F3D5A1C3D7175004171C8 /* MMController.m */,
 				1AB4A95C1C15A7C200B7922D /* MagicMirror.h */,
 				1A38F6071C42AB2200AEAA8C /* MagicMirror.m */,
+				1A6E63AC1C4380A600672D51 /* MagicMirror-Private.h */,
 				1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */,
 				1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */,
 				1A5D4D5B1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.h */,
 				1A5D4D5C1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m */,
+				1A6E63A81C43802700672D51 /* MagicMirror+MMTracker.h */,
+				1A6E63A91C43802700672D51 /* MagicMirror+MMTracker.m */,
 				1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */,
 				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
 				1A74648C1C40EEBD00FEBF8B /* MMLayer.h */,
@@ -2806,6 +2825,7 @@
 			children = (
 				1AB4A9331C15A51800B7922D /* AppKit.framework */,
 				F32649A8C4CC753031EC5573 /* libPods.a */,
+				D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4070,6 +4090,8 @@
 			children = (
 				434336AF6DDA104824C9A8D3 /* Pods.debug.xcconfig */,
 				1C0A6D0482414F9EC3918E7E /* Pods.release.xcconfig */,
+				3CC89431BCD0F932CC504BCA /* Pods-MagicMirror.debug.xcconfig */,
+				48FEFEB5ED4FCEB86A79C0E5 /* Pods-MagicMirror.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -4200,6 +4222,7 @@
 				1AB4BBCF1C16E68400B7922D /* NSPDFImageRep-Alpha.h in Headers */,
 				1AB4B7FE1C16E68400B7922D /* _SVGElement.h in Headers */,
 				1AB4B8301C16E68400B7922D /* BCBonjourDelegateHandler.h in Headers */,
+				1A1DB9D01C437BF100017255 /* MMTracker.h in Headers */,
 				1AB4BC0C1C16E68400B7922D /* NSViewController-LoadViewSwizzling.h in Headers */,
 				1AB4B80B1C16E68400B7922D /* _SVGRectangleShape.h in Headers */,
 				1AB4BA351C16E68400B7922D /* MSMoveForwardAction.h in Headers */,
@@ -5183,6 +5206,7 @@
 				1AB4BA2C1C16E68400B7922D /* MSModelBase.h in Headers */,
 				1AB4B7A31C16E68400B7922D /* _MSImmutableBitmapLayer.h in Headers */,
 				1AB4BB671C16E68400B7922D /* NSBezierPath-FitCurvePrivate.h in Headers */,
+				1A6E63AA1C43802700672D51 /* MagicMirror+MMTracker.h in Headers */,
 				1AB4BC001C16E68400B7922D /* NSURLRequest-postForm.h in Headers */,
 				1AB4B7951C16E68400B7922D /* _MSBitmapLayer.h in Headers */,
 				1AB4BB321C16E68400B7922D /* MSTriangleShapeAction.h in Headers */,
@@ -5341,12 +5365,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AB4A94E1C15A5E100B7922D /* Build configuration list for PBXNativeTarget "MagicMirrorExecutable" */;
 			buildPhases = (
-				77DE2D9C653F70415FEBF32F /* Check Pods Manifest.lock */,
 				1AB4A9391C15A5E100B7922D /* Sources */,
 				1AB4A93A1C15A5E100B7922D /* Frameworks */,
 				1AB4A93B1C15A5E100B7922D /* Resources */,
 				1AB4A9621C15A7C200B7922D /* Embed Frameworks */,
-				86AB00EE484FC3C59FE752C2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5362,11 +5384,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AB4A9641C15A7C200B7922D /* Build configuration list for PBXNativeTarget "MagicMirror" */;
 			buildPhases = (
+				A2A61CBDC303836CCF56D817 /* Check Pods Manifest.lock */,
 				1AB4A9551C15A7C200B7922D /* Sources */,
 				1AB4A9561C15A7C200B7922D /* Frameworks */,
 				1AB4A9571C15A7C200B7922D /* Headers */,
 				1AB4A9581C15A7C200B7922D /* Resources */,
 				1AB4A96B1C15D51800B7922D /* CopyFiles */,
+				DFE7CC11F261BB64CF91C5B8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5447,7 +5471,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		77DE2D9C653F70415FEBF32F /* Check Pods Manifest.lock */ = {
+		A2A61CBDC303836CCF56D817 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5462,7 +5486,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		86AB00EE484FC3C59FE752C2 /* Copy Pods Resources */ = {
+		DFE7CC11F261BB64CF91C5B8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -5474,7 +5498,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MagicMirror/Pods-MagicMirror-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5516,6 +5540,7 @@
 				1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */,
 				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
 				1A5D4D5E1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m in Sources */,
+				1A6E63AB1C43802700672D51 /* MagicMirror+MMTracker.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
@@ -5535,6 +5560,7 @@
 				1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */,
+				1A1DB9D11C437BF100017255 /* MMTracker.m in Sources */,
 				1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */,
 				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
 				1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */,
@@ -5682,7 +5708,6 @@
 		};
 		1AB4A94F1C15A5E100B7922D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 434336AF6DDA104824C9A8D3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -5695,7 +5720,6 @@
 		};
 		1AB4A9501C15A5E100B7922D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C0A6D0482414F9EC3918E7E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -5708,6 +5732,7 @@
 		};
 		1AB4A9651C15A7C200B7922D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC89431BCD0F932CC504BCA /* Pods-MagicMirror.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -5731,6 +5756,7 @@
 		};
 		1AB4A9661C15A7C200B7922D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48FEFEB5ED4FCEB86A79C0E5 /* Pods-MagicMirror.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;

@@ -21,6 +21,7 @@
 #import "MagicMirror.h"
 #import "MagicMirror+MMPropertyController.h"
 #import "MagicMirror+MMLayerArtboardFinder.h"
+#import "MagicMirror-Private.h"
 
 
 @interface MMLayer ()

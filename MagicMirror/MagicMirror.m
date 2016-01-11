@@ -32,6 +32,7 @@
 #import "MSPage.h"
 #import "MSDocument.h"
 #import "MMLayer.h"
+#import "MMTracker.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -51,6 +52,7 @@ NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSh
 @property (nonatomic) BOOL perspective;
 @property (nonatomic, copy) NSDictionary *artboardsLookup;
 @property (nonatomic, strong) NSURLSessionDataTask *task;
+@property (nonatomic, strong) MMTracker *tracker;
 
 @end
 
@@ -132,6 +134,7 @@ static MagicMirror *_sharedInstance = nil;
     _baseURLString = @"http://api.magicmirror.design";
     _env = MMEnvProduction;
 #endif
+    _tracker = [[MMTracker alloc] init];
 }
 
 - (void)dealloc {
@@ -142,11 +145,11 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)showWindow {
     if (_toolbarWindow) {
-        [_toolbarWindow close];
-        _toolbarWindow = nil;
+        [self closeToolbar];
         return;
     }
 
+    [self.tracker track:@"Show Toolbar"];
     [SketchPluginContext addObserver:self];
     [MagicMirror setSharedInstance:self];
     NSStoryboard *storyboard = [NSStoryboard storyboardWithName:@"Storyboard" bundle:[NSBundle bundleForClass:[MMWindowController class]]];
@@ -158,7 +161,9 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)closeToolbar {
     MMLog(@"MMWindowController close");
+    [self.tracker track:@"Close Toolbar"];
     [_toolbarWindow close];
+    _toolbarWindow = nil;
 }
 
 - (void)showLicenseInfo {
@@ -292,13 +297,6 @@ static MagicMirror *_sharedInstance = nil;
 
 - (NSArray *)artboards {
     return [_context artboards];
-}
-
-- (NSDictionary *)artboardsLookup {
-    if ( ! _artboardsLookup) {
-        _artboardsLookup = [_context artboardsLookup];
-    }
-    return _artboardsLookup;
 }
 
 - (NSArray *)selectedLayers {

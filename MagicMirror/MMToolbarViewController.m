@@ -15,6 +15,7 @@
 #import "MMArtboardComboboxItem.h"
 #import "SketchEventsController.h"
 #import "MMLayer.h"
+#import "MagicMirror+MMLayerArtboardFinder.h"
 
 @interface MMToolbarViewController ()
 

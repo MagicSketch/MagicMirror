@@ -7,7 +7,7 @@
 //
 
 #import "MagicMirror+MMLayerArtboardFinder.h"
-#import "SketchPluginContext.h"
+#import "MagicMirror-Private.h"
 
 @implementation MagicMirror (MMLayerArtboardFinder)
 

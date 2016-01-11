@@ -42,8 +42,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy, readonly) NSString *build;
 @property (nonatomic, readonly) MMEnv env;
 @property (nonatomic, copy, readonly) NSString *baseURLString;
-@property (nonatomic, readonly) SketchPluginContext *context;
-@property (nonatomic, readonly, strong) MMImageRenderer *imageRenderer;
 
 + (instancetype)sharedInstance;
 + (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;
@@ -84,7 +82,7 @@ typedef enum : NSUInteger {
 - (void)refreshPage;
 
 //- (NSArray *)artboards;
-- (NSDictionary *)artboardsLookup;
+//- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 
 
