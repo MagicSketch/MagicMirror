@@ -35,6 +35,8 @@ typedef enum : NSUInteger {
     MMEnvProduction,
 } MMEnv;
 
+extern NSString *NSStringFromMMEnv(MMEnv env);
+
 @interface MagicMirror : NSObject
 
 @property (nonatomic, readonly) NSUInteger lifeCount;

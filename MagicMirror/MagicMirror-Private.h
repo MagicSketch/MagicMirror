@@ -12,6 +12,7 @@
 #import "MMTracker.h"
 #import "SketchPluginContext.h"
 
+
 @interface MagicMirror (Private)
 
 @property (nonatomic, readonly, strong) MMImageRenderer *imageRenderer;

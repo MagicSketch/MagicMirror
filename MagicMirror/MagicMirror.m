@@ -36,6 +36,18 @@
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
+
+NSString *NSStringFromMMEnv(MMEnv env) {
+    switch (env) {
+        case MMEnvProduction:
+            return @"Production";
+            break;
+        case MMEnvDevelopment:
+            return @"Development";
+            break;
+    }
+}
+
 @interface MagicMirror ()
 
 @property (nonatomic) NSUInteger lifeCount;

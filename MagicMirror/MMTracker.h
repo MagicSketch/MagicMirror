@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MMController.h"
 
 @protocol MMTracker <NSObject>
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface MMTracker : NSObject <MMTracker>
+@interface MMTracker : MMController <MMTracker>
 
 
 @end
