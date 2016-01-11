@@ -1,0 +1,10 @@
+PODS:
+  - GRK-Mixpanel-OSX (2.8.1)
+
+DEPENDENCIES:
+  - GRK-Mixpanel-OSX (~> 2.8.1)
+
+SPEC CHECKSUMS:
+  GRK-Mixpanel-OSX: 343e0a49e686355b4b1949aa1d5a7bdbd8e27110
+
+COCOAPODS: 0.38.2
