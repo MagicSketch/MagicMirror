@@ -194,6 +194,7 @@
 }
 
 -(void)setImageQuality:(NSNumber *)imageQuality {
+    MMLog(@"setImageQuality %@", imageQuality);
     if ([self.imageQuality isEqual:imageQuality]) {
         return;
     }

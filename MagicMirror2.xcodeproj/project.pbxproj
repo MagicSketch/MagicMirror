@@ -47,6 +47,8 @@
 		1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */; };
 		1A6E63AA1C43802700672D51 /* MagicMirror+MMTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A6E63A81C43802700672D51 /* MagicMirror+MMTracker.h */; };
 		1A6E63AB1C43802700672D51 /* MagicMirror+MMTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6E63A91C43802700672D51 /* MagicMirror+MMTracker.m */; };
+		1A6E63AF1C442EF900672D51 /* MMComboBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A6E63AD1C442EF900672D51 /* MMComboBox.h */; };
+		1A6E63B01C442EF900672D51 /* MMComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6E63AE1C442EF900672D51 /* MMComboBox.m */; };
 		1A74648E1C40EEBD00FEBF8B /* MMLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A74648C1C40EEBD00FEBF8B /* MMLayer.h */; };
 		1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74648D1C40EEBD00FEBF8B /* MMLayer.m */; };
 		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
@@ -1389,6 +1391,8 @@
 		1A6E63A81C43802700672D51 /* MagicMirror+MMTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMTracker.h"; sourceTree = "<group>"; };
 		1A6E63A91C43802700672D51 /* MagicMirror+MMTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMTracker.m"; sourceTree = "<group>"; };
 		1A6E63AC1C4380A600672D51 /* MagicMirror-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MagicMirror-Private.h"; sourceTree = "<group>"; };
+		1A6E63AD1C442EF900672D51 /* MMComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMComboBox.h; sourceTree = "<group>"; };
+		1A6E63AE1C442EF900672D51 /* MMComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMComboBox.m; sourceTree = "<group>"; };
 		1A74648C1C40EEBD00FEBF8B /* MMLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLayer.h; sourceTree = "<group>"; };
 		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
@@ -2684,6 +2688,8 @@
 				1A21D9DB1C2AC858005A2733 /* MMView.m */,
 				1A21D9D61C2AC60D005A2733 /* MMWindow.h */,
 				1A21D9D71C2AC60D005A2733 /* MMWindow.m */,
+				1A6E63AD1C442EF900672D51 /* MMComboBox.h */,
+				1A6E63AE1C442EF900672D51 /* MMComboBox.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -4416,6 +4422,7 @@
 				1AB4B9941C16E68400B7922D /* MSHoverButtonCell.h in Headers */,
 				1AB4B8721C16E68400B7922D /* BCSplitView.h in Headers */,
 				1ABA825B1C33D3A00051DD67 /* QCMethod.h in Headers */,
+				1A6E63AF1C442EF900672D51 /* MMComboBox.h in Headers */,
 				1AB4BA951C16E68400B7922D /* MSResetBooleanAction.h in Headers */,
 				1AB4BBFF1C16E68400B7922D /* NSURLConnectionDelegate.h in Headers */,
 				1AB4B8B71C16E68400B7922D /* FMResultSet.h in Headers */,
@@ -5561,6 +5568,7 @@
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
 				1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */,
 				1A1DB9D11C437BF100017255 /* MMTracker.m in Sources */,
+				1A6E63B01C442EF900672D51 /* MMComboBox.m in Sources */,
 				1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */,
 				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
 				1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */,

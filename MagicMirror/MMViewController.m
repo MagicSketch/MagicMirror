@@ -11,8 +11,6 @@
 
 @interface MMViewController ()
 
-@property (nonatomic, strong) id comboboxObserver;
-
 @end
 
 @implementation MMViewController
@@ -37,7 +35,6 @@
 }
 
 - (void)dealloc {
-    self.shouldObserveCombobox = NO;
 }
 
 - (MagicMirror *)magicmirror {
@@ -62,38 +59,6 @@
 
 - (void)close {
     [self.view.window.windowController close];
-}
-
-#pragma - ComboBox
-
-- (void)setShouldObserveCombobox:(BOOL)shouldObserveCombobox {
-    if (_shouldObserveCombobox != shouldObserveCombobox) {
-        if (shouldObserveCombobox) {
-            [self observeComboBox];
-        } else {
-            [self unobserveCombobox];
-        }
-        _shouldObserveCombobox = shouldObserveCombobox;
-    }
-}
-
-- (void)observeComboBox {
-    __weak __typeof (self) weakSelf = self;
-    self.comboboxObserver = [[NSNotificationCenter defaultCenter] addObserverForName:NSComboBoxSelectionDidChangeNotification
-                                                                              object:nil
-                                                                               queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-
-                                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                                                       [weakSelf comboBoxValueDidChange:note.object];
-                                                                                   });
-                                                                               }];
-}
-
-- (void)unobserveCombobox {
-    [[NSNotificationCenter defaultCenter] removeObserver:self.comboboxObserver];
-}
-
-- (void)comboBoxValueDidChange:(NSComboBox *)sender {
 }
 
 @end

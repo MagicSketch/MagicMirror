@@ -17,7 +17,7 @@
 #import "MMLayer.h"
 #import "MagicMirror+MMLayerArtboardFinder.h"
 
-@interface MMToolbarViewController ()
+@interface MMToolbarViewController () <NSComboBoxDelegate>
 
 @property (weak) IBOutlet NSComboBox *artboardsComboBox;
 @property (weak) IBOutlet NSComboBox *imageQualityComboBox;
@@ -41,7 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.shouldObserveCombobox = YES;
+    self.imageQualityComboBox.delegate = self;
+    self.artboardsComboBox.delegate = self;
+//    self.shouldObserveCombobox = YES;
 }
 
 - (void)reloadArtboardCombobox {
@@ -139,10 +141,8 @@
 }
 
 - (void)reloadData {
-    [self unobserveCombobox];
     [self reloadArtboardCombobox];
     [self reloadImageQualityCombobox];
-    [self observeComboBox];
 }
 
 - (NSResponder *)nextResponder {
@@ -151,8 +151,9 @@
 
 #pragma mark IBAction
 
-- (void)comboBoxValueDidChange:(NSComboBox *)sender {
-    if (sender == self.artboardsComboBox) {
+- (void)comboBoxSelectionDidChange:(NSNotification *)sender {
+    NSComboBox *combobox = [sender object];
+    if (combobox == self.artboardsComboBox) {
         NSInteger index = [self.artboardsComboBox indexOfSelectedItem];
         if (index >= 0 && index < [self.artboardItems count]) {
             MMArtboardComboboxItem *item = self.artboardItems[index];
@@ -166,9 +167,11 @@
             [self.magicmirror setClear];
         }
         [self reloadData];
-    } else if (sender == self.imageQualityComboBox) {
+    } else if (combobox == self.imageQualityComboBox) {
         self.imageQuality = @([self.imageQualityComboBox indexOfSelectedItem]);
-        [self.magicmirror setImageQuality:self.imageQuality];
+        if (self.imageQuality && [self.imageQuality integerValue] != NSNotFound) {
+            [self.magicmirror setImageQuality:self.imageQuality];
+        }
     }
 }
 

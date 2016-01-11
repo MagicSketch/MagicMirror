@@ -311,7 +311,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)refreshPage {
     MMLog(@"refresh page");
-    [self.tracker track:@"Refresh Page"];
+    [self trackFullPageEvent:@"Refresh Page"];
     __weak __typeof (self) weakSelf = self;
     [_context.allMagicLayersInPage enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf refreshLayer:obj];
@@ -324,6 +324,10 @@ static MagicMirror *_sharedInstance = nil;
 
 - (NSArray *)selectedLayers {
     return [_context selectedLayers];
+}
+
+- (NSArray *)allLayers {
+    return [_context allMagicLayersInPage];
 }
 
 - (void)licenseInfo {
@@ -345,6 +349,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)setImageQuality:(NSNumber *)imageQuality {
     __weak typeof (self) weakSelf = self;
+    MMLog(@"setImageQuality %@", imageQuality);
     [self trackSelectionEvent:@"Set Image Quality"];
     [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf setImageQuality:imageQuality forLayer:obj];

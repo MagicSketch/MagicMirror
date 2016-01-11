@@ -12,5 +12,6 @@
 @interface MagicMirror (MMTracker) <MMTracker>
 
 - (void)trackSelectionEvent:(NSString *)event;
+- (void)trackFullPageEvent:(NSString *)event;
 
 @end

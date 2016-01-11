@@ -22,17 +22,25 @@
              properties:properties];
 }
 
-- (void)trackSelectionEvent:(NSString *)event {
-
+- (NSDictionary *)infoForLayers:(NSArray *)layers {
     NSMutableDictionary *info = [@{} mutableCopy];
-    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [layers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         MMLayer *l = [MMLayer layerWithLayer:obj];
         NSString *key = [NSString stringWithFormat:@"Image Quality %@", NSStringFromMMImageRenderQuality((MMImageRenderQuality)[l.imageQuality unsignedIntegerValue])];
         info[key] = @([info[key] integerValue] + 1);
     }];
 
-    info[@"Selected Layers"] = @([self.selectedLayers count]);
+    info[@"Layers Count"] = @([layers count]);
+    return [info copy];
+}
 
+- (void)trackSelectionEvent:(NSString *)event {
+    NSDictionary *info = [self infoForLayers:self.selectedLayers];
+    [self.tracker track:event properties:info];
+}
+
+- (void)trackFullPageEvent:(NSString *)event {
+    NSDictionary *info = [self infoForLayers:self.allLayers];
     [self.tracker track:event properties:info];
 }
 

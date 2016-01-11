@@ -86,6 +86,7 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 //- (NSArray *)artboards;
 //- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
+- (NSArray *)allLayers;
 
 
 @end
