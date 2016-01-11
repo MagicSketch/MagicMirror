@@ -13,14 +13,9 @@
 
 @interface MMViewController : NSViewController <MMController, SketchEventsController>
 
-@property (weak) MagicMirror *magicmirror;
+@property (strong) MagicMirror *magicmirror;
 
 - (void)reloadData; // subclass should call super
 - (void)close; // This will find the proper window controller to close
-
-@property (nonatomic) BOOL shouldObserveCombobox;
-- (void)comboBoxValueDidChange:(NSComboBox *)sender;    // Override this when shouldObserveCombobox is set to YES
-- (void)unobserveCombobox;
-- (void)observeComboBox;
 
 @end

@@ -20,6 +20,10 @@
     [super viewDidLoad];
 }
 
+- (IBAction)closeButtonDidPress:(id)sender {
+    [self.magicmirror closeToolbar];
+}
+
 - (IBAction)refreshPageButtonDidPress:(id)sender {
     [self.magicmirror refreshPage];
 }

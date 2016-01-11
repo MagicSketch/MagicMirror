@@ -51,7 +51,8 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 + (void)setSharedInstance:(MagicMirror *)sharedInstance;
 + (void)addObserver:(id <MMController>)observer;
 
-- (void)showWindow;
+- (void)closeToolbar;
+- (void)showToolbar;
 - (void)showLicenseInfo;
 - (void)keepAround;
 - (void)goAway;

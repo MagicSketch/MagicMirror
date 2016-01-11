@@ -77,7 +77,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="closeButtonDidPress:" target="RaX-pZ-8Z0" id="YnJ-zs-szz"/>
+                                    <action selector="closeButtonDidPress:" target="RaX-pZ-8Z0" id="CkK-Na-Zuh"/>
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
@@ -422,7 +422,7 @@ DQ
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="closeButtonDidPress:" target="Fih-lY-VSH" id="cs6-ZN-b76"/>
+                                    <action selector="closeButtonDidPress:" target="Fih-lY-VSH" id="LX1-0P-y7Z"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">

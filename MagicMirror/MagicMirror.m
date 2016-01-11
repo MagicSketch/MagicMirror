@@ -170,7 +170,7 @@ static MagicMirror *_sharedInstance = nil;
     _controller.delegate = nil;
 }
 
-- (void)showWindow {
+- (void)showToolbar {
     if (_toolbarWindow) {
         [self closeToolbar];
         return;
@@ -187,7 +187,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)closeToolbar {
-    MMLog(@"MMWindowController close");
+    MMLog(@"MMToolbar close");
     [self.tracker track:@"Close Toolbar"];
     [_toolbarWindow close];
     _toolbarWindow = nil;
@@ -306,7 +306,7 @@ static MagicMirror *_sharedInstance = nil;
         return;
     }
 
-    [self showWindow];
+    [self showToolbar];
 }
 
 - (void)refreshPage {

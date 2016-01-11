@@ -210,6 +210,10 @@
     [self.magicmirror refreshSelection];
 }
 
+- (IBAction)closeButtonDidPress:(id)sender {
+    [self.magicmirror closeToolbar];
+}
+
 @end
 
 
