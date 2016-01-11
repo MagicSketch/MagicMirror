@@ -40,9 +40,9 @@
 
 - (void)register {
     [self.mixpanel registerSuperProperties:@{
-                                             @"MMVersion":[self.magicmirror version],
-                                             @"MMBuild":[self.magicmirror build],
-                                             @"MMEnvironment":NSStringFromMMEnv([self.magicmirror env]),
+                                             @"Plugin Version":[self.magicmirror version],
+                                             @"Plugin Build":[self.magicmirror build],
+                                             @"Plugin Environment":NSStringFromMMEnv([self.magicmirror env]),
                                              }];
 }
 
@@ -54,7 +54,7 @@
                                       @"$first_name":[info firstName],
                                       @"$last_name":[info lastName],
                                       @"$email":[info email],
-                                      @"MMLicense":[info license],
+                                      @"User License":[info license],
                                       }];
     }
 }
