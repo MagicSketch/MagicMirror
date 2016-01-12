@@ -26,7 +26,12 @@
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key onLayer:(MMLayer *)layer {
-    [self.storage setValue:value forKey:[NSString stringWithFormat:@"%@%@", key, layer]];
+    NSString *keyPath = [NSString stringWithFormat:@"%@%@", key, layer];
+    if ( ! value) {
+        [self.storage removeObjectForKey:keyPath];
+    } else {
+        [self.storage setValue:value forKey:keyPath];
+    }
 }
 
 - (id)valueForKey:(NSString *)key onLayer:(MMLayer *)layer {

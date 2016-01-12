@@ -1295,7 +1295,6 @@
 		1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */; };
 		1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */; };
 		91DE9CCA1E195E1CA6ECC499 /* libPods-MagicMirror.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */; };
-		C4B36F7FA66D497C8C604038 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F32649A8C4CC753031EC5573 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2666,7 +2665,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AB4A9611C15A7C200B7922D /* MagicMirror.framework in Frameworks */,
-				C4B36F7FA66D497C8C604038 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

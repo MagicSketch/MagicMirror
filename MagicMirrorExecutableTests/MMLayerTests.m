@@ -47,14 +47,34 @@
     [super tearDown];
 }
 
+- (void)testProperties {
+    XCTAssertNotNil(self.artboard);
+    XCTAssertNotNil(self.layer);
+    XCTAssertNotNil(self.artboard);
+    XCTAssertNotNil(self.setter);
+    XCTAssertNotNil(self.finder);
+}
+
 - (void)testEmpty {
     XCTAssertNil(self.layer.version);
     XCTAssertNil(self.layer.source);
     XCTAssertNil(self.layer.imageQuality);
 }
 
+- (void)testSource {
+    self.layer.source = @"something";
+    XCTAssertEqualObjects(self.layer.source, @"something");
+}
+
+- (void)testSourceAndSetQuality {
+    self.layer.source = @"something";
+    self.layer.imageQuality = @1;
+    XCTAssertEqualObjects(self.layer.source, @"something");
+}
+
 - (void)testSetter {
     self.layer.source = @"something";
+    XCTAssertEqualObjects(self.layer.source, @"something");
     self.layer.imageQuality = @1;
     [self.layer configureVersion];
     XCTAssertEqualObjects(self.layer.source, @"something");

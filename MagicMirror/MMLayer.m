@@ -151,17 +151,15 @@
 }
 
 - (void)refresh {
-    id <MSShapeGroup> layer = _layer;
-    MMLayer *l = [MMLayer layerWithLayer:layer];
-    NSString *selectedName = l.source;
+    NSString *selectedName = self.source;
     id <MSArtboardGroup> artboard = [self.magicmirror artboardsLookup][selectedName];
     if ( ! selectedName) {
         [self clear];
     } else {
-        CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, layer.rect.size);
-        MMImageRenderQuality quality = (MMImageRenderQuality)[l.imageQuality unsignedIntegerValue];
+        CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, _layer.rect.size);
+        MMImageRenderQuality quality = (MMImageRenderQuality)[self.imageQuality unsignedIntegerValue];
         MMLog(@"ratio: %@, quality: %@", @(ratio), @(quality));
-        [self.magicmirror mirrorLayer:layer fromArtboard:artboard imageQuality:quality];
+        [self.magicmirror mirrorLayer:_layer fromArtboard:artboard imageQuality:quality];
     }
     [self configureVersion];
 }
@@ -195,10 +193,10 @@
 
 -(void)setImageQuality:(NSNumber *)imageQuality {
     MMLog(@"setImageQuality %@", imageQuality);
-    if ([self.imageQuality isEqual:imageQuality]) {
+    if (self.imageQuality == imageQuality || [self.imageQuality isEqual:imageQuality]) {
         return;
     }
-    if (imageQuality && [imageQuality integerValue] >= 0) {
+    if ( ! imageQuality || [imageQuality integerValue] >= 0) {
         [self.setter setValue:imageQuality forKey:@"imageQuality" onLayer:self];
         [self refresh];
     }

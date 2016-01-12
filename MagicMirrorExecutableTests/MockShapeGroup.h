@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSArray *layers;
 @property (nonatomic, copy) NSBezierPath *bezierPathInBounds;
 @property (nonatomic) NSRect bounds;
+@property (nonatomic) NSRect rect;
 @property (nonatomic) BOOL isFlippedHorizontal;
 @property (nonatomic, strong) MSStyle *style;
 
