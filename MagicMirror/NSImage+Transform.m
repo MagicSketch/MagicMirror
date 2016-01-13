@@ -51,7 +51,7 @@
     return image;
 }
 
-- (NSImage *)imageForPath:(id <MSShapePath>)path scale:(CGFloat)scale {
+- (NSImage *)imageForPath:(NSBezierPath *)path scale:(CGFloat)scale {
     CGFloat targetedScale = scale;
     CIImage *ciimage = [self getCIImageFromNSImage:self];
 

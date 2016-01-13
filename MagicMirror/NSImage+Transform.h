@@ -8,11 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol MSShapePath;
-
 @interface NSImage (Transform)
 
-- (NSImage *)imageForPath:(id <MSShapePath>)path scale:(CGFloat)scale;
+- (NSImage *)imageForPath:(NSBezierPath *)path scale:(CGFloat)scale;
 - (CGImageRef)CGImage;
 
 @end

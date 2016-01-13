@@ -9,10 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import "NSRect+Math.h"
-
-
-#define XCTAssertEqualPoint(point1, point2) XCTAssertEqualObjects(NSStringFromPoint(point1), NSStringFromPoint(point2))
-#define XCTAssertEqualSize(size1, size2) XCTAssertEqualObjects(NSStringFromSize(size1), NSStringFromSize(size2))
+#import "MMTestHelper.h"
 
 @interface NSRectMathTests : XCTestCase
 

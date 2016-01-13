@@ -1352,6 +1352,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A0B8E331C46B6160091C39D /* MMTestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTestHelper.h; sourceTree = "<group>"; };
 		1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMArtboardComboboxItem.h; sourceTree = "<group>"; };
 		1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMArtboardComboboxItem.m; sourceTree = "<group>"; };
 		1A0CBDCE1C32925B0078B384 /* MMAlertWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAlertWindowController.h; sourceTree = "<group>"; };
@@ -2816,6 +2817,7 @@
 				1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */,
 				1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */,
 				1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */,
+				1A0B8E331C46B6160091C39D /* MMTestHelper.h */,
 			);
 			path = MagicMirrorExecutableTests;
 			sourceTree = "<group>";
