@@ -27,6 +27,9 @@
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A299ED91C40FC3100DC4098 /* QuadTests.m */; };
 		1A38F6081C42AB2200AEAA8C /* MagicMirror.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A38F6071C42AB2200AEAA8C /* MagicMirror.m */; };
+		1A3E09971C45014100E2BA67 /* MMImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3E09951C45014000E2BA67 /* MMImageLoader.h */; };
+		1A3E09981C45014100E2BA67 /* MMImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09961C45014000E2BA67 /* MMImageLoader.m */; };
+		1A3E099A1C45016C00E2BA67 /* MMImageLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1365,6 +1368,9 @@
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
 		1A299ED91C40FC3100DC4098 /* QuadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTests.m; sourceTree = "<group>"; };
 		1A38F6071C42AB2200AEAA8C /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicMirror.m; sourceTree = "<group>"; };
+		1A3E09951C45014000E2BA67 /* MMImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageLoader.h; sourceTree = "<group>"; };
+		1A3E09961C45014000E2BA67 /* MMImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageLoader.m; sourceTree = "<group>"; };
+		1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageLoaderTests.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchEventsController.h; sourceTree = "<group>"; };
@@ -2715,6 +2721,8 @@
 				1A4DB9171C3A96A700AB5F0B /* Weak.m */,
 				1A1DB9CE1C437BF100017255 /* MMTracker.h */,
 				1A1DB9CF1C437BF100017255 /* MMTracker.m */,
+				1A3E09951C45014000E2BA67 /* MMImageLoader.h */,
+				1A3E09961C45014000E2BA67 /* MMImageLoader.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -2783,13 +2791,14 @@
 		1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */ = {
 			isa = PBXGroup;
 			children = (
-				1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */,
-				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
-				1ADA7DB41C201CAD00198A87 /* MathTests.m */,
 				1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */,
+				1ADA7DB41C201CAD00198A87 /* MathTests.m */,
+				1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */,
+				1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */,
+				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
+				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
 				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
-				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
 				1AA677E01C42DAEF000924FE /* MockPropertySetter.h */,
 				1AA677E11C42DAEF000924FE /* MockPropertySetter.m */,
 				1AA677E31C42DFA0000924FE /* MockArtboardGroup.h */,
@@ -4713,6 +4722,7 @@
 				1AB4B8121C16E68400B7922D /* AFHTTPRequestOperationManager.h in Headers */,
 				1AB4BC181C16E68400B7922D /* PDFScanner.h in Headers */,
 				1AB4B7CA1C16E68400B7922D /* _MSImmutableStyleColorControls.h in Headers */,
+				1A3E09971C45014100E2BA67 /* MMImageLoader.h in Headers */,
 				1AB4B9141C16E68400B7922D /* MSCenteredPopUpButtonCell.h in Headers */,
 				1ACD528B1C28559700020EC2 /* MMContainerViewController.h in Headers */,
 				1AB4BB101C16E68400B7922D /* MSTextLabelForUpDownField.h in Headers */,
@@ -5519,6 +5529,7 @@
 				1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */,
 				1A5D4D5A1C42E9BC007EAB79 /* MockShapeGroup.m in Sources */,
 				1AA677E51C42DFA0000924FE /* MockArtboardGroup.m in Sources */,
+				1A3E099A1C45016C00E2BA67 /* MMImageLoaderTests.m in Sources */,
 				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
 				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
@@ -5554,6 +5565,7 @@
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */,
 				1A0CBDD51C32949F0078B384 /* MMLicenseViewController.m in Sources */,
+				1A3E09981C45014100E2BA67 /* MMImageLoader.m in Sources */,
 				1ABA82581C33CFD70051DD67 /* NSView+Animate.m in Sources */,
 				1A4DB9191C3A96A700AB5F0B /* Weak.m in Sources */,
 				1A38F6081C42AB2200AEAA8C /* MagicMirror.m in Sources */,
