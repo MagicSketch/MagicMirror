@@ -22,6 +22,10 @@
     return ciImage;
 }
 
+- (CGImageRef)CGImage {
+    return [self getCGImage:self];
+}
+
 - (CGImageRef)getCGImage:(NSImage *)image {
     NSSize size = image.size;
     CGContextRef bitmapCtx = CGBitmapContextCreate(nil,

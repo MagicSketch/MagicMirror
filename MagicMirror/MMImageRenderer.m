@@ -16,11 +16,21 @@
 #import "MSShapePath.h"
 #import "MMMath.h"
 #import "MagicMirror.h"
+#import "MMImageLoader.h"
+#import "NSRect+Math.h"
+#import "NSImage+Transform.h"
+
+typedef enum : NSUInteger {
+    MMImageRendererWatermarkStyleCenter,
+    MMImageRendereriWatermarkStylePattern,
+} MMImageRendererWatermarkStyle;
 
 @interface MMImageRenderer ()
 
 @property (nonatomic, strong) id <MSLayerFlattener> flattener;
+@property (nonatomic, strong) MMImageLoader *loader;
 @property (nonatomic) BOOL addWatermarks;
+@property (nonatomic) MMImageRendererWatermarkStyle watermarkStyle;
 @property (nonatomic) CGFloat defaultScale;
 
 
@@ -35,6 +45,7 @@
 - (id)init {
     if (self = [super init]) {
         _colorSpaceIdentifier = ImageRendererColorSpaceDeviceRGB;
+        _loader = [[MMImageLoader alloc] init];
         [self setRegistered:[self.magicmirror isRegistered]];
     }
     return self;
@@ -126,10 +137,22 @@
 {
 
     //// Text Drawing
-    NSRect textRect = frame;
+    NSImage *image = [self.loader imageNamed:@"watermark"];
+    NSRect contentRect = CGRectAspectFittingSize(frame, image.size);
     {
+        if (self.watermarkStyle == MMImageRendererWatermarkStyleCenter) {
+            [image drawInRect:contentRect
+                     fromRect:NSZeroRect
+                    operation:NSCompositeSourceOver
+                     fraction:1.0
+               respectFlipped:YES
+                        hints:nil];
+        } else {
+            NSImage *scaledImage = [[NSImage alloc] initWithCGImage:[image CGImage] size:contentRect.size];
+            NSGraphicsContext *context = [NSGraphicsContext currentContext];
+            CGContextDrawTiledImage(context.CGContext, CGRectMake(0, 0, scaledImage.size.width, scaledImage.size.height), [scaledImage CGImage]);
+        }
 
-        CGFloat scale = [self currentScale];
         NSString* textContent = nil;
 
         switch (self.imageQuality) {
@@ -144,18 +167,18 @@
                 break;
         }
 
-        NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-        textStyle.alignment = NSCenterTextAlignment;
-
-        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize: NSFont.systemFontSize * scale], NSForegroundColorAttributeName: NSColor.greenColor, NSParagraphStyleAttributeName: textStyle};
-
-        NSRect textInset = NSInsetRect(textRect, 10  * scale, 10 * scale);
-        CGFloat textTextHeight = NSHeight([textContent boundingRectWithSize: textInset.size options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes]);
-        NSRect textTextRect = NSMakeRect(NSMinX(textInset), NSMinY(textInset) + (NSHeight(textInset) - textTextHeight) / 2, NSWidth(textInset), textTextHeight);
-        [NSGraphicsContext saveGraphicsState];
-        NSRectClip(textInset);
-        [textContent drawInRect: NSOffsetRect(textTextRect, 0, 1) withAttributes: textFontAttributes];
-        [NSGraphicsContext restoreGraphicsState];
+//        NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+//        textStyle.alignment = NSCenterTextAlignment;
+//
+//        NSDictionary* textFontAttributes = @{NSFontAttributeName: [NSFont systemFontOfSize: NSFont.systemFontSize * scale], NSForegroundColorAttributeName: NSColor.greenColor, NSParagraphStyleAttributeName: textStyle};
+//
+//        NSRect textInset = NSInsetRect(textRect, 10  * scale, 10 * scale);
+//        CGFloat textTextHeight = NSHeight([textContent boundingRectWithSize: textInset.size options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes]);
+//        NSRect textTextRect = NSMakeRect(NSMinX(textInset), NSMinY(textInset) + (NSHeight(textInset) - textTextHeight) / 2, NSWidth(textInset), textTextHeight);
+//        [NSGraphicsContext saveGraphicsState];
+//        NSRectClip(textInset);
+//        [textContent drawInRect: NSOffsetRect(textTextRect, 0, 1) withAttributes: textFontAttributes];
+//        [NSGraphicsContext restoreGraphicsState];
     }
 }
 

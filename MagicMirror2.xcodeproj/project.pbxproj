@@ -30,6 +30,9 @@
 		1A3E09971C45014100E2BA67 /* MMImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3E09951C45014000E2BA67 /* MMImageLoader.h */; };
 		1A3E09981C45014100E2BA67 /* MMImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09961C45014000E2BA67 /* MMImageLoader.m */; };
 		1A3E099A1C45016C00E2BA67 /* MMImageLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */; };
+		1A3E09A11C450C6200E2BA67 /* NSRect+Math.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3E099F1C450C6200E2BA67 /* NSRect+Math.h */; };
+		1A3E09A21C450C6200E2BA67 /* NSRect+Math.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09A01C450C6200E2BA67 /* NSRect+Math.m */; };
+		1A3E09A41C450D3300E2BA67 /* NSRectMathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09A31C450D3300E2BA67 /* NSRectMathTests.m */; };
 		1A4C684B1C16FB0D00D061C2 /* SketchPluginContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */; };
 		1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */; };
 		1A4DB9121C3A6F2700AB5F0B /* SketchEventsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1371,6 +1374,9 @@
 		1A3E09951C45014000E2BA67 /* MMImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageLoader.h; sourceTree = "<group>"; };
 		1A3E09961C45014000E2BA67 /* MMImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageLoader.m; sourceTree = "<group>"; };
 		1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageLoaderTests.m; sourceTree = "<group>"; };
+		1A3E099F1C450C6200E2BA67 /* NSRect+Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRect+Math.h"; sourceTree = "<group>"; };
+		1A3E09A01C450C6200E2BA67 /* NSRect+Math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRect+Math.m"; sourceTree = "<group>"; };
+		1A3E09A31C450D3300E2BA67 /* NSRectMathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRectMathTests.m; sourceTree = "<group>"; };
 		1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchPluginContext.h; sourceTree = "<group>"; };
 		1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchPluginContext.m; sourceTree = "<group>"; };
 		1A4DB9101C3A6F2700AB5F0B /* SketchEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchEventsController.h; sourceTree = "<group>"; };
@@ -2761,6 +2767,8 @@
 				1ABA82561C33CFD70051DD67 /* NSView+Animate.m */,
 				1ABA82591C33D3A00051DD67 /* QCMethod.h */,
 				1ABA825A1C33D3A00051DD67 /* QCMethod.m */,
+				1A3E099F1C450C6200E2BA67 /* NSRect+Math.h */,
+				1A3E09A01C450C6200E2BA67 /* NSRect+Math.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2792,6 +2800,7 @@
 			isa = PBXGroup;
 			children = (
 				1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */,
+				1A3E09A31C450D3300E2BA67 /* NSRectMathTests.m */,
 				1ADA7DB41C201CAD00198A87 /* MathTests.m */,
 				1A562CDD1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m */,
 				1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */,
@@ -5295,6 +5304,7 @@
 				1AB4B9FF1C16E68400B7922D /* MSKeyBindings.h in Headers */,
 				1AB4B9681C16E68400B7922D /* MSExportSheet.h in Headers */,
 				1AB4BBBD1C16E68400B7922D /* NSObject-Images.h in Headers */,
+				1A3E09A11C450C6200E2BA67 /* NSRect+Math.h in Headers */,
 				1AB4BC171C16E68400B7922D /* PDFPattern.h in Headers */,
 				1AB4B8DF1C16E68400B7922D /* MSArtboardPresetOutlineView.h in Headers */,
 				1AB4BA1C1C16E68400B7922D /* MSLocalWebServer.h in Headers */,
@@ -5527,6 +5537,7 @@
 				1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */,
 				1A562CEA1C1B2D1400FE3981 /* MMValuesStackTests.m in Sources */,
 				1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */,
+				1A3E09A41C450D3300E2BA67 /* NSRectMathTests.m in Sources */,
 				1A5D4D5A1C42E9BC007EAB79 /* MockShapeGroup.m in Sources */,
 				1AA677E51C42DFA0000924FE /* MockArtboardGroup.m in Sources */,
 				1A3E099A1C45016C00E2BA67 /* MMImageLoaderTests.m in Sources */,
@@ -5561,6 +5572,7 @@
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
+				1A3E09A21C450C6200E2BA67 /* NSRect+Math.m in Sources */,
 				1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
 				1A0FAFD71C19957300B57F42 /* MMImageRenderer.m in Sources */,

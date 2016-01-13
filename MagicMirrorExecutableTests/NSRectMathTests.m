@@ -7,6 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "NSRect+Math.h"
+
+
+#define XCTAssertEqualPoint(point1, point2) XCTAssertEqualObjects(NSStringFromPoint(point1), NSStringFromPoint(point2))
+#define XCTAssertEqualSize(size1, size2) XCTAssertEqualObjects(NSStringFromSize(size1), NSStringFromSize(size2))
 
 @interface NSRectMathTests : XCTestCase
 
@@ -24,16 +30,24 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testAspectFit {
+    CGRect outside = CGRectMake(0, 0, 9, 9);
+    CGSize size = CGSizeMake(3, 1);
+
+    CGRect rect = CGRectAspectFittingSize(outside, size);
+
+    XCTAssertEqualPoint(rect.origin, CGPointMake(0, 3));
+    XCTAssertEqualSize(rect.size, CGSizeMake(9, 3));
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testAspectFitVertical {
+    CGRect outside = CGRectMake(0, 0, 9, 9);
+    CGSize size = CGSizeMake(1, 3);
+
+    CGRect rect = CGRectAspectFittingSize(outside, size);
+
+    XCTAssertEqualPoint(rect.origin, CGPointMake(3, 0));
+    XCTAssertEqualSize(rect.size, CGSizeMake(3, 9));
 }
 
 @end
