@@ -20,15 +20,19 @@
 
 + (instancetype)manifestNamed:(NSString *)name inBundle:(NSBundle *)bundle {
     NSString *path = [bundle pathForResource:name ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    MMManifest *manifest = [[MMManifest alloc] initWithDictionary:dictionary];
-    return manifest;
+    return [self manifestFromFilePath:path];
 }
 
 + (instancetype)manifestWithVersion:(NSString *)version {
     MMManifest *manifest = [[self alloc] init];
     manifest.version = version;
+    return manifest;
+}
+
++ (instancetype)manifestFromFilePath:(NSString *)path {
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    MMManifest *manifest = [[MMManifest alloc] initWithDictionary:dictionary];
     return manifest;
 }
 

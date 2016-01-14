@@ -16,6 +16,7 @@
 
 + (instancetype)manifestNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 + (instancetype)manifestWithVersion:(NSString *)version;
++ (instancetype)manifestFromFilePath:(NSString *)path;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSComparisonResult)compare:(MMManifest *)manifest;
 
