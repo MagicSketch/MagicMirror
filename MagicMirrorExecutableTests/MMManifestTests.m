@@ -11,10 +11,6 @@
 
 @interface MMManifestTests : XCTestCase
 
-@property (nonatomic, copy) NSBundle *bundle;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) NSData *data;
-@property (nonatomic, copy) NSDictionary *dictionary;
 @property (nonatomic, strong) MMManifest *manifest;
 
 @end
@@ -23,17 +19,8 @@
 
 - (void)setUp {
     [super setUp];
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *path = [bundle pathForResource:@"local" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    MMManifest *manifest = [[MMManifest alloc] initWithDictionary:dictionary];
 
-    XCTAssertNotNil(bundle);
-    XCTAssertNotNil(path);
-    XCTAssertNotNil(data);
-    XCTAssertNotNil(dictionary);
-    self.manifest = manifest;
+    self.manifest = [MMManifest manifestNamed:@"local" inBundle:[NSBundle bundleForClass:[self class]]];
 }
 
 - (void)tearDown {
@@ -43,6 +30,7 @@
 
 - (void)testNotNil {
     XCTAssertNotNil(self.manifest);
+    XCTAssertNotNil([MMManifest manifestWithVersion:@"1.0"]);
 }
 
 - (void)testParse {
@@ -50,6 +38,20 @@
     XCTAssertEqualObjects(m.name, @"✨ Magic Mirror 2");
     XCTAssertEqualObjects(m.version, @"2.0");
     XCTAssertEqualObjects(m.checkURL, @"https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json");
+}
+
+- (void)testCompare {
+    MMManifest *development = [MMManifest manifestWithVersion:@"2.1"];
+    XCTAssertEqual([self.manifest compare:development], NSOrderedAscending);
+
+    MMManifest *archived = [MMManifest manifestWithVersion:@"1.9"];
+    XCTAssertEqual([self.manifest compare:archived], NSOrderedDescending);
+
+    MMManifest *current = [MMManifest manifestWithVersion:@"2.0"];
+    XCTAssertEqual([self.manifest compare:current], NSOrderedSame);
+
+    MMManifest *hotfix = [MMManifest manifestWithVersion:@"2.0.1"];
+    XCTAssertEqual([self.manifest compare:hotfix], NSOrderedAscending);
 }
 
 @end

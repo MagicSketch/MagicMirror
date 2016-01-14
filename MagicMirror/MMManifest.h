@@ -10,10 +10,13 @@
 
 @interface MMManifest : NSObject
 
-@property (nonatomic, copy) NSString *version;
-@property (nonatomic, copy) NSString *checkURL;
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy, readonly) NSString *version;
+@property (nonatomic, copy, readonly) NSString *checkURL;
+@property (nonatomic, copy, readonly) NSString *name;
 
++ (instancetype)manifestNamed:(NSString *)name inBundle:(NSBundle *)bundle;
++ (instancetype)manifestWithVersion:(NSString *)version;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+- (NSComparisonResult)compare:(MMManifest *)manifest;
 
 @end
