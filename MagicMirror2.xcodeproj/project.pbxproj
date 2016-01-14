@@ -26,6 +26,10 @@
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A299ED91C40FC3100DC4098 /* QuadTests.m */; };
+		1A34C1DC1C47588D00C2F735 /* MMManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A34C1DA1C47588D00C2F735 /* MMManifest.h */; };
+		1A34C1DD1C47588D00C2F735 /* MMManifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1DB1C47588D00C2F735 /* MMManifest.m */; };
+		1A34C1DF1C47593400C2F735 /* MMManifestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1DE1C47593400C2F735 /* MMManifestTests.m */; };
+		1A34C1E11C4759EE00C2F735 /* local.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A34C1E01C4759EE00C2F735 /* local.json */; };
 		1A38F6081C42AB2200AEAA8C /* MagicMirror.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A38F6071C42AB2200AEAA8C /* MagicMirror.m */; };
 		1A3E09971C45014100E2BA67 /* MMImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3E09951C45014000E2BA67 /* MMImageLoader.h */; };
 		1A3E09981C45014100E2BA67 /* MMImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3E09961C45014000E2BA67 /* MMImageLoader.m */; };
@@ -1371,6 +1375,10 @@
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
 		1A299ED91C40FC3100DC4098 /* QuadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTests.m; sourceTree = "<group>"; };
+		1A34C1DA1C47588D00C2F735 /* MMManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMManifest.h; sourceTree = "<group>"; };
+		1A34C1DB1C47588D00C2F735 /* MMManifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMManifest.m; sourceTree = "<group>"; };
+		1A34C1DE1C47593400C2F735 /* MMManifestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMManifestTests.m; sourceTree = "<group>"; };
+		1A34C1E01C4759EE00C2F735 /* local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = local.json; sourceTree = "<group>"; };
 		1A38F6071C42AB2200AEAA8C /* MagicMirror.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicMirror.m; sourceTree = "<group>"; };
 		1A3E09951C45014000E2BA67 /* MMImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMImageLoader.h; sourceTree = "<group>"; };
 		1A3E09961C45014000E2BA67 /* MMImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMImageLoader.m; sourceTree = "<group>"; };
@@ -2708,28 +2716,30 @@
 		1A21D9E31C2BE984005A2733 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				1AB4BC5A1C18671B00B7922D /* Quad.h */,
-				1AB4BC5B1C18671B00B7922D /* Quad.m */,
-				1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */,
-				1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */,
-				1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */,
-				1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */,
-				1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */,
-				1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */,
-				1A753A141C24081B00DE2EC1 /* MMMath.h */,
-				1A753A151C24081B00DE2EC1 /* MMMath.m */,
 				1A0CBDC61C3153B10078B384 /* MMArtboardComboboxItem.h */,
 				1A0CBDC71C3153B10078B384 /* MMArtboardComboboxItem.m */,
+				1A0FAFD41C19957300B57F42 /* MMImageRenderer.h */,
+				1A0FAFD51C19957300B57F42 /* MMImageRenderer.m */,
 				1ABB63461C33C7FC00FFF7F7 /* MMLicenseInfo.h */,
 				1ABB63471C33C7FC00FFF7F7 /* MMLicenseInfo.m */,
-				1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */,
-				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
-				1A4DB9161C3A96A700AB5F0B /* Weak.h */,
-				1A4DB9171C3A96A700AB5F0B /* Weak.m */,
+				1A34C1DA1C47588D00C2F735 /* MMManifest.h */,
+				1A34C1DB1C47588D00C2F735 /* MMManifest.m */,
+				1A753A141C24081B00DE2EC1 /* MMMath.h */,
+				1A753A151C24081B00DE2EC1 /* MMMath.m */,
+				1A562CD31C1AF2DA00FE3981 /* MMLayerProperties.h */,
+				1A562CD41C1AF2DA00FE3981 /* MMLayerProperties.m */,
 				1A1DB9CE1C437BF100017255 /* MMTracker.h */,
 				1A1DB9CF1C437BF100017255 /* MMTracker.m */,
 				1A3E09951C45014000E2BA67 /* MMImageLoader.h */,
 				1A3E09961C45014000E2BA67 /* MMImageLoader.m */,
+				1A562CE51C1B2C9900FE3981 /* MMValuesStack.h */,
+				1A562CE61C1B2C9900FE3981 /* MMValuesStack.m */,
+				1A4C68491C16FB0D00D061C2 /* SketchPluginContext.h */,
+				1A4C684A1C16FB0D00D061C2 /* SketchPluginContext.m */,
+				1AB4BC5A1C18671B00B7922D /* Quad.h */,
+				1AB4BC5B1C18671B00B7922D /* Quad.m */,
+				1A4DB9161C3A96A700AB5F0B /* Weak.h */,
+				1A4DB9171C3A96A700AB5F0B /* Weak.m */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -2800,6 +2810,7 @@
 		1A562CDC1C1B2B9200FE3981 /* MagicMirrorExecutableTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A0B8E331C46B6160091C39D /* MMTestHelper.h */,
 				1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */,
 				1A3E09A31C450D3300E2BA67 /* NSRectMathTests.m */,
 				1ADA7DB41C201CAD00198A87 /* MathTests.m */,
@@ -2807,6 +2818,7 @@
 				1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */,
 				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
 				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
+				1A34C1DE1C47593400C2F735 /* MMManifestTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
 				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
 				1AA677E01C42DAEF000924FE /* MockPropertySetter.h */,
@@ -2817,7 +2829,7 @@
 				1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */,
 				1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */,
 				1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */,
-				1A0B8E331C46B6160091C39D /* MMTestHelper.h */,
+				1A34C1E01C4759EE00C2F735 /* local.json */,
 			);
 			path = MagicMirrorExecutableTests;
 			sourceTree = "<group>";
@@ -4335,6 +4347,7 @@
 				1AB4B8411C16E68400B7922D /* BCHexTextField.h in Headers */,
 				1AB4BB4E1C16E68400B7922D /* MSWelcomeWindowButtonCell.h in Headers */,
 				1AB4B9C61C16E68400B7922D /* MSImmutableStarShape.h in Headers */,
+				1A34C1DC1C47588D00C2F735 /* MMManifest.h in Headers */,
 				1AB4B84D1C16E68400B7922D /* BCLocalizedStringHelper.h in Headers */,
 				1AB4BAEB1C16E68400B7922D /* MSSplitViewDelegate.h in Headers */,
 				1AB4BBE51C16E68400B7922D /* NSString-SVG.h in Headers */,
@@ -5474,6 +5487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A34C1E11C4759EE00C2F735 /* local.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5543,6 +5557,7 @@
 				1A5D4D5A1C42E9BC007EAB79 /* MockShapeGroup.m in Sources */,
 				1AA677E51C42DFA0000924FE /* MockArtboardGroup.m in Sources */,
 				1A3E099A1C45016C00E2BA67 /* MMImageLoaderTests.m in Sources */,
+				1A34C1DF1C47593400C2F735 /* MMManifestTests.m in Sources */,
 				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
 				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
@@ -5574,6 +5589,7 @@
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
+				1A34C1DD1C47588D00C2F735 /* MMManifest.m in Sources */,
 				1A3E09A21C450C6200E2BA67 /* NSRect+Math.m in Sources */,
 				1A1F3D5B1C3D7175004171C8 /* MMController.m in Sources */,
 				1AB4BC5D1C18671B00B7922D /* Quad.m in Sources */,
