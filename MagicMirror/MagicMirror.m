@@ -34,6 +34,8 @@
 #import "MMLayer.h"
 #import "MMTracker.h"
 #import "MagicMirror+MMTracker.h"
+#import "MMVersionChecker.h"
+#import "MMImageLoader.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -69,6 +71,8 @@ NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality) {
 
 @property (nonatomic, strong) MMWindowController *controller;
 @property (nonatomic, strong) MMWindowController *toolbarWindow;
+@property (nonatomic, strong) MMWindowController *updateWindow;
+@property (nonatomic, strong) MMWindowController *latestWindow;
 @property (nonatomic, strong) SketchPluginContext *context;
 @property (nonatomic, copy) NSString *version;
 @property (nonatomic, copy) NSString *build;
@@ -80,6 +84,9 @@ NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality) {
 @property (nonatomic, copy) NSDictionary *artboardsLookup;
 @property (nonatomic, strong) NSURLSessionDataTask *task;
 @property (nonatomic, strong) MMTracker *tracker;
+@property (nonatomic, strong) MMVersionChecker *checker;
+@property (nonatomic, strong) MMImageLoader *loader;
+
 
 @end
 
@@ -162,6 +169,8 @@ static MagicMirror *_sharedInstance = nil;
     _env = MMEnvProduction;
 #endif
     _tracker = [[MMTracker alloc] init];
+    _checker = [[MMVersionChecker alloc] init];
+    _loader = [[MMImageLoader alloc] init];
 }
 
 - (void)dealloc {
@@ -201,6 +210,32 @@ static MagicMirror *_sharedInstance = nil;
     _controller.delegate = self;
     [_controller showWindow:self];
     [self reloadData];
+}
+
+- (void)showUpdateDialog {
+    NSString *info = [NSString stringWithFormat:@"v%@ is avaliable!\n\nDownload the update to enjoy new features and bug fixes :)", self.checker.remote.version];
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Magic Mirror" defaultButton:@"Update" alternateButton:nil otherButton:@"Not now" informativeTextWithFormat:info, nil];
+    [alert setIcon:[self.loader imageNamed:@"logo"]];
+    NSModalResponse response = [alert runModal];
+    switch (response) {
+        case NSModalResponseContinue:
+            [self openURL:@"http://magicmirror.design"];
+            break;
+        default:
+        
+            break;
+    }
+}
+
+- (void)showLatestDialog {
+    NSString *info = [NSString stringWithFormat:@"v%@ is the latest version :)", self.checker.local.version];
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Magic Mirror" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:info, nil];
+    [alert setIcon:[self.loader imageNamed:@"logo"]];
+    NSModalResponse response = [alert runModal];
+    switch (response) {
+        default:
+            break;
+    }
 }
 
 - (void)keepAround {
@@ -405,6 +440,22 @@ static MagicMirror *_sharedInstance = nil;
     MMLayer *l = [MMLayer layerWithLayer:layer];
     NSString *source = l.source;
     [self jumpToArtboard:source];
+}
+
+- (void)checkForUpdates {
+    [self.checker checkForUpdates];
+}
+
+- (NSString *)manifestFilePath {
+    NSString *path = [[[[self.context plugin] url] path] stringByAppendingString:@"/Contents/Sketch/manifest.json"];
+    if ( ! path) {
+        path = @"/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/MagicMirror2/MagicMirror2.sketchplugin/Contents/Sketch/manifest.json";
+    }
+    return path;
+}
+
+- (void)openURL:(NSString *)urlString {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlString]];
 }
 
 

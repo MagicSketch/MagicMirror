@@ -54,8 +54,11 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 - (void)closeToolbar;
 - (void)showToolbar;
 - (void)showLicenseInfo;
+- (void)showLatestDialog;
+- (void)showUpdateDialog;
 - (void)keepAround;
 - (void)goAway;
+- (void)openURL:(NSString *)urlString;
 
 // Per Layer
 //- (void)refreshArtboard:(id <MSArtboardGroup>)artboard;
@@ -83,11 +86,14 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 - (void)refreshSelection;
 - (void)refreshPage;
 - (void)rotateSelection;
+- (void)checkForUpdates;
 
 //- (NSArray *)artboards;
 //- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
 - (NSArray *)allLayers;
+
+- (NSString *)manifestFilePath;
 
 
 @end

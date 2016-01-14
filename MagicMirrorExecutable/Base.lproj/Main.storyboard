@@ -695,6 +695,39 @@
                                     <action selector="licenseButtonDidPress:" target="XfG-lQ-9wD" id="EgH-XI-FMt"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpm-8B-9a7">
+                                <rect key="frame" x="239" y="185" width="154" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jlp-gD-qTf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkForUpdatesDidPress:" target="XfG-lQ-9wD" id="fAQ-xn-gAR"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGJ-MA-JsQ">
+                                <rect key="frame" x="238" y="145" width="184" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="Update Avaliable Dialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qYr-cx-izy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="updatesAvaliableDidPress:" target="XfG-lQ-9wD" id="eRS-ot-s6c"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4WS-Pj-GuH">
+                                <rect key="frame" x="239" y="100" width="154" height="32"/>
+                                <animations/>
+                                <buttonCell key="cell" type="push" title="No Updates Dialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eFf-E9-HnA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="noUpdatesDidPress:" target="XfG-lQ-9wD" id="LFF-RY-SOZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                     </view>

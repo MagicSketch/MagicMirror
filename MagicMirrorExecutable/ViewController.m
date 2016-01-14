@@ -11,7 +11,6 @@
 
 @interface ViewController ()
 
-@property (weak) IBOutlet NSButton *buttonDidClick;
 @property (strong) MagicMirror *magicmirror;
 
 @end
@@ -20,22 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
+    self.magicmirror = [MagicMirror sharedInstance];
 }
 
 - (IBAction)buttonDidClick:(id)sender {
-    self.magicmirror = [[MagicMirror alloc] init];
     [self.magicmirror showToolbar];
 }
 
 - (IBAction)licenseButtonDidPress:(id)sender {
-    self.magicmirror = [[MagicMirror alloc] init];
     [self.magicmirror showLicenseInfo];
+}
+- (IBAction)checkForUpdatesDidPress:(id)sender {
+    [self.magicmirror checkForUpdates];
+}
+- (IBAction)updatesAvaliableDidPress:(id)sender {
+    [self.magicmirror showUpdateDialog];
+}
+- (IBAction)noUpdatesDidPress:(id)sender {
+    [self.magicmirror showLatestDialog];
 }
 
 @end

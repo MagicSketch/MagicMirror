@@ -26,6 +26,9 @@
 		1A21D9DC1C2AC858005A2733 /* MMView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A21D9DA1C2AC858005A2733 /* MMView.h */; };
 		1A21D9DD1C2AC858005A2733 /* MMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D9DB1C2AC858005A2733 /* MMView.m */; };
 		1A299EDA1C40FC3100DC4098 /* QuadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A299ED91C40FC3100DC4098 /* QuadTests.m */; };
+		1A34C1D61C47574200C2F735 /* MMVersionChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A34C1D41C47574200C2F735 /* MMVersionChecker.h */; };
+		1A34C1D71C47574200C2F735 /* MMVersionChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1D51C47574200C2F735 /* MMVersionChecker.m */; };
+		1A34C1D91C47580500C2F735 /* MMVersionCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1D81C47580500C2F735 /* MMVersionCheckerTests.m */; };
 		1A34C1DC1C47588D00C2F735 /* MMManifest.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A34C1DA1C47588D00C2F735 /* MMManifest.h */; };
 		1A34C1DD1C47588D00C2F735 /* MMManifest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1DB1C47588D00C2F735 /* MMManifest.m */; };
 		1A34C1DF1C47593400C2F735 /* MMManifestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A34C1DE1C47593400C2F735 /* MMManifestTests.m */; };
@@ -1375,6 +1378,9 @@
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
 		1A21D9DB1C2AC858005A2733 /* MMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMView.m; sourceTree = "<group>"; };
 		1A299ED91C40FC3100DC4098 /* QuadTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTests.m; sourceTree = "<group>"; };
+		1A34C1D41C47574200C2F735 /* MMVersionChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVersionChecker.h; sourceTree = "<group>"; };
+		1A34C1D51C47574200C2F735 /* MMVersionChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVersionChecker.m; sourceTree = "<group>"; };
+		1A34C1D81C47580500C2F735 /* MMVersionCheckerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVersionCheckerTests.m; sourceTree = "<group>"; };
 		1A34C1DA1C47588D00C2F735 /* MMManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMManifest.h; sourceTree = "<group>"; };
 		1A34C1DB1C47588D00C2F735 /* MMManifest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMManifest.m; sourceTree = "<group>"; };
 		1A34C1DE1C47593400C2F735 /* MMManifestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMManifestTests.m; sourceTree = "<group>"; };
@@ -2803,6 +2809,8 @@
 				1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */,
 				1A74648C1C40EEBD00FEBF8B /* MMLayer.h */,
 				1A74648D1C40EEBD00FEBF8B /* MMLayer.m */,
+				1A34C1D41C47574200C2F735 /* MMVersionChecker.h */,
+				1A34C1D51C47574200C2F735 /* MMVersionChecker.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2818,6 +2826,7 @@
 				1A3E09991C45016C00E2BA67 /* MMImageLoaderTests.m */,
 				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
 				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
+				1A34C1D81C47580500C2F735 /* MMVersionCheckerTests.m */,
 				1A34C1DE1C47593400C2F735 /* MMManifestTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
 				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
@@ -4574,6 +4583,7 @@
 				1AB4B9171C16E68400B7922D /* MSClosePathAction.h in Headers */,
 				1AB4BB361C16E68400B7922D /* MSUpDownComboBox.h in Headers */,
 				1AB4B7A21C16E68400B7922D /* _MSImmutableBaseGrid.h in Headers */,
+				1A34C1D61C47574200C2F735 /* MMVersionChecker.h in Headers */,
 				1AB4BB791C16E68400B7922D /* NSCoder-ModelEncodingSupport.h in Headers */,
 				1AB4B8801C16E68400B7922D /* CATransaction-MSDisableAnimation.h in Headers */,
 				1AB4B9EC1C16E68400B7922D /* MSInspectorChildController.h in Headers */,
@@ -5560,6 +5570,7 @@
 				1A34C1DF1C47593400C2F735 /* MMManifestTests.m in Sources */,
 				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
 				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
+				1A34C1D91C47580500C2F735 /* MMVersionCheckerTests.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
 				1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */,
 			);
@@ -5586,6 +5597,7 @@
 				1A5D4D5E1C42ED47007EAB79 /* MagicMirror+MMLayerArtboardFinder.m in Sources */,
 				1A6E63AB1C43802700672D51 /* MagicMirror+MMTracker.m in Sources */,
 				1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */,
+				1A34C1D71C47574200C2F735 /* MMVersionChecker.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class MMManifest;
+typedef void(^MMManifestURLCompletionHandler)(MMManifest *manifest, NSError *error);
+
 @interface MMManifest : NSObject
 
 @property (nonatomic, copy, readonly) NSString *version;
@@ -17,6 +20,8 @@
 + (instancetype)manifestNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 + (instancetype)manifestWithVersion:(NSString *)version;
 + (instancetype)manifestFromFilePath:(NSString *)path;
++ (void)manifestFromURL:(NSURL *)url completion:(MMManifestURLCompletionHandler)completion;
+
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSComparisonResult)compare:(MMManifest *)manifest;
 

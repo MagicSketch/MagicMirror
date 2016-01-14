@@ -8,7 +8,7 @@
     "identifier" : "design.magicmirror",
 	"compatibleVersion": 3.4,
 	"bundleVersion": 1,
-    "updateURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json",
+    "checkURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json",
 
 	"commands": [
 	    {

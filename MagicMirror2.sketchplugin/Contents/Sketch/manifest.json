@@ -8,6 +8,7 @@
     "identifier" : "design.magicmirror",
 	"compatibleVersion": 3.4,
 	"bundleVersion": 1,
+	"checkURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json",
 
 	"commands": [
 	    {
@@ -45,6 +46,13 @@
 			"script" : "main.js",
 			"handler" : "licenseInfo",
 	    },
+	    {
+			"name" : "Check For Updates...",
+			"identifier" : "check for updates",
+			"shortcut" : "",
+			"script" : "main.js",
+			"handler" : "checkForUpdates",
+	    },
 	],
 
 	"menu": {
@@ -58,6 +66,7 @@
 			"jump selection",
 			"-",
 			"pro version",
+			"check for updates",
 		]
 	}
 }

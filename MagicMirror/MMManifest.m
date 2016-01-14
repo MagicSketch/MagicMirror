@@ -36,6 +36,21 @@
     return manifest;
 }
 
++ (void)manifestFromURL:(NSURL *)url completion:(MMManifestURLCompletionHandler)completion {
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url
+                                                         completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+                                                             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                             MMManifest *manifest = [[MMManifest alloc] initWithDictionary:dictionary];
+                                                             if (completion) {
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     completion(manifest, error);
+                                                                 });
+                                                             }
+                                                         }];
+    [task resume];
+}
+
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
