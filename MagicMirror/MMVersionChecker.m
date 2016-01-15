@@ -33,8 +33,6 @@
 - (void)fetchRemoteCompletion:(MMManifestURLCompletionHandler)completion {
     NSURL *url = [NSURL URLWithString:@"https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json"];
      __weak __typeof (self) weakSelf = self;
-    [[NSURLCache sharedURLCache] setMemoryCapacity:0];
-    [[NSURLCache sharedURLCache] setDiskCapacity:0];
     [MMManifest manifestFromURL:url
                      completion:^(MMManifest *manifest, NSError *error) {
                          if ( ! error) {
