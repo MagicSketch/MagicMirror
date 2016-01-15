@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MagicMirror.h"
+#import "MMVersionUpdateActor.h"
 
 @interface ViewController ()
 

@@ -1307,6 +1307,11 @@
 		1ADA7DBB1C202F5000198A87 /* NSBezierPath+Alter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */; };
 		1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */; };
 		1ADA7DBE1C211CBB00198A87 /* NSBezierPathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */; };
+		1ADD968C1C48F45900A66AE2 /* MMVersionCheckResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADD968A1C48F45900A66AE2 /* MMVersionCheckResult.h */; };
+		1ADD968D1C48F45900A66AE2 /* MMVersionCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD968B1C48F45900A66AE2 /* MMVersionCheckResult.m */; };
+		1ADD96911C4914CC00A66AE2 /* MockVersionUpdateActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD96901C4914CC00A66AE2 /* MockVersionUpdateActor.m */; };
+		1ADD96941C4914F700A66AE2 /* MMVersionUpdateActor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADD96921C4914F700A66AE2 /* MMVersionUpdateActor.h */; };
+		1ADD96951C4914F700A66AE2 /* MMVersionUpdateActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADD96931C4914F700A66AE2 /* MMVersionUpdateActor.m */; };
 		91DE9CCA1E195E1CA6ECC499 /* libPods-MagicMirror.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */; };
 /* End PBXBuildFile section */
 
@@ -2670,6 +2675,13 @@
 		1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+Alter.h"; sourceTree = "<group>"; };
 		1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+Alter.m"; sourceTree = "<group>"; };
 		1ADA7DBD1C211CBB00198A87 /* NSBezierPathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBezierPathTests.m; sourceTree = "<group>"; };
+		1ADD968A1C48F45900A66AE2 /* MMVersionCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVersionCheckResult.h; sourceTree = "<group>"; };
+		1ADD968B1C48F45900A66AE2 /* MMVersionCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVersionCheckResult.m; sourceTree = "<group>"; };
+		1ADD968E1C48F7CB00A66AE2 /* MMVersionChecker-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MMVersionChecker-Private.h"; sourceTree = "<group>"; };
+		1ADD968F1C4914CC00A66AE2 /* MockVersionUpdateActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockVersionUpdateActor.h; sourceTree = "<group>"; };
+		1ADD96901C4914CC00A66AE2 /* MockVersionUpdateActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockVersionUpdateActor.m; sourceTree = "<group>"; };
+		1ADD96921C4914F700A66AE2 /* MMVersionUpdateActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMVersionUpdateActor.h; sourceTree = "<group>"; };
+		1ADD96931C4914F700A66AE2 /* MMVersionUpdateActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMVersionUpdateActor.m; sourceTree = "<group>"; };
 		1C0A6D0482414F9EC3918E7E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3CC89431BCD0F932CC504BCA /* Pods-MagicMirror.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicMirror.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MagicMirror/Pods-MagicMirror.debug.xcconfig"; sourceTree = "<group>"; };
 		434336AF6DDA104824C9A8D3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2811,6 +2823,11 @@
 				1A74648D1C40EEBD00FEBF8B /* MMLayer.m */,
 				1A34C1D41C47574200C2F735 /* MMVersionChecker.h */,
 				1A34C1D51C47574200C2F735 /* MMVersionChecker.m */,
+				1ADD968E1C48F7CB00A66AE2 /* MMVersionChecker-Private.h */,
+				1ADD968A1C48F45900A66AE2 /* MMVersionCheckResult.h */,
+				1ADD968B1C48F45900A66AE2 /* MMVersionCheckResult.m */,
+				1ADD96921C4914F700A66AE2 /* MMVersionUpdateActor.h */,
+				1ADD96931C4914F700A66AE2 /* MMVersionUpdateActor.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2838,6 +2855,8 @@
 				1A5D4D591C42E9BC007EAB79 /* MockShapeGroup.m */,
 				1A5D4D5F1C42EDE5007EAB79 /* MockArtboardFinder.h */,
 				1A5D4D601C42EDE5007EAB79 /* MockArtboardFinder.m */,
+				1ADD968F1C4914CC00A66AE2 /* MockVersionUpdateActor.h */,
+				1ADD96901C4914CC00A66AE2 /* MockVersionUpdateActor.m */,
 				1A34C1E01C4759EE00C2F735 /* local.json */,
 			);
 			path = MagicMirrorExecutableTests;
@@ -4902,6 +4921,7 @@
 				1AB4B8011C16E68400B7922D /* _SVGFont.h in Headers */,
 				1AB4B90A1C16E68400B7922D /* MSBooleanMenuAction.h in Headers */,
 				1AB4B8AA1C16E68400B7922D /* FBBezierIntersection.h in Headers */,
+				1ADD968C1C48F45900A66AE2 /* MMVersionCheckResult.h in Headers */,
 				1AB4B8B11C16E68400B7922D /* FBEdgeOverlap.h in Headers */,
 				1AB4B8751C16E68400B7922D /* BCTableCellView.h in Headers */,
 				1AB4BB1A1C16E68400B7922D /* MSTextStyle.h in Headers */,
@@ -5019,6 +5039,7 @@
 				1AB4B7E81C16E68400B7922D /* _MSSliceLayer.h in Headers */,
 				1AB4B9B11C16E68400B7922D /* MSImmutableModelBase.h in Headers */,
 				1AB4BA961C16E68400B7922D /* MSResizeSheet.h in Headers */,
+				1ADD96941C4914F700A66AE2 /* MMVersionUpdateActor.h in Headers */,
 				1AB4BA4C1C16E68400B7922D /* MSOldStyleSliceViewDataSource.h in Headers */,
 				1AB4BC031C16E68400B7922D /* NSURLSessionDownloadDelegate.h in Headers */,
 				1AB4B96E1C16E68400B7922D /* MSFillAndBorderColorScreenPicker.h in Headers */,
@@ -5571,6 +5592,7 @@
 				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
 				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
 				1A34C1D91C47580500C2F735 /* MMVersionCheckerTests.m in Sources */,
+				1ADD96911C4914CC00A66AE2 /* MockVersionUpdateActor.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
 				1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */,
 			);
@@ -5591,6 +5613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A562CD61C1AF2DA00FE3981 /* MMLayerProperties.m in Sources */,
+				1ADD96951C4914F700A66AE2 /* MMVersionUpdateActor.m in Sources */,
 				1A1F3D601C3F70A9004171C8 /* MMProxy.m in Sources */,
 				1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */,
 				1ABA82601C3526FF0051DD67 /* MMRegisteredViewController.m in Sources */,
@@ -5623,6 +5646,7 @@
 				1A6E63B01C442EF900672D51 /* MMComboBox.m in Sources */,
 				1ABA825C1C33D3A00051DD67 /* QCMethod.m in Sources */,
 				1A562CE81C1B2C9900FE3981 /* MMValuesStack.m in Sources */,
+				1ADD968D1C48F45900A66AE2 /* MMVersionCheckResult.m in Sources */,
 				1ACD528C1C28559700020EC2 /* MMContainerViewController.m in Sources */,
 				1A4C684C1C16FB0D00D061C2 /* SketchPluginContext.m in Sources */,
 				1AA677DF1C42D96E000924FE /* MagicMirror+MMPropertyController.m in Sources */,

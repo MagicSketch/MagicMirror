@@ -54,8 +54,6 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 - (void)closeToolbar;
 - (void)showToolbar;
 - (void)showLicenseInfo;
-- (void)showLatestDialog;
-- (void)showUpdateDialog;
 - (void)keepAround;
 - (void)goAway;
 - (void)openURL:(NSString *)urlString;

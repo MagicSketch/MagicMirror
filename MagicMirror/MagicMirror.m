@@ -36,6 +36,7 @@
 #import "MagicMirror+MMTracker.h"
 #import "MMVersionChecker.h"
 #import "MMImageLoader.h"
+#import "MMVersionUpdateActor.h"
 
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
@@ -170,6 +171,7 @@ static MagicMirror *_sharedInstance = nil;
 #endif
     _tracker = [[MMTracker alloc] init];
     _checker = [[MMVersionChecker alloc] init];
+    _checker.delegate = self;
     _loader = [[MMImageLoader alloc] init];
 }
 
@@ -210,32 +212,6 @@ static MagicMirror *_sharedInstance = nil;
     _controller.delegate = self;
     [_controller showWindow:self];
     [self reloadData];
-}
-
-- (void)showUpdateDialog {
-    NSString *info = [NSString stringWithFormat:@"v%@ is avaliable!\n\nDownload the update to enjoy new features and bug fixes :)", self.checker.remote.version];
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Magic Mirror" defaultButton:@"Update" alternateButton:nil otherButton:@"Not now" informativeTextWithFormat:info, nil];
-    [alert setIcon:[self.loader imageNamed:@"logo"]];
-    NSModalResponse response = [alert runModal];
-    switch (response) {
-        case NSModalResponseContinue:
-            [self openURL:@"http://magicmirror.design"];
-            break;
-        default:
-        
-            break;
-    }
-}
-
-- (void)showLatestDialog {
-    NSString *info = [NSString stringWithFormat:@"v%@ is the latest version :)", self.checker.local.version];
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Magic Mirror" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:info, nil];
-    [alert setIcon:[self.loader imageNamed:@"logo"]];
-    NSModalResponse response = [alert runModal];
-    switch (response) {
-        default:
-            break;
-    }
 }
 
 - (void)keepAround {
@@ -443,7 +419,31 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)checkForUpdates {
-    [self.checker checkForUpdates];
+    [self.checker checkForUpdates:^{}];
+//    __weak __typeof (self) weakSelf = self;
+//    [self.checker checkForUpdates:^(MMVersionCheckResult *result) {
+//        switch (result.status) {
+//            case MMVersionCheckStatusError:
+//            default:
+//                [weakSelf showErrorDialog:result.error];
+//                break;
+//
+//            case MMVersionCheckStatusSame:
+//                MMLog(@"using the latest version");
+//                [weakSelf showLatestDialog];
+//                break;
+//
+//            case MMVersionCheckStatusHasUpdate:
+//                MMLog(@"version %@ updates avaliable", weakSelf.checker.remote.version);
+//                [weakSelf showUpdateDialog];
+//                break;
+//
+//            case MMVersionCheckStatusNewerThanMaster:
+//                MMLog(@"your version is newer than the public version");
+//                [weakSelf showLatestDialog];
+//                break;
+//        }
+//    }];
 }
 
 - (NSString *)manifestFilePath {
