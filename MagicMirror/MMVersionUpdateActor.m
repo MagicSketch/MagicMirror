@@ -16,13 +16,10 @@
     NSAlert *alert = [NSAlert alertWithMessageText:@"Magic Mirror" defaultButton:@"Update" alternateButton:nil otherButton:@"Not now" informativeTextWithFormat:info, nil];
     [alert setIcon:[self.loader imageNamed:@"logo"]];
     NSModalResponse response = [alert runModal];
-    switch (response) {
-        case NSModalResponseContinue:
-            [self openURL:@"http://magicmirror.design"];
-            break;
-        default:
-
-            break;
+    if (response == 1) {
+        [self.checker download];
+    } else if (response == -1) {
+        [self.checker remindLater];
     }
 }
 
@@ -51,7 +48,7 @@
 }
 
 - (void)proceedToDownload:(NSURL *)url {
-    [self openURL:url];
+    [self openURL:url.absoluteString];
 }
 
 - (void)remainSlienceForUpdate {

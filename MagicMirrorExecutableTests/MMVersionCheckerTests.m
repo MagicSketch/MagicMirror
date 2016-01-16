@@ -154,7 +154,7 @@
 
 - (void)testDownload {
     [self.checker download];
-    XCTAssertEqualObjects(self.actor.downloadURL, [NSURL URLWithString:@"http://magicmirror.design/download/latest"]);
+    XCTAssertEqualObjects(self.actor.downloadURL, [NSURL URLWithString:@"http://api.magicmirror.design/download/latest"]);
     XCTAssertEqual(self.actor.proceedDownloadCount, 1);
 }
 
