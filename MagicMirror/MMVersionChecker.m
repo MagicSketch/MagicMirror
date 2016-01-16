@@ -16,7 +16,6 @@
 @property (nonatomic) BOOL isShowed;
 @property (nonatomic, strong) MMManifest *local;
 @property (nonatomic, strong) NSError *error;
-@property (nonatomic) MMDay skippingDays;
 @property (nonatomic) MMVersionCheckerStatus status;
 @property (nonatomic, copy) NSString *lastVersion;
 
@@ -42,7 +41,7 @@
 {
     self = [super init];
     if (self) {
-        _skippingDays = 7;
+        _skippingDays = 2;
     }
     return self;
 }
@@ -90,7 +89,7 @@
 }
 
 - (void)notifyResult {
-    NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60) sinceDate:self.lastChecked];
+    NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60 * _skippingDays) sinceDate:self.lastChecked];
     BOOL hasUpdate = [self.local compare:self.remote];
     NSString *latestVersion = self.lastVersion ?: self.local.version;
     BOOL hasNewerThanSeenVersion = [latestVersion compare:self.remote.version];

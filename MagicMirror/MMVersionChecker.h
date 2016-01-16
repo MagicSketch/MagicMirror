@@ -31,6 +31,7 @@ typedef void(^MMVersionCheckerCompletionHandler)();
 @property (nonatomic, readonly) MMVersionCheckerStatus status;
 @property (nonatomic, copy, readonly) NSString *lastVersion;
 @property (nonatomic, weak) id <MMVersionUpdateActor> delegate;
+@property (nonatomic) MMDay skippingDays;
 
 + (instancetype)versionCheckerWithLocal:(MMManifest *)local remote:(MMManifest *)remote lastChecked:(NSDate *)lastChecked;
 + (instancetype)versionChecker;

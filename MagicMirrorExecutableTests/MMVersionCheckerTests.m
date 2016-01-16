@@ -140,7 +140,7 @@
 - (void)testRemindLaterWhenSkippingIsOver {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
     [self.checker remindLater];
-    self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 + 1) sinceDate:[NSDate date]];
+    self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 * self.checker.skippingDays + 1) sinceDate:[NSDate date]];
 
     __weak __typeof (self) weakSelf = self;
     [self.checker checkForUpdates:^{
@@ -211,7 +211,7 @@
 - (void)testProceedToDownloadWhenSkippingIsOver {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
     [self.checker download];
-    self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 + 1) sinceDate:[NSDate date]];
+    self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 * self.checker.skippingDays + 1) sinceDate:[NSDate date]];
 
     __weak __typeof (self) weakSelf = self;
     [self.checker checkForUpdates:^{
