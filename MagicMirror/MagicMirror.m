@@ -420,30 +420,6 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)checkForUpdates {
     [self.checker checkForUpdates:^{}];
-//    __weak __typeof (self) weakSelf = self;
-//    [self.checker checkForUpdates:^(MMVersionCheckResult *result) {
-//        switch (result.status) {
-//            case MMVersionCheckStatusError:
-//            default:
-//                [weakSelf showErrorDialog:result.error];
-//                break;
-//
-//            case MMVersionCheckStatusSame:
-//                MMLog(@"using the latest version");
-//                [weakSelf showLatestDialog];
-//                break;
-//
-//            case MMVersionCheckStatusHasUpdate:
-//                MMLog(@"version %@ updates avaliable", weakSelf.checker.remote.version);
-//                [weakSelf showUpdateDialog];
-//                break;
-//
-//            case MMVersionCheckStatusNewerThanMaster:
-//                MMLog(@"your version is newer than the public version");
-//                [weakSelf showLatestDialog];
-//                break;
-//        }
-//    }];
 }
 
 - (NSString *)manifestFilePath {
