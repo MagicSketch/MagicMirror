@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *version;
 @property (nonatomic, copy) NSString *checkURL;
+@property (nonatomic, copy) NSString *downloadURL;
 @property (nonatomic, copy) NSString *name;
 
 @end
@@ -24,8 +25,18 @@
 }
 
 + (instancetype)manifestWithVersion:(NSString *)version {
+    return [self manifestWithVersion:version
+                            checkURL:nil
+                         downloadURL:nil
+                                name:nil];
+}
+
++ (instancetype)manifestWithVersion:(NSString *)version checkURL:(NSString *)checkURL downloadURL:(NSString *)downloadURL name:(NSString *)name {
     MMManifest *manifest = [[self alloc] init];
     manifest.version = version;
+    manifest.name = name;
+    manifest.downloadURL = downloadURL;
+    manifest.checkURL = checkURL;
     return manifest;
 }
 
@@ -57,6 +68,7 @@
         self.name = dictionary[@"name"];
         self.version = dictionary[@"version"];
         self.checkURL = dictionary[@"checkURL"];
+        self.downloadURL = dictionary[@"downloadURL"];
     }
     return self;
 }

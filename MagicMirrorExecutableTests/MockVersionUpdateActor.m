@@ -8,6 +8,12 @@
 
 #import "MockVersionUpdateActor.h"
 
+@interface MockVersionUpdateActor ()
+
+@property (nonatomic, copy) NSURL *downloadURL;
+
+@end
+
 @implementation MockVersionUpdateActor
 
 - (void)showUpdateDialog {
@@ -26,8 +32,9 @@
     _hasRemainedSlience = YES;
 }
 
-- (void)proceedToDownload {
+- (void)proceedToDownload:(NSURL *)url {
     _proceedDownloadCount++;
+    self.downloadURL = url;
 }
 
 @end

@@ -15,10 +15,15 @@ typedef void(^MMManifestURLCompletionHandler)(MMManifest *manifest, NSError *err
 
 @property (nonatomic, copy, readonly) NSString *version;
 @property (nonatomic, copy, readonly) NSString *checkURL;
+@property (nonatomic, copy, readonly) NSString *downloadURL;
 @property (nonatomic, copy, readonly) NSString *name;
 
 + (instancetype)manifestNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 + (instancetype)manifestWithVersion:(NSString *)version;
++ (instancetype)manifestWithVersion:(NSString *)version
+                           checkURL:(NSString *)checkURL
+                        downloadURL:(NSString *)downloadURL
+                               name:(NSString *)name;
 + (instancetype)manifestFromFilePath:(NSString *)path;
 + (void)manifestFromURL:(NSURL *)url completion:(MMManifestURLCompletionHandler)completion;
 

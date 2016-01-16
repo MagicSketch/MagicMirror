@@ -21,5 +21,7 @@
 @property (nonatomic, strong) MMManifest *remote;
 @property (nonatomic, strong) NSDate *lastChecked;
 
+@property (nonatomic, copy, readonly) NSURL *downloadURL;
+
 @end
 

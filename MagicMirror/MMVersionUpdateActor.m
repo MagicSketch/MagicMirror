@@ -50,4 +50,12 @@
     }
 }
 
+- (void)proceedToDownload:(NSURL *)url {
+    [self openURL:url];
+}
+
+- (void)remainSlienceForUpdate {
+    // Do nothing
+}
+
 @end

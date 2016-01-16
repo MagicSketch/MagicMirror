@@ -38,6 +38,7 @@
     XCTAssertEqualObjects(m.name, @"✨ Magic Mirror 2");
     XCTAssertEqualObjects(m.version, @"2.0");
     XCTAssertEqualObjects(m.checkURL, @"https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json");
+    XCTAssertEqualObjects(m.downloadURL, @"http://magicmirror.design/");
 }
 
 - (void)testCompare {

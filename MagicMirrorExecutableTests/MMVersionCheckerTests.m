@@ -154,7 +154,17 @@
 
 - (void)testDownload {
     [self.checker download];
+    XCTAssertEqualObjects(self.actor.downloadURL, [NSURL URLWithString:@"http://magicmirror.design/download/latest"]);
     XCTAssertEqual(self.actor.proceedDownloadCount, 1);
+}
+
+- (void)testDownloadAlternativeLink {
+    self.checker.remote = [MMManifest manifestWithVersion:@"2.1"
+                                                 checkURL:nil
+                                              downloadURL:@"http://github.com/jamztang/magicmirror/v2.zip"
+                                                     name:nil];
+    [self.checker download];
+    XCTAssertEqualObjects(self.actor.downloadURL, [NSURL URLWithString:@"http://github.com/jamztang/magicmirror/v2.zip"]);
 }
 
 - (void)testProceedToDownload {

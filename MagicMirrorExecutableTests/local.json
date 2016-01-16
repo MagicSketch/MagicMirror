@@ -9,6 +9,7 @@
 	"compatibleVersion": 3.4,
 	"bundleVersion": 1,
     "checkURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json",
+    "downloadURL" : "http://magicmirror.design/",
 
 	"commands": [
 	    {

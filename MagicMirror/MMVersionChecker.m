@@ -128,7 +128,9 @@
 - (void)download {
     self.status = MMVersionCheckerStatusProceedToDownload;
     self.lastVersion = self.remote.version;
-    [self.delegate proceedToDownload];
+
+    NSURL *url = [NSURL URLWithString:self.remote.downloadURL ?: @"http://magicmirror.design/download/latest"];
+    [self.delegate proceedToDownload:url];;
 }
 
 @end
