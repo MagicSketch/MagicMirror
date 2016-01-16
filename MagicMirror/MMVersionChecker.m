@@ -9,15 +9,16 @@
 #import "MMVersionChecker.h"
 #import "MMManifest.h"
 #import "MagicMirror.h"
-#import "MMVersionChecker-Private.h"
 #import "MMVersionUpdateActor.h"
 
 @interface MMVersionChecker ()
 
 @property (nonatomic) BOOL isShowed;
 @property (nonatomic, strong) MMManifest *local;
-
+@property (nonatomic, strong) NSError *error;
 @property (nonatomic) MMDay skippingDays;
+@property (nonatomic) MMVersionCheckerStatus status;
+@property (nonatomic, copy) NSString *lastVersion;
 
 @end
 
@@ -33,6 +34,7 @@
     checker.local = local;
     checker.remote = remote;
     checker.lastChecked = lastChecked;
+    checker.lastVersion = remote.version;
     return checker;
 }
 
@@ -79,88 +81,27 @@
     __weak __typeof (self) weakSelf = self;
     [self fetchLocal];
     [self fetchRemoteCompletion:^(MMManifest *manifest, NSError *error) {
-        weakSelf.lastChecked = [NSDate date];
         weakSelf.remote = manifest;
-        NSComparisonResult comparison = [weakSelf.local compare:weakSelf.remote];
-        MMVersionCheckResult *result;
-        if (error) {
-            result = [MMVersionCheckResult resultWithChecker:self
-                                                      status:MMVersionCheckStatusError
-                                                       error:error];
-        } else {
-            switch (comparison) {
-                case NSOrderedSame:
-                    result = [MMVersionCheckResult resultWithChecker:self
-                                                              status:MMVersionCheckStatusSame
-                                                               error:nil];
-                    break;
-                case NSOrderedAscending:
-                    result = [MMVersionCheckResult resultWithChecker:self
-                                                              status:MMVersionCheckStatusHasUpdate
-                                                               error:nil];
-                    break;
-                case NSOrderedDescending:
-                    result = [MMVersionCheckResult resultWithChecker:self
-                                                              status:MMVersionCheckStatusNewerThanMaster
-                                                               error:nil];
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        [weakSelf notifyResult:result];
+        weakSelf.error = error;
+        [weakSelf notifyResult];
         completion();
+        weakSelf.lastChecked = [NSDate date];
     }];
 }
 
-- (BOOL)shouldCheckForUpdates {
-    return YES;
-}
-
-- (void)notifyResult:(MMVersionCheckResult *)result {
+- (void)notifyResult {
     NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60) sinceDate:self.lastChecked];
-
     BOOL hasUpdate = [self.local compare:self.remote];
-    BOOL isSkipped = self.skippedVersion && [self.remote.version isEqualToString:self.skippedVersion];
-    BOOL hasNewVersion = ! [self.remote.version isEqualToString:self.skippedVersion];
+    NSString *latestVersion = self.lastVersion ?: self.local.version;
+    BOOL hasNewerThanSeenVersion = [latestVersion compare:self.remote.version];
     BOOL hasExpired = [[NSDate date] compare:theOtherDay] >= NSOrderedSame;
-    BOOL shouldRemind = self.shouldRemindLater;
+    BOOL isSkipped = [self.lastVersion isEqualToString:self.remote.version] && self.status == MMVersionCheckerStatusSkipped;
 
-    if (hasUpdate) {
-        if (isSkipped) {
-            [self.delegate remainSlienceForUpdate];
-        } else if (shouldRemind) {
-            if ( ! hasExpired) {
-//                if ( ! hasNewVersion && ! isSkipped) {
-//                    [self.delegate showUpdateDialog];
-//                } else if ( ! hasNewVersion || isSkipped) {
-//                    [self.delegate remainSlienceForUpdate];
-//                } else
-                if (hasNewVersion) {
-                    if (isSkipped) {
-                        [self.delegate remainSlienceForUpdate];
-                    } else {
-                        if (self.skippedVersion) {
-                            [self.delegate showUpdateDialog];
-                        } else {
-                            [self.delegate remainSlienceForUpdate];
-                        }
-                    }
-                }
-                else {
-                    [self.delegate remainSlienceForUpdate];
-                }
-//
-//                } else {
-//                    [self.delegate showUpdateDialog];
-//                }
-            } else {
-                [self.delegate showUpdateDialog];
-            }
-        } else if ( ! self.isShowed){
+    if (hasNewerThanSeenVersion) {
+        [self.delegate showUpdateDialog];
+    } else if (hasUpdate) {
+        if (hasExpired && ! isSkipped) {
             [self.delegate showUpdateDialog];
-            self.isShowed = YES;
         } else {
             [self.delegate remainSlienceForUpdate];
         }
@@ -169,16 +110,25 @@
     }
 }
 
-@end
-
-@implementation MMVersionChecker (Private)
-
 - (void)skipThisVersion {
-    self.skippedVersion = self.remote.version;
+    self.status = MMVersionCheckerStatusSkipped;
+    self.lastVersion = self.remote.version;
 }
 
 - (void)remindLater {
+    self.status = MMVersionCheckerStatusRemindLater;
+    self.lastVersion = self.remote.version;
+}
 
+- (void)okay {
+    self.status = MMVersionCheckerStatusPending;
+    self.lastVersion = self.remote.version;
+}
+
+- (void)download {
+    self.status = MMVersionCheckerStatusProceedToDownload;
+    self.lastVersion = self.remote.version;
+    [self.delegate proceedToDownload];
 }
 
 @end

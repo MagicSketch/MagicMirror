@@ -19,6 +19,7 @@
 - (void)showUpdateDialog;
 - (void)showErrorDialog:(NSError *)error;
 - (void)showLatestDialog;
+- (void)proceedToDownload;
 - (void)remainSlienceForUpdate;
 
 @end

@@ -26,4 +26,8 @@
     _hasRemainedSlience = YES;
 }
 
+- (void)proceedToDownload {
+    _proceedDownloadCount++;
+}
+
 @end

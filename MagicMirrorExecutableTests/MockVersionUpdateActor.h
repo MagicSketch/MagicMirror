@@ -13,6 +13,7 @@
 @interface MockVersionUpdateActor : NSObject <MMVersionUpdateActor>
 
 @property (nonatomic) NSUInteger showedUpdateDialogCount;
+@property (nonatomic) NSUInteger proceedDownloadCount;
 @property (nonatomic) BOOL hasShowErrorDialog;
 @property (nonatomic) BOOL hasShowLatestDialog;
 @property (nonatomic) BOOL hasRemainedSlience;

@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "MMController.h"
 #import "MMManifest.h"
-#import "MMVersionCheckResult.h"
 
-@class MMVersionCheckResult;
+typedef enum {
+    MMVersionCheckerStatusPending,
+    MMVersionCheckerStatusRemindLater,
+    MMVersionCheckerStatusSkipped,
+    MMVersionCheckerStatusProceedToDownload = MMVersionCheckerStatusRemindLater,
+} MMVersionCheckerStatus;
+
 @protocol MMVersionUpdateActor;
 
 typedef NSInteger MMDay;
@@ -22,15 +27,18 @@ typedef void(^MMVersionCheckerCompletionHandler)();
 
 @property (nonatomic, strong) MMManifest *remote;
 @property (nonatomic, strong, readonly) MMManifest *local;
-@property (nonatomic, strong) NSDate *lastChecked;
-@property (nonatomic, copy) NSString *skippedVersion;
-@property (nonatomic) BOOL shouldRemindLater;
+@property (nonatomic, copy) NSDate *lastChecked;
+@property (nonatomic, readonly) MMVersionCheckerStatus status;
+@property (nonatomic, copy, readonly) NSString *lastVersion;
 @property (nonatomic, weak) id <MMVersionUpdateActor> delegate;
 
 + (instancetype)versionCheckerWithLocal:(MMManifest *)local remote:(MMManifest *)remote lastChecked:(NSDate *)lastChecked;
 + (instancetype)versionChecker;
 
 - (void)checkForUpdates:(MMVersionCheckerCompletionHandler)completion;
-- (BOOL)shouldCheckForUpdates;
+- (void)skipThisVersion;
+- (void)remindLater;
+- (void)okay;
+- (void)download;
 
 @end
