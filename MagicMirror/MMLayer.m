@@ -72,8 +72,8 @@
     }
 
     [self configureVersion];
-    self.imageQuality = nil;
     self.source = nil;
+    self.imageQuality = nil;
 }
 
 - (void)disableFill {
@@ -88,7 +88,7 @@
     }
     [fill setFillType:4];
     [fill setPatternFillType:1];
-    [fill setIsEnabled:true];
+    [fill setIsEnabled:YES];
     [fill setPatternImage:image];
 }
 
