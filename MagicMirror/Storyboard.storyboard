@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uwE-1d-YCq">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="uwE-1d-YCq">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <scenes>
         <!--Window Controller-->
@@ -33,7 +33,6 @@
                         <subviews>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c" customClass="MMComboBox">
                                 <rect key="frame" x="76" y="7" width="146" height="26"/>
-                                <animations/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select an Artboard" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="10" id="zuB-ln-mUU">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -45,7 +44,6 @@
                             </comboBox>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-pF-xB4" customClass="MMComboBox">
                                 <rect key="frame" x="227" y="7" width="121" height="26"/>
-                                <animations/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Image Quality" drawsBackground="YES" numberOfVisibleItems="5" id="FHY-82-Csw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -60,7 +58,6 @@
                             </comboBox>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN6-lX-eDR">
                                 <rect key="frame" x="36" y="4" width="38" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="jump" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3uJ-OU-CwM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -71,7 +68,6 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-E0-RUN">
                                 <rect key="frame" x="4" y="4" width="38" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="detach" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FUE-cq-M3v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -82,7 +78,6 @@
                             </button>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
                                 <rect key="frame" x="351" y="8" width="71" height="24"/>
-                                <animations/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="f4d-f7-dfE">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -96,7 +91,6 @@
                             </segmentedControl>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-J9-Z2B">
                                 <rect key="frame" x="422" y="3" width="88" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xHS-yR-1zw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -106,7 +100,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="actionSegmentedControl" destination="aeK-wW-8tI" id="3aN-Jp-eLp"/>
@@ -167,12 +160,10 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUI-OP-KAP">
                                 <rect key="frame" x="20" y="151" width="70" height="74"/>
-                                <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="3b5-kg-eaC"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ho5-bt-Urm">
                                 <rect key="frame" x="102" y="208" width="128" height="17"/>
-                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Magic Mirror - Free" id="CCb-sl-m3f">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -181,7 +172,6 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0f-Gd-foY">
                                 <rect key="frame" x="233" y="208" width="100" height="17"/>
-                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Development)" id="AaG-Ni-G96">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -190,7 +180,6 @@
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-qA-fIp">
                                 <rect key="frame" x="102" y="93" width="322" height="104"/>
-                                <animations/>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="JXb-LZ-BF8">
                                     <font key="font" metaFont="smallSystem"/>
                                     <string key="title">"Magic Mirror - Free" is free for personal use, advanced features and a more permissive commercial license can be obtained through purchasing.
@@ -202,7 +191,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whf-qR-P7b">
                                 <rect key="frame" x="104" y="58" width="211" height="22"/>
-                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="e.g. 59J79294TW1881135" drawsBackground="YES" id="9j2-nE-4cd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -214,7 +202,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Pc-Iz-Kim">
                                 <rect key="frame" x="98" y="13" width="129" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Purchase..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1tK-bb-UYk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -225,7 +212,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og1-z6-Ies">
                                 <rect key="frame" x="340" y="13" width="88" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Enter" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0m6-lN-8FU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -236,11 +222,9 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </button>
                             <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WgR-nj-eou">
                                 <rect key="frame" x="323" y="61" width="16" height="16"/>
-                                <animations/>
                             </progressIndicator>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Is7-PK-K0a">
                                 <rect key="frame" x="252" y="13" width="88" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Later" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GzG-Ch-gHq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -251,7 +235,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-oi-fhH">
                                 <rect key="frame" x="321" y="62" width="103" height="14"/>
-                                <animations/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="error message" id="a4j-kf-e2J">
                                     <font key="font" metaFont="smallSystem"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -259,7 +242,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                                 </textFieldCell>
                             </textField>
                         </subviews>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="developmentIndicator" destination="X0f-Gd-foY" id="Urz-8e-V1r"/>
@@ -286,12 +268,10 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hja-sz-Y4a">
                                 <rect key="frame" x="20" y="121" width="70" height="74"/>
-                                <animations/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="RgF-uh-Ntv"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JF0-rH-JqL">
                                 <rect key="frame" x="102" y="178" width="122" height="17"/>
-                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Magic Mirror - Pro" id="TaA-fc-N7g">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -300,7 +280,6 @@ Enter your Paypal Transaction ID to activate your license, please click the "Pur
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-fv-IES">
                                 <rect key="frame" x="102" y="55" width="322" height="112"/>
-                                <animations/>
                                 <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" id="fy1-vl-ROb">
                                     <font key="font" metaFont="smallSystem"/>
                                     <string key="title">"Magic Mirror - Licensed" is now available for commercial use with pro features unlocked.
@@ -316,7 +295,6 @@ Thanks for purchasing Magic Mirror! :)</string>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4e-pt-cBj">
                                 <rect key="frame" x="340" y="13" width="88" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9u0-XJ-CWh">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -330,7 +308,6 @@ DQ
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbD-lp-Rzm">
                                 <rect key="frame" x="226" y="13" width="114" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Deregister..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="18g-Kh-YJp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -341,7 +318,6 @@ DQ
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-BJ-vMk">
                                 <rect key="frame" x="228" y="178" width="100" height="17"/>
-                                <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="(Development)" id="2YT-rr-IEI">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -349,7 +325,6 @@ DQ
                                 </textFieldCell>
                             </textField>
                         </subviews>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="OKButton" destination="Q4e-pt-cBj" id="YNa-wq-PUb"/>
@@ -372,14 +347,12 @@ DQ
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
                                 <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
-                                <animations/>
                                 <connections>
                                     <segue destination="RaX-pZ-8Z0" kind="embed" identifier="SI_ConfigureVC" id="Xr9-o7-CXn"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
                                 <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
-                                <animations/>
                                 <connections>
                                     <segue destination="Fih-lY-VSH" kind="embed" identifier="SI_NoSelectionVC" id="WXJ-Qm-2tW"/>
                                 </connections>
@@ -395,7 +368,6 @@ DQ
                             <constraint firstAttribute="bottom" secondItem="wtU-sh-qpq" secondAttribute="bottom" id="hNG-0L-dz5"/>
                             <constraint firstItem="6tB-gv-01z" firstAttribute="top" secondItem="Hby-ZY-LiR" secondAttribute="top" id="uON-K2-uYM"/>
                         </constraints>
-                        <animations/>
                     </view>
                 </viewController>
                 <customObject id="N50-ZY-gpG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -416,7 +388,6 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="width" constant="26" id="o7R-DU-2cM"/>
                                 </constraints>
-                                <animations/>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="detach" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KoA-vn-pne">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -427,7 +398,6 @@ DQ
                             </button>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KGD-NB-lGP">
                                 <rect key="frame" x="42" y="14" width="258" height="17"/>
-                                <animations/>
                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" title="No Layers Selected" id="Fsv-27-Tsd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -436,7 +406,6 @@ DQ
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qPx-ya-fnJ">
                                 <rect key="frame" x="300" y="5" width="121" height="32"/>
-                                <animations/>
                                 <buttonCell key="cell" type="push" title="Refresh Page" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fY2-4n-DdP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -455,7 +424,6 @@ DQ
                             <constraint firstItem="518-Fp-r8A" firstAttribute="centerY" secondItem="Ny1-SR-VnY" secondAttribute="centerY" id="hWO-Ag-Nnm"/>
                             <constraint firstItem="qPx-ya-fnJ" firstAttribute="leading" secondItem="KGD-NB-lGP" secondAttribute="trailing" constant="8" id="oaM-nL-mhk"/>
                         </constraints>
-                        <animations/>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="518-Fp-r8A" id="W5g-wp-hVg"/>
