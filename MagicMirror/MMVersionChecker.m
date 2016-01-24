@@ -41,7 +41,7 @@
 {
     self = [super init];
     if (self) {
-        _skippingDays = 2;
+        _skippingDays = 1;
     }
     return self;
 }
@@ -86,6 +86,12 @@
         completion();
         weakSelf.lastChecked = [NSDate date];
     }];
+}
+
+- (BOOL)needsAutoCheck {
+    NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60 * _skippingDays) sinceDate:self.lastChecked];
+    BOOL hasExpired = [[NSDate date] compare:theOtherDay] >= NSOrderedSame;
+    return hasExpired;
 }
 
 - (void)notifyResult {

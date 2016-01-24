@@ -422,6 +422,7 @@ static MagicMirror *_sharedInstance = nil;
     [self.checker checkForUpdates:^{}];
 }
 
+
 - (NSString *)manifestFilePath {
     NSString *path = [[[[self.context plugin] url] path] stringByAppendingString:@"/Contents/Sketch/manifest.json"];
     if ( ! path) {

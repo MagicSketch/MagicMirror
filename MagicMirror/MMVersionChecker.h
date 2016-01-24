@@ -37,6 +37,7 @@ typedef void(^MMVersionCheckerCompletionHandler)();
 + (instancetype)versionChecker;
 
 - (void)checkForUpdates:(MMVersionCheckerCompletionHandler)completion;
+- (BOOL)needsAutoCheck;
 - (void)skipThisVersion;
 - (void)remindLater;
 - (void)okay;
