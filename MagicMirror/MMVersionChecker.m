@@ -10,6 +10,7 @@
 #import "MMManifest.h"
 #import "MagicMirror.h"
 #import "MMVersionUpdateActor.h"
+#import "MMPersister.h"
 
 @interface MMVersionChecker ()
 
@@ -17,15 +18,33 @@
 @property (nonatomic, strong) MMManifest *local;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic) MMVersionCheckerStatus status;
-@property (nonatomic, copy) NSString *lastVersion;
+@property (nonatomic, weak) id <MMPersister> persister;
 
 @end
 
 @implementation MMVersionChecker
 
-+ (instancetype)versionChecker {
++ (instancetype)versionCheckerWithPersister:(id<MMPersister>)persister {
     MMVersionChecker *checker = [[MMVersionChecker alloc] init];
+    checker.persister = persister;
+    checker.lastVersion = [persister persistedDictionaryForIdentifier:@"design.magicmirror.checker.lastversion"];
+    checker.lastChecked = [persister persistedDictionaryForIdentifier:@"design.magicmirror.checker.lastchecked"];
+    checker.status = (MMVersionCheckerStatus)[[persister persistedDictionaryForIdentifier:@"design.magicmirror.checker.status"] integerValue];
     return checker;
+}
+
+- (void)save {
+    [self.persister persistDictionary:@(self.status) withIdentifier:@"design.magicmirror.checker.status"];
+    if (self.lastVersion) {
+        [self.persister persistDictionary:self.lastVersion withIdentifier:@"design.magicmirror.checker.lastversion"];
+    } else {
+        [self.persister removePersistedDictionaryForIdentifier:@"design.magicmirror.checker.lastversion"];
+    }
+    if (self.lastChecked) {
+        [self.persister persistDictionary:self.lastChecked withIdentifier:@"design.magicmirror.checker.lastchecked"];
+    } else {
+        [self.persister removePersistedDictionaryForIdentifier:@"design.magicmirror.checker.lastchecked"];
+    }
 }
 
 + (instancetype)versionCheckerWithLocal:(MMManifest *)local remote:(MMManifest *)remote lastChecked:(NSDate *)lastChecked {
@@ -83,9 +102,17 @@
         weakSelf.remote = manifest;
         weakSelf.error = error;
         [weakSelf notifyResult];
-        completion();
+        if (completion) {
+            completion();
+        }
         weakSelf.lastChecked = [NSDate date];
     }];
+}
+
+- (void)checkForUpdatesIfNeeded:(MMVersionCheckerCompletionHandler)completion {
+    if ([self needsAutoCheck]) {
+        [self checkForUpdates:completion];
+    }
 }
 
 - (BOOL)needsAutoCheck {
@@ -118,16 +145,19 @@
 - (void)skipThisVersion {
     self.status = MMVersionCheckerStatusSkipped;
     self.lastVersion = self.remote.version;
+    [self save];
 }
 
 - (void)remindLater {
     self.status = MMVersionCheckerStatusRemindLater;
     self.lastVersion = self.remote.version;
+    [self save];
 }
 
 - (void)okay {
     self.status = MMVersionCheckerStatusPending;
     self.lastVersion = self.remote.version;
+    [self save];
 }
 
 - (void)download {
@@ -136,6 +166,14 @@
 
     NSURL *url = [NSURL URLWithString:self.remote.downloadURL ?: @"http://api.magicmirror.design/download/latest"];
     [self.delegate proceedToDownload:url];;
+    [self save];
+}
+
+- (void)reset {
+    self.status = 0;
+    self.lastChecked = nil;
+    self.lastVersion = nil;
+    [self save];
 }
 
 @end

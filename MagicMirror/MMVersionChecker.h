@@ -17,6 +17,8 @@ typedef enum {
     MMVersionCheckerStatusProceedToDownload = MMVersionCheckerStatusRemindLater,
 } MMVersionCheckerStatus;
 
+
+@protocol MMPersister;
 @protocol MMVersionUpdateActor;
 
 typedef NSInteger MMDay;
@@ -29,18 +31,22 @@ typedef void(^MMVersionCheckerCompletionHandler)();
 @property (nonatomic, strong, readonly) MMManifest *local;
 @property (nonatomic, copy) NSDate *lastChecked;
 @property (nonatomic, readonly) MMVersionCheckerStatus status;
-@property (nonatomic, copy, readonly) NSString *lastVersion;
+@property (nonatomic, copy) NSString *lastVersion;
 @property (nonatomic, weak) id <MMVersionUpdateActor> delegate;
 @property (nonatomic) MMDay skippingDays;
+@property (nonatomic, weak, readonly) id <MMPersister> persister;
 
 + (instancetype)versionCheckerWithLocal:(MMManifest *)local remote:(MMManifest *)remote lastChecked:(NSDate *)lastChecked;
-+ (instancetype)versionChecker;
++ (instancetype)versionCheckerWithPersister:(id <MMPersister>)persister;
 
 - (void)checkForUpdates:(MMVersionCheckerCompletionHandler)completion;
 - (BOOL)needsAutoCheck;
+- (void)checkForUpdatesIfNeeded:(MMVersionCheckerCompletionHandler)completion;
 - (void)skipThisVersion;
 - (void)remindLater;
 - (void)okay;
 - (void)download;
+- (void)reset;
+- (void)save;
 
 @end
