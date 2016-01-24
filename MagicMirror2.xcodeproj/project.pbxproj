@@ -69,6 +69,8 @@
 		1A9060261C5537390079B3B3 /* MMPersister.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A9060241C5537390079B3B3 /* MMPersister.h */; };
 		1A9060271C5537390079B3B3 /* MMPersister.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9060251C5537390079B3B3 /* MMPersister.m */; };
 		1A9060291C55394C0079B3B3 /* MMPersisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9060281C55394C0079B3B3 /* MMPersisterTests.m */; };
+		1A90602C1C5540560079B3B3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A90602B1C5540560079B3B3 /* WebViewController.m */; };
+		1A90602E1C5541DA0079B3B3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A90602D1C5541DA0079B3B3 /* WebKit.framework */; };
 		1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677D71C42D10E000924FE /* MMLayerTests.m */; };
 		1AA677DE1C42D96E000924FE /* MagicMirror+MMPropertyController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */; };
 		1AA677DF1C42D96E000924FE /* MagicMirror+MMPropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */; };
@@ -1432,6 +1434,9 @@
 		1A9060241C5537390079B3B3 /* MMPersister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPersister.h; sourceTree = "<group>"; };
 		1A9060251C5537390079B3B3 /* MMPersister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPersister.m; sourceTree = "<group>"; };
 		1A9060281C55394C0079B3B3 /* MMPersisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPersisterTests.m; sourceTree = "<group>"; };
+		1A90602A1C5540560079B3B3 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		1A90602B1C5540560079B3B3 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1A90602D1C5541DA0079B3B3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1AA677D71C42D10E000924FE /* MMLayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayerTests.m; sourceTree = "<group>"; };
 		1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMPropertyController.h"; sourceTree = "<group>"; };
 		1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMPropertyController.m"; sourceTree = "<group>"; };
@@ -2704,6 +2709,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A90602E1C5541DA0079B3B3 /* WebKit.framework in Frameworks */,
 				1AB4A9611C15A7C200B7922D /* MagicMirror.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2888,6 +2894,7 @@
 		1AB4A9351C15A51D00B7922D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A90602D1C5541DA0079B3B3 /* WebKit.framework */,
 				1AB4A9331C15A51800B7922D /* AppKit.framework */,
 				F32649A8C4CC753031EC5573 /* libPods.a */,
 				D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */,
@@ -2902,6 +2909,8 @@
 				1AB4A9401C15A5E100B7922D /* AppDelegate.m */,
 				1AB4A9451C15A5E100B7922D /* ViewController.h */,
 				1AB4A9461C15A5E100B7922D /* ViewController.m */,
+				1A90602A1C5540560079B3B3 /* WebViewController.h */,
+				1A90602B1C5540560079B3B3 /* WebViewController.m */,
 				1AB4A9481C15A5E100B7922D /* Assets.xcassets */,
 				1AB4A94A1C15A5E100B7922D /* Main.storyboard */,
 				1AB4A94D1C15A5E100B7922D /* Info.plist */,
@@ -5607,6 +5616,7 @@
 				1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */,
 				1AB4A9441C15A5E100B7922D /* main.m in Sources */,
 				1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */,
+				1A90602C1C5540560079B3B3 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
