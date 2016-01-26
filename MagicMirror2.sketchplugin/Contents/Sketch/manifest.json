@@ -1,5 +1,5 @@
 {
-	"name": "✨ Magic Mirror 2",
+	"name": "Magic Mirror",
  	"description" : "Mirror contents in an Artboard and apply to a Shape with perspective transform. It's like 'Smart Objects' for Sketch.",
 	"author": "James Tang",
     "authorEmail" : "james@magicmirror.design",
