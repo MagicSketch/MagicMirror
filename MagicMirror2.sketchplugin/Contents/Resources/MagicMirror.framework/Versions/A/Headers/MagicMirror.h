@@ -35,6 +35,9 @@ typedef enum : NSUInteger {
     MMEnvProduction,
 } MMEnv;
 
+extern NSString *NSStringFromMMEnv(MMEnv env);
+extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
+
 @interface MagicMirror : NSObject
 
 @property (nonatomic, readonly) NSUInteger lifeCount;
@@ -42,17 +45,18 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy, readonly) NSString *build;
 @property (nonatomic, readonly) MMEnv env;
 @property (nonatomic, copy, readonly) NSString *baseURLString;
-@property (nonatomic, readonly) SketchPluginContext *context;
 
 + (instancetype)sharedInstance;
 + (instancetype)sharedInstanceWithContext:(SketchPluginContext *)context;
 + (void)setSharedInstance:(MagicMirror *)sharedInstance;
 + (void)addObserver:(id <MMController>)observer;
 
-- (void)showWindow;
+- (void)closeToolbar;
+- (void)showToolbar;
 - (void)showLicenseInfo;
 - (void)keepAround;
 - (void)goAway;
+- (void)openURL:(NSString *)urlString;
 
 // Per Layer
 //- (void)refreshArtboard:(id <MSArtboardGroup>)artboard;
@@ -73,33 +77,26 @@ typedef enum : NSUInteger {
 - (void)setClear;
 
 // Entry Points
+- (void)configureSelection;
 - (void)licenseInfo;
-- (void)mirrorPage;
-- (void)rotateSelection;
 - (void)flipSelection;
 - (void)jumpSelection;
-- (void)configureSelection;
 - (void)refreshSelection;
 - (void)refreshPage;
+- (void)rotateSelection;
+- (void)checkForUpdates;
 
 //- (NSArray *)artboards;
-- (NSDictionary *)artboardsLookup;
+//- (NSDictionary *)artboardsLookup;
 - (NSArray *)selectedLayers;
+- (NSArray *)allLayers;
+
+- (NSString *)manifestFilePath;
 
 
 @end
 
 
-@interface MagicMirror (MSShapeGroup)
-
-- (NSString *)sourceForLayer:(id <MSShapeGroup>)layer;
-- (void)setProperties:(MMLayerProperties *)properties forLayer:(id<MSShapeGroup>)layer;
-- (MMLayerProperties *)layerPropertiesForLayer:(id <MSShapeGroup>)layer;
-- (void)setVersionForLayer:(id <MSShapeGroup>)layer;
-- (id)valueForKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
-- (void)setValue:(id)value forKey:(NSString *)key onLayer:(id <MSShapeGroup>)layer;
-
-@end
 
 #pragma mark -
 

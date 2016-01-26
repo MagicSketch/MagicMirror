@@ -87,3 +87,8 @@ var jumpSelection = function(context) {
 	var magicmirror = initialize(context);
 	[magicmirror jumpSelection];
 }
+
+var checkForUpdates = function(context) {
+	var magicmirror = initialize(context);
+	[magicmirror checkForUpdates];
+}
