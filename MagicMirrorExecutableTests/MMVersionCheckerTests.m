@@ -81,6 +81,7 @@
 
 - (void)testSkipThisVersion {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
+    self.checker.remote = [MMManifest manifestWithVersion:@"2.0"];
     [self.checker skipThisVersion];
     __weak __typeof (self) weakSelf = self;
     [self.checker checkForUpdates:^{
@@ -107,7 +108,7 @@
 - (void)testRemindLater {
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Remind Later"];
-
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker remindLater];
     self.checker.lastChecked = [NSDate date];
     __weak __typeof (self) weakSelf = self;
@@ -134,6 +135,7 @@
 
 - (void)testRemindLaterWithinSkippingDayPeriod {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker remindLater];
     self.checker.lastChecked = [NSDate date];
 
@@ -147,6 +149,7 @@
 
 - (void)testRemindLaterWhenSkippingIsOver {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker remindLater];
     self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 * self.checker.skippingDays + 1) sinceDate:[NSDate date]];
 
@@ -178,7 +181,7 @@
 - (void)testProceedToDownload {
 
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Remind Later"];
-
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker download];
     self.checker.lastChecked = [NSDate date];
     __weak __typeof (self) weakSelf = self;
@@ -205,6 +208,7 @@
 
 - (void)testProceedToDownloadWithinSkippingDayPeriod {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker download];
     self.checker.lastChecked = [NSDate date];
 
@@ -218,6 +222,7 @@
 
 - (void)testProceedToDownloadWhenSkippingIsOver {
     XCTestExpectation *expectation = [self expectationWithDescription:@"Version Skipped"];
+    self.checker.remote = [MMManifest manifestWithVersion:@"3.0"];
     [self.checker download];
     self.checker.lastChecked = [NSDate dateWithTimeInterval:-(60 * 60 * 24 * self.checker.skippingDays + 1) sinceDate:[NSDate date]];
 

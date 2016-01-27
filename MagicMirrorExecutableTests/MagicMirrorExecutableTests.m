@@ -71,12 +71,12 @@
 
 - (void)testVersion {
     MagicMirror *mirror = [MagicMirror sharedInstance];
-    XCTAssertEqualObjects(mirror.version, @"2.0");
+    XCTAssertEqualObjects(mirror.version, @"2.0.1");
 }
 
 - (void)testBuild {
     MagicMirror *mirror = [MagicMirror sharedInstance];
-    XCTAssertEqualObjects(mirror.build, @"20");
+    XCTAssertEqualObjects(mirror.build, @"22");
 }
 
 - (void)testEnv {

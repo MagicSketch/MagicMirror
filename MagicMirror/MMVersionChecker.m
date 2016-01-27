@@ -74,6 +74,9 @@
     MMLog(@"self.local %@", self.local);
     MMLog(@"self.local.checkULR %@", self.local.checkURL);
     MMLog(@"self.local.version %@", self.local.version);
+    MMLog(@"self.remote %@", self.remote);
+    MMLog(@"self.remote.checkULR %@", self.remote.checkURL);
+    MMLog(@"self.remote.version %@", self.remote.version);;
 }
 
 - (void)fetchRemoteCompletion:(MMManifestURLCompletionHandler)completion {
@@ -83,7 +86,7 @@
         return;
     }
 
-    NSURL *url = [NSURL URLWithString:@"https://raw.githubusercontent.com/jamztang/MagicMirror/master/Magic%20Mirror.sketchplugin/Contents/Sketch/manifest.json"];
+    NSURL *url = [NSURL URLWithString:self.local.checkURL];
      __weak __typeof (self) weakSelf = self;
     [MMManifest manifestFromURL:url
                      completion:^(MMManifest *manifest, NSError *error) {
@@ -123,9 +126,9 @@
 
 - (void)notifyResult {
     NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60 * _skippingDays) sinceDate:self.lastChecked];
-    BOOL hasUpdate = [self.local compare:self.remote];
+    BOOL hasUpdate = [self.local compare:self.remote] == NSOrderedAscending;
     NSString *latestVersion = self.lastVersion ?: self.local.version;
-    BOOL hasNewerThanSeenVersion = [latestVersion compare:self.remote.version];
+    BOOL hasNewerThanSeenVersion = [latestVersion compare:self.remote.version] == NSOrderedAscending;
     BOOL hasExpired = [[NSDate date] compare:theOtherDay] >= NSOrderedSame;
     BOOL isSkipped = [self.lastVersion isEqualToString:self.remote.version] && self.status == MMVersionCheckerStatusSkipped;
 
@@ -138,7 +141,11 @@
             [self.delegate remainSlienceForUpdate];
         }
     } else {
-        [self.delegate showLatestDialog];
+        if (isSkipped) {
+            [self.delegate remainSlienceForUpdate];
+        } else {
+            [self.delegate showLatestDialog];
+        }
     }
 }
 
@@ -173,6 +180,7 @@
     self.status = 0;
     self.lastChecked = nil;
     self.lastVersion = nil;
+    self.remote = nil;
     [self save];
 }
 
