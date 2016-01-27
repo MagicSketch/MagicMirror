@@ -64,7 +64,6 @@
 - (id)exportableLayers;
 @property(nonatomic) BOOL hasBlendedLayer; // @synthesize hasBlendedLayer=_hasBlendedLayer;
 - (BOOL)hasClickThrough;
-- (void)ignoreLayerSelectionDidChangeNotificationsInBlock:(CDUnknownBlockType)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (void)invalidateLightweightCopy:(id)arg1;
 - (BOOL)isExportableViaDragAndDrop;
@@ -99,7 +98,6 @@
 - (BOOL)shouldDrawSelection;
 - (BOOL)shouldIncludeLayerInSlice:(id)arg1;
 - (BOOL)shouldRenderInTransparencyLayer;
-- (void)skipLayerBlendingCalculationInBlock:(CDUnknownBlockType)arg1;
 - (id)symbolLayersInGroup:(id)arg1;
 - (id)transform;
 - (BOOL)transparencyLayerUseRectCondition;

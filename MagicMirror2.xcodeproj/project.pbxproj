@@ -83,7 +83,6 @@
 		1AB4A96E1C15D69800B7922D /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB4A96D1C15D69800B7922D /* Storyboard.storyboard */; };
 		1AB4A9711C15D7B400B7922D /* MMWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A96F1C15D7B400B7922D /* MMWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB4A9701C15D7B400B7922D /* MMWindowController.m */; };
-		1AB4A9751C16E03B00B7922D /* Sketch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4A9741C16E03B00B7922D /* Sketch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4B7911C16E68400B7922D /* _AFURLSessionTaskSwizzling.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B2DE1C16E67E00B7922D /* _AFURLSessionTaskSwizzling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4B7921C16E68400B7922D /* _MSArtboardGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B2DF1C16E67E00B7922D /* _MSArtboardGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AB4B7931C16E68400B7922D /* _MSAssetCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AB4B2E01C16E67E00B7922D /* _MSAssetCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1303,6 +1302,8 @@
 		1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */; };
 		1ACD52961C28581800020EC2 /* MMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52931C28581800020EC2 /* MMViewController.h */; };
 		1ACD52971C28581800020EC2 /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD52941C28581800020EC2 /* MMViewController.m */; };
+		1AD2E4BE1C58E2F10080BC4F /* Sketch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2E4BD1C58E2F10080BC4F /* Sketch.m */; };
+		1AD2E4C01C58E2F70080BC4F /* Sketch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD2E4BF1C58E2F70080BC4F /* Sketch.h */; };
 		1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DB41C201CAD00198A87 /* MathTests.m */; };
 		1ADA7DBB1C202F5000198A87 /* NSBezierPath+Alter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */; };
 		1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */; };
@@ -1450,7 +1451,6 @@
 		1AB4A96F1C15D7B400B7922D /* MMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindowController.h; sourceTree = "<group>"; };
 		1AB4A9701C15D7B400B7922D /* MMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWindowController.m; sourceTree = "<group>"; };
 		1AB4A9731C15E1B700B7922D /* COScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = COScript.h; sourceTree = "<group>"; };
-		1AB4A9741C16E03B00B7922D /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sketch.h; sourceTree = "<group>"; };
 		1AB4B2DE1C16E67E00B7922D /* _AFURLSessionTaskSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = _AFURLSessionTaskSwizzling.h; sourceTree = "<group>"; };
 		1AB4B2DF1C16E67E00B7922D /* _MSArtboardGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = _MSArtboardGroup.h; sourceTree = "<group>"; };
 		1AB4B2E01C16E67E00B7922D /* _MSAssetCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = _MSAssetCollection.h; sourceTree = "<group>"; };
@@ -2669,6 +2669,8 @@
 		1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNoSelectionViewController.m; sourceTree = "<group>"; };
 		1ACD52931C28581800020EC2 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
 		1ACD52941C28581800020EC2 /* MMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMViewController.m; sourceTree = "<group>"; };
+		1AD2E4BD1C58E2F10080BC4F /* Sketch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sketch.m; sourceTree = "<group>"; };
+		1AD2E4BF1C58E2F70080BC4F /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sketch.h; sourceTree = "<group>"; };
 		1ADA7DB41C201CAD00198A87 /* MathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathTests.m; sourceTree = "<group>"; };
 		1ADA7DB91C202F5000198A87 /* NSBezierPath+Alter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+Alter.h"; sourceTree = "<group>"; };
 		1ADA7DBA1C202F5000198A87 /* NSBezierPath+Alter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+Alter.m"; sourceTree = "<group>"; };
@@ -4132,7 +4134,8 @@
 		1AB4BC4B1C16EDEA00B7922D /* Bridges */ = {
 			isa = PBXGroup;
 			children = (
-				1AB4A9741C16E03B00B7922D /* Sketch.h */,
+				1AD2E4BF1C58E2F70080BC4F /* Sketch.h */,
+				1AD2E4BD1C58E2F10080BC4F /* Sketch.m */,
 				1AB4BC451C16E70100B7922D /* CDUnknownBlockType.h */,
 				1AB4A9731C15E1B700B7922D /* COScript.h */,
 				1AB4BC441C16E69500B7922D /* NSDocument.h */,
@@ -5052,6 +5055,7 @@
 				1AB4BB2E1C16E68400B7922D /* MSTransformAction.h in Headers */,
 				1AB4B98A1C16E68400B7922D /* MSGradientView.h in Headers */,
 				1AB4BB531C16E68400B7922D /* MSZoomAction.h in Headers */,
+				1AD2E4C01C58E2F70080BC4F /* Sketch.h in Headers */,
 				1AB4B88B1C16E68400B7922D /* CHTransparentWindow.h in Headers */,
 				1AB4BA101C16E68400B7922D /* MSLayerPositionDrawing.h in Headers */,
 				1AB4B94D1C16E68400B7922D /* MSDocumentFile.h in Headers */,
@@ -5393,7 +5397,6 @@
 				1AB4B8991C16E68400B7922D /* ECLogChannel.h in Headers */,
 				1AB4BAC71C16E68400B7922D /* MSSidebarListController.h in Headers */,
 				1AB4BC461C16E70400B7922D /* CDUnknownBlockType.h in Headers */,
-				1AB4A9751C16E03B00B7922D /* Sketch.h in Headers */,
 				1AB4BC4A1C16EC5F00B7922D /* COScript.h in Headers */,
 				1AB4A95D1C15A7C200B7922D /* MagicMirror.h in Headers */,
 				1AB4BC491C16EC4E00B7922D /* NSObject.h in Headers */,
@@ -5632,6 +5635,7 @@
 				1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */,
 				1A562CCD1C1A9C1B00FE3981 /* MMToolbarViewController.m in Sources */,
 				1AB4A9721C15D7B400B7922D /* MMWindowController.m in Sources */,
+				1AD2E4BE1C58E2F10080BC4F /* Sketch.m in Sources */,
 				1ADA7DBC1C202F5000198A87 /* NSBezierPath+Alter.m in Sources */,
 				1A1DB9D11C437BF100017255 /* MMTracker.m in Sources */,
 				1A6E63B01C442EF900672D51 /* MMComboBox.m in Sources */,

@@ -9,6 +9,8 @@
 #ifndef COScript_h
 #define COScript_h
 
+#import <Foundation/Foundation.h>
+
 @protocol COScript <NSObject>
 
 @property (nonatomic) BOOL shouldKeepAround;

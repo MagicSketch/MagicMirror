@@ -19,6 +19,7 @@
 #import "MMImageLoader.h"
 #import "NSRect+Math.h"
 #import "NSImage+Transform.h"
+#import "Sketch.h"
 
 typedef enum : NSUInteger {
     MMImageRendererWatermarkStyleCenter,
@@ -71,9 +72,9 @@ typedef enum : NSUInteger {
 }
 
 - (NSImage *)exportedImage {
-    id <MSExportRequest> request = [NSClassFromString(@"MSExportRequest") requestWithRect:[self.layer rect] scale:[self currentScale]];
-    id <MSExportRenderer> renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:self.colorSpace];
-    request.page = [self.layer parentPage];
+    id <MSExportRequest> request = [Sketch requestWithRect:[self.layer rect] scale:[self currentScale]];
+    id <MSExportRenderer> renderer = [Sketch exportRendererForRequest:request colorSpace:self.colorSpace];
+    [Sketch setPage:self.layer.parentPage forRequest:request];
     request.rootLayerID = [self.layer objectID];
     NSImage *image = [renderer image];
     NSImage *newImage = nil;

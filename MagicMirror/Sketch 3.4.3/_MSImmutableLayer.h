@@ -28,8 +28,6 @@
 
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) MSImmutableExportOptions *exportOptions; // @synthesize exportOptions=_exportOptions;
 @property(retain, nonatomic) MSImmutableRect *frame; // @synthesize frame=_frame;
 - (BOOL)hasDefaultValues;
