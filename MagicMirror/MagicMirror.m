@@ -37,7 +37,7 @@
 #import "MMVersionChecker.h"
 #import "MMImageLoader.h"
 #import "MMVersionUpdateActor.h"
-
+#import "MMPersister.h"
 NSString *const MagicMirrorSharedInstanceDidUpdateNotification = @"MagicMirrorSharedInstanceDidUpdateNotification";
 
 
@@ -92,14 +92,6 @@ NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality) {
 @end
 
 @interface MagicMirror (SketchEventsController) <SketchEventsController>
-
-@end
-
-@interface MagicMirror (Persist)
-
-- (void)persistDictionary:(id)object withIdentifier:(NSString *)identifier;
-- (NSDictionary *)persistedDictionaryForIdentifier:(NSString *)identifier;
-- (void)removePersistedDictionaryForIdentifier:(NSString *)identifier;
 
 @end
 
@@ -170,7 +162,7 @@ static MagicMirror *_sharedInstance = nil;
     _env = MMEnvProduction;
 #endif
     _tracker = [[MMTracker alloc] init];
-    _checker = [[MMVersionChecker alloc] init];
+    _checker = [MMVersionChecker versionCheckerWithPersister:self];
     _checker.delegate = self;
     _loader = [[MMImageLoader alloc] init];
 }
@@ -311,6 +303,7 @@ static MagicMirror *_sharedInstance = nil;
 
 - (void)configureSelection {
     MMLog(@"configureSelection");
+    [self.checker checkForUpdatesIfNeeded:^{}];
 
     if (_controller) {
         [self closeToolbar];
@@ -419,6 +412,7 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (void)checkForUpdates {
+    [self.checker reset];
     [self.checker checkForUpdates:^{}];
 }
 
@@ -565,26 +559,6 @@ static MagicMirror *_sharedInstance = nil;
             [controller magicmirrorLicenseDetached:self];
         }
     }];
-}
-
-@end
-
-
-@implementation MagicMirror (Persist)
-
-- (void)removePersistedDictionaryForIdentifier:(NSString *)identifier {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:identifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (NSDictionary *)persistedDictionaryForIdentifier:(NSString *)identifier {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
-}
-
-- (void)persistDictionary:(NSDictionary *)dictionary withIdentifier:(NSString *)identifier {
-    [[NSUserDefaults standardUserDefaults] setObject:dictionary
-                                              forKey:identifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

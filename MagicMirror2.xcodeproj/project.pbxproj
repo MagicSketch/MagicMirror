@@ -66,6 +66,11 @@
 		1A74648F1C40EEBD00FEBF8B /* MMLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A74648D1C40EEBD00FEBF8B /* MMLayer.m */; };
 		1A753A161C24081B00DE2EC1 /* MMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A753A141C24081B00DE2EC1 /* MMMath.h */; };
 		1A753A171C24081B00DE2EC1 /* MMMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A753A151C24081B00DE2EC1 /* MMMath.m */; };
+		1A9060261C5537390079B3B3 /* MMPersister.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A9060241C5537390079B3B3 /* MMPersister.h */; };
+		1A9060271C5537390079B3B3 /* MMPersister.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9060251C5537390079B3B3 /* MMPersister.m */; };
+		1A9060291C55394C0079B3B3 /* MMPersisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A9060281C55394C0079B3B3 /* MMPersisterTests.m */; };
+		1A90602C1C5540560079B3B3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A90602B1C5540560079B3B3 /* WebViewController.m */; };
+		1A90602E1C5541DA0079B3B3 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A90602D1C5541DA0079B3B3 /* WebKit.framework */; };
 		1AA677D81C42D10E000924FE /* MMLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677D71C42D10E000924FE /* MMLayerTests.m */; };
 		1AA677DE1C42D96E000924FE /* MagicMirror+MMPropertyController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */; };
 		1AA677DF1C42D96E000924FE /* MagicMirror+MMPropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */; };
@@ -1427,6 +1432,12 @@
 		1A74648D1C40EEBD00FEBF8B /* MMLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayer.m; sourceTree = "<group>"; };
 		1A753A141C24081B00DE2EC1 /* MMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMath.h; sourceTree = "<group>"; };
 		1A753A151C24081B00DE2EC1 /* MMMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMath.m; sourceTree = "<group>"; };
+		1A9060241C5537390079B3B3 /* MMPersister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPersister.h; sourceTree = "<group>"; };
+		1A9060251C5537390079B3B3 /* MMPersister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPersister.m; sourceTree = "<group>"; };
+		1A9060281C55394C0079B3B3 /* MMPersisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPersisterTests.m; sourceTree = "<group>"; };
+		1A90602A1C5540560079B3B3 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		1A90602B1C5540560079B3B3 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1A90602D1C5541DA0079B3B3 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1AA677D71C42D10E000924FE /* MMLayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLayerTests.m; sourceTree = "<group>"; };
 		1AA677DC1C42D96E000924FE /* MagicMirror+MMPropertyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicMirror+MMPropertyController.h"; sourceTree = "<group>"; };
 		1AA677DD1C42D96E000924FE /* MagicMirror+MMPropertyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicMirror+MMPropertyController.m"; sourceTree = "<group>"; };
@@ -2700,6 +2711,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A90602E1C5541DA0079B3B3 /* WebKit.framework in Frameworks */,
 				1AB4A9611C15A7C200B7922D /* MagicMirror.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2820,6 +2832,8 @@
 				1A74648D1C40EEBD00FEBF8B /* MMLayer.m */,
 				1A34C1D41C47574200C2F735 /* MMVersionChecker.h */,
 				1A34C1D51C47574200C2F735 /* MMVersionChecker.m */,
+				1A9060241C5537390079B3B3 /* MMPersister.h */,
+				1A9060251C5537390079B3B3 /* MMPersister.m */,
 				1ADD96921C4914F700A66AE2 /* MMVersionUpdateActor.h */,
 				1ADD96931C4914F700A66AE2 /* MMVersionUpdateActor.m */,
 			);
@@ -2838,6 +2852,7 @@
 				1AA677D71C42D10E000924FE /* MMLayerTests.m */,
 				1A562CE91C1B2D1400FE3981 /* MMValuesStackTests.m */,
 				1A34C1D81C47580500C2F735 /* MMVersionCheckerTests.m */,
+				1A9060281C55394C0079B3B3 /* MMPersisterTests.m */,
 				1A34C1DE1C47593400C2F735 /* MMManifestTests.m */,
 				1A562CDF1C1B2B9200FE3981 /* Info.plist */,
 				1A299ED91C40FC3100DC4098 /* QuadTests.m */,
@@ -2881,6 +2896,7 @@
 		1AB4A9351C15A51D00B7922D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A90602D1C5541DA0079B3B3 /* WebKit.framework */,
 				1AB4A9331C15A51800B7922D /* AppKit.framework */,
 				F32649A8C4CC753031EC5573 /* libPods.a */,
 				D85EF9EC827FB221BFF5E376 /* libPods-MagicMirror.a */,
@@ -2895,6 +2911,8 @@
 				1AB4A9401C15A5E100B7922D /* AppDelegate.m */,
 				1AB4A9451C15A5E100B7922D /* ViewController.h */,
 				1AB4A9461C15A5E100B7922D /* ViewController.m */,
+				1A90602A1C5540560079B3B3 /* WebViewController.h */,
+				1A90602B1C5540560079B3B3 /* WebViewController.m */,
 				1AB4A9481C15A5E100B7922D /* Assets.xcassets */,
 				1AB4A94A1C15A5E100B7922D /* Main.storyboard */,
 				1AB4A94D1C15A5E100B7922D /* Info.plist */,
@@ -5241,6 +5259,7 @@
 				1AB4BB3E1C16E68400B7922D /* MSVersionedArchive.h in Headers */,
 				1AB4BB6F1C16E68400B7922D /* NSBezierPath-NSBezierPath_Various.h in Headers */,
 				1AB4BACA1C16E68400B7922D /* MSSliceDragView.h in Headers */,
+				1A9060261C5537390079B3B3 /* MMPersister.h in Headers */,
 				1AB4B9331C16E68400B7922D /* MSCreateSymbolAction.h in Headers */,
 				1AB4BB771C16E68400B7922D /* NSBitmapImageRep-CHBitmapRepAdditions.h in Headers */,
 				1AB4BB7C1C16E68400B7922D /* NSColor-NSColor_String.h in Headers */,
@@ -5585,6 +5604,7 @@
 				1A34C1DF1C47593400C2F735 /* MMManifestTests.m in Sources */,
 				1A5D4D611C42EDE5007EAB79 /* MockArtboardFinder.m in Sources */,
 				1AA677E21C42DAEF000924FE /* MockPropertySetter.m in Sources */,
+				1A9060291C55394C0079B3B3 /* MMPersisterTests.m in Sources */,
 				1A34C1D91C47580500C2F735 /* MMVersionCheckerTests.m in Sources */,
 				1ADD96911C4914CC00A66AE2 /* MockVersionUpdateActor.m in Sources */,
 				1A562CDE1C1B2B9200FE3981 /* MagicMirrorExecutableTests.m in Sources */,
@@ -5599,6 +5619,7 @@
 				1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */,
 				1AB4A9441C15A5E100B7922D /* main.m in Sources */,
 				1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */,
+				1A90602C1C5540560079B3B3 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5617,6 +5638,7 @@
 				1A34C1D71C47574200C2F735 /* MMVersionChecker.m in Sources */,
 				1ACD52971C28581800020EC2 /* MMViewController.m in Sources */,
 				1A0CBDC91C3153B10078B384 /* MMArtboardComboboxItem.m in Sources */,
+				1A9060271C5537390079B3B3 /* MMPersister.m in Sources */,
 				1A21D9D91C2AC60D005A2733 /* MMWindow.m in Sources */,
 				1A34C1DD1C47588D00C2F735 /* MMManifest.m in Sources */,
 				1A3E09A21C450C6200E2BA67 /* NSRect+Math.m in Sources */,

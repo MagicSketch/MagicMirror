@@ -58,6 +58,14 @@
     [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) { XCTAssertNil(error); }];
 }
 
+- (void)testNeedsAutoCheck {
+    XCTAssertTrue([self.checker needsAutoCheck]);
+    self.checker.lastChecked = [NSDate date];
+    XCTAssertFalse([self.checker needsAutoCheck]);
+    self.checker.lastChecked = [NSDate dateWithTimeInterval:-24 * 60 * 60 * self.checker.skippingDays - 1 sinceDate:[NSDate date]];
+    XCTAssertTrue([self.checker needsAutoCheck]);
+}
+
 - (void)testNoUpdates {
     XCTestExpectation *expectation = [self expectationWithDescription:@"No Updates"];
     self.checker.remote = [MMManifest manifestWithVersion:@"2.0"];
