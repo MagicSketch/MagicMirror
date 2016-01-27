@@ -21,8 +21,6 @@
 
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) MSImmutableSimpleGrid *grid; // @synthesize grid=_grid;
 - (BOOL)hasDefaultValues;
 @property(retain, nonatomic) MSImmutableRulerData *horizontalRulerData; // @synthesize horizontalRulerData=_horizontalRulerData;
