@@ -18,6 +18,7 @@
 @property (nonatomic, strong) MMManifest *local;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic) MMVersionCheckerStatus status;
+@property (nonatomic, copy) NSDate *previousCheck;
 @property (nonatomic, weak) id <MMPersister> persister;
 
 @end
@@ -104,11 +105,12 @@
     [self fetchRemoteCompletion:^(MMManifest *manifest, NSError *error) {
         weakSelf.remote = manifest;
         weakSelf.error = error;
-        [weakSelf notifyResult];
+        weakSelf.previousCheck = weakSelf.lastChecked;
+        weakSelf.lastChecked = [NSDate date];
+       [weakSelf notifyResult];
         if (completion) {
             completion();
         }
-        weakSelf.lastChecked = [NSDate date];
     }];
 }
 
@@ -125,7 +127,7 @@
 }
 
 - (void)notifyResult {
-    NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60 * _skippingDays) sinceDate:self.lastChecked];
+    NSDate *theOtherDay = [NSDate dateWithTimeInterval:(24 * 60 * 60 * _skippingDays) sinceDate:self.previousCheck];
     BOOL hasUpdate = [self.local compare:self.remote] == NSOrderedAscending;
     NSString *latestVersion = self.lastVersion ?: self.local.version;
     BOOL hasNewerThanSeenVersion = [latestVersion compare:self.remote.version] == NSOrderedAscending;

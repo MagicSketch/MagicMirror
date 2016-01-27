@@ -43,6 +43,7 @@
     NSModalResponse response = [alert runModal];
     switch (response) {
         default:
+            [self.checker okay];
             break;
     }
 }

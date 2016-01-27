@@ -76,7 +76,7 @@
 
 - (void)testBuild {
     MagicMirror *mirror = [MagicMirror sharedInstance];
-    XCTAssertEqualObjects(mirror.build, @"22");
+    XCTAssertEqualObjects(mirror.build, @"24");
 }
 
 - (void)testEnv {
