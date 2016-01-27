@@ -18,8 +18,6 @@
 
 - (void)decodePropertiesWithCoder:(id)arg1;
 - (void)encodePropertiesWithCoder:(id)arg1;
-- (void)enumerateChildProperties:(CDUnknownBlockType)arg1;
-- (void)enumerateProperties:(CDUnknownBlockType)arg1;
 @property(nonatomic) BOOL hasClickThrough; // @synthesize hasClickThrough=_hasClickThrough;
 - (BOOL)hasDefaultValues;
 - (id)initWithMutableModelObject:(id)arg1;
