@@ -92,3 +92,8 @@ var checkForUpdates = function(context) {
 	var magicmirror = initialize(context);
 	[magicmirror checkForUpdates];
 }
+
+var refresh = function(context) {
+	var magicmirror = initialize(context);
+	[magicmirror refreshPageOrSelection];
+}

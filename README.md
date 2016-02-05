@@ -17,3 +17,12 @@ Version 2 has a number of improvements over its precedance:
 
 All of this thanks to the dynamic nature of Objective-C which allows us to have a way to completely rewritten the plugin in native language.
 
+CHANGELOG
+---
+
+v2.0.2 a few UX enhancement (2016-02-05)
+
+- Allow Typing in Artboard Selection
+- Sort Artboard selection
+- Add hotkey for refreshing page/selection
+

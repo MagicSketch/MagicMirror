@@ -81,6 +81,7 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 - (void)licenseInfo;
 - (void)flipSelection;
 - (void)jumpSelection;
+- (void)refreshPageOrSelection;
 - (void)refreshSelection;
 - (void)refreshPage;
 - (void)rotateSelection;
