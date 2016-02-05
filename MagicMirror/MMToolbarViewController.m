@@ -53,8 +53,9 @@
     NSMutableArray *artboardItems = [NSMutableArray array];
     [artboardItems addObject:[MMArtboardComboboxItem nullItem]];
 
-    [lookup enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        [artboardItems addObject:[MMArtboardComboboxItem itemWithArtboard:obj]];
+    NSArray <NSString *> *keys = [[lookup allKeys] sortedArrayUsingSelector:@selector(compare:)];
+    [keys enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        [artboardItems addObject:[MMArtboardComboboxItem itemWithArtboard:lookup[key]]];
     }];
 
     [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
