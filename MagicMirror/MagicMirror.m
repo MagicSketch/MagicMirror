@@ -186,6 +186,7 @@ static MagicMirror *_sharedInstance = nil;
     _toolbarWindow = [storyboard instantiateInitialController];
     _toolbarWindow.delegate = self;
     [_toolbarWindow showWindow:self];
+    [_toolbarWindow.window becomeKeyWindow];
     [self reloadData];
 }
 

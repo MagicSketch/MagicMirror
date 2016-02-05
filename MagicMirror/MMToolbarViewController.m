@@ -43,7 +43,11 @@
     [super viewDidLoad];
     self.imageQualityComboBox.delegate = self;
     self.artboardsComboBox.delegate = self;
-//    self.shouldObserveCombobox = YES;
+}
+
+- (void)viewDidAppear {
+    [super viewDidAppear];
+    [self.artboardsComboBox.window makeFirstResponder:self.artboardsComboBox];
 }
 
 - (void)reloadArtboardCombobox {
