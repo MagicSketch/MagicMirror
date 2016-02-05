@@ -374,6 +374,16 @@ static MagicMirror *_sharedInstance = nil;
 
 // Entry Points
 
+- (void)refreshPageOrSelection {
+    MMLog(@"refresh page or selection");
+    [self trackSelectionEvent:@"Refresh Hotkey"];
+    if ([_context.selectedLayers count]) {
+        [self refreshSelection];
+    } else {
+        [self refreshPage];
+    }
+}
+
 - (void)refreshSelection {
     MMLog(@"refresh selection");
     [self trackSelectionEvent:@"Refresh Selection"];
