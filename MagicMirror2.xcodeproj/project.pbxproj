@@ -5475,6 +5475,7 @@
 				1AB4A9581C15A7C200B7922D /* Resources */,
 				1AB4A96B1C15D51800B7922D /* CopyFiles */,
 				DFE7CC11F261BB64CF91C5B8 /* Copy Pods Resources */,
+				1A654CA51C65CD600019EBA9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -5556,6 +5557,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1A654CA51C65CD600019EBA9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./copy-to-sketch-plugin-folder.sh";
+		};
 		A2A61CBDC303836CCF56D817 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
