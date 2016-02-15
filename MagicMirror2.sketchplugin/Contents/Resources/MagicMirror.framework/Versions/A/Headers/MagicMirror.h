@@ -66,7 +66,7 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 //- (void)setImageQuality:(NSNumber *)imageQuality forLayer:(id <MSShapeGroup>)layer;
 //- (void)flipLayer:(id <MSShapeGroup>)layer;
 //- (void)rotateLayer:(id <MSShapeGroup>)layer;
-- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality;
+- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality perspective:(BOOL)perspective;
 
 // Others
 //- (void)jumpToArtboard:(NSString *)artboardName;
@@ -74,6 +74,7 @@ extern NSString *NSStringFromMMImageRenderQuality(MMImageRenderQuality quality);
 // All Selection
 - (void)setArtboard:(id <MSArtboardGroup>)artboard;
 - (void)setImageQuality:(NSNumber *)imageQuality;
+- (void)setEnablePerspective:(NSNumber *)enablePerspective;
 - (void)setClear;
 
 // Entry Points

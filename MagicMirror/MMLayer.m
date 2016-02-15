@@ -145,9 +145,10 @@
 //        [self setValue:NSStringFromSize(image.size) forKey:@"imageSize" onLayer:layer];
 //        [self setValue:@(CACurrentMediaTime() - timeElasped) forKey:@"timeElapsed" onLayer:layer];
     }
-        [self configureVersion];
-        self.source = [artboard name];
-        self.imageQuality = @(imageQuality);
+    [self configureVersion];
+    self.source = [artboard name];
+    self.imageQuality = @(imageQuality);
+    self.enablePerspective = @(perspective);
 }
 
 - (void)refresh {
@@ -158,8 +159,9 @@
     } else {
         CGFloat ratio = CGSizeAspectFillRatio(artboard.rect.size, _layer.rect.size);
         MMImageRenderQuality quality = (MMImageRenderQuality)[self.imageQuality unsignedIntegerValue];
-        MMLog(@"ratio: %@, quality: %@", @(ratio), @(quality));
-        [self.magicmirror mirrorLayer:_layer fromArtboard:artboard imageQuality:quality];
+        BOOL perspective = self.enablePerspective ? [self.enablePerspective boolValue] : YES;
+        MMLog(@"ratio: %@, quality: %@, perspective: %@", @(ratio), @(quality), @(perspective));
+        [self.magicmirror mirrorLayer:_layer fromArtboard:artboard imageQuality:quality perspective:perspective];
     }
     [self configureVersion];
 }
@@ -203,6 +205,17 @@
 }
 - (NSNumber *)imageQuality {
     return [self.setter valueForKey:@"imageQuality" onLayer:self];
+}
+- (void)setEnablePerspective:(NSNumber *)enablePerspective {
+    MMLog(@"setEnablePerspective %@", enablePerspective);
+    if (self.enablePerspective == enablePerspective || [self.enablePerspective isEqual:enablePerspective]) {
+        return;
+    }
+    [self.setter setValue:enablePerspective forKey:@"enablePerspective" onLayer:self];
+    [self refresh];
+}
+- (NSNumber *)enablePerspective {
+    return [self.setter valueForKey:@"enablePerspective" onLayer:self];
 }
 
 - (void)setSource:(NSString *)source {

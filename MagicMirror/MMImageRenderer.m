@@ -81,6 +81,8 @@ typedef enum : NSUInteger {
 
     if ( ! self.disablePerspective) {
         newImage = [image imageForPath:self.bezierPath scale:self.imageQuality ?: self.defaultScale];
+    } else {
+        newImage = image;
     }
     MMLog(@"image %@", NSStringFromSize(image.size));
     MMLog(@"newImage %@", NSStringFromSize(newImage.size));

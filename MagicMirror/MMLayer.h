@@ -42,6 +42,7 @@
 
 @property (nonatomic, copy) NSString *source;
 @property (nonatomic, copy) NSNumber *imageQuality;
+@property (nonatomic, copy) NSNumber *enablePerspective; // BOOL
 @property (nonatomic, copy, readonly) NSString *version;
 
 - (void)configureVersion;

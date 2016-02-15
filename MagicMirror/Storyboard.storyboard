@@ -28,7 +28,7 @@
             <objects>
                 <viewController id="RaX-pZ-8Z0" customClass="MMToolbarViewController" sceneMemberID="viewController">
                     <view key="view" id="5PW-b4-rNt">
-                        <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="614" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c" customClass="MMComboBox">
@@ -99,6 +99,16 @@
                                     <action selector="refreshButtonDidPress:" target="RaX-pZ-8Z0" id="gUn-Jt-7T1"/>
                                 </connections>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xKf-AT-1K0">
+                                <rect key="frame" x="512" y="12" width="94" height="18"/>
+                                <buttonCell key="cell" type="check" title="Perspective" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qyk-s4-Qva">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="perspectiveButtonDidPress:" target="RaX-pZ-8Z0" id="AZD-n5-656"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -107,12 +117,13 @@
                         <outlet property="closeButton" destination="hyQ-E0-RUN" id="6KY-sQ-ANr"/>
                         <outlet property="imageQualityComboBox" destination="7TY-pF-xB4" id="tZp-I9-qcN"/>
                         <outlet property="jumpButton" destination="TN6-lX-eDR" id="yfr-zV-U2m"/>
+                        <outlet property="perspectiveButton" destination="xKf-AT-1K0" id="cg4-wY-V4i"/>
                         <outlet property="refreshButton" destination="xHS-yR-1zw" id="R1P-FO-MUg"/>
                     </connections>
                 </viewController>
                 <customObject id="Atn-QA-ad6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798.5" y="-1"/>
+            <point key="canvasLocation" x="783" y="4"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="LVo-kw-TZt">
@@ -342,17 +353,17 @@ DQ
             <objects>
                 <viewController id="WOo-pE-LaA" customClass="MMContainerViewController" sceneMemberID="viewController">
                     <view key="view" id="Hby-ZY-LiR" customClass="MMView">
-                        <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="614" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="wtU-sh-qpq">
-                                <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="614" height="44"/>
                                 <connections>
                                     <segue destination="RaX-pZ-8Z0" kind="embed" identifier="SI_ConfigureVC" id="Xr9-o7-CXn"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="6tB-gv-01z">
-                                <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="614" height="44"/>
                                 <connections>
                                     <segue destination="Fih-lY-VSH" kind="embed" identifier="SI_NoSelectionVC" id="WXJ-Qm-2tW"/>
                                 </connections>

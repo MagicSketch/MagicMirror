@@ -129,6 +129,20 @@
     XCTAssertEqualObjects(self.layer.imageQuality, @3);
     XCTAssertEqualObjects(self.layer.source, @"testArtboard");
 }
+- (void)testEnablePerspective {
+    [self.layer mirrorWithArtboard:self.artboard
+                      imageQuality:MMImageRenderQualityMax
+              colorSpaceIdentifier:ImageRendererColorSpaceSRGB
+                       perspective:YES];
+    XCTAssertEqualObjects(self.layer.enablePerspective, @YES);
+}
+- (void)testDisablePerspective {
+    [self.layer mirrorWithArtboard:self.artboard
+                      imageQuality:MMImageRenderQualityMax
+              colorSpaceIdentifier:ImageRendererColorSpaceSRGB
+                       perspective:NO];
+    XCTAssertEqualObjects(self.layer.enablePerspective, @NO);
+}
 
 - (void)testRotate {
     [self.layer rotate];

@@ -258,12 +258,15 @@ static MagicMirror *_sharedInstance = nil;
     [l flip];
 }
 
-- (void)mirrorLayer:(id <MSShapeGroup>)layer fromArtboard:(id <MSArtboardGroup>)artboard imageQuality:(MMImageRenderQuality)imageQuality {
+- (void)mirrorLayer:(id <MSShapeGroup>)layer
+       fromArtboard:(id <MSArtboardGroup>)artboard
+       imageQuality:(MMImageRenderQuality)imageQuality
+        perspective:(BOOL)perspective {
     MMLayer *l = [MMLayer layerWithLayer:layer];
     [l mirrorWithArtboard:artboard
              imageQuality:imageQuality
      colorSpaceIdentifier:_colorSpaceIdentifier
-              perspective:_perspective];
+              perspective:perspective];
 }
 
 - (void)refreshLayer:(id<MSShapeGroup>)layer {
@@ -287,6 +290,11 @@ static MagicMirror *_sharedInstance = nil;
     if (imageQuality && [imageQuality integerValue] >= 0) {
         [l setImageQuality:imageQuality];
     }
+}
+
+- (void)setEnablePerspective:(NSNumber *)enablePerspective forLayer:(id <MSShapeGroup>)layer {
+  MMLayer *l = [MMLayer layerWithLayer:layer];
+  [l setEnablePerspective:enablePerspective];
 }
 
 #pragma - Other
@@ -368,6 +376,17 @@ static MagicMirror *_sharedInstance = nil;
         MMLayer *l = [MMLayer layerWithLayer:obj];
         if (l.source) {
             [weakSelf clearLayer:obj];
+        }
+    }];
+}
+
+- (void)setEnablePerspective:(NSNumber *)enablePerspective {
+    __weak typeof (self) weakSelf = self;
+//    [self trackSelectionEvent:@"Enabled Perspective"];
+    [self.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        MMLayer *l = [MMLayer layerWithLayer:obj];
+        if (l.source) {
+          [weakSelf setEnablePerspective:enablePerspective forLayer:obj];
         }
     }];
 }
