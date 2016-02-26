@@ -21,6 +21,14 @@
 @end
 
 
+@interface NSObject (Sketch36)
+
+// MSExportRendererWithSVGSupport
++ (id)exporterForRequest:(id)arg1 colorSpace:(id)arg2;
+
+@end
+
+
 @implementation Sketch
 
 + (id <MSExportRenderer>)exportRendererForRequest:(id <MSExportRequest>)request colorSpace:(NSColorSpace *)colorSpace {
@@ -30,7 +38,12 @@
     if (NSClassFromString(@"MSExportRenderer")) {
         renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:colorSpace];
     } else if (NSClassFromString(@"MSExportRendererWithSVGSupport")) {
+      Class exporterClass = NSClassFromString(@"MSExportRendererWithSVGSupport");
+      if ([exporterClass instancesRespondToSelector:@selector(exporterForRequest:colorSpace:)]) {
+        renderer = [NSClassFromString(@"MSExportRendererWithSVGSupport") exporterForRequest:request colorSpace:colorSpace];
+      } else if ([exporterClass instancesRespondToSelector:@selector(exporterForRequest:colorSpace:allowSubpixelAntialiasing:)]) {
         renderer = [NSClassFromString(@"MSExportRendererWithSVGSupport") exporterForRequest:request colorSpace:colorSpace allowSubpixelAntialiasing:YES];
+      }
     }
     return renderer;
 }
