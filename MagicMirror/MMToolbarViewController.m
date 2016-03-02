@@ -26,7 +26,7 @@
 @property (weak) IBOutlet NSButton *applyButton;
 @property (weak) IBOutlet NSButtonCell *refreshButton;
 @property (weak) IBOutlet NSSegmentedControl *actionSegmentedControl;
-@property (weak) IBOutlet NSButton *perspectiveButton;
+//@property (weak) IBOutlet NSComboBox *contentModeComboBox;
 
 @property (copy) NSNumber *imageQuality;
 @property (copy) NSNumber *enabledPerspective;
@@ -148,31 +148,31 @@
 }
 
 - (void)reloadPerspectiveButton {
-    MMValuesStack *stack = [[MMValuesStack alloc] init];
-    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        MMLog(@"%lu: %@", idx, obj);
-
-        MMLayer *l = [MMLayer layerWithLayer:obj];
-        NSNumber *imageQuality = l.enablePerspective;
-        if (imageQuality) {
-            [stack addObject:imageQuality];
-        }
-    }];
-    NSLog(@"stack count: %lu", [stack count]);
-    NSInteger state = NSOnState;
-    switch ([stack result]) {
-        case MMValuesStackResultEmpty:
-        case MMValuesStackResultUnspecified:
-            break;
-        case MMValuesStackResultSingular: {
-            state = [stack.anyObject boolValue];
-            break;
-        }
-        case MMValuesStackResultMultiple:
-            state = [stack.anyObject boolValue];
-            break;
-    }
-    [self.perspectiveButton setState:state];
+//    MMValuesStack *stack = [[MMValuesStack alloc] init];
+//    [self.magicmirror.selectedLayers enumerateObjectsUsingBlock:^(id <MSShapeGroup> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        MMLog(@"%lu: %@", idx, obj);
+//
+//        MMLayer *l = [MMLayer layerWithLayer:obj];
+//        NSNumber *imageQuality = l.enablePerspective;
+//        if (imageQuality) {
+//            [stack addObject:imageQuality];
+//        }
+//    }];
+//    NSLog(@"stack count: %lu", [stack count]);
+//    NSInteger state = NSOnState;
+//    switch ([stack result]) {
+//        case MMValuesStackResultEmpty:
+//        case MMValuesStackResultUnspecified:
+//            break;
+//        case MMValuesStackResultSingular: {
+//            state = [stack.anyObject boolValue];
+//            break;
+//        }
+//        case MMValuesStackResultMultiple:
+//            state = [stack.anyObject boolValue];
+//            break;
+//    }
+//    [self.perspectiveButton setState:state];
 }
 
 - (void)reloadData {
