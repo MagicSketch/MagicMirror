@@ -13,10 +13,20 @@ var run = function(context) {
 }
 
 var resourcesPath = function(context) {
-	if ( ! context.plugin) {
-		return "/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/MagicMirror2/MagicMirror2.sketchplugin/Contents/Resources";
+	var basePath = NSString.stringWithFormat_(context.scriptPath)
+	.stringByDeletingLastPathComponent()
+	.stringByDeletingLastPathComponent()
+	.stringByDeletingLastPathComponent()
+
+	var plugin = context.plugin
+	if ( ! basePath || ! plugin) {
+		return "/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Magicmirror/MagicMirror2.sketchplugin/Contents/Resources";
 	}
-	return context.plugin.url().path() + "/Contents/Resources/";
+	return basePath + "/Contents/Resources/";
+}
+
+var urlForResourceNamed = function(context, name) {
+	return context.plugin.urlForResourceNamed_(name);
 }
 
 var loadFramework = function(frameworkName, directory){
