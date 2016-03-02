@@ -1307,6 +1307,7 @@
 		1ACD52911C2857F400020EC2 /* MMNoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */; };
 		1ACD52961C28581800020EC2 /* MMViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ACD52931C28581800020EC2 /* MMViewController.h */; };
 		1ACD52971C28581800020EC2 /* MMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD52941C28581800020EC2 /* MMViewController.m */; };
+		1AD06ADC1C849BEE00FDD41D /* ShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD06ADB1C849BEE00FDD41D /* ShapeView.m */; };
 		1AD2E4BE1C58E2F10080BC4F /* Sketch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD2E4BD1C58E2F10080BC4F /* Sketch.m */; };
 		1AD2E4C01C58E2F70080BC4F /* Sketch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD2E4BF1C58E2F70080BC4F /* Sketch.h */; };
 		1ADA7DB51C201CAD00198A87 /* MathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA7DB41C201CAD00198A87 /* MathTests.m */; };
@@ -2680,6 +2681,8 @@
 		1ACD528E1C2857F400020EC2 /* MMNoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNoSelectionViewController.m; sourceTree = "<group>"; };
 		1ACD52931C28581800020EC2 /* MMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMViewController.h; sourceTree = "<group>"; };
 		1ACD52941C28581800020EC2 /* MMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMViewController.m; sourceTree = "<group>"; };
+		1AD06ADA1C849BEE00FDD41D /* ShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShapeView.h; sourceTree = "<group>"; };
+		1AD06ADB1C849BEE00FDD41D /* ShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShapeView.m; sourceTree = "<group>"; };
 		1AD2E4BD1C58E2F10080BC4F /* Sketch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sketch.m; sourceTree = "<group>"; };
 		1AD2E4BF1C58E2F70080BC4F /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sketch.h; sourceTree = "<group>"; };
 		1ADA7DB41C201CAD00198A87 /* MathTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathTests.m; sourceTree = "<group>"; };
@@ -2913,6 +2916,8 @@
 				1AB4A9461C15A5E100B7922D /* ViewController.m */,
 				1A90602A1C5540560079B3B3 /* WebViewController.h */,
 				1A90602B1C5540560079B3B3 /* WebViewController.m */,
+				1AD06ADA1C849BEE00FDD41D /* ShapeView.h */,
+				1AD06ADB1C849BEE00FDD41D /* ShapeView.m */,
 				1AB4A9481C15A5E100B7922D /* Assets.xcassets */,
 				1AB4A94A1C15A5E100B7922D /* Main.storyboard */,
 				1AB4A94D1C15A5E100B7922D /* Info.plist */,
@@ -5632,6 +5637,7 @@
 			files = (
 				1AB4A9471C15A5E100B7922D /* ViewController.m in Sources */,
 				1AB4A9441C15A5E100B7922D /* main.m in Sources */,
+				1AD06ADC1C849BEE00FDD41D /* ShapeView.m in Sources */,
 				1AB4A9411C15A5E100B7922D /* AppDelegate.m in Sources */,
 				1A90602C1C5540560079B3B3 /* WebViewController.m in Sources */,
 			);

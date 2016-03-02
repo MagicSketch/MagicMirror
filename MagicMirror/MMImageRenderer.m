@@ -53,6 +53,7 @@ typedef enum : NSUInteger {
 }
 
 - (NSImage *)flattenedImage {
+    MMLog(@"flattening image");
     id <MSLayerFlattener> flattener = self.flattener;
 
     if ( ! flattener) {
@@ -72,6 +73,8 @@ typedef enum : NSUInteger {
 }
 
 - (NSImage *)exportedImage {
+
+    MMLog(@"exporting image");
     id <MSExportRequest> request = [Sketch requestWithRect:[self.layer rect] scale:[self currentScale]];
     id <MSExportRenderer> renderer = [Sketch exportRendererForRequest:request colorSpace:self.colorSpace];
     [Sketch setPage:self.layer.parentPage forRequest:request];

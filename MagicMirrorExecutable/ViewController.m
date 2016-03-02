@@ -9,10 +9,13 @@
 #import "ViewController.h"
 #import "MagicMirror.h"
 #import "MMVersionUpdateActor.h"
+#import "ShapeView.h"
 
 @interface ViewController ()
 
 @property (strong) MagicMirror *magicmirror;
+@property (weak) IBOutlet NSImageView *sourceImageView;
+@property (weak) IBOutlet ShapeView *targetImageView;
 
 @end
 
@@ -21,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.magicmirror = [MagicMirror sharedInstance];
+
+  self.targetImageView.image = self.sourceImageView.image;
+
 }
 
 - (IBAction)buttonDidClick:(id)sender {

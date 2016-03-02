@@ -646,7 +646,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="80.5" y="-251"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -655,7 +655,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -664,11 +664,12 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="80" y="130"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="NX8-3l-dQb">
             <objects>
+                <customObject id="eGp-xM-lyn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController id="l1f-R9-gDe" customClass="WebViewController" sceneMemberID="viewController">
                     <view key="view" id="q4U-qq-3mW">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -692,20 +693,19 @@
                         <outlet property="webView" destination="8aV-Mc-utK" id="LqS-XA-SmV"/>
                     </connections>
                 </viewController>
-                <customObject id="eGp-xM-lyn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424" y="341"/>
+            <point key="canvasLocation" x="686" y="490"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G84-pQ-mHe">
-                                <rect key="frame" x="32" y="185" width="86" height="32"/>
+                                <rect key="frame" x="32" y="395" width="86" height="32"/>
                                 <buttonCell key="cell" type="push" title="Toolbar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DIT-ll-N3U">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -715,7 +715,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-TY-PqS">
-                                <rect key="frame" x="32" y="145" width="114" height="32"/>
+                                <rect key="frame" x="32" y="355" width="114" height="32"/>
                                 <buttonCell key="cell" type="push" title="License Info" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K3a-Wa-8IW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -725,7 +725,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpm-8B-9a7">
-                                <rect key="frame" x="239" y="185" width="154" height="32"/>
+                                <rect key="frame" x="239" y="395" width="183" height="32"/>
                                 <buttonCell key="cell" type="push" title="Check for Updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jlp-gD-qTf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -735,7 +735,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGJ-MA-JsQ">
-                                <rect key="frame" x="238" y="145" width="184" height="32"/>
+                                <rect key="frame" x="238" y="355" width="184" height="32"/>
                                 <buttonCell key="cell" type="push" title="Update Avaliable Dialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qYr-cx-izy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -745,7 +745,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4WS-Pj-GuH">
-                                <rect key="frame" x="239" y="100" width="154" height="32"/>
+                                <rect key="frame" x="239" y="322" width="154" height="32"/>
                                 <buttonCell key="cell" type="push" title="No Updates Dialog" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eFf-E9-HnA">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -754,8 +754,11 @@
                                     <action selector="noUpdatesDidPress:" target="XfG-lQ-9wD" id="LFF-RY-SOZ"/>
                                 </connections>
                             </button>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KmG-Yg-Y7e" customClass="ShapeView">
+                                <rect key="frame" x="252" y="70" width="200" height="200"/>
+                            </customView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtC-Zg-Zm7">
-                                <rect key="frame" x="262" y="218" width="68" height="32"/>
+                                <rect key="frame" x="239" y="432" width="189" height="32"/>
                                 <buttonCell key="cell" type="push" title="Web" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7s-pv-tKk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -764,12 +767,23 @@
                                     <segue destination="l1f-R9-gDe" kind="show" id="qSg-7J-94d"/>
                                 </connections>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-3c-aNB">
+                                <rect key="frame" x="29" y="70" width="200" height="200"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="sample" id="O3n-LY-VlX"/>
+                            </imageView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="sourceImageView" destination="IhY-3c-aNB" id="cov-RV-PHr"/>
+                        <outlet property="targetImageView" destination="KmG-Yg-Y7e" id="TvR-2X-j32"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="731"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sample" width="200" height="200"/>
+    </resources>
 </document>
