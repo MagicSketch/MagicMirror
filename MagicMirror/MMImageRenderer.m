@@ -87,6 +87,8 @@ typedef enum : NSUInteger {
     } else {
         newImage = image;
     }
+    MMLog(@"request %@", request);
+    MMLog(@"renderer %@", renderer);
     MMLog(@"image %@", NSStringFromSize(image.size));
     MMLog(@"newImage %@", NSStringFromSize(newImage.size));
 

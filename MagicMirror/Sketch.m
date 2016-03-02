@@ -39,9 +39,9 @@
         renderer = [NSClassFromString(@"MSExportRenderer") exportRendererForRequest:request colorSpace:colorSpace];
     } else if (NSClassFromString(@"MSExportRendererWithSVGSupport")) {
       Class exporterClass = NSClassFromString(@"MSExportRendererWithSVGSupport");
-      if ([exporterClass instancesRespondToSelector:@selector(exporterForRequest:colorSpace:)]) {
+      if ([exporterClass respondsToSelector:@selector(exporterForRequest:colorSpace:)]) {
         renderer = [NSClassFromString(@"MSExportRendererWithSVGSupport") exporterForRequest:request colorSpace:colorSpace];
-      } else if ([exporterClass instancesRespondToSelector:@selector(exporterForRequest:colorSpace:allowSubpixelAntialiasing:)]) {
+      } else if ([exporterClass respondsToSelector:@selector(exporterForRequest:colorSpace:allowSubpixelAntialiasing:)]) {
         renderer = [NSClassFromString(@"MSExportRendererWithSVGSupport") exporterForRequest:request colorSpace:colorSpace allowSubpixelAntialiasing:YES];
       }
     }
