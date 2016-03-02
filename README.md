@@ -17,12 +17,15 @@ Version 2 has a number of improvements over its precedance:
 
 All of this thanks to the dynamic nature of Objective-C which allows us to have a way to completely rewritten the plugin in native language.
 
+## Troubleshoot
+
+Please refer to this guide if you can't use Magic Mirror. https://github.com/jamztang/MagicMirror/wiki/Troubleshooting
+
 ## Change Log
 
 2016-03-02 v2.0.3 (27)
 
 - Fix for Sketch 3.6
-- Fix installation with Sketch Toolbox
 
 2016-02-05 v2.0.2 (25)
 
