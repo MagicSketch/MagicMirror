@@ -1,5 +1,7 @@
 # Magic Mirror 2
 
+|  [Download]() | [Homepage]() | [Troubleshoot]() | [Changelog]() |
+|---|---|---|---|
 ![](http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif)
 
 Create Perspective Transformed Image in Sketch. Just like Smart Objects for Photoshop.
@@ -17,8 +19,7 @@ Version 2 has a number of improvements over its precedance:
 
 All of this thanks to the dynamic nature of Objective-C which allows us to have a way to completely rewritten the plugin in native language.
 
-## Troubleshoot
-
-Please refer to this guide if you can't use Magic Mirror. https://github.com/jamztang/MagicMirror/wiki/Troubleshooting
-
-[See Change Log](https://github.com/jamztang/MagicMirror/releases)
+[Troubleshoot]:https://github.com/jamztang/MagicMirror/wiki/Troubleshooting
+[Changelog]:https://github.com/jamztang/MagicMirror/releases
+[Download]:http://api.magicmirror.design/download/latest
+[Homepage]:http://magicmirror.design
