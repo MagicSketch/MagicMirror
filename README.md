@@ -1,7 +1,7 @@
 # Magic Mirror 2
 
-|  [Download][] | [Homepage][] | [Troubleshoot][] | [Changelog][] |
-|---|---|---|---|
+|  [Download][] | [Homepage][] | [Learn][] | [Troubleshoot][] | [Changelog][] |
+|---|---|---|---|---|---|
 ![](http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif)
 
 Create Perspective Transformed Image in Sketch. Just like Smart Objects for Photoshop.
@@ -23,3 +23,5 @@ All of this thanks to the dynamic nature of Objective-C which allows us to have 
 [Changelog]:https://github.com/jamztang/MagicMirror/releases
 [Download]:http://api.magicmirror.design/download/latest
 [Homepage]:http://magicmirror.design
+[Learn]:http://magicmirror.design/learn/
+[Templates]:http://magicmirror.design/templates/
