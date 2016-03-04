@@ -1,6 +1,6 @@
 # Magic Mirror 2
 
-|  [Download]() | [Homepage]() | [Troubleshoot]() | [Changelog]() |
+|  [Download][] | [Homepage][] | [Troubleshoot][] | [Changelog][] |
 |---|---|---|---|
 ![](http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif)
 
