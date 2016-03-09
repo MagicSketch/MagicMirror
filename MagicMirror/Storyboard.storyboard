@@ -14,6 +14,8 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="362" width="425" height="44"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <value key="minSize" type="size" width="425" height="44"/>
+                        <value key="maxSize" type="size" width="1024" height="44"/>
                     </window>
                     <connections>
                         <segue destination="WOo-pE-LaA" kind="relationship" relationship="window.shadowedContentViewController" id="Qy6-PD-68a"/>
@@ -31,8 +33,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="514" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c" customClass="MMComboBox">
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oQr-Yh-b7c" customClass="MMComboBox">
                                 <rect key="frame" x="76" y="7" width="146" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="143" id="EiD-5s-AwW"/>
+                                </constraints>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select an Artboard" drawsBackground="YES" usesDataSource="YES" numberOfVisibleItems="10" id="zuB-ln-mUU">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -42,8 +47,11 @@
                                     <outlet property="dataSource" destination="RaX-pZ-8Z0" id="9aA-zw-Y4l"/>
                                 </connections>
                             </comboBox>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-pF-xB4" customClass="MMComboBox">
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7TY-pF-xB4" customClass="MMComboBox">
                                 <rect key="frame" x="227" y="7" width="121" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="rjd-Uo-LHD"/>
+                                </constraints>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Image Quality" drawsBackground="YES" numberOfVisibleItems="5" id="FHY-82-Csw">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -56,8 +64,11 @@
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TN6-lX-eDR">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TN6-lX-eDR">
                                 <rect key="frame" x="36" y="4" width="38" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Dca-PT-32E"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="jump" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3uJ-OU-CwM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -66,8 +77,11 @@
                                     <action selector="jumpButtonDidPress:" target="RaX-pZ-8Z0" id="8zN-UB-PdO"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-E0-RUN">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hyQ-E0-RUN">
                                 <rect key="frame" x="4" y="4" width="38" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="XAc-IY-2vW"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" bezelStyle="rounded" image="detach" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FUE-cq-M3v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -76,8 +90,11 @@
                                     <action selector="closeButtonDidPress:" target="RaX-pZ-8Z0" id="CkK-Na-Zuh"/>
                                 </connections>
                             </button>
-                            <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-wW-8tI">
                                 <rect key="frame" x="351" y="8" width="71" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="ZwF-hH-r9A"/>
+                                </constraints>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="momentary" id="f4d-f7-dfE">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -89,8 +106,11 @@
                                     <action selector="actionSegmentValueDidChange:" target="RaX-pZ-8Z0" id="gwZ-fb-fyc"/>
                                 </connections>
                             </segmentedControl>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-J9-Z2B">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-J9-Z2B">
                                 <rect key="frame" x="422" y="3" width="88" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="WOK-21-7ZA"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xHS-yR-1zw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -100,6 +120,21 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="hyQ-E0-RUN" firstAttribute="leading" secondItem="5PW-b4-rNt" secondAttribute="leading" constant="10" id="12B-Nb-OY1"/>
+                            <constraint firstItem="TN6-lX-eDR" firstAttribute="leading" secondItem="hyQ-E0-RUN" secondAttribute="trailing" constant="6" id="3Mf-Kz-pEH"/>
+                            <constraint firstAttribute="trailing" secondItem="BTf-J9-Z2B" secondAttribute="trailing" constant="10" id="5eu-4d-aFi"/>
+                            <constraint firstItem="7TY-pF-xB4" firstAttribute="leading" secondItem="oQr-Yh-b7c" secondAttribute="trailing" constant="8" symbolic="YES" id="7bF-oW-fOS"/>
+                            <constraint firstItem="aeK-wW-8tI" firstAttribute="leading" secondItem="7TY-pF-xB4" secondAttribute="trailing" constant="8" symbolic="YES" id="8jV-cC-230"/>
+                            <constraint firstItem="7TY-pF-xB4" firstAttribute="top" secondItem="aeK-wW-8tI" secondAttribute="top" id="Avy-hd-0G2"/>
+                            <constraint firstItem="BTf-J9-Z2B" firstAttribute="leading" secondItem="aeK-wW-8tI" secondAttribute="trailing" constant="8" symbolic="YES" id="GsD-tV-Mag"/>
+                            <constraint firstItem="TN6-lX-eDR" firstAttribute="top" secondItem="hyQ-E0-RUN" secondAttribute="top" id="QHe-ad-t1I"/>
+                            <constraint firstItem="7TY-pF-xB4" firstAttribute="baseline" secondItem="oQr-Yh-b7c" secondAttribute="baseline" id="QJd-MK-vyi"/>
+                            <constraint firstItem="oQr-Yh-b7c" firstAttribute="leading" secondItem="TN6-lX-eDR" secondAttribute="trailing" constant="8" symbolic="YES" id="oka-Tj-zzL"/>
+                            <constraint firstItem="aeK-wW-8tI" firstAttribute="baseline" secondItem="BTf-J9-Z2B" secondAttribute="baseline" id="uRL-Dc-EAs"/>
+                            <constraint firstItem="oQr-Yh-b7c" firstAttribute="bottom" secondItem="TN6-lX-eDR" secondAttribute="bottom" id="uvU-1Y-z6N"/>
+                            <constraint firstItem="TN6-lX-eDR" firstAttribute="centerY" secondItem="5PW-b4-rNt" secondAttribute="centerY" id="v6o-fI-sKI"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="actionSegmentedControl" destination="aeK-wW-8tI" id="3aN-Jp-eLp"/>
