@@ -12,6 +12,8 @@
 
 @interface MMWindowController ()
 
+@property (nonatomic, strong) NSUserDefaults *persister;
+
 @end
 
 @implementation MMWindowController
@@ -29,6 +31,7 @@
 - (void)commonInit {
     [MagicMirror addObserver:self];
     [self.magicmirror keepAround];
+    self.persister = [NSUserDefaults standardUserDefaults];
 }
 
 - (void)showWindow:(nullable id)sender {
@@ -43,10 +46,27 @@
     self.window.hidesOnDeactivate = YES;
     [self.delegate controllerDidShow:self];
     self.window.movableByWindowBackground = YES;
+
+    NSString *windowsFrame = [self.persister objectForKey:@"design.magicmirror.window.frame"];
+    [self setShouldCascadeWindows:NO];
+    if (windowsFrame) {
+        if (CGRectContainsRect([[NSScreen mainScreen] frame], NSRectFromString(windowsFrame))) {
+            // Make sure rect is visible
+            NSRect rect = NSRectFromString(windowsFrame);
+            [self.window setFrame:rect display:YES];
+            MMLog(@"opening frame: %@ (visible)", NSStringFromRect(self.window.frame));
+        } else {
+            MMLog(@"opening frame: %@ (not visible, resetting frame)", NSStringFromRect(self.window.frame));
+        }
+    }
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
+    [self.persister setObject:NSStringFromRect(self.window.frame) forKey:@"design.magicmirror.window.frame"];
+    [self.persister synchronize];
     [self.delegate controllerDidClose:self];
+
+    MMLog(@"closing frame: %@", NSStringFromRect(self.window.frame));
 }
 
 - (void)dealloc {

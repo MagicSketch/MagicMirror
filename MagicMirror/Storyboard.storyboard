@@ -11,8 +11,7 @@
                 <windowController id="uwE-1d-YCq" customClass="MMWindowController" sceneMemberID="viewController">
                     <window key="window" title="Configure" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YFl-4L-lOd" customClass="MMWindow">
                         <windowStyleMask key="styleMask" closable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="294" y="362" width="425" height="44"/>
+                        <rect key="contentRect" x="294" y="0.0" width="425" height="44"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
                         <value key="minSize" type="size" width="425" height="44"/>
                         <value key="maxSize" type="size" width="1024" height="44"/>
