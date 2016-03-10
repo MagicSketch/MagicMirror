@@ -1,5 +1,7 @@
 # Magic Mirror 2
 
+[![GitHub release](https://img.shields.io/github/release/jamztang/MagicMirror.svg)]()
+
 |  [Download][] | [Homepage][] | [Learn][] | [Troubleshoot][] | [Changelog][] |
 |---|---|---|---|---|---|
 ![](http://cl.ly/image/1J0d3W1D0q3x/magic-mirror-banner.gif)

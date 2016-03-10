@@ -6,8 +6,8 @@
 	"homepage": "https://github.com/jamztang/MagicMirror",
     "identifier" : "design.magicmirror",
 	"compatibleVersion": 3.5,
-	"build": 27,
-	"version": "2.0.3",
+	"build": 28,
+	"version": "2.0.4",
 	"checkURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/MagicMirror2.sketchplugin/Contents/Sketch/manifest.json",
 
 	"commands": [
