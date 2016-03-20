@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.4</string>
+	<string>2.0.5</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,11 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
-	<string>27</string>
-=======
-	<string>28</string>
->>>>>>> v2.0.4-develop
+	<string>29</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -45,6 +41,6 @@
 	<key>DTXcodeBuild</key>
 	<string>7C68</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2015 James Tang. All rights reserved.</string>
+	<string>Copyright © 2016 James Tang. All rights reserved.</string>
 </dict>
 </plist>
