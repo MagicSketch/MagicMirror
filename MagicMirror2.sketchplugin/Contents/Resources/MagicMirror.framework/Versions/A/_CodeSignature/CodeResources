@@ -6,107 +6,59 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		UqO5KnlZRwhQ5+e6CAi4Mom3DRM=
+		tm13Tmeiv16+zL08efGIGAcOymQ=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		sOoYK8AZVJUNCC0RAIvnk5sukBQ=
+		TC1zBLBPCGB3DELnDOOHIQDKSSI=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Bhw-xv-sFQ-view-bwL-H5-sMo.nib</key>
 		<data>
-<<<<<<< HEAD
-		+CETlQBl8/oVBvr1K7BMkuUgKtU=
+		EvgejR02R2ML/4t0c+FWqNsjueE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Fih-lY-VSH-view-Ny1-SR-VnY.nib</key>
 		<data>
-		lZ1W4WRGjL/Inml6LixrQ2jp4WA=
+		aT5+hGl7V6B4PPHYZUlC7qU9KTY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		ow8INzdhF5VY3rbdZBGj3UlYpM0=
+		/qT5bWn1jkDfjOAgzBU1+N/RDhg=
 		</data>
 		<key>Resources/Storyboard.storyboardc/LicenseWindow.nib</key>
 		<data>
-		CwbkOUV+tv+IDL2C8H+KgZ6rtEU=
+		TgEFMrCJPGKv1qXttWVyfPi8sqs=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Bhw-xv-sFQ.nib</key>
 		<data>
-		umvaC/ZkMMU9yKeOZiI9iHKp/sI=
+		Z6qOWs5nPhX9GvlXBx5pEddnp8c=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
 		<data>
-		4pgrgYo8/XTMVNOT8yc4FJhEUbA=
+		fbEkswEklECIU1+l0DXbueu697E=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
 		<data>
-		q7TiZaQqJ4/e8zqhT7pfw9DeHcs=
+		vo/OidAGK+sMQLuWIOLiODTjztU=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		0O8FmHCa2K259U1lQM7E68jYW/k=
+		CaYlF2odMeRfZiZ4SYZ91m8ajaM=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		jbGNMzU7tjU5fsaNVEUwDxbmczY=
+		Fi09GXgQ12eVT6cX6LKa/WKRaV4=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RegisteredWindow.nib</key>
 		<data>
-		/fzy56aitcX479CKoLx6AqPrBqc=
+		4EUEgWDHqOBXZijQguelW94ej6E=
 		</data>
 		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
 		<data>
-		9ZyXpXPQMItts7rYICd45Ix0gZI=
+		ydpluR9t+WNRVxIWAuVmcpRjtcE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/oCf-fs-HOp-view-1Z2-Il-6sc.nib</key>
 		<data>
-		Ql9dNmDBKnNqe8ZDPoqtXVWWVxg=
-=======
-		oTS+k8y52EGf2HiCBXbf6MjKtbY=
-		</data>
-		<key>Resources/Storyboard.storyboardc/Fih-lY-VSH-view-Ny1-SR-VnY.nib</key>
-		<data>
-		ysmfdYH1WmrtfJ6P+BdnVpdFg+M=
-		</data>
-		<key>Resources/Storyboard.storyboardc/Info.plist</key>
-		<data>
-		77QnYNupgZ0ZaeJD3Sy5CQLeLQw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/LicenseWindow.nib</key>
-		<data>
-		D0ty33xygVxsmMAwE6pt5hMwpP4=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-Bhw-xv-sFQ.nib</key>
-		<data>
-		fwiRCotzAhf2CD9v+0t9KT1Mnz0=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
-		<data>
-		C2E9swHQrkE7naAUqnuFLOonlng=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
-		<data>
-		nfgzMAoL8g+gUxgNl3qklmmCrp4=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
-		<data>
-		Z+oNmHK90Y0VXoXV6NCj9Y4AbEw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
-		<data>
-		k1qdJub7P8Jt2xPpRu0YFd7ulcw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/RegisteredWindow.nib</key>
-		<data>
-		Bfojq/JgKp4sdhDG5S6IAkPZMwY=
-		</data>
-		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
-		<data>
-		fws2UuZezi808sY2zWLLpyoS7+U=
-		</data>
-		<key>Resources/Storyboard.storyboardc/oCf-fs-HOp-view-1Z2-Il-6sc.nib</key>
-		<data>
-		UJXswKQfHBttMv4aOOq3Fl3ZrNo=
->>>>>>> v2.0.4-develop
+		M5ngAXqr2RW1Kx3HkuJK6zuYOpk=
 		</data>
 		<key>Resources/detach.pdf</key>
 		<data>
@@ -2161,7 +2113,7 @@
 		</data>
 		<key>Headers/MSLayerFlattener.h</key>
 		<data>
-		RyWSm4D/3ghUUOlYv27/vwX+WYA=
+		s8Ctlm+lnIwKdd8wb08yYDj3AhY=
 		</data>
 		<key>Headers/MSLayerGroup.h</key>
 		<data>
@@ -3957,7 +3909,7 @@
 		</data>
 		<key>Headers/NSObject.h</key>
 		<data>
-		dzjXUB0VRfa1LuGdxakYwfIqkB8=
+		ROR2kVjJkjOukCL4OXIs/PsvM1E=
 		</data>
 		<key>Headers/NSOutlineView-ECCore.h</key>
 		<data>
@@ -4957,107 +4909,59 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		UqO5KnlZRwhQ5+e6CAi4Mom3DRM=
+		tm13Tmeiv16+zL08efGIGAcOymQ=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		sOoYK8AZVJUNCC0RAIvnk5sukBQ=
+		TC1zBLBPCGB3DELnDOOHIQDKSSI=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Bhw-xv-sFQ-view-bwL-H5-sMo.nib</key>
 		<data>
-<<<<<<< HEAD
-		+CETlQBl8/oVBvr1K7BMkuUgKtU=
+		EvgejR02R2ML/4t0c+FWqNsjueE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Fih-lY-VSH-view-Ny1-SR-VnY.nib</key>
 		<data>
-		lZ1W4WRGjL/Inml6LixrQ2jp4WA=
+		aT5+hGl7V6B4PPHYZUlC7qU9KTY=
 		</data>
 		<key>Resources/Storyboard.storyboardc/Info.plist</key>
 		<data>
-		ow8INzdhF5VY3rbdZBGj3UlYpM0=
+		/qT5bWn1jkDfjOAgzBU1+N/RDhg=
 		</data>
 		<key>Resources/Storyboard.storyboardc/LicenseWindow.nib</key>
 		<data>
-		CwbkOUV+tv+IDL2C8H+KgZ6rtEU=
+		TgEFMrCJPGKv1qXttWVyfPi8sqs=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Bhw-xv-sFQ.nib</key>
 		<data>
-		umvaC/ZkMMU9yKeOZiI9iHKp/sI=
+		Z6qOWs5nPhX9GvlXBx5pEddnp8c=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
 		<data>
-		4pgrgYo8/XTMVNOT8yc4FJhEUbA=
+		fbEkswEklECIU1+l0DXbueu697E=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
 		<data>
-		q7TiZaQqJ4/e8zqhT7pfw9DeHcs=
+		vo/OidAGK+sMQLuWIOLiODTjztU=
 		</data>
 		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
 		<data>
-		0O8FmHCa2K259U1lQM7E68jYW/k=
+		CaYlF2odMeRfZiZ4SYZ91m8ajaM=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
 		<data>
-		jbGNMzU7tjU5fsaNVEUwDxbmczY=
+		Fi09GXgQ12eVT6cX6LKa/WKRaV4=
 		</data>
 		<key>Resources/Storyboard.storyboardc/RegisteredWindow.nib</key>
 		<data>
-		/fzy56aitcX479CKoLx6AqPrBqc=
+		4EUEgWDHqOBXZijQguelW94ej6E=
 		</data>
 		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
 		<data>
-		9ZyXpXPQMItts7rYICd45Ix0gZI=
+		ydpluR9t+WNRVxIWAuVmcpRjtcE=
 		</data>
 		<key>Resources/Storyboard.storyboardc/oCf-fs-HOp-view-1Z2-Il-6sc.nib</key>
 		<data>
-		Ql9dNmDBKnNqe8ZDPoqtXVWWVxg=
-=======
-		oTS+k8y52EGf2HiCBXbf6MjKtbY=
-		</data>
-		<key>Resources/Storyboard.storyboardc/Fih-lY-VSH-view-Ny1-SR-VnY.nib</key>
-		<data>
-		ysmfdYH1WmrtfJ6P+BdnVpdFg+M=
-		</data>
-		<key>Resources/Storyboard.storyboardc/Info.plist</key>
-		<data>
-		77QnYNupgZ0ZaeJD3Sy5CQLeLQw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/LicenseWindow.nib</key>
-		<data>
-		D0ty33xygVxsmMAwE6pt5hMwpP4=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-Bhw-xv-sFQ.nib</key>
-		<data>
-		fwiRCotzAhf2CD9v+0t9KT1Mnz0=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-Fih-lY-VSH.nib</key>
-		<data>
-		C2E9swHQrkE7naAUqnuFLOonlng=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSViewController-RaX-pZ-8Z0.nib</key>
-		<data>
-		nfgzMAoL8g+gUxgNl3qklmmCrp4=
-		</data>
-		<key>Resources/Storyboard.storyboardc/NSWindowController-uwE-1d-YCq.nib</key>
-		<data>
-		Z+oNmHK90Y0VXoXV6NCj9Y4AbEw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/RaX-pZ-8Z0-view-5PW-b4-rNt.nib</key>
-		<data>
-		k1qdJub7P8Jt2xPpRu0YFd7ulcw=
-		</data>
-		<key>Resources/Storyboard.storyboardc/RegisteredWindow.nib</key>
-		<data>
-		Bfojq/JgKp4sdhDG5S6IAkPZMwY=
-		</data>
-		<key>Resources/Storyboard.storyboardc/WOo-pE-LaA-view-Hby-ZY-LiR.nib</key>
-		<data>
-		fws2UuZezi808sY2zWLLpyoS7+U=
-		</data>
-		<key>Resources/Storyboard.storyboardc/oCf-fs-HOp-view-1Z2-Il-6sc.nib</key>
-		<data>
-		UJXswKQfHBttMv4aOOq3Fl3ZrNo=
->>>>>>> v2.0.4-develop
+		M5ngAXqr2RW1Kx3HkuJK6zuYOpk=
 		</data>
 		<key>Resources/detach.pdf</key>
 		<data>

@@ -11,4 +11,10 @@
 
 #import "MSSharedObjectInstance.h"
 
+@interface NSObject (Sketch3_7)
+
+- (id)immutableModelObject;
+
+@end
+
 #endif /* NSObject_h */
