@@ -35,7 +35,7 @@ var loadFramework = function(frameworkName, directory){
 		debug("loadFramework: `" + frameworkName + "` success!");
 		return true;
 	}
-	debug("loadFramework: `" + frameworkName + "` failed!");
+	debug("❌  loadFramework: `" + frameworkName + "` failed!");
 	return false;
 }
 

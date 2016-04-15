@@ -71,12 +71,12 @@
 
 - (void)testVersion {
     MagicMirror *mirror = [MagicMirror sharedInstance];
-    XCTAssertEqualObjects(mirror.version, @"2.0.1");
+    XCTAssertEqualObjects(mirror.version, @"2.0.6");
 }
 
 - (void)testBuild {
     MagicMirror *mirror = [MagicMirror sharedInstance];
-    XCTAssertEqualObjects(mirror.build, @"24");
+    XCTAssertEqualObjects(mirror.build, @"30");
 }
 
 - (void)testEnv {
@@ -95,6 +95,12 @@
 #else
     XCTAssertEqualObjects(mirror.baseURLString, @"http://api.magicmirror.design");
 #endif
+}
+
+- (void)testManifestFile {
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:mirror.manifestFilePath];
+    XCTAssertTrue(fileExists);
 }
 
 

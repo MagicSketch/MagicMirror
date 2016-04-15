@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.5</string>
+	<string>2.0.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>29</string>
+	<string>30</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2016 James Tang. All rights reserved.</string>
 	<key>NSPrincipalClass</key>

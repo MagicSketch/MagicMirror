@@ -447,10 +447,17 @@ static MagicMirror *_sharedInstance = nil;
 }
 
 - (NSString *)manifestFilePath {
-    NSString *path = [[[[self.context plugin] url] path] stringByAppendingString:@"/Contents/Sketch/manifest.json"];
-    if ( ! path) {
-        path = @"/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/MagicMirror2/MagicMirror2.sketchplugin/Contents/Sketch/manifest.json";
+    NSString *appSupportPath = [[[[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject] path];
+    NSString *pluginFolderPath = [appSupportPath stringByAppendingPathComponent:@"com.bohemiancoding.sketch3/Plugins/Magicmirror/MagicMirror2.sketchplugin"];
+    if ( ! [[NSFileManager defaultManager] fileExistsAtPath:pluginFolderPath]) {
+        pluginFolderPath = [appSupportPath stringByAppendingPathComponent:@"com.bohemiancoding.sketch3/Plugins/MagicMirror2.sketchplugin"];
     }
+    NSString *path = [[[self.context plugin] url] path] ?: pluginFolderPath;
+    while ( ! [[path lastPathComponent] isEqualToString:@"MagicMirror2.sketchplugin"]) {
+        path = [path stringByDeletingLastPathComponent];
+    }
+    path = [path stringByAppendingPathComponent:@"Contents/Sketch/manifest.json"];
+    NSAssert([[NSFileManager defaultManager] fileExistsAtPath:path], @"Should have manifest file");
     return path;
 }
 
