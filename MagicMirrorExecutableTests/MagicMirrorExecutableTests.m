@@ -103,5 +103,20 @@
     XCTAssertTrue(fileExists);
 }
 
+- (void)testManifestVersionInSync {
+    NSError *error;
+    MagicMirror *mirror = [MagicMirror sharedInstance];
+    NSData *data = [NSData dataWithContentsOfFile:mirror.manifestFilePath];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:0
+                                                           error:&error];
+    NSString *version = [[NSBundle bundleForClass:[MagicMirror class]] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *build = [[NSBundle bundleForClass:[MagicMirror class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    XCTAssertNil(error);
+    XCTAssertNotNil(version);
+    XCTAssertNotNil(build);
+    XCTAssertEqualObjects(json[@"version"], version);
+    XCTAssertEqualObjects([json[@"build"] stringValue], build);
+}
 
 @end
