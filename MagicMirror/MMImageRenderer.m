@@ -93,7 +93,7 @@ typedef enum : NSUInteger {
     id <MSExportRequest> request = [flattener exportRequestFromLayers:array immutablePage:page immutableDoc:doc];
 
     request.rootLayerID = [self.layer objectID];
-//    request.scale = self.imageQuality;
+    request.scale = self.imageQuality;
     id <MSExportRenderer> renderer = [Sketch exportRendererForRequest:request colorSpace:self.colorSpace];
     [Sketch setPage:self.layer.parentPage forRequest:request];
     NSImage *image = [renderer image];
