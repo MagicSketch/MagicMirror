@@ -22,6 +22,7 @@
 #import "MagicMirror+MMPropertyController.h"
 #import "MagicMirror+MMLayerArtboardFinder.h"
 #import "MagicMirror-Private.h"
+#import "MSImageData.h"
 
 
 @interface MMLayer ()
@@ -89,7 +90,9 @@
     [fill setFillType:4];
     [fill setPatternFillType:1];
     [fill setIsEnabled:YES];
-    [fill setPatternImage:image];
+
+    id <MSImageData> data = [[NSClassFromString(@"MSImageData") alloc] initWithImage:image convertColorSpace:YES];
+    [fill setImage:data];
 }
 
 - (void)flip {

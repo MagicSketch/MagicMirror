@@ -1383,6 +1383,7 @@
 		1A1F3D5A1C3D7175004171C8 /* MMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMController.m; sourceTree = "<group>"; };
 		1A1F3D5D1C3F70A9004171C8 /* MMProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMProxy.h; sourceTree = "<group>"; };
 		1A1F3D5E1C3F70A9004171C8 /* MMProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMProxy.m; sourceTree = "<group>"; };
+		1A211B501CC178AD00B843B6 /* MSImageData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSImageData.h; sourceTree = "<group>"; };
 		1A21D9D61C2AC60D005A2733 /* MMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMWindow.h; sourceTree = "<group>"; };
 		1A21D9D71C2AC60D005A2733 /* MMWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMWindow.m; sourceTree = "<group>"; };
 		1A21D9DA1C2AC858005A2733 /* MMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMView.h; sourceTree = "<group>"; };
@@ -4163,6 +4164,7 @@
 				1AB4A9731C15E1B700B7922D /* COScript.h */,
 				1AB4BC441C16E69500B7922D /* NSDocument.h */,
 				1AB4BC471C16EBEA00B7922D /* NSObject.h */,
+				1A211B501CC178AD00B843B6 /* MSImageData.h */,
 			);
 			name = Bridges;
 			sourceTree = "<group>";
