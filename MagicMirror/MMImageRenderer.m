@@ -20,6 +20,10 @@
 #import "NSRect+Math.h"
 #import "NSImage+Transform.h"
 #import "Sketch.h"
+#import "MagicMirror-Private.h"
+#import "NSObject.h"
+#import "MSDocumentData.h"
+#import "MSPage.h"
 
 typedef enum : NSUInteger {
     MMImageRendererWatermarkStyleCenter,
@@ -52,14 +56,18 @@ typedef enum : NSUInteger {
     return self;
 }
 
+- (id <MSLayerFlattener>)flattener {
+
+    if ( ! _flattener) {
+        _flattener = [[NSClassFromString(@"MSLayerFlattener") alloc] init];
+    }
+    return _flattener;
+}
+
 - (NSImage *)flattenedImage {
     MMLog(@"flattening image");
     id <MSLayerFlattener> flattener = self.flattener;
 
-    if ( ! flattener) {
-        flattener = [[NSClassFromString(@"MSLayerFlattener") alloc] init];
-        self.flattener = flattener;
-    }
     id array = [NSClassFromString(@"MSLayerArray") arrayWithLayer:self.layer];
     NSImage *image = [flattener imageFromLayers:array lightweightPage:self.layer];
 
@@ -75,10 +83,19 @@ typedef enum : NSUInteger {
 - (NSImage *)exportedImage {
 
     MMLog(@"exporting image");
-    id <MSExportRequest> request = [Sketch requestWithRect:[self.layer rect] scale:[self currentScale]];
+    id <MSLayerFlattener> flattener = self.flattener;
+    id array = [NSClassFromString(@"MSLayerArray") arrayWithLayer:self.layer];
+    id data = self.magicmirror.context.document.documentData;
+    NSAssert([data isKindOfClass:[NSClassFromString(@"MSDocumentData") class]], @"Must be MSDocumentData");
+    id doc = [data immutableModelObject];
+    NSAssert([doc isKindOfClass:[NSClassFromString(@"MSImmutableDocumentData") class]], @"Must be MSImmutableDocumentData");
+    id page = [self.layer.parentPage immutableModelObject];
+    id <MSExportRequest> request = [flattener exportRequestFromLayers:array immutablePage:page immutableDoc:doc];
+
+    request.rootLayerID = [self.layer objectID];
+//    request.scale = self.imageQuality;
     id <MSExportRenderer> renderer = [Sketch exportRendererForRequest:request colorSpace:self.colorSpace];
     [Sketch setPage:self.layer.parentPage forRequest:request];
-    request.rootLayerID = [self.layer objectID];
     NSImage *image = [renderer image];
     NSImage *newImage = nil;
 

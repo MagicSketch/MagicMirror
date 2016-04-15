@@ -48,10 +48,6 @@
     return renderer;
 }
 
-+ (id <MSExportRequest>)requestWithRect:(NSRect)rect scale:(CGFloat)scale {
-    return [NSClassFromString(@"MSExportRequest") requestWithRect:rect scale:scale];
-}
-
 + (void)setPage:(MSPage *)page forRequest:(NSObject <MSExportRequest>*)request {
     if ([request respondsToSelector:@selector(setPage:)]) {
         [request setPage:page];

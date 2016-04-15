@@ -15,7 +15,6 @@
 @interface Sketch : NSObject
 
 + (id <MSExportRenderer>)exportRendererForRequest:(id <MSExportRequest>)request colorSpace:(NSColorSpace *)colorSpace;
-+ (id <MSExportRequest>)requestWithRect:(NSRect)rect scale:(CGFloat)scale;
 + (void)setPage:(MSPage *)page forRequest:(id <MSExportRequest>)request;
 
 @end
