@@ -8,6 +8,9 @@
 
 @protocol MSLayerFlattener <NSObject>
 
+// 3.7
+- (id)exportRequestFromLayers:(id)arg1 immutablePage:(id)arg2 immutableDoc:(id)arg3;
+
 - (id)bitmapFromRect:(struct CGRect)arg1 fromLayers:(id)arg2 withImage:(id)arg3;
 - (void)flattenLayers:(id)arg1;
 - (id)imageFromLayers:(id)arg1 lightweightPage:(id)arg2;
