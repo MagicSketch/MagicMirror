@@ -5,9 +5,9 @@
     "authorEmail" : "james@magicmirror.design",
 	"homepage": "https://github.com/jamztang/MagicMirror",
     "identifier" : "design.magicmirror",
-	"compatibleVersion": 3.7,
-	"build": 31,
-	"version": "2.0.7",
+	"compatibleVersion": 3.8,
+	"build": 32,
+	"version": "2.0.8",
 	"checkURL" : "https://raw.githubusercontent.com/jamztang/MagicMirror/master/MagicMirror2.sketchplugin/Contents/Sketch/manifest.json",
 
 	"commands": [
