@@ -37,6 +37,8 @@ typedef enum {
 @property (nonatomic) ImageRendererColorSpaceIdentifier colorSpaceIdentifier;
 @property (nonatomic) MMImageRenderQuality imageQuality;      // 0 is auto
 @property (nonatomic) BOOL disablePerspective;
+@property (nonatomic) NSUInteger rotation;
+@property (nonatomic) BOOL flipped;
 
 - (NSImage *)flattenedImage;
 - (NSImage *)exportedImage;
