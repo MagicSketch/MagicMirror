@@ -23,7 +23,7 @@ All of this thanks to the dynamic nature of Objective-C which allows us to have 
 
 [Troubleshoot]:https://github.com/jamztang/MagicMirror/wiki/Troubleshooting
 [Changelog]:https://github.com/jamztang/MagicMirror/releases
-[Download]:http://api.magicmirror.design/download/latest
+[Download]:http://dl.magicmirror.design/latest
 [Homepage]:http://magicmirror.design
 [Learn]:http://magicmirror.design/learn/
 [Templates]:http://magicmirror.design/templates/
