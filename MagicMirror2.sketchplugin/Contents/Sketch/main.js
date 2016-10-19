@@ -20,7 +20,12 @@ var resourcesPath = function(context) {
 
 	var plugin = context.plugin
 	if ( ! basePath || ! plugin) {
-		return "/Users/james/Library/Application Support/com.bohemiancoding.sketch3/Plugins/Magicmirror/MagicMirror2.sketchplugin/Contents/Resources";
+		var _application = [NSApplication sharedApplication]
+		var _delegate = _application.delegate()
+		var _plugins = _delegate.pluginManager().plugins()
+		var _plugin = _plugins["design.magicmirror"]
+		var _path = _plugin.url().copy().path() + "/Contents/Resources"
+		return _path
 	}
 	return basePath + "/Contents/Resources/";
 }

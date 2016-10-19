@@ -63,6 +63,8 @@
 - (double)thickestStroke;
 - (unsigned long long)type;
 
+- (id)addStylePartOfType:(unsigned long long)arg1;
+
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
