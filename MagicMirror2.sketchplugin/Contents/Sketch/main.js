@@ -45,6 +45,8 @@ var loadFramework = function(frameworkName, directory){
 }
 
 var initialize = function(context) {
+
+	try {
 	var path = resourcesPath(context);
 	log("resource:" + path);
 	if (NSClassFromString("MagicMirror") == null) {
@@ -58,6 +60,10 @@ var initialize = function(context) {
 
 	var magicmirror = [MagicMirror sharedInstanceWithContext:context];
 	return magicmirror;
+
+} catch (exception) {
+	log("MM2: exception " + exception);
+}
 }
 
 var mirrorPage = function(context) {

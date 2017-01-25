@@ -23,7 +23,7 @@
 - (unsigned long long)count;
 - (void)dealloc;
 - (void)decodePropertiesWithCoder:(id)arg1;
-@property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;
+//@property(nonatomic) __weak id <MSArrayDelegate> delegate; // @synthesize delegate=_delegate;
 - (id)description;
 - (id)detachAllObjects;
 - (void)fillInEmptyObjects;
@@ -54,6 +54,7 @@
 - (void)setArray:(id)arg1;
 - (void)setAsParentOnChildren;
 - (id)treeAsDictionary;
+- (NSArray *)layers;
 
 @end
 
