@@ -1,4 +1,4 @@
-# Magic Mirror 2
+# Magic Mirror 2 ([version 3](http://magicsketch.io/mirror) is now available!)
 
 [![GitHub release](https://img.shields.io/github/release/jamztang/MagicMirror.svg)]()
 
