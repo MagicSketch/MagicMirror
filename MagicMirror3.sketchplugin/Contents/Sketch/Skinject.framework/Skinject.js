@@ -113,6 +113,13 @@ var Skinject = function(identifier) {
                 _c.addObject(obj);
             },
             reloadData: function() {
+
+                _stackView = _document.inspectorController().currentController().stackView()
+                _controllers = _stackView.sectionViewControllers().mutableCopy();       // Make sure using the latest stack controller
+
+                if (_controllers.indexOfObject(_c) >= _controllers.count()) {
+                    _controllers.addObject(_c);
+                }
                 _stackView.reloadWithViewControllers(_controllers);
             }
         };
@@ -159,8 +166,7 @@ var Skinject = function(identifier) {
             _document = _context.document
             _view = _document.window().contentView()
 
-            _stackView = _document.inspectorController().normalInspector().stackView();   // save 300ms instead of searching through _view
-
+            _stackView = _document.inspectorController().currentController().stackView();
 
             _controllers = _stackView.sectionViewControllers().mutableCopy();
 
@@ -192,7 +198,7 @@ var Skinject = function(identifier) {
             _document = _context.actionContext.document
             _view = _document.window().contentView()
 
-            _stackView = _document.inspectorController().normalInspector().stackView()
+            _stackView = _document.inspectorController().currentController().stackView()
 
             _controllers = _stackView.sectionViewControllers().mutableCopy();
 

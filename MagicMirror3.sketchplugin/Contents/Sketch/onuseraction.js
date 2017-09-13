@@ -5,19 +5,19 @@
 @import 'MagicMirrorUI.js'
 
 var onFlip = function(context) {
-    log("onFlip from onuseraction.js");
+//    dlog("onFlip from onuseraction.js");
 }
 
 
 var onOpenDocument = function(context) {
 
-    log("onuseraction.js onOpenDocument " + context);
+//    dlog("onuseraction.js onOpenDocument " + context);
 
 //
 //    var identifier = context.plugin.valueForKey("_identifier");
 //    var magicmirror = dispatch_once_per_document("MagicMirrorJS", function() { return MagicMirrorJS(identifier) });
 //    magicmirror.onOpenDocument(context);
-//    
+//
 //    var skinject = dispatch_once_per_document("Skinject", function() { return Skinject(identifier) });
 //    skinject.onSelectionChanged(context);
 //
