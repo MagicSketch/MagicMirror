@@ -113,7 +113,7 @@ var onCurrentSelection = function(context, isOnRun) {
 
     getSelectionTimer.start()
 //    effectiveLayers = [NSArray array];
-    effectiveLayers = magicmirror.getEffectiveLayers(selection, true);
+    effectiveLayers = magicmirror.getEffectiveLayers(selection);
     getSelectionTimer.stop();
 
     startTimer.lab("after getEffectiveLayers");
@@ -128,9 +128,13 @@ var onCurrentSelection = function(context, isOnRun) {
 
             },
             refresh: function() {
-                each(effectiveLayers, function(layer) {
+                log("MM3: selectionController: refresh: selection " + selection);
+                each(selection, function(layer) {
                     magicmirror.refreshLayer(layer);
                 });
+            },
+            refreshAll: function() {
+                magicmirror.refreshAll();
             },
             flip: function() {
                 each(effectiveLayers, function(layer) {
@@ -151,6 +155,20 @@ var onCurrentSelection = function(context, isOnRun) {
                 each(selection, function(layer) {
                     magicmirror.setImageQuality(layer, value);
                 });
+            },
+            setIncluded: function(value) {
+                each(selection, function(layer) {
+                     magicmirror.setIncluded(layer, value);
+                });
+            },
+        };
+        return commonHandler;
+    }
+    
+    var MM3NoneSelectionController = function() {
+        var commonHandler = {
+            refreshAll: function() {
+                magicmirror.refreshAll();
             },
         };
         return commonHandler;
@@ -177,15 +195,27 @@ var onCurrentSelection = function(context, isOnRun) {
                           },
                           "controllerDidPressRefreshLayer:": function(viewController) {
                               log("refreshLayer");
-                              magicmirror.trackForEvent("Refreshed Layer", {"Layer Type": selection[0].className(), "Image Quality": magicmirror.imageQuality(selection[0])});
-                              var controller = MM3SelectionController(selection);
-                              controller.refresh();
+                          
+                              if (selection.length > 0){
+                                magicmirror.trackForEvent("Refreshed Layer", {"Layer Type": selection[0].className(), "Image Quality": magicmirror.imageQuality(selection[0])});
+                                var controller = MM3SelectionController(selection);
+                                controller.refresh();
+                              }else{
+                                magicmirror.trackForEvent("Refreshed All Layer", {});
+                                var controller = MM3NoneSelectionController();
+                                controller.refreshAll();
+                              }
+                          
                           },
                           "controller:didToggleIncludeInArtboards:":function(viewController, option) {
                               log("setIncluded: " + option);
                               magicmirror.trackForEvent("Picked IncludeInArtboards", {"Set Include": (option==0?"NO":"YES")});
-                              var layer = magicmirror.findLayer(viewController.identifier());
-                              magicmirror.setIncluded(layer, option);
+//                              var layer = magicmirror.findLayer(viewController.identifier());
+                              var controller = MM3SelectionController(selection);
+                              controller.setIncluded(option)
+                              viewController.includeInArtboards = option;
+                              viewController.reloadData();
+//                              magicmirror.setIncluded(layer, option);
                           },
                           "controllerDidPressProButton:": function(viewController) {
                               log("didPressProButton:");
@@ -286,29 +316,66 @@ var onCurrentSelection = function(context, isOnRun) {
         avc.reloadData();
         section.addCustomCell(avc);
 
-    } else if (selection.count() == 1 && (selection.firstObject().isKindOfClass(MSSymbolMaster) || selection.firstObject().isKindOfClass(MSSliceLayer)))) {
-        var section = skinject.addCustomSection(header);
-        var avc = skinject.dequeueCell("artboardToolbar");
-        if ( ! avc) {
-            avc = [[MM3ViewController alloc] initWithNibName:"MM3ArtboardToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
-            avc.reuseIdentifier = "artboardToolbar";
-        } else {
-//            log("cell dequeue (" + avc.reuseIdentifier() + ")");
-        }
-        avc.delegate = mmhandler;
-        avc.identifier = selection.firstObject().objectID()
-        avc.includeInArtboards = magicmirror.isIncluded(selection.firstObject());
-        avc.previewImage = magicmirror.getThumbnail(selection.firstObject(), CGSizeMake(36, 24));
-        avc.reloadData();
-        section.addCustomCell(avc);
     } else if (selection.count() == 0) {
 
         // If nothing is selected, we just want to hide any previous message that might have been shown.
         document.hideMessage();
+        
+        // 3.0.2: Always make mirror panel visible:
+        var section = skinject.addCustomSection(header);
+        var lvc = skinject.dequeueCell("layerToolbar");
+        if ( ! lvc) {
+            lvc = [[MM3ViewController alloc] initWithNibName:"MM3LayerToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
+            lvc.reuseIdentifier = "layerToolbar";
+        } else {
+            //                log("cell dequeue (" + lvc.reuseIdentifier() + ")");
+        }
+        lvc.delegate = mmhandler;
+        lvc.imageQuality = -1;
+        lvc.reloadData();
+        lvc.disableLayerButton();
+        section.addCustomCell(lvc);
 
     } else {
 
         var section = skinject.addCustomSection(header);
+
+        var includable = [NSMutableArray array];
+
+        if (selection.count() > 0) {
+
+            for (var i = 0; i < selection.count(); i++) {
+                var layer = selection[i];
+                if ([layer isKindOfClass:MSArtboardGroup] || [layer isKindOfClass:MSSymbolMaster] || [layer isKindOfClass:MSSliceLayer]) {
+                    includable.addObject(layer);
+                }
+            }
+
+            if (includable.count() > 0) {
+                startTimer.lab("before createArtboardToolbar");
+
+                var avc = skinject.dequeueCell("artboardToolbar");
+                if ( ! avc) {
+                    avc = [[MM3ViewController alloc] initWithNibName:"MM3ArtboardToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
+                    avc.reuseIdentifier = "artboardToolbar";
+                } else {
+                    //                    log("cell dequeue (" + avc.reuseIdentifier() + ")");
+                }
+                avc.delegate = mmhandler;
+                avc.identifier = selection.firstObject().objectID()
+                avc.includeInArtboards = magicmirror.isIncluded(includable);
+                startTimer.lab("-- before getThumbnail");
+                avc.previewImage = magicmirror.getThumbnail(includable, CGSizeMake(36, 24));
+                startTimer.lab("-- after getThumbnail");
+                avc.imageQuality = magicmirror.imageQuality(includable);
+                avc.reloadData();
+                //                log("included: " + magicmirror.isIncluded(selected));
+                section.addCustomCell(avc);
+
+                startTimer.lab("after createArtboardToolbar");
+            }
+        }
+
 
         startTimer.lab("before getArtboards");
         var lastArtboardLookup = remind("lastArtboardLookup") || [NSDictionary dictionary];
@@ -345,19 +412,7 @@ var onCurrentSelection = function(context, isOnRun) {
                     createUITimer.stop();
                     generateThumbnailTimer.start();
 
-                    var lastArtboard = lastArtboardLookup.objectForKey(artboard.objectID());
-                    var same = isEqual(lastArtboard, artboard.immutableModelObject());
-                    if ( ! same) {
-//                        log("artboard changed, needed regenerate: ");
-
-                        if ( ! lastArtboard) {
-                            log("artboard not exists, generating cache now: " + artboard.name());
-                        } else {
-                            log("artboard " + artboard.name() + " changed, needed regenerate: " + diffs(lastArtboard, artboard.immutableModelObject()));
-                        }
-
-                    }
-                    var image = magicmirror.getThumbnail(artboard, CGSizeMake(24, 24), same);
+                    var image = magicmirror.getThumbnail(artboard, CGSizeMake(24, 24));
 
                     createUITimer.start();
                     generateThumbnailTimer.stop();
@@ -370,14 +425,14 @@ var onCurrentSelection = function(context, isOnRun) {
 //                }
             }
     
-            menu.push({
-                    type:"separator",
-                    });
-    
-            each(magicmirror.getPlaceholders(), function(placeholder) {
-                menu.push(placeholder)
-                });
-
+//            menu.push({
+//                    type:"separator",
+//                    });
+//    
+//            each(magicmirror.getPlaceholders(), function(placeholder) {
+//                menu.push(placeholder)
+//                });
+//
             menu.push({
                       type:"separator",
                       });
@@ -393,54 +448,28 @@ var onCurrentSelection = function(context, isOnRun) {
             return menu;
         }
 
-        if (selection.count() == 1) {
-            var selected = selection[0];
-            if ([selected isKindOfClass:MSArtboardGroup]) {
-                var avc = skinject.dequeueCell("artboardToolbar");
-                if ( ! avc) {
-                    avc = [[MM3ViewController alloc] initWithNibName:"MM3ArtboardToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
-                    avc.reuseIdentifier = "artboardToolbar";
-                } else {
-//                    log("cell dequeue (" + avc.reuseIdentifier() + ")");
-                }
-                avc.delegate = mmhandler;
-                avc.identifier = selection.firstObject().objectID()
-                avc.includeInArtboards = magicmirror.isIncluded(selected);
-                avc.previewImage = magicmirror.getThumbnail(selected, CGSizeMake(36, 24));
-                avc.imageQuality = magicmirror.imageQuality(selected);
-                avc.reloadData();
-//                log("included: " + magicmirror.isIncluded(selected));
-                section.addCustomCell(avc);
-
-
-                startTimer.lab("after createArtboardToolbar");
-            }
-        }
-
-        if (effectiveLayers.count() >= 1) {
-            
-            createUITimer.stop();
-            startTimer.lab("before createMenu");
-            var menu = createMenu(artboards, magicmirror);
-            startTimer.lab("after createMenu");
-            createUITimer.start();
-        
-            var selected = selection[0];
-            var lvc = skinject.dequeueCell("layerToolbar");
-            if ( ! lvc) {
-                lvc = [[MM3ViewController alloc] initWithNibName:"MM3LayerToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
-                lvc.reuseIdentifier = "layerToolbar";
-            } else {
+        // Create Layer Toolbar
+        createUITimer.stop();
+        startTimer.lab("before createMenu");
+        var menu = createMenu(artboards, magicmirror);
+        startTimer.lab("after createMenu");
+        createUITimer.start();
+    
+        var selected = selection[0];
+        var lvc = skinject.dequeueCell("layerToolbar");
+        if ( ! lvc) {
+            lvc = [[MM3ViewController alloc] initWithNibName:"MM3LayerToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
+            lvc.reuseIdentifier = "layerToolbar";
+        } else {
 //                log("cell dequeue (" + lvc.reuseIdentifier() + ")");
-            }
-            lvc.delegate = mmhandler;
-            lvc.imageQuality = selection.count() > 1 ? -1 : magicmirror.imageQuality(selected);
-            lvc.identifier = selection.firstObject().objectID()
-            lvc.reloadData();
-            section.addCustomCell(lvc);
-
         }
-
+        lvc.delegate = mmhandler;
+        lvc.imageQuality = selection.count() > 1 ? -1 : magicmirror.imageQuality(selected);
+        lvc.identifier = selection.firstObject().objectID()
+        lvc.reloadData();
+        section.addCustomCell(lvc);
+        // End creating Layer Toolbar
+        
         var nsmenu = menu ? [MM3Menu menuWithItems:menu] : nil;
 
         startTimer.lab("before createCells");
