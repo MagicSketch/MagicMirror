@@ -216,7 +216,7 @@ var onCurrentSelection = function(context, isOnRun) {
         header = [[MM3ViewController alloc] initWithNibName:"MM3InspectorHeader" bundle:[NSBundle bundleForClass:MM3ViewController]];
         header.reuseIdentifier = "header";
     } else {
-        log("cell dequeued (" + header.reuseIdentifier() + ")");
+//        log("cell dequeued (" + header.reuseIdentifier() + ")");
     }
     header.delegate = mmhandler;
     Mocha.sharedRuntime().setValue_forKey_(mmhandler, "MM3ViewControllerDelegate");
@@ -231,7 +231,7 @@ var onCurrentSelection = function(context, isOnRun) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ActivationCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
             avc.reuseIdentifier = "outofsync";
         } else {
-            log("cell dequeued (" + avc.reuseIdentifier() + ")");
+//            log("cell dequeued (" + avc.reuseIdentifier() + ")");
         }
         avc.delegate = mmhandler;
         avc.message = "Plugin is out of sync, please save your work and restart Sketch to continue using.";
@@ -248,7 +248,7 @@ var onCurrentSelection = function(context, isOnRun) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ActivationCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
             avc.reuseIdentifier = "activation";
         } else {
-            log("cell dequeued (" + avc.reuseIdentifier() + ")");
+//            log("cell dequeued (" + avc.reuseIdentifier() + ")");
         }
         avc.delegate = mmhandler;
         avc.message = magicmirror.expiredMessage();
@@ -263,7 +263,7 @@ var onCurrentSelection = function(context, isOnRun) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ActivationCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
             avc.reuseIdentifier = "migration";
         } else {
-            log("cell dequeued (" + avc.reuseIdentifier() + ")");
+//            log("cell dequeued (" + avc.reuseIdentifier() + ")");
         }
         avc.delegate = mmhandler;
         avc.message = "Migration failed, please contact support!"
@@ -280,7 +280,7 @@ var onCurrentSelection = function(context, isOnRun) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ActivationCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
             avc.reuseIdentifier = "notActivated";
         } else {
-            log("cell dequeue (" + avc.reuseIdentifier() + ")");
+//            log("cell dequeue (" + avc.reuseIdentifier() + ")");
         }
         avc.delegate = mmhandler;
         avc.reloadData();
@@ -293,7 +293,7 @@ var onCurrentSelection = function(context, isOnRun) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ArtboardToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
             avc.reuseIdentifier = "artboardToolbar";
         } else {
-            log("cell dequeue (" + avc.reuseIdentifier() + ")");
+//            log("cell dequeue (" + avc.reuseIdentifier() + ")");
         }
         avc.delegate = mmhandler;
         avc.identifier = selection.firstObject().objectID()
@@ -337,7 +337,7 @@ var onCurrentSelection = function(context, isOnRun) {
             menu.push({
                     type:"separator",
                     });
-    
+
             for (var i = 0; i < artboards.count(); i++) {
                 var artboard = artboards.objectAtIndex(i);
 //                if (magicmirror.isIncluded(artboard) == 1) {
@@ -348,7 +348,14 @@ var onCurrentSelection = function(context, isOnRun) {
                     var lastArtboard = lastArtboardLookup.objectForKey(artboard.objectID());
                     var same = isEqual(lastArtboard, artboard.immutableModelObject());
                     if ( ! same) {
-                        log("artboard changed, needed regenerate: ");
+//                        log("artboard changed, needed regenerate: ");
+
+                        if ( ! lastArtboard) {
+                            log("artboard not exists, generating cache now: " + artboard.name());
+                        } else {
+                            log("artboard " + artboard.name() + " changed, needed regenerate: " + diffs(lastArtboard, artboard.immutableModelObject()));
+                        }
+
                     }
                     var image = magicmirror.getThumbnail(artboard, CGSizeMake(24, 24), same);
 
@@ -371,6 +378,17 @@ var onCurrentSelection = function(context, isOnRun) {
                 menu.push(placeholder)
                 });
 
+            menu.push({
+                      type:"separator",
+                      });
+
+            menu.push({
+                      identifier: "manageArtboards",
+                      title: "Manage Artboards...",
+                      type: "action",
+                      image: nil,
+                      });
+
             createMenuTimer.stop();
             return menu;
         }
@@ -383,7 +401,7 @@ var onCurrentSelection = function(context, isOnRun) {
                     avc = [[MM3ViewController alloc] initWithNibName:"MM3ArtboardToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
                     avc.reuseIdentifier = "artboardToolbar";
                 } else {
-                    log("cell dequeue (" + avc.reuseIdentifier() + ")");
+//                    log("cell dequeue (" + avc.reuseIdentifier() + ")");
                 }
                 avc.delegate = mmhandler;
                 avc.identifier = selection.firstObject().objectID()
@@ -391,7 +409,7 @@ var onCurrentSelection = function(context, isOnRun) {
                 avc.previewImage = magicmirror.getThumbnail(selected, CGSizeMake(36, 24));
                 avc.imageQuality = magicmirror.imageQuality(selected);
                 avc.reloadData();
-                log("included: " + magicmirror.isIncluded(selected));
+//                log("included: " + magicmirror.isIncluded(selected));
                 section.addCustomCell(avc);
 
 
@@ -413,7 +431,7 @@ var onCurrentSelection = function(context, isOnRun) {
                 lvc = [[MM3ViewController alloc] initWithNibName:"MM3LayerToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
                 lvc.reuseIdentifier = "layerToolbar";
             } else {
-                log("cell dequeue (" + lvc.reuseIdentifier() + ")");
+//                log("cell dequeue (" + lvc.reuseIdentifier() + ")");
             }
             lvc.delegate = mmhandler;
             lvc.imageQuality = selection.count() > 1 ? -1 : magicmirror.imageQuality(selected);
@@ -438,7 +456,9 @@ var onCurrentSelection = function(context, isOnRun) {
                                                                                                                          log("popupCellSelectedDidChange:");
 
                                                                                                                          var identifier = NSString.stringWithString(cell.layerID());
-                                                                                                                         var selected = cell.selected();
+                                                                                                                         var selectedIdentifier = cell.selectedIdentifier();
+                                                                                                                         var representedObject = cell.representedObject();
+
 
                                                                                                                          var splitted = identifier.componentsSeparatedByString(".");
                                                                                                                          var layerID = splitted.firstObject();
@@ -447,18 +467,44 @@ var onCurrentSelection = function(context, isOnRun) {
                                                                                                                             symbolInstanceID = splitted.lastObject();
                                                                                                                          }
 
-                                                                                                                         var artboardID = selected;
-                                                                                                                         var layer = magicmirror.findLayer(layerID);
-                                                                                                                         log("layerID: " + layerID + " artboardID: " + selected + " symbolID: " + symbolInstanceID);
-                                                                                                                         
-                                                                                                                         if (symbolInstanceID) {
-                                                                                                                            magicmirror.trackForEvent("Picked Artboard", {"Artboard Type": "Symbol"});
-                                                                                                                            magicmirror.linkLayerIDWithArtboardIDInSymbol(layerID, artboardID, symbolInstanceID);
-                                                                                                                         } else {
-                                                                                                                            magicmirror.trackForEvent("Picked Artboard", {"Artboard Type": "Artboard"});
-                                                                                                                            magicmirror.linkLayerIDWithArtboardID(layerID, artboardID);
-                                                                                                                         }
 
+                                                                                                                         var type = representedObject["type"];
+                                                                                                                         log("type: " + type);
+                                                                                                                         log("selectedIdentifier: " + selectedIdentifier);
+                                                                                                                         log(representedObject);
+
+                                                                                                                         if (type == "action") {
+                                                                                                                             var identifier = selectedIdentifier;
+                                                                                                                             if (identifier == "manageArtboards") {
+
+                                                                                                                 log("manage artboards");
+                                                                                                                 var controller = dispatch_once_per_document("MM3ManageArtboardWindow", function() {
+                                                                                                                                                             var storyboard = [NSStoryboard storyboardWithName:@"MM3Storyboard" bundle:[NSBundle bundleForClass:MM3PopupCell]];
+                                                                                                                                                             log("storyboard: " + storyboard);
+                                                                                                                      var windowController = [storyboard instantiateControllerWithIdentifier:"MM3ManageArtboardWindow"];
+
+                                                                                                                                                             log("windowController: " + windowController);
+                                                                                                                                                             return windowController;
+                                                                                                                                                             });
+
+                                                                                                                 controller.showWindow(controller.window());
+
+
+                                                                                                                                    
+                                                                                                                             }
+                                                                                                                         } else {
+                                                                                                                                 var artboardID = selectedIdentifier;
+                                                                                                                                 var layer = magicmirror.findLayer(layerID);
+                                                                                                                                 log("layerID: " + layerID + " artboardID: " + artboardID + " symbolID: " + symbolInstanceID);
+
+                                                                                                                                 if (symbolInstanceID) {
+                                                                                                                                    magicmirror.trackForEvent("Picked Artboard", {"Artboard Type": "Symbol"});
+                                                                                                                                    magicmirror.linkLayerIDWithArtboardIDInSymbol(layerID, artboardID, symbolInstanceID);
+                                                                                                                                 } else {
+                                                                                                                                    magicmirror.trackForEvent("Picked Artboard", {"Artboard Type": "Artboard"});
+                                                                                                                                    magicmirror.linkLayerIDWithArtboardID(layerID, artboardID);
+                                                                                                                                 }
+                                                                                                                         }
                                                                                                                      },
 
                                                                                                                  }
@@ -489,14 +535,7 @@ var onCurrentSelection = function(context, isOnRun) {
 
                 layerID = layerID + "." + symbolInstanceID;     // tedious hack to store more than one id in a single string
             } else {
-                info = magicmirror.getLayerInfo(layer);
-                if ( ! isNullOrNil(info["artboardID"])) {
-                    artboardID = info["artboardID"];
-                } else if ( ! isNullOrNil(info["artboardID_mm2"])) {
-                    artboardID = info["artboardID_mm2"];
-                } else {
-                    artboardID = nil;
-                }
+                artboardID = magicmirror.getPotentiallyLinkedArtboardID(layer);
             }
 
             var selected = artboardID;
@@ -506,13 +545,13 @@ var onCurrentSelection = function(context, isOnRun) {
                 cell.reuseIdentifier = "popupCell";
                 cell.delegate = menuCellDelegate;
             } else {
-                log("cell dequeue (" + cell.reuseIdentifier() + ")");
+//                log("cell dequeue (" + cell.reuseIdentifier() + ")");
             }
 
             cell.name = layer.name();
             cell.image = image;
             cell.popupMenu = nsmenu;
-            cell.selected = selected;
+            cell.selectedIdentifier = selected;
             cell.layerID = layerID;
             cell.reloadData();
             section.addCustomCell(cell);
@@ -534,8 +573,15 @@ var onCurrentSelection = function(context, isOnRun) {
 
     if (runCount >= 1 && selection.count() >= 1) {
 //        if (runCount > 1) {
-        log("timers:" + dictify(timers));
-        message = "MagicMirror: " + effectiveLayers.count() + " layers selected. (" + timeElasped + "s)";
+        log("timers: " + dictify(timers));
+        message = "MagicMirror: " + effectiveLayers.count() + " layers selected. (" + timeElasped + "s): " + dictify({
+                                                                                                                     "initialize": startTimer.getLap("after check").mark,
+                                                                                                                     "Get Effective Layers": startTimer.getLap("after getEffectiveLayers").elapsed,
+                                                                                                                     "Create Menu": startTimer.getLap("after createMenu").elapsed,
+                                                                                                                     "Create Cells": startTimer.getLap("after createCells").elapsed,
+                                                                                                                     "Reload UI": startTimer.getLap("after reloadUI").elapsed
+
+        });
 //        each(timers, function(t) {
 //                log("timers:" + t); 
 //             t.print();

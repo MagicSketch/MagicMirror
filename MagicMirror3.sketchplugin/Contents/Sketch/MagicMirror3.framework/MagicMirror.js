@@ -45,10 +45,10 @@ var enumerate = function(object, handler) {     // everything in nested array
 };
 var isNullOrNil = function(value) {
     if (value && [value isKindOfClass:NSNull]) {
-        log("artboardID is null")
+//        log("artboardID is null")
         return true
     } else if (value) {
-        log("artboardID is not nil")
+  //      log("artboardID is not nil")
         return false
     }
     return true
@@ -98,6 +98,16 @@ var timer = function(name) {
     var _state = "init";
 
     var self = {
+        getElapsed: function() { return this.elapsed },
+    getLap: function(name) {
+        var thatLap = {};
+        each(_labs, function(lap) {
+             if (lap.name == name) {
+                 thatLap = lap;
+             }
+             });
+        return thatLap;
+    },
         reloadData: function() {
             this.name = name;
             this.elapsed = _time + "ms";
@@ -511,7 +521,7 @@ var MagicMirrorJS = function(identifier) {
                           "{" + bounds.origin.x + "," + bounds.size.height + "}",
                           ];
 
-            log("points: " + points);
+//            log("points: " + points);
             return NSArray.arrayWithArray(points);
         }
 
@@ -607,14 +617,14 @@ var MagicMirrorJS = function(identifier) {
                     var snapshot = remind(layer.objectID() + ".snapshot")
                     if ( ! snapshot || isEqual(snapshot, layer.immutableModelObject())) {
                         effective = remind(layer.objectID() + ".effectiveLayer");
-                        log("get from cache: " + effective);
+//                        log("get from cache: " + effective);
                     } else {
-                        log("get from cache: use cache but changed")
+//                        log("get from cache: use cache but changed")
                     }
                 }
                 if ( ! effective) {
                     effective = getEffectiveLayers(layer);
-                    log("get from cache: no");
+//                    log("get from cache: no");
                     remember(effective, layer.objectID() + ".effectiveLayer");
                     remember(layer.immutableModelObject(), layer.objectID() + ".snapshot");
                 }
@@ -664,12 +674,16 @@ var MagicMirrorJS = function(identifier) {
     }
 
     var getPotentiallyLinkedArtboardID = function(layer) {
-        var artboardID_mm2_name = _command.valueForKey_onLayer_forPluginIdentifier("source", layer, "design.magicmirror");
+        var artboardID_mm2_name = _command.valueForKey_onLayer_forPluginIdentifier("source", layer, "design.magicmirror") // mm1;
         var artboardID = self.valueForLayer("artboardID", layer);
         var artboardID2 = nil;
         if (artboardID_mm2_name) {
+//            log("artboardLookup:" + _artboardsLookupByName);
             artboardID2 = ! isNullOrNil(_artboardsLookupByName[artboardID_mm2_name]) ? _artboardsLookupByName[artboardID_mm2_name].objectID() : nil;
+//            log("artboardLookup: artboardID2" + artboardID2);
         }
+//        log("artboardLookup: artboardID" + artboardID);
+
         return artboardID || artboardID2;
     }
 
@@ -688,6 +702,8 @@ var MagicMirrorJS = function(identifier) {
         if (artboardID_mm2_name) {
             info["artboardID_mm2"] = ! isNullOrNil(_artboardsLookupByName[artboardID_mm2_name]) ? _artboardsLookupByName[artboardID_mm2_name].objectID() : nil;
         }
+
+        info["getPotentiallyLinkedArtboardID"] = getPotentiallyLinkedArtboardID(layer);
 
         if (info["imageQuality"] >= 2) {
             info["needsPro"] = true;
@@ -1059,16 +1075,16 @@ var MagicMirrorJS = function(identifier) {
             var height1 = bounds.size.height;
 
             var points = self.getPointsFromLayer(layer);
-            log("getRatio: points " + points)
+//            log("getRatio: points " + points)
             var rotation = self.valueForLayer("rotation", layer) || 0;
 
-            log("getRatio: rotation " + rotation)
+//            log("getRatio: rotation " + rotation)
             var p0 = NSPointFromString(points[(0 + rotation) % 4]);
             var p1 = NSPointFromString(points[(1 + rotation) % 4]);
             var p2 = NSPointFromString(points[(2 + rotation) % 4]);
             var p3 = NSPointFromString(points[(3 + rotation) % 4]);
 
-            log("getRatio: p0 " + p0.toString());
+//            log("getRatio: p0 " + p0.toString());
 
             var top = distance(p0, p1);
             var bottom = distance(p2, p3);
@@ -1076,7 +1092,7 @@ var MagicMirrorJS = function(identifier) {
             var left = distance(p1, p2);
             var right = distance(p3, p0);
             var height2 = Math.max(left, right);
-            log("getRatio: height2 " + height2);
+//            log("getRatio: height2 " + height2);
 
             return Math.max(width2/width1, height2/height1)
         },
@@ -1152,17 +1168,26 @@ var MagicMirrorJS = function(identifier) {
             this.setValueForKeyOnLayer(included, "included", layer);
         },
         findLayer: findLayer,
+        getPotentiallyLinkedArtboardID: getPotentiallyLinkedArtboardID,
         getArtboards: function() {
             var linked = remind(_linkedArtboardsIdentifier);
             if ( ! linked) {
                 linked = [NSMutableSet set];
                 var allChildrens = document.valueForKeyPath("pages.layers.children");
                 enumerate(allChildrens, function(layer) {
-                          var artboardID = getPotentiallyLinkedArtboardID(layer);
-                          if (artboardID) {
-                            linked.addObject(artboardID);
-                          } else if (self.isIncluded(layer)) {
-                            linked.addObject(layer.objectID());
+                          if (layer.isKindOfClass(MSArtboardGroup)) {
+                              if (self.isIncluded(layer)) {
+                                  linked.addObject(layer.objectID());
+                              }
+                          } else if (layer.isKindOfClass(MSSymbolInstance)) {
+
+                          } else if (layer.isKindOfClass(MSBitmapLayer)) {
+
+                          } else {
+                              var artboardID = getPotentiallyLinkedArtboardID(layer);
+                              if (artboardID) {
+                                  linked.addObject(artboardID);
+                              }
                           }
                 });
                 remember(linked, _linkedArtboardsIdentifier)
@@ -1240,7 +1265,7 @@ var MagicMirrorJS = function(identifier) {
         refreshLayer: function(mslayer) {
             // find artboard
 
-            log("MM: refreshLayer");
+//            log("MM: refreshLayer");
 
             if (mslayer.isKindOfClass(MSSymbolInstance)) {
                 this.refreshSymbol(mslayer);
@@ -1264,30 +1289,30 @@ var MagicMirrorJS = function(identifier) {
                 disableFillImageOnLayer(mslayer);
                 return;
             }
-            log("MM: refreshLayer 2");
+//            log("MM: refreshLayer 2");
 
             var artboard = this.findLayer(artboardID);
             var placeholder = this.getPlaceholders(artboardID);
 
 
-            log("MM: refreshLayer 2.1");
+//            log("MM: refreshLayer 2.1");
 
-            log("MM: refreshLayer 2.2");
+//            log("MM: refreshLayer 2.2");
 
             var rotation = this.valueForLayer("rotation", mslayer);
-            log("MM: refreshLayer 2.3: " + rotation);
+//            log("MM: refreshLayer 2.3: " + rotation);
 
             var flipped = this.valueForLayer("flipped", mslayer);
-            log("MM: refreshLayer 2.4: " + flipped);
+//            log("MM: refreshLayer 2.4: " + flipped);
 
             var scale = Math.max(this.valueForLayer("imageQuality", mslayer), 1);
-            log("MM: refreshLayer 2.5: " + scale);
+//            log("MM: refreshLayer 2.5: " + scale);
 
             var destinationPoints = this.getPointsFromLayer(mslayer);
-            log("MM: refreshLayer 2.6: " + destinationPoints);
+//            log("MM: refreshLayer 2.6: " + destinationPoints);
 
             var bounds = mslayer.bounds();
-            log("MM: refreshLayer 3: " + NSStringFromRect(bounds));
+//            log("MM: refreshLayer 3: " + NSStringFromRect(bounds));
 
             var sourceBounds;
             var image = nil;
@@ -1295,7 +1320,7 @@ var MagicMirrorJS = function(identifier) {
             var targetScale;
 
             if (artboard) {
-                log("MM: refreshLayer 4 artboard");
+//                log("MM: refreshLayer 4 artboard");
 
                 sourceBounds = artboard.bounds();
                 ratio = self.getRatio(sourceBounds, mslayer);
@@ -1303,7 +1328,7 @@ var MagicMirrorJS = function(identifier) {
                 image = generateImage(artboard, targetScale);
 
             } else if (placeholder) {
-                log("MM: refreshLayer 4 placeholder" + placeholder);
+//                log("MM: refreshLayer 4 placeholder" + placeholder);
 
                 // is placeholder
                 var imageName = placeholder.imageNamed;
@@ -1311,11 +1336,11 @@ var MagicMirrorJS = function(identifier) {
                 sourceBounds = CGRectMake(0, 0, image.size().width, image.size().height);
                 ratio = self.getRatio(sourceBounds, mslayer);
                 targetScale = ratio * scale;
-                log("MM: refreshLayer 4.3 " + NSStringFromRect(sourceBounds));
+//                log("MM: refreshLayer 4.3 " + NSStringFromRect(sourceBounds));
 
             }
 
-            log("MM: refreshLayer 5");
+//            log("MM: refreshLayer 5");
 
             
             _mmshape.scale = scale;
@@ -1323,7 +1348,7 @@ var MagicMirrorJS = function(identifier) {
             _mmshape.path = destinationPoints;
             var points = _mmshape.normalizedPoints();
             
-            log("MM: refreshLayer 6");
+//            log("MM: refreshLayer 6");
 
             var info = {
                         "sourceBounds": NSStringFromRect(sourceBounds) || "missing",
@@ -1339,8 +1364,8 @@ var MagicMirrorJS = function(identifier) {
                         "artboard": artboard || "missing",
                         };
 
-            log("MM: refreshLayer 7");
-            log("MM: refreshLayer info: " +  NSDictionary.dictionaryWithDictionary(info));
+//            log("MM: refreshLayer 7");
+//            log("MM: refreshLayer info: " +  NSDictionary.dictionaryWithDictionary(info));
 
             if (points.count() == 4) {
 
@@ -1361,7 +1386,7 @@ var MagicMirrorJS = function(identifier) {
 
                 return true;
             }
-            log("MM: refreshLayer done");
+//            log("MM: refreshLayer done");
 
             return false;
         },
@@ -1524,7 +1549,7 @@ var MagicMirrorJS = function(identifier) {
             return [[MSImageData alloc] initWithImage:image convertColorSpace:false];
         },
         getThumbnail: function(layer, size, useCache) {
-            log("MM: getThumbnail");
+//            log("MM: getThumbnail");
 
             var mocha = Mocha.sharedRuntime()
             var key = layer.objectID() + NSStringFromSize(size);
@@ -1538,7 +1563,7 @@ var MagicMirrorJS = function(identifier) {
 
                 mocha.setValue_forKey_(thumbnail, key);
             } else {
-                log("MM: get thumbnails from cache");
+//                log("MM: get thumbnails from cache");
             }
 
             return thumbnail;
