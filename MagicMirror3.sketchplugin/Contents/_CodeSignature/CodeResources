@@ -296,11 +296,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qd7UgAopnbM2BYKQnwmmd8MhbSQ=
+			+ZIiJ6akBpOpUmDgMAUxYTn/Z9A=
 			</data>
 			<key>hash2</key>
 			<data>
-			cvMJ89EX5nV3keb7M3ZgneiL4QNpmFA6ArQ8JxqkZfc=
+			9sLPwu8MCN/3rb2uBXx0iExWFd2ATdbu/MIt9LvdQTo=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/MagicMirror3</key>
@@ -317,33 +317,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tH8wpdyPr6su6fV7gX2EK2bNm+8=
+			lElgbuqe8jK2Bu5919sFgeN3yHo=
 			</data>
 			<key>hash2</key>
 			<data>
-			De42JSXq81clTLHmeNZPeMgDJaO2bTWjIKxowHqUH+w=
+			YdkaQfZEVUV6Gq+837cWw+EkRu7eoOjwEkZYFqyC3sc=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/Assets.car</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1cIIEraQQeTOFJ7bR8BUvy5EvWY=
+			dJk3bP42UEiIeYiq7rzuiTytjFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			uPN1hS97CUeNTiv8qrJwbfErRAbpr0OVDEJPRcje+Io=
+			DTErLhND1BIhiuwwgNoQrLU2R31mO2KD5toIFX0ZQcs=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tRJMdGye0xZ2Jts0EWyC2dAeo4E=
+			jqRlpF3q3YTofaQxJy73gLHcOxY=
 			</data>
 			<key>hash2</key>
 			<data>
-			VzEGDVu1XV2aPmFAZwKqBQjCs8jHH6ujCW2Vd6z65kw=
+			z+obLOR1MloXB5caHQJCcCCnPKdnyY3tgQHIo0ER8Qk=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3ActivationCell.nib</key>
@@ -401,81 +401,92 @@
 			yk5N0tYqsRvA50+K+J49cKiK2V2niYA2sdJpf0Cw5S0=
 			</data>
 		</dict>
+		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3SoftBannerCell.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			i5K2d8mC0bVxlo5nyU4f2/1QW2Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			uM1RyKw6TNxc+bi6EGYQq0gy4ugnrkAO7BMbS25Wu/g=
+			</data>
+		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MtP46W01E8jgYy7tDjA4f7QlIY8=
+			dkeFxCx81leWfAyQp0rT01keQM8=
 			</data>
 			<key>hash2</key>
 			<data>
-			m1N/JDnJFeo0S7TbnyJbe+7bGOtXcXua7ARtLLijnKg=
+			oGMSbabLm+Z9zC6KPqQ/LacXYwD08+oKrTWhN5cEGpw=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/JmH-JN-EMs-view-Ulr-WK-uRq.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aFCUA01M9KEq/lc/rs/Pgd0aP8g=
+			tYCPF86lOc/iGuQK84AwkizNUQ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			MHEzZERxwwslIUd1g2XtFGkz7ZpYitqDsb1J0nGbfPM=
+			UIpgVYOCAjqwd76XUClm+5sxif03oCRzf8ZkDoDW8A0=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/Ll9-3s-G1X-view-rAH-tQ-3rz.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dnp/4fkbz+H143G4NCdlEPhKQKs=
+			LwSouAFOGRMNzORtJMC8oDpfiAU=
 			</data>
 			<key>hash2</key>
 			<data>
-			LtuDYcRhX/oZiZG/Ah3VRWY73+X0xtkC69WTVxZUBM8=
+			OB1+Uvsa3l3zhC+vEd8VAAkEoGGsT4w1zW/PXtXNT5w=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3LicenseWindow.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xQVdRkwJjCp+m/W1Sito3Bw+9tY=
+			8mV/EEFS9sJ4opTB+h8ix4KuddI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ULe5i4D3yG4jyo5u6Rk7rlw5cGDw8PGtseTxu27VLm4=
+			rRZ9CR/ApZ6+jpqex8ibwQ7F+RhDxkNP7FzYTuzpKhU=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3ManageArtboardWindow.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KhcMoP19dJs/Chr69dnLWO4VUkY=
+			LUxmBNUMn17oI1uIw3TUSgVhq4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			kaWvUZqY8f2GsLGW5FwZ/6ZgUw/aGfbVINy39zpVkU8=
+			99czAAw285eJ6/CsHPMqBy1iWQ8yi7xIoMnNvFUR9t4=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3RegisteredWindow.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ocqhNw+FCYB/SKy0V+lbyjU7XYI=
+			3LkUAYEgxx5nId5J/uiqErEi9Wg=
 			</data>
 			<key>hash2</key>
 			<data>
-			t5M4CA9lZ+cFZpMWBUN68sf48CPtvWkx5EKUTyPaqrY=
+			uQXc57jjRbYbjfZNUAoZsxMEOGuiLa8bE9rSyQE+zic=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/NSViewController-JmH-JN-EMs.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pibqdSu6sAFyO9etCf5OoM9e76c=
+			4aFKeULNzoaomAOV+OGmkvNHZk0=
 			</data>
 			<key>hash2</key>
 			<data>
-			njCMfIae4uBQwPcuE6iyCbwSyaaPAnmigaN4n0y7GIA=
+			wd7O0gmCaWgYGz7snDXtFbJ1wDfv4pmwtH2WsJW1yNs=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/vD5-Q6-V57-view-4XH-mF-mkj.nib</key>
@@ -493,11 +504,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xx5uojbgcSM6mlB6BuBeRHKSqr8=
+			EO5jAATyx7ygDW6OUAqVrcH5nOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			O7t3H+xx7yVbRTYGCgN5vBpkctOjOLiscwYaefKAf8U=
+			IiZlLq+bv2o3z6eSUcf3hneDhbFCeAxa0NwNl+RSlzo=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3.framework/Versions/Current</key>
@@ -585,11 +596,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cIRL7J8Vzt4do4q1/6uPgzpAV44=
+			w0BjengGHlBLPusAtWL3g0wLUmg=
 			</data>
 			<key>hash2</key>
 			<data>
-			1SbC6Wv9s8MIz3q7dcXp5pjo9ix8LxXHM5vy2kcL7ps=
+			y/ZyWMrU/DTzFghFAml3LpYRI8rbu1wSVi6nTwSnOys=
 			</data>
 		</dict>
 		<key>Sketch/Skinject.framework/Versions/A/_CodeSignature/CodeResources</key>
@@ -612,22 +623,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0u+77wufV+9ZJAcQtHq/hkBksrw=
+			sIqAJRKKgFh/lFPQ1XszV9G0nJI=
 			</data>
 			<key>hash2</key>
 			<data>
-			GCc86uLcs9HnhQauQcXdpBxVF3yWdGNyltlKxu1huuI=
+			Wa1ZTNzboV9qwD9vPgHmbjJX6jhm3qRQWeii7b87onw=
 			</data>
 		</dict>
 		<key>Sketch/onchange.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cIFWosnxtsxgea3nxBX3pwKprd0=
+			qAKLjwIPBAt0+fLdWqd+/Coyq9I=
 			</data>
 			<key>hash2</key>
 			<data>
-			oCWygiaTavCxKB5TXInLd8yJBxDRG0JJMNJYNvJQbRU=
+			2gLvHW8TVhx+HKanAfrJjsseLBIQdicNO4wuUWvw+qc=
 			</data>
 		</dict>
 		<key>Sketch/oncommand.js</key>

@@ -1796,6 +1796,9 @@ var MagicMirrorJS = function(identifier) {
         trackForEvent: function(event, properties){
             _magicmirror["trackForEvent:properties:"](event, properties);
         },
+        loadServerNotification: function(){
+            _magicmirror.loadServerNotification();
+        },
     };
 
 

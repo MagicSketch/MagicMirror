@@ -107,6 +107,29 @@ var onCurrentSelection = function(context, isOnRun) {
           var env = magicmirror.env();
           Mocha.sharedRuntime().setValue_forKey_(env, "io.magicsketch.mirror.env");
           document.showMessage(magicmirror.pluginName() + ": " + env);
+          
+          // v3.1: background timer to check server notification. (3600sec)
+          var softCheck = function checkAgain(sk, mm, interval){
+              var identifier = context.plugin.valueForKey("_identifier");
+              var disabledIdentifier = identifier + ".disabled";
+              var isDisabled = NSUserDefaults.standardUserDefaults().boolForKey(disabledIdentifier);
+              
+              // update user default cached message array
+              mm.loadServerNotification();
+              
+              if(!isDisabled){
+                  // repeat update
+                  COScript.currentCOScript().scheduleWithInterval_jsFunction(60*60, function(iv){
+                                                                             checkAgain(sk, mm, iv);
+                                                                             });
+              }
+              
+          }
+          
+          // register interval refresh soft banner here
+          COScript.currentCOScript().scheduleWithInterval_jsFunction(5, function(iv){
+                                                                     softCheck(skinject, magicmirror, iv);
+                                                                     });
       }
 
     startTimer.lab("before getEffectiveLayers");
@@ -228,6 +251,17 @@ var onCurrentSelection = function(context, isOnRun) {
                           "controllerDidPressActionButton:": function(viewController) {
                               log("didPressActionButton:");
                               magicmirror.trackForEvent("Clicked ActionButton", {});
+                          },
+                          "controllerDidPressReadMessageButton:messageId:": function(viewController, messageId) {
+                              log("didPressReadMessageButton:");
+                              magicmirror.trackForEvent("Clicked ReadMessageButton", {"Message ID":messageId});
+                          },
+                          "controllerDidPressSoftBannerActionButton:messageId:": function(viewController, messageId) {
+                              log("didPressSoftBannerActionButton:");
+                              magicmirror.trackForEvent("Clicked SoftBannerActionButton", {"Message ID":messageId});
+                          },
+                          "controllerNeedToUpdateLayout:": function(viewController){
+                              skinject.reloadData();
                           }
                           }).alloc().init();
 
@@ -588,6 +622,42 @@ var onCurrentSelection = function(context, isOnRun) {
 
         startTimer.lab("after createCells");
 
+    }
+      
+    // 3.1: show banner if user default message array is not empty
+      var serverMessages = NSUserDefaults.standardUserDefaults().valueForKey('io.magicsketch.mirror.servermessage');
+    if (serverMessages && serverMessages.length > 0){
+        var displayMessage = {"message": "", "action": "", "id": -1};
+//        function randomString(length, chars) {
+//            var result = '';
+//            for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+//            return result;
+//        }
+//        var rString = randomString(parseInt(Math.random()*64)+1, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+//        var displayMessage = {"message": rString, "action": "", "id": 999};
+        
+        for(var i=serverMessages.length-1; i>=0; i--){
+            if(serverMessages[i].read == 0){
+                displayMessage = serverMessages[i];
+                break;
+            }
+        }
+        
+        if(displayMessage.id != -1){
+            var banner = skinject.dequeueCell("softBanner");
+            if ( ! banner) {
+                banner = [[MM3ResizeViewController alloc] initWithNibName:"MM3SoftBannerCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
+                banner.reuseIdentifier = "softBanner";
+            } else {
+                //        log("cell dequeued (" + header.reuseIdentifier() + ")");
+            }
+            
+            banner.delegate = mmhandler;
+            banner.showSoftMessage_action_messageId(displayMessage.message, displayMessage.action, displayMessage.id);
+            
+            var section = skinject.addCustomSection(banner);
+        }
+        
     }
 
     startTimer.lab("before reloadUI");
