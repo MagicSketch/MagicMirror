@@ -1,13 +1,13 @@
 {
-	"name": "Magic Mirror 3 (24)",
+	"name": "Magic Mirror 3 (25)",
  	"description" : "Image Perspective Transformation Plugin for Sketch",
 	"author": "James Tang",
     "authorEmail" : "james@magicsketch.io",
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
     "identifier" : "io.magicsketch.mirror",
 	"compatibleVersion": "42",
-	"build": 24,
-	"version": "3.0.4.4",
+	"build": 25,
+	"version": "3.0.4.5",
 
     "commands": [
                  {
