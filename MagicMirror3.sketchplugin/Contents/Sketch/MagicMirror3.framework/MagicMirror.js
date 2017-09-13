@@ -713,6 +713,9 @@ var MagicMirrorJS = function(identifier) {
 //            log("getEffectiveLayers: group: " + mslayer.name());
             var children = mslayer.children()
             var all = [NSMutableArray array];
+
+            return all;   // no search inside group
+
             for (var i = 0; i < children.count(); i++) {
                 var layer = children[i];
                 if (layer.objectID().isEqual(mslayer.objectID())) {
@@ -1102,6 +1105,16 @@ var MagicMirrorJS = function(identifier) {
             _command = context.command;
             loadDependancy();
 
+        },
+        onOpenDocument: function(context) {
+            _context = context;
+            _document = dispatch_once_per_document("MMJSGetDocument", function() {
+                                                   loadFramework();
+                                                   var action = context.actionContext;
+                                                   return action.document;
+                                                   });
+            _command = context.command;
+            loadDependancy();
         },
         env: function() {
             return _magicmirror.env();

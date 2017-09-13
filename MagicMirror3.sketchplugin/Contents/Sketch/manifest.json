@@ -1,13 +1,13 @@
 {
-	"name": "Magic Mirror 3 (20)",
+	"name": "Magic Mirror 3 (24)",
  	"description" : "Image Perspective Transformation Plugin for Sketch",
 	"author": "James Tang",
     "authorEmail" : "james@magicsketch.io",
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
     "identifier" : "io.magicsketch.mirror",
 	"compatibleVersion": "42",
-	"build": 20,
-	"version": "3.0.4",
+	"build": 24,
+	"version": "3.0.4.4",
 
     "commands": [
                  {
@@ -25,10 +25,21 @@
                  "handler" : "disable"
                  },
                  {
+                     "script" : "onstartup.js",
+                     "handlers" : {
+                         "actions" : {
+                         "Startup" : "onStartup",
+                         "OpenDocument":"onOpenDocument",
+                         "SketchAsync.refresh" : "onRefresh",
+                         }
+                      },
+                 },
+                 {
                  "script" : "onchange.js",
                  "handlers" : {
                      "actions" : {
                          "SelectionChanged.finish" : "onSelectionChanged",
+                         "SketchAsync.refresh" : "onRefresh",
                          "-ArtboardChanged.finish" : "onArtboardChanged",
                          "-LayersMoved.finish" : "onLayersMoved",
                          "-AddFill.finish": "onAddFill",
@@ -37,6 +48,19 @@
                      }
                      },
                  },
+								 {
+										"script" : "onuseraction.js",
+										"handlers" : {
+												"actions" : {
+													"MagicMirror.onIncludeArtboard" : "onArtboardPicked",
+													"MagicMirror.onImageQualitySelected" : "onImageQualitySelected",
+													"MagicMirror.onRefresh" : "onRefresh",
+													"MagicMirror.onFlip" : "onFlip",
+													"MagicMirror.onRotate" : "onRotate",
+                                                    "MagicMirror.onOpenDocument": "onOpenDocument",
+												}
+										 },
+								},
     ],
 	"menu": {
 	    "isRoot" : false,

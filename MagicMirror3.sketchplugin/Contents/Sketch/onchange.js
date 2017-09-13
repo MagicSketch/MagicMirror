@@ -1,6 +1,8 @@
 @import 'SKCheck.js'
 @import 'Skinject.framework/Skinject.js'
 @import 'MagicMirror3.framework/MagicMirror.js'
+@import 'SketchAsync.framework/SketchAsync.js'
+@import 'MagicMirrorUI.js'
 
 var onCurrentSelection = function(context, isOnRun) {
 
@@ -40,8 +42,14 @@ var onCurrentSelection = function(context, isOnRun) {
 
     // 0.0001
 
-      var skinject = Skinject(identifier);
-      var magicmirror = MagicMirrorJS(identifier);
+//      var skinject = Skinject(identifier);
+//      var magicmirror = MagicMirrorJS(identifier);
+      var magicmirror = dispatch_once_per_document("MagicMirrorJS", function() { return MagicMirrorJS(identifier) });
+//      magicmirror.onSelectionChanged(context);
+
+      var skinject = dispatch_once_per_document("Skinject", function() { return Skinject(identifier) });
+
+      var async = SketchAsync.alloc().init();
 
       if (context.action) {
           skinject.onSelectionChanged(context);
@@ -136,10 +144,32 @@ var onCurrentSelection = function(context, isOnRun) {
 
     getSelectionTimer.start()
 //    effectiveLayers = [NSArray array];
-    effectiveLayers = magicmirror.getEffectiveLayers(selection);
-    getSelectionTimer.stop();
+      var section = configureSectionHeader(magicmirror, skinject);
+      remember(section, "section")
 
-    startTimer.lab("after getEffectiveLayers");
+    var effectiveLayers = magicmirror.getEffectiveLayers(selection);
+    var async = dispatch_once_per_document("async", function() { return SketchAsync.alloc().init() })
+    async.runInBackground_onCompletion_withIdentifier_(function(identifier) {
+                                             log("gettingEffectiveLayers " + identifier);
+                                            var effectiveLayers = [];//magicmirror.getEffectiveLayers(selection);
+                                             remember(identifier, "getEffectiveLayer");
+
+                                            log("section: " + section);
+
+                                             return effectiveLayers;
+                                         },
+                                         function(result, identifier) {
+                                             if (remind("getEffectiveLayer") == identifier) {
+                                                 log("finish " + identifier);
+                                                var section = remind("section")
+                                                log("section: " + section);
+                                             } else {
+                                                 log("ignore this " + identifier)
+                                                 return
+                                             }
+
+    startTimer.lab("after getEffectiveLayers: ");
+    getSelectionTimer.stop();
 
     var MM3SelectionController = function(selection) {
 //        var effectiveLayers = magicmirror.getEffectiveLayers(selection);
@@ -275,20 +305,20 @@ var onCurrentSelection = function(context, isOnRun) {
     startTimer.lab("before createHeader");
 
     createUITimer.start();
-    var header = skinject.dequeueCell("header");
-    if ( ! header) {
-        header = [[MM3ViewController alloc] initWithNibName:"MM3InspectorHeader" bundle:[NSBundle bundleForClass:MM3ViewController]];
-        header.reuseIdentifier = "header";
-    } else {
-//        log("cell dequeued (" + header.reuseIdentifier() + ")");
-    }
-    header.delegate = mmhandler;
+//    var header = skinject.dequeueCell("header");
+//    if ( ! header) {
+//        header = [[MM3ViewController alloc] initWithNibName:"MM3InspectorHeader" bundle:[NSBundle bundleForClass:MM3ViewController]];
+//        header.reuseIdentifier = "header";
+//    } else {
+////        log("cell dequeued (" + header.reuseIdentifier() + ")");
+//    }
+//    header.delegate = mmhandler;
     Mocha.sharedRuntime().setValue_forKey_(mmhandler, "MM3ViewControllerDelegate");
 
     startTimer.lab("after createHeader");
 
+
     if ( ! magicmirror.isBuildInSync()) {
-        var section = skinject.addCustomSection(header);
         log("magicmirror is not in sync");
         var avc = skinject.dequeueCell("outofsync");
         if ( ! avc) {
@@ -305,7 +335,6 @@ var onCurrentSelection = function(context, isOnRun) {
         avc.reloadData();
         section.addCustomCell(avc);
     } else if (magicmirror.isExpired()) {
-        var section = skinject.addCustomSection(header);
         log("magicmirror is expired");
         var avc = skinject.dequeueCell("expired");
         if ( ! avc) {
@@ -321,7 +350,6 @@ var onCurrentSelection = function(context, isOnRun) {
         avc.reloadData();
         section.addCustomCell(avc);
     } else if (migrationFailed) {
-        var section = skinject.addCustomSection(header);
         var avc = skinject.dequeueCell("migrationFailed");
         if ( ! avc) {
             avc = [[MM3ViewController alloc] initWithNibName:"MM3ActivationCell" bundle:[NSBundle bundleForClass:MM3ViewController]];
@@ -336,7 +364,6 @@ var onCurrentSelection = function(context, isOnRun) {
         avc.reloadData();
         section.addCustomCell(avc);
     } else if ( ! magicmirror.isActivated()) {
-       var section = skinject.addCustomSection(header);
        log("magicmirror not activated");
 
         var avc = skinject.dequeueCell("notActivated");
@@ -356,7 +383,6 @@ var onCurrentSelection = function(context, isOnRun) {
         document.hideMessage();
         
         // 3.0.2: Always make mirror panel visible:
-        var section = skinject.addCustomSection(header);
         var lvc = skinject.dequeueCell("layerToolbar");
         if ( ! lvc) {
             lvc = [[MM3ViewController alloc] initWithNibName:"MM3LayerToolbar" bundle:[NSBundle bundleForClass:MM3ViewController]];
@@ -372,7 +398,6 @@ var onCurrentSelection = function(context, isOnRun) {
 
     } else {
 
-        var section = skinject.addCustomSection(header);
 
         var includable = [NSMutableArray array];
 
@@ -693,6 +718,9 @@ var onCurrentSelection = function(context, isOnRun) {
         }
     }
 
+   }, "getEffectiveLayers" + [[[NSUUID alloc] init] UUIDString]); // async.runInBackground
+
+
   } catch (exception) {
     log("❌ MagicMirror3 exception: " + exception);
     document.showMessage("exception: " + exception);
@@ -701,7 +729,57 @@ var onCurrentSelection = function(context, isOnRun) {
 };
 
 var onSelectionChanged = function(context) {
+
     onCurrentSelection(context);
+
+    return;
+    coscript.setShouldKeepAround(true)
+
+    var identifier = context.plugin.valueForKey("_identifier");
+    var magicmirror = dispatch_once_per_document("MagicMirrorJS", function() { return MagicMirrorJS(identifier) });
+    magicmirror.onSelectionChanged(context);
+
+    var skinject = dispatch_once_per_document("Skinject", function() { return Skinject(identifier) });
+    skinject.onSelectionChanged(context);
+
+    var section = configureSectionHeader(magicmirror, skinject)
+    configureLayerToolbar(magicmirror, skinject, section);
+
+
+    var document = context.actionContext.document;
+
+    if (document.respondsToSelector("selectedLayers")) {
+        selection = document.selectedLayers();   // Sketch 41 is NSArray, Sketch 42 returns MSLayerArray
+        if (selection.respondsToSelector("layers")) {
+            selection = selection.layers()
+        };
+    } else {
+        selection = document.selectedLayersA().layers();
+    }
+
+//    var effectiveLayers = magicmirror.getEffectiveLayers(selection);
+//    log("effectiveLayesr: " + effectiveLayers);
+
+    var async = dispatch_once_per_document("async", function() { return SketchAsync.alloc().init() })
+    async.runInBackground_onCompletion_withIdentifier_(function(identifier) {
+                                            log("gettingEffectiveLayers " + identifier);
+                                            var effectiveLayers = magicmirror.getEffectiveLayers(selection);
+
+                                            remember(identifier, "getEffectiveLayer");
+                                            //return effectiveLayers;
+                                        },
+                                        function(result, identifier) {
+                                            if (remind("getEffectiveLayer") == identifier) {
+                                                log("finish " + identifier);
+                                            } else {
+                                                log("ignore this " + identifier)
+                                            }
+                                        },
+                                        "getEffectiveLayer");
+
+//    configureArtboardOptions(context);
+//    configureCells(context);
+
 };
 
 var onArtboardChanged = function(context) {
@@ -727,4 +805,3 @@ var onToggleSelection = function(context) {
 var onAction = function(context) {
     log("action: " + context.action);
 }
-

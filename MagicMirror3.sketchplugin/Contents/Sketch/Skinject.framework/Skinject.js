@@ -159,8 +159,8 @@ var Skinject = function(identifier) {
             _document = _context.document
             _view = _document.window().contentView()
 
-            _inspectorControllerView = _document.inspectorController().placeholderView();   // save 300ms instead of searching through _view
-            _stackView = viewsWithClassNameInView("MSInspectorStackView", _inspectorControllerView)[0];
+            _stackView = _document.inspectorController().normalInspector().stackView();   // save 300ms instead of searching through _view
+
 
             _controllers = _stackView.sectionViewControllers().mutableCopy();
 
@@ -192,8 +192,7 @@ var Skinject = function(identifier) {
             _document = _context.actionContext.document
             _view = _document.window().contentView()
 
-            _inspectorControllerView = _document.inspectorController().placeholderView();   // save 300ms instead of searching through _view
-            _stackView = viewsWithClassNameInView("MSInspectorStackView", _inspectorControllerView)[0];
+            _stackView = _document.inspectorController().normalInspector().stackView()
 
             _controllers = _stackView.sectionViewControllers().mutableCopy();
 

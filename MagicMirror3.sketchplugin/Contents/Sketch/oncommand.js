@@ -1,6 +1,7 @@
 @import 'Skinject.framework/Skinject.js'
 @import 'MagicMirror3.framework/MagicMirror.js'
 @import 'onchange.js'
+@import 'MagicMirrorUI.js'
 
 var enable = function(context) {
     //    context.command.setValue_forKey_onDocument_(1, "enable", context.document.documentData());
@@ -14,12 +15,14 @@ var enable = function(context) {
     NSUserDefaults.standardUserDefaults().setBool_forKey(false, disabledIdentifier);
     NSUserDefaults.standardUserDefaults().synchronize();
 
-
-
-    var magicmirror = MagicMirrorJS(identifier);
+    var magicmirror = dispatch_once_per_document("MagicMirrorJS", function() { return MagicMirrorJS(identifier) });
+    var skinject = dispatch_once_per_document("Skinject", function() { return Skinject(identifier) });
     magicmirror.onRun(context);
+    skinject.onRun(context);
+
     magicmirror.trackForEvent("Enabled MagicMirror", {});
 
+    context.document.reloadInspector()
     onCurrentSelection(context, true);
 
     var document = context.document || context.actionContext.document;
@@ -39,13 +42,14 @@ var disable = function(context) {
     //        magicmirror.trackForEvent("Executed Disable MagicMirror", {});
     //    }
 
-
-    var magicmirror = MagicMirrorJS(identifier);
+    var magicmirror = dispatch_once_per_document("MagicMirrorJS", function() { return MagicMirrorJS(identifier) });
+    var skinject = dispatch_once_per_document("Skinject", function() { return Skinject(identifier) });
     magicmirror.onRun(context);
+    skinject.onRun(context);
 
     magicmirror.trackForEvent("Disabled MagicMirror", {});
 
-    onCurrentSelection(context, true);
+    context.document.reloadInspector()
 
     var document = context.document || context.actionContext.document;
     document.showMessage("Magic Mirror 3 Disabled");
