@@ -1,0 +1,50 @@
+{
+	"name": "Magic Mirror 3 (13)",
+ 	"description" : "Image Perspective Transformation Plugin for Sketch",
+	"author": "James Tang",
+    "authorEmail" : "james@magicsketch.io",
+	"homepage": "https://github.com/MagicSketch/MagicMirror",
+    "identifier" : "io.magicsketch.mirror",
+	"compatibleVersion": "41",
+	"build": 13,
+	"version": "3.0",
+
+    "commands": [
+                 {
+                 "name" : "Enable MagicMirror",
+                 "identifier" : "enable",
+                 "shortcut" : "",
+                 "script" : "oncommand.js",
+                 "handler" : "enable"
+                 },
+                 {
+                 "name" : "Disable MagicMirror",
+                 "identifier" : "disable",
+                 "shortcut" : "",
+                 "script" : "oncommand.js",
+                 "handler" : "disable"
+                 },
+                 {
+                 "script" : "onchange.js",
+                 "handlers" : {
+                     "actions" : {
+                         "SelectionChanged.finish" : "onSelectionChanged",
+                         "-ArtboardChanged.finish" : "onArtboardChanged",
+                         "-LayersMoved.finish" : "onLayersMoved",
+                         "-AddFill.finish": "onAddFill",
+                         "-Edit.finish": "onEdit",
+                         "-ToggleSelection.finish": "onToggleSelection",
+                     }
+                     },
+                 },
+    ],
+	"menu": {
+	    "isRoot" : false,
+	    "shortcut" : "",
+		"title": "Magic Mirror 3",
+        "items": [
+                  "enable",
+                  "disable",
+		]
+	}
+}
