@@ -1316,6 +1316,56 @@ var MagicMirrorJS = function(identifier) {
 
             return this.valueForLayer("imageQuality", layer) || 0;
         },
+        imageQualityWithAutoQuality:function(layer) {
+            if (layer.isKindOfClass(NSArray)) {
+                return nil;
+            }
+            
+            var quality = this.valueForLayer("imageQuality", layer);
+            
+            // Use auto quality if value is not defined or is 0(Auto)
+            if(!quality || quality == 0){
+                quality = this.autoImageQuality(layer);
+            }
+
+            return quality;
+        },
+        autoImageQuality:function(layer){
+            var defaultScale = self.isActivated?2:1;
+            if (layer.isKindOfClass(NSArray)) {
+                return defaultScale;
+            }
+            
+            dlog("auto quality 1: no array");
+            
+            var artboard = layer.parentArtboard();
+            if(artboard){
+                dlog("auto quality 2: "+artboard);
+                var formats = artboard.exportOptions().exportFormats();
+                var highestQuality = 0;
+                
+                if(formats.length == 0){
+                    formats = layer.exportOptions().exportFormats();
+                }
+                
+                dlog("auto quality 3: "+formats);
+                each(formats, function(format){
+                     if(format.scale() > highestQuality){
+                        highestQuality = format.scale();
+                     }
+                     });
+                
+                if(highestQuality == 0){
+                    highestQuality = defaultScale;
+                }
+                
+                dlog("auto quality 3: final quality "+highestQuality);
+                
+                return highestQuality;
+            }else{
+                return defaultScale;
+            }
+        },
         isIncluded: function(layer, last) {
             if ([layer isKindOfClass:NSArray]) {
                 if ([layer count] == 1) {
@@ -1462,6 +1512,7 @@ var MagicMirrorJS = function(identifier) {
             // find artboard
 
             dlog("MM: refreshLayer: " + mslayer);
+            dlog("TODO: Artboard: ");
 
             if ( ! mslayer) {
                 return;
@@ -1535,7 +1586,8 @@ var MagicMirrorJS = function(identifier) {
             var flipped = this.valueForLayer("flipped", mslayer);
             dlog("MM: refreshLayer 2.4: " + flipped);
 
-            var scale = Math.max(this.valueForLayer("imageQuality", mslayer), 1);
+//            var scale = Math.max(this.valueForLayer("imageQuality", mslayer), 1);
+            var scale = Math.max(this.imageQualityWithAutoQuality(mslayer), 1);
             dlog("MM: refreshLayer 2.5: " + scale);
 
             var destinationPoints = this.getPointsFromLayer(mslayer);
@@ -1662,7 +1714,8 @@ var MagicMirrorJS = function(identifier) {
             var flipped = this.valueForLayer("flipped", mslayer);
             dlog("MM: refreshLayerIDInSymbol 2.4: flipped " + flipped);
 
-            var scale = Math.max(this.valueForLayer("imageQuality", mssymbol), 1);
+//            var scale = Math.max(this.valueForLayer("imageQuality", mssymbol), 1);
+            var scale = Math.max(this.imageQualityWithAutoQuality(mssymbol), 1);
             dlog("MM: refreshLayerIDInSymbol 2.5: scale " + scale);
 
             var destinationPoints = this.getPointsFromLayer(mslayer);

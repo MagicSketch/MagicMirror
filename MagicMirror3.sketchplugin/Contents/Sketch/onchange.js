@@ -563,6 +563,7 @@ var onCurrentSelection = function(context, isOnRun) {
         }
         lvc.delegate = mmhandler;
         lvc.imageQuality = selection.count() > 1 ? -1 : magicmirror.imageQuality(selected);
+        lvc.parentArtboardHighestQuality = magicmirror.autoImageQuality(selected);
         lvc.identifier = selection.firstObject().objectID()
         lvc.reloadData();
         section.addCustomCell(lvc);
