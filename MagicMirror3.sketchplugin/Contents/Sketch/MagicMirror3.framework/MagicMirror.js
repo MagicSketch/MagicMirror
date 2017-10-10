@@ -506,7 +506,13 @@ var MagicMirrorJS = function(identifier) {
             [fill setIsEnabled:true];
         }
 
-        var data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+        var data = nil;
+        if (MSImageData.instancesRespondToSelector("initWithImage:")) {
+            // Sketch 47
+            data = [[MSImageData alloc] initWithImage:image];
+        } else {
+            data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+        }
         [fill setImage:data];
     };
 
@@ -1431,9 +1437,13 @@ var MagicMirrorJS = function(identifier) {
             /*
             var overrides = [NSMutableDictionary dictionary];
             if (image) {
-
-                var data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
-
+                var data = nil;
+                if (MSImageData.instancesRespondToSelector("initWithImage:")) {
+                   // Sketch 47
+                   data = [[MSImageData alloc] initWithImage:image];
+                } else {
+                   data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+                }
                 var originalOverrides = symbol.overrides();
                 dlog("original:");
                 dlog(originalOverrides);
@@ -1457,7 +1467,13 @@ var MagicMirrorJS = function(identifier) {
             // Sketch 44.1
             if (image) {
                 dlog("original:");
-                var data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+                var data = nil;
+                if (MSImageData.instancesRespondToSelector("initWithImage:")) {
+                    // Sketch 47
+                    data = [[MSImageData alloc] initWithImage:image];
+                } else {
+                    data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+                }
                 symbol.addOverrides_ancestorIDs_(data, [layerID]);
             } else {
                 symbol.addOverrides_ancestorIDs_(nil, [layerID]);
@@ -1826,7 +1842,14 @@ var MagicMirrorJS = function(identifier) {
         },
         getImageData:function(layer) {
             var image = generateImage(layer, 1);
-            return [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+            var data = nil;
+            if (MSImageData.instancesRespondToSelector("initWithImage:")) {
+                // Sketch 47
+                data = [[MSImageData alloc] initWithImage:image];
+            } else {
+                data = [[MSImageData alloc] initWithImage:image convertColorSpace:false];
+            }
+            return data;
         },
         getThumbnail: function(layer, size) {
 
