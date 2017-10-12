@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0.9</string>
+	<string>3.0.10</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -25,7 +25,7 @@
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>30</string>
+	<string>31</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -41,11 +41,11 @@
 	<key>DTXcodeBuild</key>
 	<string>9A235</string>
 	<key>MM3PluginCode</key>
-	<string>30</string>
+	<string>31</string>
 	<key>MM3PluginEnv</key>
 	<string></string>
 	<key>MM3PluginName</key>
-	<string>Magic Mirror 3.0.9 (30)</string>
+	<string>Magic Mirror 3.0.10 (31)</string>
 	<key>MM3SketchVersion</key>
 	<string>44</string>
 	<key>NSHumanReadableCopyright</key>

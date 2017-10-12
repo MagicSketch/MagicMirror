@@ -1917,7 +1917,7 @@ var MagicMirrorJS = function(identifier) {
 
             var thumbnail = function(image) {
                 var size = CGSizeMake(24, 24);
-                return MM3Image.fillImage_insideBounds_scale_shouldTrimTransparent_shadow_(image, CGRectMake(0, 0, size.width, size.height), 1, false, CGSizeMake(0, -1));
+                return MM3Image.fillImage_insideBounds_scale_shouldTrimTransparent_shadow_(image, MM3RectMake(0, 0, size.width, size.height), 1, false, CGSizeMake(0, -1));
             };
 
             var list = [
