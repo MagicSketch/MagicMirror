@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"><channel><title>Magic Mirror 3</title><link>https://magicsketch.io/mirror/</link><description>Image Perspective Transformation Plugin for Sketch</description><language>en</language><item><title>Magic Mirror 3 Release/3.0.12</title><description>Bug Fix</description><pubDate>2017-10-23T18:30:26.463Z</pubDate><enclosure sparkle:version="3.0.12" url="https://dl.magicsketch.io/mirror3/Release/3.0.12/dl" /></item><item><title>Magic Mirror 3 Release/3.0.11</title><description>v3.0.11 (32) Fix for the Activation that blocks the free version usage</description><pubDate>2017-10-18T03:15:00.000Z</pubDate><enclosure sparkle:version="3.0.11" url="http://dl.magicsketch.io/mirror3/Release/3.0.11/dl" /></item><item><title>Magic Mirror 3 Release/3.0.10</title><description>v3.0.10 (31) Apply artboard on symbol Crash Fix</description><pubDate>2017-10-12T18:38:00.000Z</pubDate><enclosure sparkle:version="3.0.10" url="http://dl.magicsketch.io/mirror3/Release/3.0.10/dl" /></item><item><title>Magic Mirror 3 Release/3.0.9</title><description>v3.0.9 (30) Sketch 47 Crash Fix</description><pubDate>2017-10-10T23:52:00.000Z</pubDate><enclosure sparkle:version="3.0.9" url="http://dl.magicsketch.io/mirror3/Release/3.0.9/dl" /></item><item><title>Magic Mirror 3 Release/3.0.7</title><description>v3.0.7 (29)
+
+
+Added auto quality support for layers</description><pubDate>2017-09-30T14:31:00.000Z</pubDate><enclosure sparkle:version="3.0.7" url="http://dl.magicsketch.io/mirror3/Release/3.0.7/dl" /></item><item><title>Magic Mirror 3 (28)</title><description>v3.0.6 (28)
+
+
+Fix Magic Mirror 3 on High Sierra
+</description><pubDate>2017-07-28T01:45:00.000Z</pubDate><enclosure sparkle:version="3.0.6" url="http://dl.magicsketch.io/mirror3/28/dl" /></item><item><title>Magic Mirror 3 (27)</title><description>v3.0.5.1 (27)
+
+Fix Magic Mirror 3 on High Sierra</description><pubDate>2017-07-24T01:46:00.000Z</pubDate><enclosure sparkle:version="3.0.5.1" url="http://dl.magicsketch.io/mirror3/27/dl" /></item><item><title>Magic Mirror 3 (26)</title><description>v3.0.5 (26)
+
+- Fix crashes when applying actions on layers without artboard selected
+- Fix crashes when applying artboard to symbol instances (require Sketch 44+)
+- Fix issue when working with plugins using SketchXcodeTemplate</description><pubDate>2017-06-10T14:30:00.000Z</pubDate><enclosure sparkle:version="3.0.5" url="http://dl.magicsketch.io/mirror3/26/dl" /></item><item><title>Magic Mirror 3 Release/3.0.4.6</title><description>Bug Fix</description><pubDate>2017-09-13T17:24:53.000Z</pubDate><enclosure sparkle:version="3.0.4.6" url="http://dl.magicsketch.io/mirror3/Release/3.0.4.6/dl" /></item><item><title>Magic Mirror 3 (25)</title><description>v3.0.4.5 (25)
+
+- Fix a crash when setting artboard in offline mode</description><pubDate>2017-05-19T01:00:00.000Z</pubDate><enclosure sparkle:version="3.0.4.5" url="http://dl.magicsketch.io/mirror3/25/dl" /></item><item><title>Magic Mirror 3 Release/3.0.4.5</title><description>Bug Fix</description><pubDate>2017-09-13T17:21:15.000Z</pubDate><enclosure sparkle:version="3.0.4.5" url="http://dl.magicsketch.io/mirror3/Release/3.0.4.5/dl" /></item><item><title>Magic Mirror 3 (24)</title><description>v3.0.4.4 (24)
+
+- Fix crash on Sketch Beta 44</description><pubDate>2017-05-09T18:42:00.000Z</pubDate><enclosure sparkle:version="3.0.4.4" url="http://dl.magicsketch.io/mirror3/24/dl" /></item><item><title>Magic Mirror 3 Release/3.0.4.4</title><description>Bug Fix</description><pubDate>2017-09-13T15:30:33.000Z</pubDate><enclosure sparkle:version="3.0.4.4" url="http://dl.magicsketch.io/mirror3/Release/3.0.4.4/dl" /></item><item><title>Magic Mirror 3 (23)</title><description>v3.0.4.3 (23)
+
+- Put Computation in Background
+- Soft Update Banner
+- Fix Weird Layout when Enabling Magic Mirror
+- Remove reclusive group fetching (faster)
+- Fix startup crash for 3.0.4
+- Fix update crash when network can't be called</description><pubDate>2017-04-20T22:43:00.000Z</pubDate><enclosure sparkle:version="3.0.4.3" url="http://dl.magicsketch.io/mirror3/23/dl" /></item><item><title>Magic Mirror 3 (20)</title><description>v3.0.4 (20)
+
+- Put Computation in Background
+- Soft Update Banner
+- Fix Weird Layout when Enabling Magic Mirror</description><pubDate>2017-04-18T13:01:00.000Z</pubDate><enclosure sparkle:version="3.0.4" url="http://dl.magicsketch.io/mirror3/20/dl" /></item><item><title>Magic Mirror 3 Release/3.0.4</title><description>Bug Fix</description><pubDate>2017-09-13T14:34:13.000Z</pubDate><enclosure sparkle:version="3.0.4" url="http://dl.magicsketch.io/mirror3/Release/3.0.4/dl" /></item><item><title>Magic Mirror 3 (18)</title><description>v3.0.3 (18)
+
+- Fixed Not Showing Layers for Symbol Instance
+- Improve Performance when selecting Artboard
+- You can now include/exclude artboards even in multiple selection</description><pubDate>2017-02-23T22:00:00.000Z</pubDate><enclosure sparkle:version="3.0.3" url="http://dl.magicsketch.io/mirror3/18/dl" /></item><item><title>Magic Mirror 3 Release/3.0.3</title><description>Bug Fix</description><pubDate>2017-09-13T13:01:58.000Z</pubDate><enclosure sparkle:version="3.0.3" url="http://dl.magicsketch.io/mirror3/Release/3.0.3/dl" /></item><item><title>Magic Mirror 3 (15)</title><description>v3.0.2 (15)
+
+- Crash fixes for license activation
+- Magic Mirror panel always visible
+- Refresh button refresh all artboard when no selection</description><pubDate>2017-02-08T17:00:00.000Z</pubDate><enclosure sparkle:version="3.0.2" url="http://dl.magicsketch.io/mirror3/15/dl" /></item><item><title>Magic Mirror 3 (14)</title><description>v3.0.1 (14)
+
+- Better support for MM2 templates
+- New Include In Artboard Tutorial</description><pubDate>2017-01-18T22:00:00.000Z</pubDate><enclosure sparkle:version="3.0.1" url="http://dl.magicsketch.io/mirror3/14/dl" /></item><item><title>Magic Mirror 3 Release/3.0.1</title><description>Bug Fix</description><pubDate>2017-09-13T12:46:40.000Z</pubDate><enclosure sparkle:version="3.0.1" url="http://dl.magicsketch.io/mirror3/Release/3.0.1/dl" /></item><item><title>Magic Mirror 3 (13)</title><description>v3.0 (13)
+
+- Reduce Layer List
+- Reduce Artboard List
+- Backwards compatible with MM2
+</description><pubDate>2017-01-18T00:00:00.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/13/dl" /></item><item><title>Magic Mirror 3 Release/3.0</title><description>Bug Fix</description><pubDate>2017-09-13T11:07:14.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/Release/3.0/dl" /></item><item><title>Magic Mirror 3 Pre 2</title><description>v3.0 Pre 2
+
+Last version before public release.
+
+- Fixed Offline Crash
+- Fixed Enable Magic Mirror causing crash
+- Better feedback after enabled/disabled</description><pubDate>2017-01-16T22:00:00.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/pre2/dl" /></item><item><title>Magic Mirror 3 Pre 1</title><description>v3.0 Pre 1
+
+- Fix Crashes when Selecting No Artboard
+- Remove Activation Blockage
+- Add Support/Feedback Links
+</description><pubDate>2017-01-12T00:00:00.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/pre1/dl" /></item><item><title>Magic Mirror 3 Beta 2</title><description>Beta 2
+
+- We are working very hard on performance enhancement, should feel much much faster :)
+
+- We also have a fix on Sketch 42
+
+Beta 1
+
+- Toolbar now integrates with Sketch Inspector panel, finally no more floating around!
+- Improved image quality, as well as new 4x support!
+- Shapes with Corner Radius are supported!
+- Support Symbols!
+- Support Slices!
+- Type to Search for the target Artboard
+- Thumbnail Preview in the Artboard list
+Excluding specific Artboards on demand
+- Smart selection tool
+- etc…
+
+Read Our Blog Post:
+https://blog.magicsketch.io/using-magic-mirror-3-37f27e044964</description><pubDate>2016-12-30T23:30:00.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/beta2/dl" /></item><item><title>Magic Mirror 3 Beta 1</title><description>Whole New Update
+
+- Toolbar now integrates with Sketch Inspector panel, finally no more floating around!
+- Improved image quality, as well as new 4x support!
+- Shapes with Corner Radius are supported!
+- Support Symbols!
+- Support Slices!
+- Type to Search for the target Artboard
+- Thumbnail Preview in the Artboard list
+Excluding specific Artboards on demand
+- Smart selection tool
+- etc…
+
+Read Our Blog Post:
+https://blog.magicsketch.io/using-magic-mirror-3-37f27e044964
+</description><pubDate>2016-12-16T19:00:00.000Z</pubDate><enclosure sparkle:version="3.0" url="http://dl.magicsketch.io/mirror3/beta1/dl" /></item></channel></rss>
