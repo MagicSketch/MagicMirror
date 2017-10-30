@@ -1208,6 +1208,10 @@ var MagicMirrorJS = function(identifier) {
             dlog("licenseManager.isActivated:" + _licenseManager);
             return _licenseManager.isActivated();
         },
+        isAutoUpdate: function(){
+            // 3.0.8: Auto update setting
+            return true;
+        },
         areaOfLayer: function(layer) {
             return areaOfRectangle(self.getPointsFromLayer(layer));
         },
@@ -1280,7 +1284,7 @@ var MagicMirrorJS = function(identifier) {
 
         },
         valueForLayer:function(key, mslayer) {
-            if ( ! mslayer.isKindOfClass(MSLayer)) {
+            if ( mslayer && ! mslayer.isKindOfClass(MSLayer)) {
                 dlog("selection is not an MSLayer, skipping for now");
                 return;
             }
@@ -1483,6 +1487,12 @@ var MagicMirrorJS = function(identifier) {
         linkLayerIDWithArtboardIDInSymbol: function(layerID, artboardID, symbolID) {
             var symbol = this.findLayer(symbolID);
             var overrides = (this.valueForLayer("overrides", symbol) || [NSDictionary dictionary]).mutableCopy();
+            var oldArtboardID = (overrides[layerID]?overrides[layerID].artboardID:"");
+
+            dlog("3.0.8: refresh symbol: "+ oldArtboardID + " "+overrides);
+
+            this.updateArtboardLinkageInfo(symbolID, oldArtboardID, artboardID);
+
             overrides[layerID] = { "artboardID": artboardID };
             this.setValueForKeyOnLayer(overrides, "overrides", symbol);
 //            dlog(overrides);
@@ -1490,8 +1500,53 @@ var MagicMirrorJS = function(identifier) {
         },
         linkLayerIDWithArtboardID: function(layerID, artboardID) {
             var layer = this.findLayer(layerID);
+            
+            this.updateArtboardLinkageInfo(layerID, this.valueForLayer("artboardID", layer), artboardID)
             this.setValueForKeyOnLayer(artboardID, "artboardID", layer);
+
             return this.refreshLayer(layer)
+        },
+        updateArtboardLinkageInfo: function(layerID, oldArtboardID, newArtboardID){
+            // 3.0.8: Auto update : update artboard linkage info
+            oldArtboardID = (!oldArtboardID || oldArtboardID.isKindOfClass(NSNull))?"":oldArtboardID;
+            newArtboardID = (!newArtboardID || newArtboardID.isKindOfClass(NSNull))?"":newArtboardID);
+            dlog("3.0.8: auto update layer: "+ layerID + " old art: "+oldArtboardID+" , new art: "+newArtboardID);
+            var newArtboard = this.findLayer(newArtboardID);
+            var oldArtboard = this.findLayer(oldArtboardID);
+
+            var newLinkedLayers = (this.valueForLayer("linkedLayers", newArtboard) || [NSArray array]).mutableCopy();
+            var oldLinkedLayers = (this.valueForLayer("linkedLayers", oldArtboard) || [NSArray array]).mutableCopy();
+            
+            if(oldArtboard){
+                var layerIndex = -1;
+                for(var i=0; i<oldLinkedLayers.length; i++){
+                    if(layerID == oldLinkedLayers[i]){
+                        layerIndex = i;
+                        break;
+                    }
+                }
+                if(layerIndex!=-1){
+                    oldLinkedLayers.splice(layerIndex, 1);
+                }
+                this.setValueForKeyOnLayer(oldLinkedLayers, "linkedLayers", oldArtboard);
+            }
+            
+            if(newArtboard){
+                var layerIndex = -1;
+                for(var i=0; i<newLinkedLayers.length; i++){
+                    if(layerID == newLinkedLayers[i]){
+                        layerIndex = i;
+                        break;
+                    }
+                }
+                if(layerIndex==-1){
+                    newLinkedLayers.push(layerID);
+                }
+                this.setValueForKeyOnLayer(newLinkedLayers, "linkedLayers", newArtboard);
+            }
+
+            dlog("3.0.8: n: "+newLinkedLayers);
+            dlog("3.0.8: o: "+oldLinkedLayers);
         },
         rotateLayer: function(mslayer) {
             dlog("MM: rotateLayer" + mslayer);
@@ -1718,7 +1773,6 @@ var MagicMirrorJS = function(identifier) {
 
             var artboard = this.findLayer(artboardID);
             var placeholder = this.getPlaceholders(artboardID);
-
 
             dlog("MM: refreshLayerIDInSymbol 2.1 artboard " + artboard);
 
@@ -2005,6 +2059,7 @@ var MagicMirrorJS = function(identifier) {
         loadServerNotification: function(){
             _magicmirror.loadServerNotification();
         },
+        checkEqual: isEqual,
     };
 
 

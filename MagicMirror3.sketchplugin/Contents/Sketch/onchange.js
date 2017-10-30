@@ -395,7 +395,7 @@ var onCurrentSelection = function(context, isOnRun) {
 
                                                        dlog("onchange.js 8 selection.count() == 0");
         // If nothing is selected, we just want to hide any previous message that might have been shown.
-        document.hideMessage();
+//        document.hideMessage();
 
         // 3.0.2: Always make mirror panel visible:
         var lvc = skinject.dequeueCell("layerToolbar");
@@ -410,6 +410,39 @@ var onCurrentSelection = function(context, isOnRun) {
         lvc.reloadData();
         lvc.disableLayerButton();
         section.addCustomCell(lvc);
+         
+         // 3.0.8: Auto update: Check all artboards for snapshot & export quality difference.
+         var allArtboards = document.documentData().allArtboards();
+         each(allArtboards, function(ab){
+              var artboardQuality = magicmirror.valueForLayer("highestQuality", ab);
+              var artboardSnapshot = remind(ab.objectID()+".fastcheck.snapshot");
+              if(artboardQuality && artboardSnapshot && artboardQuality != -1){
+                dlog("3.0.8: check "+magicmirror.checkEqual(artboardSnapshot, ab.immutableModelObject()))
+                if(!magicmirror.checkEqual(artboardSnapshot, ab.immutableModelObject()) || artboardQuality != magicmirror.autoImageQuality(ab)){
+                  dlog("3.0.8: artboard has changed. should mark linked layer to be dirty. :"+ab);
+                  var linkedLayers = magicmirror.valueForLayer("linkedLayers", ab);
+
+                  dlog("3.0.8: refresh linked layers: "+linkedLayers);
+
+                  if(linkedLayers && linkedLayers.length > 0){
+                    if(magicmirror.isAutoUpdate()){
+                      dlog("3.0.8: should perform refresh to these layers");
+                      each(linkedLayers, function(layerID){
+                        magicmirror.refreshLayer(magicmirror.findLayer(layerID));
+                      });
+                    }else{
+                      // TODO: mark as dirty only
+                      dlog("3.0.8: should set dirty to these layers");
+                    }
+                    
+                  }
+
+                  // magicmirror.setValueForKeyOnLayer(null, "snapshot", ab);
+                  remember("", ab.objectID()+".fastcheck.snapshot");
+                  magicmirror.setValueForKeyOnLayer(-1, "highestQuality", ab);
+                }
+              }
+              });
 
     } else {
 
@@ -450,6 +483,20 @@ var onCurrentSelection = function(context, isOnRun) {
 
                 startTimer.lab("after createArtboardToolbar");
             }
+                                                       
+             // 3.0.8: Save snapshot to artboard when selected for later checking
+             if(selection[0].parentArtboard()){
+                dlog("3.0.8: auto update: before save snapshot here");
+               var pArtboard = selection[0].parentArtboard();
+
+               if([pArtboard isKindOfClass:MSArtboardGroup]){
+                dlog("3.0.8: save snapshot "+pArtboard.immutableModelObject());
+                dlog("3.0.8: save quality "+magicmirror.autoImageQuality(pArtboard));
+                remember(pArtboard.immutableModelObject(), pArtboard.objectID()+".fastcheck.snapshot");
+                // magicmirror.setValueForKeyOnLayer(pArtboard.immutableModelObject(), "snapshot", pArtboard);
+                magicmirror.setValueForKeyOnLayer(magicmirror.autoImageQuality(pArtboard), "highestQuality", pArtboard);
+               }
+             }
         }
 
                                                        dlog("onchange.js 8.2 before getArtboards");
