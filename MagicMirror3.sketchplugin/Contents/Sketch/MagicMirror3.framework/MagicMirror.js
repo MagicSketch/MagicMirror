@@ -1216,7 +1216,7 @@ var MagicMirrorJS = function(identifier) {
         isAutoUpdate: function(){
             // 3.0.8: Auto update setting
             var isAutoRefresh = NSUserDefaults.standardUserDefaults().boolForKey(_autoRefreshIdentifier);
-            return isAutoRefresh || false;
+            return (isAutoRefresh || false);
         },
         areaOfLayer: function(layer) {
             return areaOfRectangle(self.getPointsFromLayer(layer));
