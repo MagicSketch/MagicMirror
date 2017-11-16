@@ -231,6 +231,7 @@ var MagicMirrorJS = function(identifier) {
     var _pluginIdentifier = identifier;
     var _buildIdentifier = identifier + ".lastBuild"
     var _migrationIdentifier = identifier + ".lastMigration"    // build number
+    var _autoRefreshIdentifier = _pluginIdentifier + ".autorefresh";
 
     var _context, _document, _command;
     var _artboards, _artboardsLookupByName, _enabledArtboardIDs;
@@ -515,7 +516,6 @@ var MagicMirrorJS = function(identifier) {
         }
         [fill setImage:data];
     };
-
     var generateImage = function(layer, scale) {
         var flattener = _flattener;
         var array = MSLayerArray.arrayWithLayer(layer)
@@ -1208,9 +1208,15 @@ var MagicMirrorJS = function(identifier) {
             dlog("licenseManager.isActivated:" + _licenseManager);
             return _licenseManager.isActivated();
         },
+        setAutoUpdate:function(option){
+            dlog("Set auto update: "+option);
+            NSUserDefaults.standardUserDefaults().setBool_forKey(option, _autoRefreshIdentifier);
+            NSUserDefaults.standardUserDefaults().synchronize();
+        },
         isAutoUpdate: function(){
             // 3.0.8: Auto update setting
-            return true;
+            var isAutoRefresh = NSUserDefaults.standardUserDefaults().boolForKey(_autoRefreshIdentifier);
+            return isAutoRefresh || false;
         },
         areaOfLayer: function(layer) {
             return areaOfRectangle(self.getPointsFromLayer(layer));
@@ -1680,7 +1686,6 @@ var MagicMirrorJS = function(identifier) {
                 ratio = self.getRatio(sourceBounds, mslayer);
                 targetScale = ratio * scale;
                 image = generateImage(artboard, targetScale);
-
             } else {
                 return;
             }
@@ -1808,11 +1813,9 @@ var MagicMirrorJS = function(identifier) {
                 ratio = self.getRatio(sourceBounds, mslayer);
                 targetScale = ratio * scale;
                 image = generateImage(artboard, targetScale);
-
             } else {
                 return;
             }
-
 
             dlog("MM: refreshLayerIDInSymbol 5");
 

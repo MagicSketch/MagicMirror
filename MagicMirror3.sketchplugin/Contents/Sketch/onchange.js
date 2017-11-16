@@ -217,6 +217,9 @@ var onCurrentSelection = function(context, isOnRun) {
                      magicmirror.setIncluded(layer, value);
                 });
             },
+            setAutoRefresh: function(value){
+                magicmirror.setAutoUpdate(value);
+            },
         };
         return commonHandler;
     }
@@ -265,6 +268,15 @@ var onCurrentSelection = function(context, isOnRun) {
                                 controller.refreshAll();
                               }
 
+                          },
+                          "controller:didToggleAutoRefresh:": function(viewController, option) {
+                          dlog("autoRefreshToggle");
+                          magicmirror.trackForEvent("Toggle refresh", {"Set State":(option==0?"NO":"YES")});
+                          
+                          var controller = MM3SelectionController(selection);
+                          controller.setAutoRefresh(option)
+                          viewController.autoRefresh = option;
+                          viewController.reloadData();
                           },
                           "controller:didToggleIncludeInArtboards:":function(viewController, option) {
                               dlog("setIncluded: " + option);
