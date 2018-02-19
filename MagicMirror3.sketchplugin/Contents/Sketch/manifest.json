@@ -1,75 +1,80 @@
 {
-	"name": "Magic Mirror 3.0.14 (35)",
- 	"description" : "Image Perspective Transformation Plugin for Sketch",
+	"name": "MagicMirror3c",
+	"description" : "Image Perspective Transformation Plugin for Sketch",
 	"author": "James Tang",
-    "authorEmail" : "james@magicsketch.io",
+	"authorEmail" : "james@magicsketch.io",
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
-    "identifier" : "io.magicsketch.mirror",
+	"identifier" : "io.magicsketch.mirror",
 	"compatibleVersion": "47",
-	"build": 35,
-	"version": "3.0.14",
+	"build": 37,
+	"version": "3.5.0",
     "appcast": "https://api.magicsketch.io/r/appcast.xml",
 
-    "commands": [
-                 {
-                 "name" : "Enable MagicMirror",
-                 "identifier" : "enable",
-                 "shortcut" : "",
-                 "script" : "oncommand.js",
-                 "handler" : "enable"
-                 },
-                 {
-                 "name" : "Disable MagicMirror",
-                 "identifier" : "disable",
-                 "shortcut" : "",
-                 "script" : "oncommand.js",
-                 "handler" : "disable"
-                 },
-                 {
-                     "script" : "onstartup.js",
-                     "handlers" : {
-                         "actions" : {
-                         "Startup" : "onStartup",
-                         "OpenDocument":"onOpenDocument",
-                         "SketchAsync.refresh" : "onRefresh",
-                         }
-                      },
-                 },
-                 {
-                 "script" : "onchange.js",
-                 "handlers" : {
-                     "actions" : {
-                         "SelectionChanged.finish" : "onSelectionChanged",
-                         "SketchAsync.refresh" : "onRefresh",
-                         "-ArtboardChanged.finish" : "onArtboardChanged",
-                         "-LayersMoved.finish" : "onLayersMoved",
-                         "-AddFill.finish": "onAddFill",
-                         "-Edit.finish": "onEdit",
-                         "-ToggleSelection.finish": "onToggleSelection",
-                     }
-                     },
-                 },
-								 {
-										"script" : "onuseraction.js",
-										"handlers" : {
-												"actions" : {
-													"MagicMirror.onIncludeArtboard" : "onArtboardPicked",
-													"MagicMirror.onImageQualitySelected" : "onImageQualitySelected",
-													"MagicMirror.onRefresh" : "onRefresh",
-													"MagicMirror.onFlip" : "onFlip",
-													"MagicMirror.onRotate" : "onRotate",
-                                                    "MagicMirror.onOpenDocument": "onOpenDocument",
-												}
-										 },
-								},
-    ],
+	"commands": [
+		{
+			"name" : "Run",
+			"identifier" : "run",
+			"shortcut" : "",
+			"script" : "script.cocoscript",
+			"handler" : "onRun"
+		},
+        {
+            "name" : "Enable MagicMirror",
+            "identifier" : "enable",
+            "shortcut" : "",
+            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "handler" : "enable",
+            "icon": "icons/mmicon.png",
+            "description": "Enable MagicMirror"
+        },
+        {
+            "name" : "Disable MagicMirror",
+            "identifier" : "disable",
+            "shortcut" : "",
+            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "handler" : "disable",
+            "icon": "icons/mmicon.png",
+            "description": "Disable MagicMirror and hide the tool bar"
+        },
+        {
+            "name" : "Refresh All Artboards",
+            "identifier" : "refreshAll",
+            "shortcut" : "",
+            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "handler" : "refreshAll",
+            "icon": "icons/mmicon.png",
+            "description": "Refresh All Artboards linked with MagicMirror"
+        },
+
+		{
+			"script" : "script.cocoscript",
+			"handlers" : {
+				"actions" : {
+					"Startup" : "onStartup",
+					"OpenDocument":"onOpenDocument",
+					"SelectionChanged.finish" : "onSelectionChanged"
+				}
+			}
+		},
+		{
+	    "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+	    "handlers" : {
+        "actions" : {
+            "Startup" : "onStartup",
+            "OpenDocument":"onOpenDocument",
+            "SelectionChanged.finish" : "onSelectionChanged"
+        }
+	    }
+		}
+	],
 	"menu": {
-	    "isRoot" : false,
-	    "shortcut" : "",
-		"title": "Magic Mirror 3",
-        "items": [
-                  "enable",
-                  "disable",
+		"isRoot" : false,
+		"shortcut" : "",
+		"title": "Magic Mirror 3c",
+		"items": [
+			"enable",
+            "disable",
+            "refreshAll"
 		]
 	}
 }

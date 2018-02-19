@@ -1,0 +1,20 @@
+var onRun = function(context) {
+  log("onRun");
+  context.document.showMessage("onRun");
+}
+
+var onStartup = function(context) {
+  log("onStartup");
+    @import 'MagicMirror3SketchExtension.framework/MagicMirror3SketchExtension.js'
+
+}
+
+var onOpenDocument = function(context) {
+  log("onOpenDocument");
+}
+
+var onSelectionChanged = function(context) {
+  log("onSelectionChanged");
+//  context.actionContext.document.showMessage("onSelectionChanged");
+}
+

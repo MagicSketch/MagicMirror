@@ -4,815 +4,423 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/Apple Watch 38mm-menu.png</key>
+		<key>Resources/icons/mmicon.png</key>
 		<data>
-		hAAJBQMSovNBVQe+pto7DZubrGo=
-		</data>
-		<key>Resources/Apple Watch 38mm.png</key>
-		<data>
-		QrlLrOkKkme2q0Pjf0r1dcdB4eU=
-		</data>
-		<key>Resources/Apple Watch 42mm-menu.png</key>
-		<data>
-		pCW/0XGfz4+oGZtqttE49pYifzY=
-		</data>
-		<key>Resources/Apple Watch 42mm.png</key>
-		<data>
-		6FHUXlcuJ3/X1rSmMjYNSZPGRjY=
-		</data>
-		<key>Resources/MagicMirrorUI.js</key>
-		<data>
-		BWMoI357TxE89OIgV6Lox7j3veQ=
-		</data>
-		<key>Resources/dlog.js</key>
-		<data>
-		vopqS65OfMu7rvfCPrZMnvyCfOU=
-		</data>
-		<key>Resources/iPad Landscape-menu.png</key>
-		<data>
-		wRO7lj4FwXZ4WiPPb7jiFleVKes=
-		</data>
-		<key>Resources/iPad Landscape.png</key>
-		<data>
-		+QTzLR5Okg+MvGQHEjIS/71mfeM=
-		</data>
-		<key>Resources/iPad Portrait-menu.png</key>
-		<data>
-		pD8KB9AOIYOsx8AHmKIAI2+X0KE=
-		</data>
-		<key>Resources/iPad Portrait.png</key>
-		<data>
-		Hf/K8uWw2Dwvx9cA1vdgxDsnlGY=
-		</data>
-		<key>Resources/iPad Pro Landscape-menu.png</key>
-		<data>
-		JXwB98ULVPY0Ncf2m+jNlzvUx1c=
-		</data>
-		<key>Resources/iPad Pro Landscape.png</key>
-		<data>
-		aZGWGwadjneW+k802NDpOjvr5LE=
-		</data>
-		<key>Resources/iPad Pro Portrait-menu.png</key>
-		<data>
-		sKu4ygbEmMuS/BcetsnE5BvTp+0=
-		</data>
-		<key>Resources/iPad Pro Portrait.png</key>
-		<data>
-		fL1w6VCPKVUhs8xW/IXhpFr+1so=
-		</data>
-		<key>Resources/iPhone 7 Plus-menu.png</key>
-		<data>
-		6NdhoziOlHx1DB5Lco0QmbNgUyo=
-		</data>
-		<key>Resources/iPhone 7 Plus.png</key>
-		<data>
-		7l7vSWtnDqBWxtP7eI7Qk/pr4OU=
-		</data>
-		<key>Resources/iPhone 7-menu.png</key>
-		<data>
-		IfrHI280LB9tt8ljWbKlBn0MUx0=
-		</data>
-		<key>Resources/iPhone 7.png</key>
-		<data>
-		uyBfnIvgyrY3ZB4PXUtyFC7TAFg=
-		</data>
-		<key>Resources/iPhone SE-menu.png</key>
-		<data>
-		iA8qrV33WQmQF9Al13cVJWGR4Z8=
-		</data>
-		<key>Resources/iPhone SE.png</key>
-		<data>
-		cR4dAKL3XL6dsYcqG+XBhLIf4bQ=
-		</data>
-		<key>Resources/oncommand.js</key>
-		<data>
-		vC7yZK/5rTtJhDUIMJrJdyT1P78=
-		</data>
-		<key>Resources/onstartup.js</key>
-		<data>
-		z1B75dO/wp8sdU+NcgmzUIwecZA=
-		</data>
-		<key>Resources/onuseraction.js</key>
-		<data>
-		WUa7yzf3GzjHuoavcrUWKexAKhA=
+		LAIHa8qZwYH837OBFJvv4cDp+oI=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Resources/Apple Watch 38mm-menu.png</key>
+		<key>Resources/icons/mmicon.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hAAJBQMSovNBVQe+pto7DZubrGo=
+			LAIHa8qZwYH837OBFJvv4cDp+oI=
 			</data>
 			<key>hash2</key>
 			<data>
-			KAcrsmjVZ/10e0hmPSSC3tAGxe1BI5sEnE53UoufArU=
+			bdnrQzuzrmtBVTjKkY2BX4kNZ7UCC0Tc9G0QBvosSeA=
 			</data>
 		</dict>
-		<key>Resources/Apple Watch 38mm.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QrlLrOkKkme2q0Pjf0r1dcdB4eU=
-			</data>
-			<key>hash2</key>
-			<data>
-			jG2GFppZEv2Jcpyw2Ui1RhZi/JKhkjajr/N1GTidnrk=
-			</data>
-		</dict>
-		<key>Resources/Apple Watch 42mm-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pCW/0XGfz4+oGZtqttE49pYifzY=
-			</data>
-			<key>hash2</key>
-			<data>
-			lRINA8DeDIjyoFvGHCto4MekwNGPnWNxXSZlcNcWEDM=
-			</data>
-		</dict>
-		<key>Resources/Apple Watch 42mm.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6FHUXlcuJ3/X1rSmMjYNSZPGRjY=
-			</data>
-			<key>hash2</key>
-			<data>
-			SRuKtqFPhuGITfzlQ5KVP5HW88zcYh/4AdCzKRLtsAI=
-			</data>
-		</dict>
-		<key>Resources/MagicMirrorUI.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BWMoI357TxE89OIgV6Lox7j3veQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			q02VgogzgMKVVo/vXlBKr80HpxsObH5dA4CdAfWCRhQ=
-			</data>
-		</dict>
-		<key>Resources/dlog.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vopqS65OfMu7rvfCPrZMnvyCfOU=
-			</data>
-			<key>hash2</key>
-			<data>
-			39xKBzQCu/Vdyy4HKNakZmaeRih4a+bRDmmBID11wYI=
-			</data>
-		</dict>
-		<key>Resources/iPad Landscape-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wRO7lj4FwXZ4WiPPb7jiFleVKes=
-			</data>
-			<key>hash2</key>
-			<data>
-			PGtmGamxp/nOA6gvcZnDb3cDp8yT+qH4AnaXttss8Ko=
-			</data>
-		</dict>
-		<key>Resources/iPad Landscape.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			+QTzLR5Okg+MvGQHEjIS/71mfeM=
-			</data>
-			<key>hash2</key>
-			<data>
-			VejxnExrvbf4zbR+oJzFQ+x3ayXKeKRZA8PeS5IE/uk=
-			</data>
-		</dict>
-		<key>Resources/iPad Portrait-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pD8KB9AOIYOsx8AHmKIAI2+X0KE=
-			</data>
-			<key>hash2</key>
-			<data>
-			z0t/ikKj/CNqgtfIbD4JccCqKfUFUt+BepXVKSm7LaM=
-			</data>
-		</dict>
-		<key>Resources/iPad Portrait.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Hf/K8uWw2Dwvx9cA1vdgxDsnlGY=
-			</data>
-			<key>hash2</key>
-			<data>
-			tpQGzLrQzCO18/jioR4OoeaJ3cedPAm6qjHmmWdLGtk=
-			</data>
-		</dict>
-		<key>Resources/iPad Pro Landscape-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			JXwB98ULVPY0Ncf2m+jNlzvUx1c=
-			</data>
-			<key>hash2</key>
-			<data>
-			hhV1+XE8/pe+TmyCIXYPaan+co/hVZuIUjNGCrDKgiw=
-			</data>
-		</dict>
-		<key>Resources/iPad Pro Landscape.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aZGWGwadjneW+k802NDpOjvr5LE=
-			</data>
-			<key>hash2</key>
-			<data>
-			T1ZgflMALD/FSz34HpsPs+YM1cFy4djDzlkTqhuQkBY=
-			</data>
-		</dict>
-		<key>Resources/iPad Pro Portrait-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			sKu4ygbEmMuS/BcetsnE5BvTp+0=
-			</data>
-			<key>hash2</key>
-			<data>
-			rxxRWqidopGZSsUpTj0vMtYtSTqKcTd+KzA3PraSEjE=
-			</data>
-		</dict>
-		<key>Resources/iPad Pro Portrait.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fL1w6VCPKVUhs8xW/IXhpFr+1so=
-			</data>
-			<key>hash2</key>
-			<data>
-			J+sjlW+AjjHSB0geWB7t09x/+51MsY+wFtbEawuqsD0=
-			</data>
-		</dict>
-		<key>Resources/iPhone 7 Plus-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6NdhoziOlHx1DB5Lco0QmbNgUyo=
-			</data>
-			<key>hash2</key>
-			<data>
-			B7rqwnWf5pS4e9AC7wgOI2vOe3fOckSkIocnq5uGaBw=
-			</data>
-		</dict>
-		<key>Resources/iPhone 7 Plus.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7l7vSWtnDqBWxtP7eI7Qk/pr4OU=
-			</data>
-			<key>hash2</key>
-			<data>
-			MnphymhJ6k56mBLhL9eT3/ZV+OLrT2bBlkZiOVKQF1k=
-			</data>
-		</dict>
-		<key>Resources/iPhone 7-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IfrHI280LB9tt8ljWbKlBn0MUx0=
-			</data>
-			<key>hash2</key>
-			<data>
-			kgsHQzimchcmTBV5ZViwwS0gw9/F5VJCbfcm2Mh7jwE=
-			</data>
-		</dict>
-		<key>Resources/iPhone 7.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uyBfnIvgyrY3ZB4PXUtyFC7TAFg=
-			</data>
-			<key>hash2</key>
-			<data>
-			6wfRVJM4uiJQCBaRSdA+3waEUfakA5Shylpr3UY2zo0=
-			</data>
-		</dict>
-		<key>Resources/iPhone SE-menu.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iA8qrV33WQmQF9Al13cVJWGR4Z8=
-			</data>
-			<key>hash2</key>
-			<data>
-			i89UauBnMV1CsNU9RzTAzkseZEFZf+ZqA6//VqOSGl8=
-			</data>
-		</dict>
-		<key>Resources/iPhone SE.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cR4dAKL3XL6dsYcqG+XBhLIf4bQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			s1C6LqgbxIQckpacoMmfKxo6Y18X5zzbfzht2/6Py/E=
-			</data>
-		</dict>
-		<key>Resources/oncommand.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vC7yZK/5rTtJhDUIMJrJdyT1P78=
-			</data>
-			<key>hash2</key>
-			<data>
-			wVxWlQO5G9GkArAquKiJgQqnuD1cMY9sxDiIyGf5wQE=
-			</data>
-		</dict>
-		<key>Resources/onstartup.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			z1B75dO/wp8sdU+NcgmzUIwecZA=
-			</data>
-			<key>hash2</key>
-			<data>
-			NLJWNXNkUqL0ISOy4JztJYR9vaueu04yu8Q1EyoDSyY=
-			</data>
-		</dict>
-		<key>Resources/onuseraction.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WUa7yzf3GzjHuoavcrUWKexAKhA=
-			</data>
-			<key>hash2</key>
-			<data>
-			ILhfzm35iMrk/7XKfM4OMUhiwt4K+SlafeLzlAYMZk0=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/MagicMirror.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3y4WTHsQDf9lh2HXBYIlww8FoBA=
-			</data>
-			<key>hash2</key>
-			<data>
-			iIi9oyV2oeX1kepamptWeiAmr+n8vM+xob6b343vvV0=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/MagicMirror3</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/MSTracker</key>
 		<dict>
 			<key>symlink</key>
-			<string>Versions/Current/MagicMirror3</string>
+			<string>Versions/Current/MSTracker</string>
 		</dict>
-		<key>Sketch/MagicMirror3.framework/Resources</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/Resources</key>
 		<dict>
 			<key>symlink</key>
 			<string>Versions/Current/Resources</string>
 		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/MagicMirror3</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/Versions/A/MSTracker</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sboMOCxipvA8oI1hEah2+C2nP9M=
+			8l73hMOMPikzLeB3MtiYWJSxQrc=
 			</data>
 			<key>hash2</key>
 			<data>
-			haYJ3x6wCrMWHXpQ4hiNDAr+Ywzm1XMlWBB8iBaRaoI=
+			45X26MkIPn7FBdpA/muawlcOWQVoyYehFou5ppvAx3Q=
 			</data>
 		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/Assets.car</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fZE31SdY1ulwHX9xSSuUTueP7C0=
+			eeIwVLkl3XbkA9Zdt8wbsHaTLVs=
 			</data>
 			<key>hash2</key>
 			<data>
-			PtVIbnWXV3kkb1iB6s/5RQ/UvrxyS8Qodh6IewsF7VA=
+			OW4bc403I+GzzsEI+mAU90Ej1IV7eku5Xz2t6WGR26g=
 			</data>
 		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uBz85gwXBEBJHxlvKDuH51jHc9Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			4PInVbY5Y0Obsy+9vurGIzF5PUphxb490QbZiUj7yEE=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3ActivationCell.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Y2eR4iMH3v+rRj8AbFy/H6rAx2A=
-			</data>
-			<key>hash2</key>
-			<data>
-			2O5hKuxuQhfDeSC5CCSPaB7SMz0aA3O2cU7iB62ra38=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3ArtboardToolbar.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ACZ7a1HcpAFDKg4LqNpNC2BjhYE=
-			</data>
-			<key>hash2</key>
-			<data>
-			oFeQLGkorgqLtY/CfJ2qIcmdelZkJK+j9iNWbXwS0uM=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3InspectorHeader.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PgKljbbYVf5BwLMd8TLMDUMIFF4=
-			</data>
-			<key>hash2</key>
-			<data>
-			CYsVkZocDvMUAHWJMSMDFHO7c3Pa1iJAqxh6pkJdsU4=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3LayerToolbar.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WjUmD5qVayEvEPHzLvDWbqaPnY4=
-			</data>
-			<key>hash2</key>
-			<data>
-			7pl/mXFTMuA0Mf7YiNRfKX+uMzjBI3PWqXPj0bt6QR8=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3PopupCell.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PJGntrfc0YvftkMaDlVywcvOBWs=
-			</data>
-			<key>hash2</key>
-			<data>
-			yk5N0tYqsRvA50+K+J49cKiK2V2niYA2sdJpf0Cw5S0=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3SoftBannerCell.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			i5K2d8mC0bVxlo5nyU4f2/1QW2Y=
-			</data>
-			<key>hash2</key>
-			<data>
-			uM1RyKw6TNxc+bi6EGYQq0gy4ugnrkAO7BMbS25Wu/g=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PEFs1AG5T9itTqKsyeZ0XqpHjQA=
-			</data>
-			<key>hash2</key>
-			<data>
-			yfvieifVQnqiBL2lbQbbmpJAxCXDtoobXtflEuyvxto=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/JmH-JN-EMs-view-Ulr-WK-uRq.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8YlD8ex9TLfi/bTDQJ3dJp5YRCc=
-			</data>
-			<key>hash2</key>
-			<data>
-			PaCGAbvLBUeb3hrAzwO2eLlzV/HU06zLAsRHk5S1onk=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/Ll9-3s-G1X-view-rAH-tQ-3rz.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PScWA/ldJVw7CE+vJg8x3s1o/GM=
-			</data>
-			<key>hash2</key>
-			<data>
-			uwcPYmDr7GnjIJ1jGi6abI5nHU21BdtqmGb32CZzBhs=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3LicenseWindow.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zJtDib6sADS255nte9OAwxNq2GA=
-			</data>
-			<key>hash2</key>
-			<data>
-			A12jcLKYLucs1ZyoCMyodk3r/dBWvP6m08ThqhMwbAs=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3ManageArtboardWindow.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/a7PZLzTIJ3ED2qaJf6Vevj2qDs=
-			</data>
-			<key>hash2</key>
-			<data>
-			eD22TRQPX8oZKmLWEjMov+2JW639w2TAkmg+W7Ub7GQ=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/MM3RegisteredWindow.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ZxuCSxOUixg7K1i+Z/YZAn++W5k=
-			</data>
-			<key>hash2</key>
-			<data>
-			xvYx4Iva40RtfHDssjdYXAmLdt3WaitPyow6e2w04l8=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/NSViewController-JmH-JN-EMs.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7AGVGz3VTEVBnzDhXjNJU1FjQlw=
-			</data>
-			<key>hash2</key>
-			<data>
-			Tura1zFjpRK+9qJdz1/DRNgNJ10cXLmwtnBfX08JjdM=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/Resources/MM3Storyboard.storyboardc/vD5-Q6-V57-view-4XH-mF-mkj.nib</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dlz/oRCbg13rWiWp4DevkmZh43Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			nSn9E9iconfP/FU3h4iR95u9Vrej08J0kU5Me8Hh3Z0=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/A/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			b/Knt1H1+DFEW93AbMPLGkOpIrg=
-			</data>
-			<key>hash2</key>
-			<data>
-			E3NnOKG5Cab7Hlg780aWoOKLIIrI1e3UWqgve7Rc7Jo=
-			</data>
-		</dict>
-		<key>Sketch/MagicMirror3.framework/Versions/Current</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/Versions/Current</key>
 		<dict>
 			<key>symlink</key>
 			<string>A</string>
 		</dict>
-		<key>Sketch/MagicMirrorUI.js</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/MagicMirror3BusinessLogic</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BWMoI357TxE89OIgV6Lox7j3veQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			q02VgogzgMKVVo/vXlBKr80HpxsObH5dA4CdAfWCRhQ=
-			</data>
+			<key>symlink</key>
+			<string>Versions/Current/MagicMirror3BusinessLogic</string>
 		</dict>
-		<key>Sketch/SKCheck.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DZZVsUGM7ufV0exIzNaTuoNDc74=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZvUuxXimomtujHA6zb7K0A90kErpwVCa6TfED7nZ1h0=
-			</data>
-		</dict>
-		<key>Sketch/SketchAsync.framework/Resources</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Resources</key>
 		<dict>
 			<key>symlink</key>
 			<string>Versions/Current/Resources</string>
 		</dict>
-		<key>Sketch/SketchAsync.framework/SketchAsync</key>
-		<dict>
-			<key>symlink</key>
-			<string>Versions/Current/SketchAsync</string>
-		</dict>
-		<key>Sketch/SketchAsync.framework/SketchAsync.js</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Versions/A/MagicMirror3BusinessLogic</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uVA9UnXPubdtkXW18gzL1zPHpKw=
+			aPcjaaR2z1RaZSrvsEFVbWMyqHw=
 			</data>
 			<key>hash2</key>
 			<data>
-			EC+tZGbGTSyeiLffB3OBd0JrvrBjfrTeIsJ0SdZIldY=
+			YrK49kSwKPBc7NXVKBVYowqWfelKeKj9rdGr7sYjZkU=
 			</data>
 		</dict>
-		<key>Sketch/SketchAsync.framework/Versions/A/Resources/Info.plist</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ohnTkp053QI/+GmEMr2G+Ke8MwM=
+			+Q3N1HvfQPtCfMHUv7EY5Gm/c44=
 			</data>
 			<key>hash2</key>
 			<data>
-			oxmjuggjj4OKY7Xmqg6qYpUj3/ZvAVoOupsNqvJuM74=
+			eY7HrlICS7umatgr43+yTZBb1RVgTvykvbkJlt1hhw0=
 			</data>
 		</dict>
-		<key>Sketch/SketchAsync.framework/Versions/A/SketchAsync</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IvNke/bhi0Rx1rPUPzhYATIfAKM=
-			</data>
-			<key>hash2</key>
-			<data>
-			SUPic0fNcjIEJ9i3AMJ8VIARk4ZWl0kaoip7Zlny3Nw=
-			</data>
-		</dict>
-		<key>Sketch/SketchAsync.framework/Versions/A/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Zmkf62CIc1GVABbWAOGB2JVTjso=
-			</data>
-			<key>hash2</key>
-			<data>
-			XKYGnY1TPqCrIzxg1a912+FY3O5xSNoRviMBhL9cILM=
-			</data>
-		</dict>
-		<key>Sketch/SketchAsync.framework/Versions/Current</key>
+		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Versions/Current</key>
 		<dict>
 			<key>symlink</key>
 			<string>A</string>
 		</dict>
-		<key>Sketch/Skinject.framework/Resources</key>
+		<key>Sketch/MagicMirror3Panel.framework/MagicMirror3Panel</key>
+		<dict>
+			<key>symlink</key>
+			<string>Versions/Current/MagicMirror3Panel</string>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/MagicMirror3Panel.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2FrGHi7pdH8w2unBBCzXDNBbhCg=
+			</data>
+			<key>hash2</key>
+			<data>
+			2K3ImIF3NpGvqnWj5GPc9LYpvURXscZhIqYdKv/HdPE=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Resources</key>
 		<dict>
 			<key>symlink</key>
 			<string>Versions/Current/Resources</string>
 		</dict>
-		<key>Sketch/Skinject.framework/Skinject</key>
-		<dict>
-			<key>symlink</key>
-			<string>Versions/Current/Skinject</string>
-		</dict>
-		<key>Sketch/Skinject.framework/Skinject.js</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/MagicMirror3Panel</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			y8X9WE5w5aUuUWxwDU1yZ7Cehss=
+			Miuegx6zMj+IzRRyVDjkVFKPvYw=
 			</data>
 			<key>hash2</key>
 			<data>
-			aUVrOVz/kjeELj0HHpHC4X/hKPkZ4M40ide2COZ7Y8c=
+			ICFjS70jvicAfpGQ5j2kP5AnCUscVQ4mRPDUIdx98AA=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/Resources/Info.plist</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/Assets.car</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8b67tmdgHwYoXurUIWZVY3SSbfQ=
+			hzPzVg9eZzO4MgzNh5EYibDWqrk=
 			</data>
 			<key>hash2</key>
 			<data>
-			c0zmvHVq28BKMiNKxm+oHiTj/9JjjW+DiB73xeA3XDI=
+			zHyNS579tVZrWqTCyUdl/JnccqOosIQFL4wELygmKyE=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/Resources/SKInspectorCell.nib</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UQyxhCG+xHTk0pdcp63p6FWyrbY=
+			1RzwbLskntNnKoodpZA21Iledog=
 			</data>
 			<key>hash2</key>
 			<data>
-			9FYwyVX+yN6+ZuHlcrSfB9M1CsA+6+NAx5nWEFjXt6s=
+			MJJNQ7yWD6j9nY9h973zka1Jm7zioyPjfIY0gI4wfOE=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/Resources/SKInspectorCellPopup.nib</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Panel.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			n7HNGhCB4xXrExrYIGBdK1DX5v8=
+			2FrGHi7pdH8w2unBBCzXDNBbhCg=
 			</data>
 			<key>hash2</key>
 			<data>
-			LFs0+h6EmTFre7+W+8llILVnq1mHmP2mI2RaNW5n0BI=
+			2K3ImIF3NpGvqnWj5GPc9LYpvURXscZhIqYdKv/HdPE=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/Resources/SKInspectorHeader.nib</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3PanelSketchPanelCellDefault.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JNGQzO9wbuZVlV8viLvP0M//CuY=
+			e0I6xEsOPQntPi/eLhLiRq5CDjA=
 			</data>
 			<key>hash2</key>
 			<data>
-			zIsnXb9AmDNSo/hfAVs0SnVclY0nKX2nAngMmGP1DYw=
+			/T76FwQ/u9G03WZ+ScmEn1TGxXvg7LhCMq/WxDWjVAw=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/Skinject</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3PanelSketchPanelCellHeader.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EYTPk4D+z/sYRm6ZK0CN73N+cao=
+			Sv51tygKwcEjBL29d7jKoChVh+Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			F+tYm8nZQHBkwxubmjF3VC1GlCkKnpREOd+yjLAyTxQ=
+			vErhxhWii25jRO/F8CpNTcn4+YqZel8X8QGR1MSOuo8=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/A/_CodeSignature/CodeResources</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3PanelSketchPanelCellIncludeArtboard.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yIymm/E8hAs4+nLQ9Vfq17z+dKU=
+			INbHBfK98iczlCz7YfNFHgjNdno=
 			</data>
 			<key>hash2</key>
 			<data>
-			HiMa6QGJqXtK2MQTvaAlJoL+hVwpb2p2zg5gJyGdjTo=
+			OTc8tMf3XkFXMhZIx+wQlAQ33resEdo29kVH+F3v45Q=
 			</data>
 		</dict>
-		<key>Sketch/Skinject.framework/Versions/Current</key>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3PanelSketchPanelCellNotify.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yaTIVecsn/GEhai8vcaQAgU3idA=
+			</data>
+			<key>hash2</key>
+			<data>
+			FSr4iPz6EX694/VrW8sOtJtaFHrJw3/GEv8IK/IwHOc=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3PanelSketchPanelCellToolbar.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lQSG0Hm7OtuAMpW5KazlnrHDHWo=
+			</data>
+			<key>hash2</key>
+			<data>
+			4hMCM516mxBDosMBnDaAbdffPo+bFiYGtcl7+RYXPwo=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/Hcw-2R-87O-view-6bf-w4-Tra.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RUPj4K4Fmnp1mDdtARk2d73dJik=
+			</data>
+			<key>hash2</key>
+			<data>
+			do4OvamHJTn2rOSAZEQCUFS7v5jDv+X+4gxsg1XamkE=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8qWEyTWUzNOZXKH0OgcSeh9Qi2s=
+			</data>
+			<key>hash2</key>
+			<data>
+			IFF1CpD+AdI4e9H8xcytUMj9oEGLSBZAg4o6G0GU+R8=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/MM3LicenseWindow.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yU4rYrZlurTQYIsiUJ3xN03S+oE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ariq8fUkOCTrm31IIod+8c0U/czx64gfCoOHPa1Sp9o=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/MM3ProWindow.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tBgCHaW3HoRzJbTorCSBHQjsMMc=
+			</data>
+			<key>hash2</key>
+			<data>
+			6ZXgxslSgJREmIlM7qRO+ctYurcWzpIlvV+f/f/3Q/g=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/NSViewController-wkj-Ou-P63.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JsdeBL1i9RI1BXesKNP50cMJSfI=
+			</data>
+			<key>hash2</key>
+			<data>
+			jP1SmSciX+i/aHfeTSu0sKl+2puh9Gp1VrXP5r2Ozfs=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/wkj-Ou-P63-view-hQC-gh-4Y4.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JujrKNDeFkb6sUW3V8aPvreq1sc=
+			</data>
+			<key>hash2</key>
+			<data>
+			wf83zy3A33xzvO2Do49f6JRPD4++sB7bs+gphm1WDp4=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/getArtboards.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QkrC7D6TO74b1pO2PgcJNLxOxEw=
+			</data>
+			<key>hash2</key>
+			<data>
+			iANCTvclSakpEDIbimOEFNZJRICdk5A6gohfmKC1gRc=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/getEffectiveLayers.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QzJoewMA9vrhDnvI7PYN32b4ak0=
+			</data>
+			<key>hash2</key>
+			<data>
+			jYqwNvmSTAGt7FbTL6bYhI2CB8uS3rmln25WXcHIw6s=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/run.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kA5NsqrmHCbgJLHYk4vCyyQeZjI=
+			</data>
+			<key>hash2</key>
+			<data>
+			dL+FAnflWM+446S8CS1qhsrtUkwRrJirKA/CJEIkf1k=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			By4s6qy5RmKNn9wCUCOul3CprRc=
+			</data>
+			<key>hash2</key>
+			<data>
+			wLyDofCvFFWhf67ue3V7KxhBx9l4C/hCErg/bAEQYt4=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/Current</key>
 		<dict>
 			<key>symlink</key>
 			<string>A</string>
 		</dict>
-		<key>Sketch/dlog.js</key>
+		<key>Sketch/MagicMirror3SketchExtension.framework/MagicMirror3SketchExtension</key>
+		<dict>
+			<key>symlink</key>
+			<string>Versions/Current/MagicMirror3SketchExtension</string>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/MagicMirror3SketchExtension.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vopqS65OfMu7rvfCPrZMnvyCfOU=
+			9wB4+zziN4t76l39kRWMgDhQqAU=
 			</data>
 			<key>hash2</key>
 			<data>
-			39xKBzQCu/Vdyy4HKNakZmaeRih4a+bRDmmBID11wYI=
+			Jm3FlR8KhRD7pmidbpNzQcsCewnyvB0m8MSdbCVN8Sk=
 			</data>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Resources</key>
+		<dict>
+			<key>symlink</key>
+			<string>Versions/Current/Resources</string>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/A/MagicMirror3SketchExtension</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NBM4yWZzrUrD1yYmPbKf/hyEQ/I=
+			</data>
+			<key>hash2</key>
+			<data>
+			gU9utmH+a1Dsp7y4GmHR0Bb+pga3Ng7zh2WVbZ+8eqA=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/A/Resources/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2JbnBGdC8bLTXbqTI30Syzb3PeU=
+			</data>
+			<key>hash2</key>
+			<data>
+			wFYB7Ir0oE+6f4bz/uXhiDc6hb1c3LilAjsUZ3Tunw4=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/A/Resources/MagicMirror3SketchExtension.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9wB4+zziN4t76l39kRWMgDhQqAU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Jm3FlR8KhRD7pmidbpNzQcsCewnyvB0m8MSdbCVN8Sk=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/A/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nMBZ6NGH6NVC9XBlFGmlPpTLhu8=
+			</data>
+			<key>hash2</key>
+			<data>
+			BbClEpa0sIJsY8uL9WPUPxzwHgNrHyhg6DUJTm6dSac=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/Current</key>
+		<dict>
+			<key>symlink</key>
+			<string>A</string>
 		</dict>
 		<key>Sketch/manifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3rDqpAZ0nM62MnQKfX/qSCnJ9R0=
+			mug50oI+aB7EZSeLi8zHNgQMZUk=
 			</data>
 			<key>hash2</key>
 			<data>
-			WT7CMUAhOve1UZGQWBbFRmk7GDpNQW0/FkTaH/2Fiag=
+			gB78LAFAO/Uc13RRUERBxZZWIg6O0pnCZh98UPYGC1Q=
 			</data>
 		</dict>
-		<key>Sketch/onchange.js</key>
+		<key>Sketch/script.cocoscript</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tnzF3SV6u8nfYAllJAFNm/A1j18=
+			A+p5ftLZQS+6mPzgcpOKXIGzVzg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ckJFpttRhvJ/QeBV9csFyncT6bUVDTqnYn/Sal6g9N4=
-			</data>
-		</dict>
-		<key>Sketch/oncommand.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vC7yZK/5rTtJhDUIMJrJdyT1P78=
-			</data>
-			<key>hash2</key>
-			<data>
-			wVxWlQO5G9GkArAquKiJgQqnuD1cMY9sxDiIyGf5wQE=
-			</data>
-		</dict>
-		<key>Sketch/onstartup.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			z1B75dO/wp8sdU+NcgmzUIwecZA=
-			</data>
-			<key>hash2</key>
-			<data>
-			NLJWNXNkUqL0ISOy4JztJYR9vaueu04yu8Q1EyoDSyY=
-			</data>
-		</dict>
-		<key>Sketch/onuseraction.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WUa7yzf3GzjHuoavcrUWKexAKhA=
-			</data>
-			<key>hash2</key>
-			<data>
-			ILhfzm35iMrk/7XKfM4OMUhiwt4K+SlafeLzlAYMZk0=
+			oUSQ4OAT3L4wR96XfrDfQB073/rRtYA9o9XdzOv3cGs=
 			</data>
 		</dict>
 	</dict>
