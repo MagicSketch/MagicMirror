@@ -6,8 +6,8 @@
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
 	"identifier" : "io.magicsketch.mirror",
 	"compatibleVersion": "47",
-	"build": 37,
-	"version": "3.5.0",
+	"build": 38,
+	"version": "3.5.1",
     "appcast": "https://api.magicsketch.io/r/appcast.xml",
 
 	"commands": [
