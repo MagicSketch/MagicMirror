@@ -36,11 +36,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dr1L5WkXQNCUlWEEzt6dMrQIWbM=
+			TJDktbk2ew0chTZ+a7ZgvyO6flg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Jg3NSMnSLyIPabidVbVPLrxC3/4srvviDIgQg5PfpYk=
+			+gORS7yrcr9oh2o+vR8l63c1aKPsTGebSCJzlOLY3qk=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MSTracker.framework/Versions/A/Resources/Info.plist</key>
@@ -73,22 +73,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Vr9MCuGE+uUnwNAWNKYPYiLPZUE=
+			JidDAlE/LRpAUqm5F4dRrJCWkHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			gpezd4oYO7RG2wBHBuUR/VPZQ5rNwEAp0XPefK6uQLY=
+			9Ue5Jb4NRaO3raQWOso2WY/JU9YBl+M6Jq8yxnDwK3I=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qTnxwTU9RpoNhNpVannmOUs6Bdo=
+			hKb8/+w3y2Bh5n4nqGguIKriQWA=
 			</data>
 			<key>hash2</key>
 			<data>
-			toKIMTlIo7H0CJJI9V2aUTe+dk7xjCLhTrrX81KAwgI=
+			/hdjChFO1cyL7tBILRqrcFQxQr/d1JEDQuo/CypAr6k=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Frameworks/MagicMirror3BusinessLogic.framework/Versions/Current</key>
@@ -121,33 +121,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HzD2ZB7F+bpRfE0yBxsZ4wrho7g=
+			QbsTS6ZXLqioJpovHMNg2AbzGpo=
 			</data>
 			<key>hash2</key>
 			<data>
-			2SFh3+ghaijE1xWKd1v7jUZsMuudLP1hyBxuCZY9ExA=
+			iTE0f0BnF5OS4nLcELrDm5Gaeby2PHCgvVJYJiQoVH4=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/Assets.car</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			reLkRzqLtH8GV5jUVBLQW9GumKo=
+			xYltEYElo2gLThMREmJ3++iyI1c=
 			</data>
 			<key>hash2</key>
 			<data>
-			H+7YF7nFonLsu1FV2K72Gg4K5p4jWVxPpWTNgJATloE=
+			drkHOShgS0yxuG1/NpCl+eJatN2nAZI3vNVFca3mQOE=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E3E3WJIQJP6YnnwefNQUCW8kncA=
+			TsdMLTCKCwJBQXoxozqfmFmILp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			8B+MRHWftOtdkPa4ejHI0+nI8qFgh5z3FNkpOrYczkc=
+			/Ip/IDRD1M0QxDQjtau5H7ehEGoGXnfZ3OSq055gIok=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Panel.js</key>
@@ -220,66 +220,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			biPg2JtJgTq4GqFsvGF2tFlTJFs=
+			66c43vkjnA5rcqGZJwD047xf5Jg=
 			</data>
 			<key>hash2</key>
 			<data>
-			fPxJ5HAxxAUmK3ZjOH/ISyC5XdgxInbqUT773xTIb+s=
+			f1I6K0MrSdvwHCQhpBpZ19vVFJc4UL7OEUPLCkcRsuw=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HwzljUf0fK6bgs0w56R5r3lhfF8=
+			rmYQYQtA3LTQE9KdaKafjWoF98I=
 			</data>
 			<key>hash2</key>
 			<data>
-			HkEdzIc4pIp7Rg56WEo1rxUvx1p/sO6oTM5lV5HRRKQ=
+			pQQVDPXs+5Sl3e3OXWiRBwygY5/VCz9JnGdw8iu6gZg=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/MM3LicenseWindow.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7Pewk3tgc8OBQ0DeMIf8TipPIwQ=
+			wfrfjeBA65UyehYpNDhdN9znERE=
 			</data>
 			<key>hash2</key>
 			<data>
-			LfzF1u/BOAPS80PwyIGww7jHq7qertKyyDuaHcpjJqI=
+			RBGdDcTj1W1UhXjrHOjk+9PadBaXOZHCHV3AEUhP7hE=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/MM3ManageArtboardWindow.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/JW8CkDepwlkzQEqZGUAOy0UbMI=
+			</data>
+			<key>hash2</key>
+			<data>
+			wK0vCFIsedX92LmraW1J/k+zl+iNieAqRcG4TLvMxbw=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/MM3ProWindow.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r+TrN7r0EmmXCrWpNyY3TgypgK4=
+			2knvxdqIdNeSNz1CJxhiQqQ7GdE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vPnQLllhKSHv8SJ+ECUl9MnqiPC1zJH9wG+rrZUpoeQ=
+			hiwjkx4zCHRiybWs2SJJpTLIAtqpgQUQdNQ27iZ3rj8=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/NSViewController-wkj-Ou-P63.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VXySl7xkfsJhwdFO+s2h4YtbgJs=
+			bBxZhYLzWRM+4LUq4Gg/yTOubFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			g0k7GMK2E2ynsMvSIL+m1fs16yIZwalZXShw6gLAdY4=
+			TQR2v27TCBGGFzfw0mNxmsn8NwL/2JCg7nRLrFL32Ig=
+			</data>
+		</dict>
+		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/mIY-1x-M6g-view-cI1-Uy-LVK.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6HsvmwztSNsaODwXJ6rgWY/epgw=
+			</data>
+			<key>hash2</key>
+			<data>
+			oRbJwsmvCXqMfeXDB7sph5Rs/XLWYh9nbkERaBQMKpc=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/MagicMirror3Windows.storyboardc/wkj-Ou-P63-view-hQC-gh-4Y4.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VbI/1n3QXhInWE6GqX270B5CpNg=
+			Zus9Y0fRzVdLMeK8fxshnM3R2IU=
 			</data>
 			<key>hash2</key>
 			<data>
-			8flxMELF0Ji9QZ93kmsAnKleHzpWw2NnTnbVhGAINWs=
+			WlpUDFI+OUQBgHZvon8hBPPyLHDlnZU+md76HJ3b3vY=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/A/Resources/getArtboards.js</key>
@@ -319,11 +341,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jUJuAfMCrEkatvHs60ZM0TPSHjQ=
+			FrNquDRlqTAzIHa89tsaEzBDjKE=
 			</data>
 			<key>hash2</key>
 			<data>
-			1ywvxmFKQJOBoBk//MsKSVCH+2OKOCUCwLoYZeHnuI8=
+			J8HRp9I66GSyyVRELIl7dEKFiALCRXK4IyTTgniguUg=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3Panel.framework/Versions/Current</key>
@@ -356,11 +378,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HChpYl0Cg0Wdil7rqbNbrueymyU=
+			VWcKklxzLCsE+q6DaoxD0Qkh8V4=
 			</data>
 			<key>hash2</key>
 			<data>
-			DsgdF4gGukSq6Ar+N6GnklQXZzoOKSfeVGPf9Af/6Vg=
+			G6je45CfDhJvSiOZag2Fi7Zud06LhlMvS99t6KkL53w=
 			</data>
 		</dict>
 		<key>Sketch/MagicMirror3SketchExtension.framework/Versions/A/Resources/Info.plist</key>
@@ -405,11 +427,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9d7IWKegMPRqPrsENVVwbau8i90=
+			b0Y0dPV9PcVj/j9Fw1ANVuAMu7A=
 			</data>
 			<key>hash2</key>
 			<data>
-			/FKDoDLi0sgXR1NycBvBhrr0AJeNACd+QuPIpmc5DqY=
+			iaaFo60cAnPxtF4X6yoQVUCMEXARzGzN8FssHdLWgqs=
 			</data>
 		</dict>
 		<key>Sketch/script.cocoscript</key>
