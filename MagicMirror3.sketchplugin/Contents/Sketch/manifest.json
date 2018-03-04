@@ -7,7 +7,7 @@
 	"identifier" : "io.magicsketch.mirror",
 	"compatibleVersion": "49",
 	"build": 39,
-	"version": "3.5.2",
+	"version": "3.5.4",
     "appcast": "https://api.magicsketch.io/r/appcast.xml",
 
 	"commands": [
