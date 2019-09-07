@@ -6,11 +6,11 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		a4o5RxCZnJjaONXM758Jp0NMYHI=
+		JwCn6VFA6Wo3LeS59iFPnzLG7Os=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		aQ1h/G5pkysmQ//zNDEL979N6Ic=
+		6BfQL+hE3HXcZffHi5oEFyV+ECg=
 		</data>
 		<key>Resources/MagicMirror3Panel.js</key>
 		<data>
@@ -38,27 +38,27 @@
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/Hcw-2R-87O-view-6bf-w4-Tra.nib</key>
 		<data>
-		Nml50r4dqeT6FbfBjWyTXInkm3o=
+		nDuNiuagHwDjOJ5LmRkTOUnZzPs=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/Info.plist</key>
 		<data>
-		DdBmPl9bvqgmoJ/24ADBfoqHtSE=
+		ZTg0dnQG2zJVzvUnENvyg7gZGx0=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3LicenseWindow.nib</key>
 		<data>
-		dvGDf92T5YJDr8nEo0KEpvcUctk=
+		II2pOQ6xvk11sH5SUu09XF7xHxE=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3ManageArtboardWindow.nib</key>
 		<data>
-		kIl8fMSnT2lzvgYtLf7T8aAzc24=
+		0QQMhUNeWxw4xWJ9x/nOxqexx4I=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3ProWindow.nib</key>
 		<data>
-		IK7xHBROY/BTPRlr4zSPfo/HQjM=
+		YPd6xivweVKaVMzRd9RPKr8VS9Y=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/NSViewController-wkj-Ou-P63.nib</key>
 		<data>
-		YpypDQ8+BEj6uyW8diPBZ/hk5no=
+		GTQ2r7/d6wEIxvI5MPxP/PkLU0A=
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/mIY-1x-M6g-view-cI1-Uy-LVK.nib</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Resources/MagicMirror3Windows.storyboardc/wkj-Ou-P63-view-hQC-gh-4Y4.nib</key>
 		<data>
-		TRSodSyB3GDC9a7F48bj3sJ+aas=
+		FG/oIEhxxiNU6OhXAakWXEfuRUY=
 		</data>
 		<key>Resources/getArtboards.js</key>
 		<data>
@@ -87,14 +87,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ux9d9Fw1L/Nyt80WOCc676rDrFiYJh7tNiW5bpgV/xw=
+			oq0r8ta6tS0VeL47VXV8W/ZgNXZ5230CVXIT24Sqzew=
 			</data>
 		</dict>
 		<key>Resources/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MJqoXdouHdovPDIy4itO+pezYK1092dr0um/0FGyvak=
+			kECWyN0JSsq9YLk5084/bF+9Vdq7FEJrcQ6EStdXWQg=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Panel.js</key>
@@ -143,42 +143,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			UoKwzENX/auEZ5N6a92ElM64MbsocmFBl4vy+XPcCZc=
+			TJY+JXVkOLTgKfa9Kf70JedUneHBc9bHCxxYXLRKzTo=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			q2C08t4Naaek3nSrXfrwEjmYCpka0+l5Y2pHFZEon1E=
+			dkKxAkNqu3afKfvqtnh9+BmT600Je4lD1o633neqxAg=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3LicenseWindow.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			61rqPUIQgDwqKNRo0iHj0yW9irqde1GtVkMf+4rqdh4=
+			9nbPC9B+v41grCAOBEdF+mW620FOjCv5c0+lXX13x4E=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3ManageArtboardWindow.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xVB5qrM3DW7bXhCsyjiA37eT2ib7d8+kddDLE0UeILg=
+			lsXC7NfjCxmcgkKyUoGmmeezNml5aKleHbO2Pa/JXWQ=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/MM3ProWindow.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+DZsTwPET8Kyg3+jypbORGSwYTpQkd2bUCFinK+HwHQ=
+			ITLBGUMqtZMR4w+QnDZBk0jRb3ZvOPp43JjCYMqCGA0=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/NSViewController-wkj-Ou-P63.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zcNyvAQKSqRTnRIaGWQM5gJvkuMLK3oCQTluzyyYAyc=
+			Kt3n4xlRjD18URtMARMLbGoWXhiHL/3jcG8xmPfjazg=
 			</data>
 		</dict>
 		<key>Resources/MagicMirror3Windows.storyboardc/mIY-1x-M6g-view-cI1-Uy-LVK.nib</key>
@@ -192,7 +192,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bjII98ROKwjR5u3OIIPF9qh8bgLJHAlLr4Kfpu2Sq/Y=
+			B5AiZ6qU0wdmX2pbS+vf2Nva9pKCSjn0/yVGr9hn0yY=
 			</data>
 		</dict>
 		<key>Resources/getArtboards.js</key>
