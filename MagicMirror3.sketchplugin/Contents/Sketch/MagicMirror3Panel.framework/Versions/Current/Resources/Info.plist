@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.6.6</string>
+	<string>46</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
@@ -45,9 +45,9 @@
 	<key>MM3PluginIdentifier</key>
 	<string>io.magicsketch.mirror</string>
 	<key>MM3PluginName</key>
-	<string>Magic Mirror 3.6.6 (46)</string>
+	<string>Magic Mirror 46 (46)</string>
 	<key>MM3SketchVersion</key>
-	<string>57</string>
+	<string>58</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 MagicSketch. All rights reserved.</string>
 </dict>
