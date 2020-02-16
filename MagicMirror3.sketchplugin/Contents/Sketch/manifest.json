@@ -5,9 +5,9 @@
 	"authorEmail" : "james@magicsketch.io",
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
 	"identifier" : "io.magicsketch.mirror",
-	"compatibleVersion": "62",
-	"build": 62,
-	"version": "62",
+	"compatibleVersion": "63",
+	"build": 63,
+	"version": "63",
     "icon": "icons/mmicon.png",
     "appcast": "https://api.magicsketch.io/r/appcast.xml",
 
@@ -23,7 +23,7 @@
             "name" : "Enable MagicMirror",
             "identifier" : "enable",
             "shortcut" : "",
-            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "script" : "MagicMirror3Panel.framework/Resources/MagicMirror3Panel.js",
             "handler" : "enable",
             "icon": "icons/mmicon.png",
             "description": "Enable MagicMirror"
@@ -32,7 +32,7 @@
             "name" : "Disable MagicMirror",
             "identifier" : "disable",
             "shortcut" : "",
-            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "script" : "MagicMirror3Panel.framework/Resources/MagicMirror3Panel.js",
             "handler" : "disable",
             "icon": "icons/mmicon.png",
             "description": "Disable MagicMirror and hide the tool bar"
@@ -41,7 +41,7 @@
             "name" : "Refresh All Artboards",
             "identifier" : "refreshAll",
             "shortcut" : "",
-            "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+            "script" : "MagicMirror3Panel.framework/Resources/MagicMirror3Panel.js",
             "handler" : "refreshAll",
             "icon": "icons/mmicon.png",
             "description": "Refresh All Artboards linked with MagicMirror"
@@ -58,7 +58,7 @@
 			}
 		},
 		{
-	    "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
+	    "script" : "MagicMirror3Panel.framework/Resources/MagicMirror3Panel.js",
 	    "handlers" : {
         "actions" : {
             "Startup" : "onStartup",

@@ -1,24 +1,5 @@
-/*
-// To load this framework, add the following code in your manifest.json
-
-"commands": [
-:
-:
-{
-    "script" : "MagicMirror3Panel.framework/MagicMirror3Panel.js",
-    "handlers" : {
-        "actions" : {
-            "Startup" : "onStartup",
-            "OpenDocument":"onOpenDocument",
-            "SelectionChanged.finish" : "onSelectionChanged"
-        }
-    }
-}
-]
-*/
-
 var onStartup = function(context) {
-  var MagicMirror3Panel_FrameworkPath = MagicMirror3Panel_FrameworkPath || COScript.currentCOScript().env().scriptURL.path().stringByDeletingLastPathComponent().stringByDeletingLastPathComponent();
+  var MagicMirror3Panel_FrameworkPath = MagicMirror3Panel_FrameworkPath || COScript.currentCOScript().env().scriptURL.path().stringByDeletingLastPathComponent().stringByDeletingLastPathComponent().stringByDeletingLastPathComponent();
   var MagicMirror3Panel_Log = MagicMirror3Panel_Log || log;
   (function() {
     var mocha = Mocha.sharedRuntime();
@@ -104,3 +85,27 @@ var refreshAll = function(context){
         context.document.showMessage("Artboards refreshed");
     }
 }
+
+var onOpenDocument = function(context) {
+    // do nothing
+}
+
+/*
+// To load this framework, add the following code in your manifest.json
+
+"commands": [
+:
+:
+{
+    "script" : "MagicMirror3Panel.framework/Resources/MagicMirror3Panel.js",
+    "handlers" : {
+        "actions" : {
+            "Startup" : "onStartup",
+            "OpenDocument":"onOpenDocument",
+            "SelectionChanged.finish" : "onSelectionChanged"
+        }
+    }
+}
+]
+*/
+

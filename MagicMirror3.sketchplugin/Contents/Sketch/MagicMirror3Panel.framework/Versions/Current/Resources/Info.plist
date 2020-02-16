@@ -17,13 +17,13 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>46</string>
+	<string>63</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>46</string>
+	<string>63</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -39,15 +39,15 @@
 	<key>DTXcodeBuild</key>
 	<string>9F2000</string>
 	<key>MM3PluginCode</key>
-	<string>46</string>
+	<string>63</string>
 	<key>MM3PluginEnv</key>
 	<string></string>
 	<key>MM3PluginIdentifier</key>
 	<string>io.magicsketch.mirror</string>
 	<key>MM3PluginName</key>
-	<string>Magic Mirror 46 (46)</string>
+	<string>Magic Mirror 63 (63)</string>
 	<key>MM3SketchVersion</key>
-	<string>62</string>
+	<string>63</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 MagicSketch. All rights reserved.</string>
 </dict>

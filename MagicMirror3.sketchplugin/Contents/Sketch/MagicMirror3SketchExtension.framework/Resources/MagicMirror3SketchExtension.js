@@ -1,17 +1,3 @@
-/*
-// To load this framework, replace the onRun method in your script.cocoscript
-
-@import 'MagicMirror3SketchExtension.framework/MagicMirror3SketchExtension.js'
-
-var onRun = function(context) {
-   var obj = MagicMirror3SketchExtension.alloc().init()
-   var uppercase = obj.uppercaseString("hello world")
-
-   log(uppercase);
-   context.document.showMessage(uppercase);
-}
-*/
-
 var MagicMirror3SketchExtension_FrameworkPath = MagicMirror3SketchExtension_FrameworkPath || COScript.currentCOScript().env().scriptURL.path().stringByDeletingLastPathComponent();
 var MagicMirror3SketchExtension_Log = MagicMirror3SketchExtension_Log || log;
 (function() {
@@ -30,3 +16,17 @@ MagicMirror3SketchExtension_Log("😎 loadFramework: `" + frameworkName + "` alr
  return false;
  }
  })();
+
+/*
+// To load this framework, replace the onRun method in your script.cocoscript
+
+@import 'MagicMirror3SketchExtension.framework/Resources/MagicMirror3SketchExtension.js'
+
+var onRun = function(context) {
+   var obj = MagicMirror3SketchExtension.alloc().init()
+   var uppercase = obj.uppercaseString("hello world")
+
+   log(uppercase);
+   context.document.showMessage(uppercase);
+}
+*/

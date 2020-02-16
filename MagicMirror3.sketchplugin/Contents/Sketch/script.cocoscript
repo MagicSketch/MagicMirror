@@ -5,7 +5,7 @@ var onRun = function(context) {
 
 var onStartup = function(context) {
   log("onStartup");
-    @import 'MagicMirror3SketchExtension.framework/MagicMirror3SketchExtension.js'
+    @import 'MagicMirror3SketchExtension.framework/Resources/MagicMirror3SketchExtension.js'
 
 }
 
