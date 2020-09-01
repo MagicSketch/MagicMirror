@@ -5,9 +5,9 @@
 	"authorEmail" : "james@magicsketch.io",
 	"homepage": "https://github.com/MagicSketch/MagicMirror",
 	"identifier" : "io.magicsketch.mirror",
-	"compatibleVersion": "63",
-	"build": 63,
-	"version": "63",
+	"compatibleVersion": "68",
+	"build": 68,
+	"version": "68",
     "icon": "icons/mmicon.png",
     "appcast": "https://api.magicsketch.io/r/appcast.xml",
 
